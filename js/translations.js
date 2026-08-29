@@ -1,5 +1,5 @@
 /* Content is authored separately in each language to preserve a natural corporate tone. */
-window.DREAMSOFT_TRANSLATIONS = {
+window.PROJE_KOYU_TRANSLATIONS = {
   tr: {
     meta: { title: "Projeköyü | Özel Yazılım ve Otomasyon Çözümleri", description: "Projeköyü, işletmelere özel yazılım, entegrasyon ve akıllı otomasyon çözümleri geliştirir.", ogDescription: "İşletmenize özel, ölçeklenebilir yazılım ve akıllı otomasyon çözümleri." },
     a11y: { skip: "Ana içeriğe geç", navigation: "Ana navigasyon", openMenu: "Menüyü aç", closeMenu: "Menüyü kapat", language: "Dil seçimi", backToTop: "Yukarı dön", close: "Kapat" },

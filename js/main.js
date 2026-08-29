@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const catalog = window.DREAMSOFT_TRANSLATIONS;
+  const catalog = window.PROJE_KOYU_TRANSLATIONS;
   let language = localStorage.getItem("projekoyu-language") === "en" ? "en" : "tr";
   let selectedProject = 0;
   let lastFocused = null;
