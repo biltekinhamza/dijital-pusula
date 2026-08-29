@@ -2,7 +2,7 @@
   "use strict";
 
   const catalog = window.DREAMSOFT_TRANSLATIONS;
-  let language = localStorage.getItem("dreamsoft-language") === "en" ? "en" : "tr";
+  let language = localStorage.getItem("projekoyu-language") === "en" ? "en" : "tr";
   let selectedProject = 0;
   let lastFocused = null;
   const $ = (selector, root = document) => root.querySelector(selector);
@@ -22,7 +22,7 @@
       "accessibility.top": c.a11y.backToTop, "accessibility.close": c.a11y.close,
       "hero.eyebrow": c.hero.eyebrow, "hero.title": c.hero.title, "hero.description": c.hero.description,
       "hero.primary": c.hero.primary, "hero.secondary": c.hero.secondary, "hero.note": c.hero.principles.join(" · "),
-      "hero.visualLabel": tr ? "DreamSoft çözüm mimarisi" : "DreamSoft solution architecture",
+      "hero.visualLabel": tr ? "Projeköyü çözüm mimarisi" : "Projeköyü solution architecture",
       "hero.architecture.label": tr ? "ÇÖZÜM MİMARİSİ" : "SOLUTION ARCHITECTURE", "hero.architecture.core": tr ? "Size Özel Yazılım" : "Custom Software",
       "hero.architecture.analysis": tr ? "İhtiyaç Analizi" : "Requirement Analysis", "hero.architecture.analysisNote": tr ? "İş problemini anlama" : "Understand the challenge",
       "hero.architecture.design": tr ? "Çözüm Tasarımı" : "Solution Design", "hero.architecture.designNote": tr ? "Doğru mimariyi kurma" : "Design the right architecture",
@@ -38,14 +38,6 @@
       "automation.opportunities": tr ? "Otomasyon Fırsatları" : "Automation Opportunities", "automation.diagram": tr ? "ETKİLEŞİMLİ İŞ AKIŞI" : "INTERACTIVE WORKFLOW",
       "automation.ready": tr ? "Sistem Hazır" : "System Ready", "automation.log": tr ? "Akışı görmek için bir adıma tıklayın." : "Select a step to inspect the flow.",
       "industries.kicker": c.industries.eyebrow, "industries.title": c.industries.title, "industries.intro": c.industries.lead,
-      "product.kicker": tr ? "DREAMSOFT ÜRÜNÜ" : "A DREAMSOFT PRODUCT",
-      "product.lead": tr ? "Havalandırma üreticileri için ölçülendirmeden maliyet hesabına, mobil siparişten teklife kadar tüm akışı tek merkezde yönetin." : "Manage the complete workflow for ventilation manufacturers, from dimensions and costing to mobile orders and quotations.",
-      "product.feature1Title": tr ? "Akıllı parça hesaplama" : "Smart part calculation", "product.feature1Text": tr ? "Kare ve yuvarlak parçalar için ölçü, sac ve maliyet hesapları." : "Dimension, sheet metal, and cost calculations for rectangular and round parts.",
-      "product.feature2Title": tr ? "Mobil ve çevrimdışı sipariş" : "Mobile, offline ordering", "product.feature2Text": tr ? "Sahada bağlantı olmasa da sepet oluşturun, bağlantı gelince eşitleyin." : "Build a cart in the field without connectivity and sync when the network returns.",
-      "product.feature3Title": tr ? "Teklif ve müşteri takibi" : "Quotation and customer tracking", "product.feature3Text": tr ? "Müşteri taleplerini, ölçüleri ve teklif durumlarını yönetim panelinde izleyin." : "Track customer requests, dimensions, and quotation status in one administration panel.",
-      "product.demo": tr ? "Canlı Demoyu Aç" : "Open Live Demo", "product.android": tr ? "Android Uygulamasını İndir" : "Download Android App", "product.note": tr ? "Web yönetim paneli · Android offline client · Güvenli API" : "Web administration · Offline Android client · Secure API",
-      "product.visualLabel": tr ? "HVAC Pro Suite ürün ekranı" : "HVAC Pro Suite product interface", "product.metric1": tr ? "AKTİF TEKLİF" : "ACTIVE QUOTES", "product.metric2": tr ? "BEKLEYEN SEPET" : "PENDING CARTS", "product.metric3": tr ? "PARÇA KATALOĞU" : "PART CATALOG",
-      "product.panelLabel": tr ? "SİPARİŞ AKIŞI" : "ORDER FLOW", "product.panelTitle": tr ? "Ölçüden teklife tek sistem" : "One system from dimensions to quote", "product.phoneTitle": tr ? "Parça Seçimi" : "Part Selection", "product.phoneButton": tr ? "Sepete Ekle" : "Add to Cart",
       "projects.kicker": c.projects.eyebrow, "projects.title": c.projects.title, "projects.intro": c.projects.lead, "projects.tabLabel": tr ? "Proje konseptleri" : "Project concepts",
       "process.kicker": c.process.eyebrow, "process.title": c.process.title,
       "technologies.kicker": c.tech.eyebrow, "technologies.title": c.tech.title, "technologies.intro": c.tech.lead,
@@ -67,7 +59,6 @@
       "footer.custom": c.footer.custom, "footer.automation": c.footer.automation, "footer.integration": c.footer.integrations, "footer.support": c.footer.support,
       "footer.rights": c.footer.rights, "footer.privacy": c.footer.privacy, "footer.cookies": c.footer.cookies, "footer.terms": c.footer.terms,
       "cookie.title": c.cookie.title, "cookie.text": c.cookie.text, "cookie.details": tr ? "Detaylar" : "Details", "cookie.accept": c.cookie.accept,
-      "nav.product": tr ? "HVAC Pro" : "HVAC Pro",
       ...Object.fromEntries(Object.entries(c.nav).map(([key, value]) => [`nav.${key}`, value]))
     };
   }
@@ -106,7 +97,7 @@
 
   function renderProjectTabs() {
     const projects = t("projects.items");
-    $("#project-tabs").innerHTML = projects.map((project, index) => `<button type="button" role="tab" aria-selected="${index === selectedProject}" aria-controls="project-detail" data-project="${index}"><span>${esc(project.code)}</span>${esc(project.title)}</button>`).join("");
+    $("#project-tabs").innerHTML = projects.map((project, index) => `<button type="button" role="tab" aria-selected="${index === selectedProject}" aria-controls="project-detail" data-project="${index}"><span>${esc(project.code)}${project.repo ? '<i class="tab-live" aria-hidden="true"></i>' : ""}</span>${esc(project.title)}</button>`).join("");
     renderProject(selectedProject);
   }
 
@@ -114,13 +105,13 @@
     selectedProject = index;
     const c = catalog[language].projects;
     const project = c.items[index];
-    $("#project-detail").innerHTML = `<div class="project-visual"><span class="concept-label">${esc(c.label)}</span><div class="project-screen" aria-hidden="true"><div class="screen-side"><i></i><i></i><i></i></div><div class="screen-main"><div class="screen-bars"><i></i><i></i><i></i></div><div class="screen-chart"><span style="height:42%"></span><span style="height:68%"></span><span style="height:55%"></span><span style="height:88%"></span><span style="height:72%"></span></div></div></div><h3>${esc(project.title)}</h3></div><div class="project-info"><div><small>${esc(c.problem)}</small><p>${esc(project.problem)}</p></div><div><small>${esc(c.solution)}</small><p>${esc(project.solution)}</p></div><div class="project-columns"><section><small>${esc(c.modules)}</small><ul>${project.modules.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section><section><small>${esc(c.technologies)}</small><div class="tag-list">${project.technologies.split(", ").map((item) => `<span>${esc(item)}</span>`).join("")}</div></section></div><div class="benefit"><span aria-hidden="true">↗</span><div><small>${esc(c.benefit)}</small><p>${esc(project.benefit)}</p></div></div></div>`;
+    $("#project-detail").innerHTML = `<div class="project-visual"><span class="concept-label${project.repo ? " concept-label-real" : ""}">${esc(project.label || c.label)}</span>${project.shot ? `<figure class="shot-frame"><figcaption aria-hidden="true"><i></i><i></i><i></i><span>${esc(project.repo || project.shot)}</span>${project.status ? `<em><b></b>${esc(project.status)}</em>` : ""}</figcaption><img src="${esc(project.shot)}" alt="${esc(project.title)} uygulama ekran görüntüsü" loading="lazy"></figure>` : `<div class="project-screen" aria-hidden="true"><div class="screen-side"><i></i><i></i><i></i></div><div class="screen-main"><div class="screen-bars"><i></i><i></i><i></i></div><div class="screen-chart"><span style="height:42%"></span><span style="height:68%"></span><span style="height:55%"></span><span style="height:88%"></span><span style="height:72%"></span></div></div></div>`}<h3>${esc(project.title)}</h3></div><div class="project-info"><div><small>${esc(c.problem)}</small><p>${esc(project.problem)}</p></div><div><small>${esc(c.solution)}</small><p>${esc(project.solution)}</p></div><div class="project-columns"><section><small>${esc(c.modules)}</small><ul>${project.modules.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section><section><small>${esc(c.technologies)}</small><div class="tag-list">${project.technologies.split(", ").map((item) => `<span>${esc(item)}</span>`).join("")}</div></section></div><div class="benefit"><span aria-hidden="true">↗</span><div><small>${esc(c.benefit)}</small><p>${esc(project.benefit)}</p></div></div>${project.repo ? `<a class="button project-repo" href="${esc(project.repo)}" target="_blank" rel="noopener"><span>${esc(c.repoLabel || "GitHub")}</span><span aria-hidden="true">↗</span></a>` : ""}</div>`;
     $$('[data-project]').forEach((button) => button.setAttribute("aria-selected", String(Number(button.dataset.project) === index)));
   }
 
   function setLanguage(next) {
     language = next === "en" ? "en" : "tr";
-    localStorage.setItem("dreamsoft-language", language);
+    localStorage.setItem("projekoyu-language", language);
     document.documentElement.lang = language;
     $$('[data-lang]').forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.lang === language)));
     translatePage();
@@ -180,7 +171,7 @@
     const data = new FormData(form); const labels = t("form.mailLabels");
     const lines = [`${labels.name}: ${data.get("name")}`, `${labels.company}: ${data.get("company") || "-"}`, `${labels.email}: ${data.get("email")}`, `${labels.phone}: ${data.get("phone") || "-"}`, `${labels.projectType}: ${data.get("projectType")}`, `${labels.budget}: ${data.get("budget") || "-"}`, `${labels.contactMethod}: ${data.get("preference")}`, "", `${labels.description}:`, data.get("description")];
     $("#form-status").textContent = t("form.preparing");
-    location.href = `mailto:info@dreamsoft.example?subject=${encodeURIComponent(t("form.mailSubject"))}&body=${encodeURIComponent(lines.join("\n"))}`;
+    location.href = `mailto:info@projekoyu.example?subject=${encodeURIComponent(t("form.mailSubject"))}&body=${encodeURIComponent(lines.join("\n"))}`;
     setTimeout(() => $("#form-status").textContent = t("form.success"), 600);
   }
 
@@ -200,7 +191,7 @@
     $("#legal-dialog").addEventListener("close", () => document.body.classList.remove("modal-open"));
     $("#contact-form").addEventListener("submit", submitForm);
     $(".back-to-top").addEventListener("click", () => scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }));
-    $("#cookie-accept").addEventListener("click", () => { localStorage.setItem("dreamsoft-cookie-notice", "accepted"); $("#cookie-banner").hidden = true; });
+    $("#cookie-accept").addEventListener("click", () => { localStorage.setItem("projekoyu-cookie-notice", "accepted"); $("#cookie-banner").hidden = true; });
     $$('.social-links a').forEach((link) => link.addEventListener("click", (event) => event.preventDefault()));
     document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !$("#service-modal").hidden) closeService(); });
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { $$("#primary-nav a").forEach((link) => link.classList.toggle("active", link.hash === `#${entry.target.id}`)); } }), { rootMargin: "-38% 0px -52%" });
@@ -210,5 +201,5 @@
 
   $("#current-year").textContent = new Date().getFullYear();
   setLanguage(language); setupEvents();
-  $("#cookie-banner").hidden = localStorage.getItem("dreamsoft-cookie-notice") === "accepted";
+  $("#cookie-banner").hidden = localStorage.getItem("projekoyu-cookie-notice") === "accepted";
 })();

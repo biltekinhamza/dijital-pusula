@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="pt-title pt-desc">
+  <title id="pt-title">Puantaj Yönetim Sistemi — Gösterge Paneli</title>
+  <desc id="pt-desc">Personel puantaj, izin ve giriş-çıkış takibi yapan Django tabanlı yönetim panelinin ekran görüntüsü.</desc>
+  <defs>
+    <linearGradient id="ptA" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1a73e8"/><stop offset="1" stop-color="#0d47a1"/></linearGradient>
+    <linearGradient id="ptB" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#101c2e"/><stop offset="1" stop-color="#0d1626"/></linearGradient>
+    <linearGradient id="ptBar" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#1a73e8"/><stop offset="1" stop-color="#00bcd4"/></linearGradient>
+  </defs>
+
+  <!-- Uygulama arka planı -->
+  <rect width="1200" height="780" fill="#0c1524"/>
+
+  <!-- Tarayıcı çerçevesi -->
+  <rect width="1200" height="54" fill="#14213a"/>
+  <circle cx="26" cy="27" r="7" fill="#ff5f57"/><circle cx="48" cy="27" r="7" fill="#febc2e"/><circle cx="70" cy="27" r="7" fill="#28c840"/>
+  <rect x="110" y="13" width="540" height="28" rx="14" fill="#0c1524"/>
+  <circle cx="126" cy="27" r="4" fill="#4caf50"/>
+  <text x="140" y="31" fill="#8fa8c8" font-family="Consolas, monospace" font-size="13">puantaj.yerel:3008/admin/</text>
+  <rect x="1010" y="13" width="76" height="28" rx="14" fill="#1a73e8" opacity=".2"/>
+  <text x="1048" y="31" fill="#64b5f6" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">DOCKER</text>
+
+  <!-- Sol menü -->
+  <rect y="54" width="228" height="726" fill="#0e1a30"/>
+  <rect y="54" width="228" height="1" fill="#1f2f4d"/>
+  <rect x="20" y="84" width="36" height="36" rx="9" fill="url(#ptA)"/>
+  <text x="38" y="108" fill="#ffffff" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">P</text>
+  <text x="68" y="102" fill="#f0f4ff" font-family="Arial" font-size="15" font-weight="bold">PUANTAJ</text>
+  <text x="68" y="117" fill="#5c7396" font-family="Arial" font-size="10" letter-spacing="2">YÖNETİM SİSTEMİ</text>
+
+  <g font-family="Arial" font-size="13.5">
+    <rect x="14" y="150" width="200" height="40" rx="9" fill="#1a73e8" opacity=".16"/>
+    <rect x="14" y="150" width="3" height="40" fill="#1a73e8"/>
+    <text x="40" y="175" fill="#64b5f6" font-weight="bold">▦ Gösterge Paneli</text>
+    <text x="40" y="225" fill="#7e8da5">👥 Personel</text>
+    <text x="40" y="265" fill="#7e8da5">🗓 Puantaj Kayıtları</text>
+    <text x="40" y="305" fill="#7e8da5">🌴 İzin Talepleri</text>
+    <text x="40" y="345" fill="#7e8da5">⏱ Mesailer</text>
+    <text x="40" y="385" fill="#7e8da5">📊 Raporlar</text>
+    <text x="40" y="425" fill="#7e8da5">⚙ Ayarlar</text>
+  </g>
+
+  <rect x="14" y="700" width="200" height="56" rx="10" fill="#101c2e" stroke="#1f2f4d"/>
+  <circle cx="42" cy="728" r="15" fill="#1a73e8"/>
+  <text x="42" y="733" fill="#fff" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle">A</text>
+  <text x="66" y="725" fill="#dce5f2" font-family="Arial" font-size="12" font-weight="bold">admin</text>
+  <text x="66" y="740" fill="#5c7396" font-family="Arial" font-size="10">Sistem Yöneticisi</text>
+  <!-- Üst başlık -->
+  <text x="264" y="106" fill="#f0f4ff" font-family="Arial" font-size="24" font-weight="bold">Gösterge Paneli</text>
+  <text x="264" y="128" fill="#5c7396" font-family="Arial" font-size="12.5">Ağustos 2026 dönemine ait güncel puantaj özeti</text>
+  <rect x="940" y="86" width="200" height="40" rx="9" fill="url(#ptA)"/>
+  <text x="1040" y="111" fill="#ffffff" font-family="Arial" font-size="13" font-weight="bold" text-anchor="middle">+ Yeni Kayıt</text>
+
+  <!-- İstatistik kartları -->
+  <g font-family="Arial">
+    <rect x="264" y="150" width="220" height="104" rx="14" fill="url(#ptB)" stroke="#1f2f4d"/>
+    <text x="288" y="182" fill="#5c7396" font-size="12" letter-spacing="1">TOPLAM PERSONEL</text>
+    <text x="288" y="224" fill="#f0f4ff" font-size="30" font-weight="bold">128</text>
+    <text x="356" y="224" fill="#4caf50" font-size="12" font-weight="bold">+8 bu ay</text>
+    <rect x="440" y="168" width="28" height="28" rx="8" fill="#1a73e8" opacity=".18"/>
+    <text x="454" y="188" fill="#64b5f6" font-size="14" text-anchor="middle">👥</text>
+
+    <rect x="508" y="150" width="220" height="104" rx="14" fill="url(#ptB)" stroke="#1f2f4d"/>
+    <text x="532" y="182" fill="#5c7396" font-size="12" letter-spacing="1">BUGÜN GİRİŞ</text>
+    <text x="532" y="224" fill="#f0f4ff" font-size="30" font-weight="bold">112</text>
+    <text x="600" y="224" fill="#4caf50" font-size="12" font-weight="bold">%87,5</text>
+    <rect x="684" y="168" width="28" height="28" rx="8" fill="#00bcd4" opacity=".16"/>
+    <text x="698" y="188" fill="#4dd0e1" font-size="14" text-anchor="middle">↗</text>
+
+    <rect x="752" y="150" width="220" height="104" rx="14" fill="url(#ptB)" stroke="#1f2f4d"/>
+    <text x="776" y="182" fill="#5c7396" font-size="12" letter-spacing="1">AKTİF İZİN</text>
+    <text x="776" y="224" fill="#f0f4ff" font-size="30" font-weight="bold">14</text>
+    <text x="824" y="224" fill="#ffb74d" font-size="12" font-weight="bold">3 yarın bitiyor</text>
+    <rect x="928" y="168" width="28" height="28" rx="8" fill="#ffb74d" opacity=".16"/>
+    <text x="942" y="188" fill="#ffcc80" font-size="14" text-anchor="middle">🌴</text>
+
+    <rect x="996" y="150" width="180" height="104" rx="14" fill="url(#ptB)" stroke="#1f2f4d"/>
+    <text x="1020" y="182" fill="#5c7396" font-size="12" letter-spacing="1">ONAY BEKLEYEN</text>
+    <text x="1020" y="224" fill="#f0f4ff" font-size="30" font-weight="bold">6</text>
+    <rect x="1132" y="168" width="28" height="28" rx="8" fill="#ef5350" opacity=".16"/>
+    <text x="1146" y="188" fill="#ef9a9a" font-size="14" text-anchor="middle">!</text>
+  </g>
+  <!-- Personel tablosu -->
+  <rect x="264" y="284" width="912" height="300" rx="14" fill="url(#ptB)" stroke="#1f2f4d"/>
+  <text x="290" y="320" fill="#dce5f2" font-family="Arial" font-size="15" font-weight="bold">Personel Puantaj Durumu</text>
+  <rect x="1020" y="300" width="130" height="30" rx="8" fill="#101c2e" stroke="#1f2f4d"/>
+  <text x="1085" y="320" fill="#5c7396" font-family="Arial" font-size="11.5" text-anchor="middle">Filtrele ▾</text>
+
+  <g font-family="Arial" font-size="12">
+    <rect x="288" y="340" width="864" height="34" rx="8" fill="#0e1a30"/>
+    <text x="304" y="362" fill="#5c7396" font-weight="bold">AD SOYAD</text>
+    <text x="480" y="362" fill="#5c7396" font-weight="bold">DEPARTMAN</text>
+    <text x="680" y="362" fill="#5c7396" font-weight="bold">GİRİŞ</text>
+    <text x="790" y="362" fill="#5c7396" font-weight="bold">ÇIKIŞ</text>
+    <text x="920" y="362" fill="#5c7396" font-weight="bold">PUANTAJ</text>
+    <text x="1060" y="362" fill="#5c7396" font-weight="bold">DURUM</text>
+  </g>
+
+  <g font-family="Arial" font-size="12.5">
+    <rect x="288" y="382" width="864" height="38" rx="8" fill="#101c2e"/>
+    <circle cx="312" cy="401" r="11" fill="#1a73e8" opacity=".5"/><text x="312" y="405" fill="#fff" font-size="9" text-anchor="middle" font-weight="bold">AY</text>
+    <text x="334" y="406" fill="#dce5f2" font-weight="bold">Ahmet Yılmaz</text>
+    <text x="480" y="406" fill="#7e8da5">Üretim</text>
+    <text x="680" y="406" fill="#7e8da5">08:02</text>
+    <text x="790" y="406" fill="#7e8da5">18:05</text>
+    <text x="920" y="406" fill="#4caf50" font-weight="bold">Tam</text>
+    <rect x="1036" y="388" width="88" height="26" rx="13" fill="#4caf50" opacity=".15"/><text x="1080" y="405" fill="#4caf50" text-anchor="middle" font-weight="bold" font-size="11">Onaylı</text>
+
+    <rect x="288" y="426" width="864" height="38" rx="8" fill="#0d1626"/>
+    <circle cx="312" cy="445" r="11" fill="#00bcd4" opacity=".45"/><text x="312" y="449" fill="#fff" font-size="9" text-anchor="middle" font-weight="bold">SK</text>
+    <text x="334" y="450" fill="#dce5f2" font-weight="bold">Selin Kaya</text>
+    <text x="480" y="450" fill="#7e8da5">İnsan Kaynakları</text>
+    <text x="680" y="450" fill="#7e8da5">08:45</text>
+    <text x="790" y="450" fill="#7e8da5">17:30</text>
+    <text x="920" y="450" fill="#ffb74d" font-weight="bold">Eksik</text>
+    <rect x="1036" y="432" width="88" height="26" rx="13" fill="#ffb74d" opacity=".15"/><text x="1080" y="451" fill="#ffb74d" text-anchor="middle" font-weight="bold" font-size="11">Beklemede</text>
+
+    <rect x="288" y="470" width="864" height="38" rx="8" fill="#101c2e"/>
+    <circle cx="312" cy="489" r="11" fill="#5c6bc0" opacity=".6"/><text x="312" y="493" fill="#fff" font-size="9" text-anchor="middle" font-weight="bold">MD</text>
+    <text x="334" y="494" fill="#dce5f2" font-weight="bold">Mert Demir</text>
+    <text x="480" y="494" fill="#7e8da5">Depo</text>
+    <text x="680" y="494" fill="#7e8da5">—</text>
+    <text x="790" y="494" fill="#7e8da5">—</text>
+    <text x="920" y="494" fill="#64b5f6" font-weight="bold">İzinli</text>
+    <rect x="1036" y="476" width="88" height="26" rx="13" fill="#64b5f6" opacity=".15"/><text x="1080" y="495" fill="#64b5f6" text-anchor="middle" font-weight="bold" font-size="11">İzinli</text>
+    <rect x="288" y="514" width="864" height="38" rx="8" fill="#0d1626"/>
+    <circle cx="312" cy="533" r="11" fill="#4caf50" opacity=".4"/><text x="312" y="537" fill="#fff" font-size="9" text-anchor="middle" font-weight="bold">ZC</text>
+    <text x="334" y="538" fill="#dce5f2" font-weight="bold">Zeynep Çelik</text>
+    <text x="480" y="538" fill="#7e8da5">Muhasebe</text>
+    <text x="680" y="538" fill="#7e8da5">07:58</text>
+    <text x="790" y="538" fill="#7e8da5">18:10</text>
+    <text x="920" y="538" fill="#4caf50" font-weight="bold">Tam</text>
+    <rect x="1036" y="520" width="88" height="26" rx="13" fill="#4caf50" opacity=".15"/><text x="1080" y="539" fill="#4caf50" text-anchor="middle" font-weight="bold" font-size="11">Onaylı</text>
+  </g>
+
+  <!-- Alt kartlar: haftalık grafik + sistem durumu -->
+  <g font-family="Arial">
+    <rect x="264" y="614" width="560" height="140" rx="14" fill="url(#ptB)" stroke="#1f2f4d"/>
+    <text x="290" y="646" fill="#dce5f2" font-size="14" font-weight="bold">Haftalık Giriş Yoğunluğu</text>
+    <rect x="300" y="690" width="30" height="34" rx="4" fill="url(#ptBar)" opacity=".55"/>
+    <rect x="360" y="672" width="30" height="52" rx="4" fill="url(#ptBar)" opacity=".7"/>
+    <rect x="420" y="682" width="30" height="42" rx="4" fill="url(#ptBar)" opacity=".6"/>
+    <rect x="480" y="656" width="30" height="68" rx="4" fill="url(#ptBar)" opacity=".85"/>
+    <rect x="540" y="646" width="30" height="78" rx="4" fill="url(#ptBar)"/>
+    <rect x="600" y="700" width="30" height="24" rx="4" fill="url(#ptBar)" opacity=".4"/>
+    <rect x="660" y="706" width="30" height="18" rx="4" fill="url(#ptBar)" opacity=".35"/>
+    <text x="315" y="742" fill="#5c7396" font-size="10" text-anchor="middle">Pzt</text>
+    <text x="375" y="742" fill="#5c7396" font-size="10" text-anchor="middle">Sal</text>
+    <text x="435" y="742" fill="#5c7396" font-size="10" text-anchor="middle">Çar</text>
+    <text x="495" y="742" fill="#5c7396" font-size="10" text-anchor="middle">Per</text>
+    <text x="555" y="742" fill="#5c7396" font-size="10" text-anchor="middle">Cum</text>
+    <text x="615" y="742" fill="#5c7396" font-size="10" text-anchor="middle">Cmt</text>
+    <text x="675" y="742" fill="#5c7396" font-size="10" text-anchor="middle">Paz</text>
+
+    <rect x="848" y="614" width="328" height="140" rx="14" fill="url(#ptB)" stroke="#1f2f4d"/>
+    <text x="874" y="646" fill="#dce5f2" font-size="14" font-weight="bold">Sistem Durumu</text>
+    <text x="874" y="678" fill="#7e8da5" font-size="12">Veri senkronizasyonu</text>
+    <rect x="874" y="688" width="276" height="8" rx="4" fill="#0e1a30"/><rect x="874" y="688" width="252" height="8" rx="4" fill="#4caf50"/>
+    <text x="874" y="718" fill="#7e8da5" font-size="12">personeller.json içe aktarımı</text>
+    <rect x="874" y="728" width="276" height="8" rx="4" fill="#0e1a30"/><rect x="874" y="728" width="276" height="8" rx="4" fill="#1a73e8"/>
+  </g>
+</svg>

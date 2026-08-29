@@ -1,9 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DreamSoft">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Projeköyü">
   <defs>
-    <linearGradient id="f" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse"><stop stop-color="#4e7cff"/><stop offset=".55" stop-color="#8c6bff"/><stop offset="1" stop-color="#2ed9e6"/></linearGradient>
-    <linearGradient id="l" x1="14" y1="13" x2="50" y2="51" gradientUnits="userSpaceOnUse"><stop stop-color="#7699ff"/><stop offset="1" stop-color="#36d4e3"/></linearGradient>
+    <linearGradient id="bw" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a73e8"/>
+      <stop offset=".5" stop-color="#0d47a1"/>
+      <stop offset="1" stop-color="#00bcd4"/>
+    </linearGradient>
+    <linearGradient id="bw2" x1="14" y1="13" x2="50" y2="51" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2196f3"/>
+      <stop offset="1" stop-color="#00acc1"/>
+    </linearGradient>
   </defs>
-  <rect x="2" y="2" width="60" height="60" rx="16" fill="#0b1423" stroke="url(#f)" stroke-width="2"/>
-  <path d="M15 14h15c13 0 22 7 22 18s-9 18-22 18H15V14Zm9 8v20h6c8 0 13-3.5 13-10s-5-10-13-10h-6Z" fill="url(#l)" fill-rule="evenodd"/>
-  <path d="M39 23c-2.5-2-9-2.3-9 1.7 0 4.2 11 2.4 11 9 0 6-7.7 8-12.5 4.4" fill="none" stroke="#f4f7ff" stroke-width="3.5" stroke-linecap="round"/>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#0a1628" stroke="url(#bw)" stroke-width="2"/>
+  <!-- Butterfly wings -->
+  <g transform="translate(32,32)">
+    <!-- Left upper wing -->
+    <path d="M-2,-2 C-12,-18 -28,-16 -26,-6 C-24,2 -14,0 -2,-2Z" fill="url(#bw2)" opacity="0.95"/>
+    <!-- Right upper wing -->
+    <path d="M2,-2 C12,-18 28,-16 26,-6 C24,2 14,0 2,-2Z" fill="url(#bw2)" opacity="0.95"/>
+    <!-- Left lower wing -->
+    <path d="M-2,2 C-10,10 -22,14 -20,6 C-18,0 -10,2 -2,2Z" fill="url(#bw)" opacity="0.85"/>
+    <!-- Right lower wing -->
+    <path d="M2,2 C10,10 22,14 20,6 C18,0 10,2 2,2Z" fill="url(#bw)" opacity="0.85"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="0" rx="1.5" ry="5" fill="#1565c0"/>
+    <!-- Antennae -->
+    <path d="M-1,-5 C-4,-10 -8,-12 -10,-10" fill="none" stroke="#42a5f5" stroke-width="0.8" stroke-linecap="round"/>
+    <path d="M1,-5 C4,-10 8,-12 10,-10" fill="none" stroke="#42a5f5" stroke-width="0.8" stroke-linecap="round"/>
+  </g>
 </svg>
