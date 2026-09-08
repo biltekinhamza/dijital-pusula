@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#101934"/></linearGradient><linearGradient id="a"><stop stop-color="#31d8ff"/><stop offset="1" stop-color="#725cff"/></linearGradient></defs>
-  <rect width="1200" height="630" fill="url(#bg)"/><circle cx="1000" cy="80" r="300" fill="#725cff" opacity=".1"/><circle cx="180" cy="650" r="330" fill="#31d8ff" opacity=".08"/>
-  <path d="M104 188h98c72 0 118 40 118 104s-46 104-118 104h-98V188Zm56 52v104h40c40 0 62-19 62-52s-22-52-62-52h-40Z" fill="url(#a)"/><circle cx="314" cy="194" r="20" fill="#31d8ff"/>
-  <text x="366" y="315" font-family="Arial,sans-serif" font-size="92" font-weight="700" fill="#fff">Dream<tspan fill="#31d8ff">Soft</tspan></text>
-  <text x="108" y="490" font-family="Arial,sans-serif" font-size="32" fill="#a8b4ca">Custom Software • Intelligent Automation • Integration</text>
-</svg>

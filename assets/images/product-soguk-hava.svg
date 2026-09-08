@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="shd-title shd-desc">
+  <title id="shd-title">Soğuk Hava Deposu Yönetim Sistemi — 3D yerleşim ekranı</title>
+  <desc id="shd-desc">Odanın metre cinsinden modellendiği, paletlerin sürükle-bırak ile yerleştirildiği ve koridor ile istif kurallarının doğrulandığı 3D depo yerleşim ekranının temsili görüntüsü.</desc>
+  <defs>
+    <linearGradient id="shA" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00bcd4"/><stop offset="1" stop-color="#00838f"/></linearGradient>
+    <linearGradient id="shFloor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#16233c"/><stop offset="1" stop-color="#0d1729"/></linearGradient>
+    <linearGradient id="shPalletTop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4fc3f7"/><stop offset="1" stop-color="#1a73e8"/></linearGradient>
+    <linearGradient id="shPalletTop2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#81c784"/><stop offset="1" stop-color="#388e3c"/></linearGradient>
+    <linearGradient id="shBar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1a73e8"/><stop offset="1" stop-color="#0d47a1"/></linearGradient>
+  </defs>
+
+  <rect width="1200" height="780" fill="#0c1524"/>
+
+  <!-- Tarayici cercevesi -->
+  <rect width="1200" height="54" fill="#14213a"/>
+  <circle cx="30" cy="27" r="6" fill="#ff6b66"/><circle cx="52" cy="27" r="6" fill="#ffc24b"/><circle cx="74" cy="27" r="6" fill="#35d07f"/>
+  <rect x="104" y="14" width="470" height="26" rx="13" fill="#0d1729"/>
+  <text x="122" y="32" font-family="ui-monospace, monospace" font-size="12" fill="#7f93b5">depo.ornek.com/odalar/merkez-1</text>
+  <circle cx="1140" cy="27" r="11" fill="#1c2b46"/>
+  <text x="1140" y="32" font-family="system-ui, sans-serif" font-size="11" font-weight="700" fill="#8fa8c8" text-anchor="middle">HB</text>
+
+  <!-- Sol kenar cubugu -->
+  <rect x="0" y="54" width="212" height="726" fill="#0a1220"/>
+  <line x1="212" y1="54" x2="212" y2="780" stroke="#1b2942"/>
+  <rect x="22" y="80" width="34" height="34" rx="9" fill="url(#shA)" opacity=".22"/>
+  <text x="39" y="103" font-family="system-ui, sans-serif" font-size="15" fill="#4dd0e1" text-anchor="middle">◫</text>
+  <text x="68" y="96" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#e6edfa">Merkez Deposu</text>
+  <text x="68" y="112" font-family="system-ui, sans-serif" font-size="10" fill="#5f708a">2,50 TL / kg</text>
+
+  <g font-family="system-ui, sans-serif" font-size="12">
+    <rect x="16" y="146" width="180" height="36" rx="8" fill="#13244a"/>
+    <text x="36" y="169" fill="#9fc6ff">◫</text><text x="58" y="169" fill="#dce7fb" font-weight="600">Odalar</text>
+    <text x="36" y="209" fill="#55637a">▤</text><text x="58" y="209" fill="#8593a8">Stok</text>
+    <text x="36" y="245" fill="#55637a">⇄</text><text x="58" y="245" fill="#8593a8">Hareketler</text>
+    <text x="36" y="281" fill="#55637a">₺</text><text x="58" y="281" fill="#8593a8">Depolama Hesabı</text>
+    <text x="36" y="317" fill="#55637a">⚿</text><text x="58" y="317" fill="#8593a8">Personel</text>
+    <text x="36" y="353" fill="#55637a">▥</text><text x="58" y="353" fill="#8593a8">Raporlar</text>
+    <text x="36" y="389" fill="#55637a">↻</text><text x="58" y="389" fill="#8593a8">Sistem</text>
+  </g>
+
+  <!-- Oda listesi -->
+  <text x="36" y="446" font-family="system-ui, sans-serif" font-size="9" font-weight="700" letter-spacing="1.6" fill="#4d5a70">ODALAR</text>
+  <g font-family="system-ui, sans-serif" font-size="11">
+    <rect x="16" y="460" width="180" height="42" rx="8" fill="#0f1c33" stroke="#1a73e8"/>
+    <text x="34" y="479" fill="#dce7fb" font-weight="600">Oda 1</text>
+    <text x="34" y="494" fill="#6b7b93" font-size="10">18,0 × 12,0 m · %74 dolu</text>
+    <rect x="16" y="510" width="180" height="42" rx="8" fill="#0d1728" stroke="#1b2942"/>
+    <text x="34" y="529" fill="#a9b6c9">Oda 2</text>
+    <text x="34" y="544" fill="#5b6a80" font-size="10">18,0 × 12,0 m · %41 dolu</text>
+    <rect x="16" y="560" width="180" height="42" rx="8" fill="#0d1728" stroke="#1b2942"/>
+    <text x="34" y="579" fill="#a9b6c9">Oda 3</text>
+    <text x="34" y="594" fill="#5b6a80" font-size="10">12,0 × 9,0 m · %12 dolu</text>
+  </g>
+
+  <!-- Ust arac cubugu -->
+  <rect x="212" y="54" width="988" height="58" fill="#0e1a2e"/>
+  <line x1="212" y1="112" x2="1200" y2="112" stroke="#1b2942"/>
+  <text x="240" y="90" font-family="Manrope, system-ui, sans-serif" font-size="16" font-weight="700" fill="#f0f4ff">Oda 1 — 3D Yerleşim</text>
+  <g font-family="system-ui, sans-serif" font-size="11">
+    <rect x="470" y="70" width="96" height="28" rx="7" fill="#132a4e" stroke="#2a4a7d"/>
+    <text x="518" y="88" fill="#9fc6ff" text-anchor="middle">↻ Döndür 90°</text>
+    <rect x="576" y="70" width="86" height="28" rx="7" fill="#132a4e" stroke="#2a4a7d"/>
+    <text x="619" y="88" fill="#9fc6ff" text-anchor="middle">▤ İstifle</text>
+    <rect x="672" y="70" width="94" height="28" rx="7" fill="#132a4e" stroke="#2a4a7d"/>
+    <text x="719" y="88" fill="#9fc6ff" text-anchor="middle">⇄ Transfer</text>
+  </g>
+  <rect x="1020" y="68" width="152" height="32" rx="8" fill="url(#shBar)"/>
+  <text x="1096" y="88" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">+ Ürün Girişi</text>
+
+  <!-- 3D oda gorunumu -->
+  <g transform="translate(236, 132)">
+    <!-- zemin (izometrik) -->
+    <polygon points="300,40 690,190 390,430 0,240" fill="url(#shFloor)" stroke="#25406b"/>
+    <!-- izgara -->
+    <g stroke="#1d3255" stroke-width="1" opacity=".85">
+      <line x1="78" y1="70" x2="468" y2="220"/><line x1="156" y1="100" x2="546" y2="250"/>
+      <line x1="234" y1="130" x2="624" y2="280"/><line x1="222" y1="10" x2="-78" y2="250"/>
+      <line x1="378" y1="70" x2="78" y2="310"/><line x1="456" y1="100" x2="156" y2="340"/>
+      <line x1="534" y1="130" x2="234" y2="370"/><line x1="612" y1="160" x2="312" y2="400"/>
+    </g>
+    <!-- koridor bandi -->
+    <polygon points="212,105 290,135 90,295 12,265" fill="#f9a825" opacity=".07"/>
+    <polygon points="212,105 290,135 90,295 12,265" fill="none" stroke="#f9a825" stroke-width="1.2" stroke-dasharray="7 6" opacity=".55"/>
+    <text x="112" y="228" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#d9a441" opacity=".85" transform="rotate(-31 112 228)">KORİDOR 2,4 m</text>
+
+    <!-- Paletler: ust yuz + iki yan yuz -->
+    <g>
+      <!-- 1. sira -->
+      <g><polygon points="330,74 386,96 350,125 294,103" fill="url(#shPalletTop)"/><polygon points="294,103 350,125 350,152 294,130" fill="#0f4c8a"/><polygon points="350,125 386,96 386,123 350,152" fill="#0a3968"/></g>
+      <g><polygon points="392,98 448,120 412,149 356,127" fill="url(#shPalletTop)"/><polygon points="356,127 412,149 412,176 356,154" fill="#0f4c8a"/><polygon points="412,149 448,120 448,147 412,176" fill="#0a3968"/></g>
+      <g><polygon points="454,122 510,144 474,173 418,151" fill="url(#shPalletTop2)"/><polygon points="418,151 474,173 474,200 418,178" fill="#2e7d32"/><polygon points="474,173 510,144 510,171 474,200" fill="#215d25"/></g>
+      <!-- 2. sira (istifli: iki kat) -->
+      <g><polygon points="292,126 348,148 312,177 256,155" fill="url(#shPalletTop)"/><polygon points="256,155 312,177 312,204 256,182" fill="#0f4c8a"/><polygon points="312,177 348,148 348,175 312,204" fill="#0a3968"/></g>
+      <g opacity=".97"><polygon points="292,98 348,120 312,149 256,127" fill="url(#shPalletTop)"/><polygon points="256,127 312,149 312,160 256,138" fill="#1565c0"/><polygon points="312,149 348,120 348,131 312,160" fill="#0d47a1"/></g>
+      <g><polygon points="354,150 410,172 374,201 318,179" fill="url(#shPalletTop2)"/><polygon points="318,179 374,201 374,228 318,206" fill="#2e7d32"/><polygon points="374,201 410,172 410,199 374,228" fill="#215d25"/></g>
+      <g><polygon points="416,174 472,196 436,225 380,203" fill="url(#shPalletTop)"/><polygon points="380,203 436,225 436,252 380,230" fill="#0f4c8a"/><polygon points="436,225 472,196 472,223 436,252" fill="#0a3968"/></g>
+      <!-- 3. sira -->
+      <g><polygon points="254,178 310,200 274,229 218,207" fill="url(#shPalletTop2)"/><polygon points="218,207 274,229 274,256 218,234" fill="#2e7d32"/><polygon points="274,229 310,200 310,227 274,256" fill="#215d25"/></g>
+      <g><polygon points="316,202 372,224 336,253 280,231" fill="url(#shPalletTop)"/><polygon points="280,231 336,253 336,280 280,258" fill="#0f4c8a"/><polygon points="336,253 372,224 372,251 336,280" fill="#0a3968"/></g>
+      <g><polygon points="378,226 434,248 398,277 342,255" fill="url(#shPalletTop)"/><polygon points="342,255 398,277 398,304 342,282" fill="#0f4c8a"/><polygon points="398,277 434,248 434,275 398,304" fill="#0a3968"/></g>
+    </g>
+
+    <!-- Surukleme hayaleti: gecerli konum (yesil) -->
+    <g>
+      <polygon points="196,236 252,258 216,287 160,265" fill="#4caf50" opacity=".26"/>
+      <polygon points="196,236 252,258 216,287 160,265" fill="none" stroke="#4caf50" stroke-width="2"/>
+      <polygon points="160,265 216,287 216,314 160,292" fill="#4caf50" opacity=".14"/>
+      <polygon points="216,287 252,258 252,285 216,314" fill="#4caf50" opacity=".1"/>
+    </g>
+    <rect x="150" y="322" width="118" height="24" rx="6" fill="#0b2015" stroke="#2f6b39"/>
+    <text x="209" y="338" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#6ddf9a" text-anchor="middle">Yerleştirilebilir</text>
+
+    <!-- Reddedilen konum (kirmizi) -->
+    <g opacity=".9">
+      <polygon points="486,196 542,218 506,247 450,225" fill="#ef5350" opacity=".2"/>
+      <polygon points="486,196 542,218 506,247 450,225" fill="none" stroke="#ef5350" stroke-width="2" stroke-dasharray="6 4"/>
+    </g>
+    <rect x="470" y="252" width="150" height="24" rx="6" fill="#210f0f" stroke="#7c3434"/>
+    <text x="545" y="268" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#ef9a9a" text-anchor="middle">Çakışma — STK-2026-000042</text>
+
+    <!-- Oda olculeri -->
+    <g stroke="#3d5a86" stroke-width="1">
+      <line x1="300" y1="26" x2="690" y2="176"/>
+      <line x1="300" y1="20" x2="300" y2="32"/><line x1="690" y1="170" x2="690" y2="182"/>
+    </g>
+    <text x="500" y="88" font-family="ui-monospace, monospace" font-size="11" fill="#7f93b5" transform="rotate(21 500 88)">18,0 m</text>
+    <g stroke="#3d5a86" stroke-width="1">
+      <line x1="-14" y1="248" x2="376" y2="438"/>
+    </g>
+    <text x="150" y="372" font-family="ui-monospace, monospace" font-size="11" fill="#7f93b5" transform="rotate(26 150 372)">12,0 m</text>
+  </g>
+
+  <!-- Sag panel -->
+  <rect x="960" y="132" width="216" height="330" rx="12" fill="#0e1a2e" stroke="#1e3050"/>
+  <text x="982" y="160" font-family="system-ui, sans-serif" font-size="9" font-weight="700" letter-spacing="1.6" fill="#4d5a70">SEÇİLİ BİRİM</text>
+  <text x="982" y="184" font-family="ui-monospace, monospace" font-size="13" fill="#4dd0e1">STK-2026-000117</text>
+  <g font-family="system-ui, sans-serif" font-size="11">
+    <text x="982" y="214" fill="#6b7b93">Üretici</text><text x="1156" y="214" fill="#dce7fb" text-anchor="end">Yılmaz Bahçe</text>
+    <text x="982" y="240" fill="#6b7b93">Meyve / çeşit</text><text x="1156" y="240" fill="#dce7fb" text-anchor="end">Elma / Granny</text>
+    <text x="982" y="266" fill="#6b7b93">Kap</text><text x="1156" y="266" fill="#dce7fb" text-anchor="end">Palet · 48 kasa</text>
+    <text x="982" y="292" fill="#6b7b93">Giriş tarihi</text><text x="1156" y="292" fill="#dce7fb" text-anchor="end">14.08.2026</text>
+    <line x1="982" y1="310" x2="1156" y2="310" stroke="#1e3050"/>
+    <text x="982" y="336" fill="#6b7b93">Giriş / kalan</text><text x="1156" y="336" fill="#dce7fb" text-anchor="end">1.250 / 980 kg</text>
+    <text x="982" y="362" fill="#6b7b93">Sabitlenen fiyat</text><text x="1156" y="362" fill="#dce7fb" text-anchor="end">2,50 TL / kg</text>
+  </g>
+  <rect x="982" y="380" width="174" height="42" rx="9" fill="#0d2136" stroke="#1a4f6b"/>
+  <text x="998" y="398" font-family="system-ui, sans-serif" font-size="10" fill="#6b8ba3">Depolama bedeli</text>
+  <text x="998" y="415" font-family="Manrope, system-ui, sans-serif" font-size="15" font-weight="800" fill="#4dd0e1">2.450,00 TL</text>
+  <rect x="982" y="432" width="83" height="14" rx="4" fill="#132a4e"/>
+  <text x="1023" y="443" font-family="system-ui, sans-serif" font-size="9" fill="#7fa8dd" text-anchor="middle">Kısmi çıkış</text>
+  <rect x="1073" y="432" width="83" height="14" rx="4" fill="#132a4e"/>
+  <text x="1114" y="443" font-family="system-ui, sans-serif" font-size="9" fill="#7fa8dd" text-anchor="middle">Tam çıkış</text>
+
+  <!-- Doluluk kartlari -->
+  <g>
+    <rect x="960" y="478" width="216" height="76" rx="12" fill="#0e1a2e" stroke="#1e3050"/>
+    <text x="982" y="504" font-family="system-ui, sans-serif" font-size="9" font-weight="700" letter-spacing="1.6" fill="#4d5a70">ODA DOLULUĞU</text>
+    <rect x="982" y="516" width="174" height="8" rx="4" fill="#16233c"/>
+    <rect x="982" y="516" width="129" height="8" rx="4" fill="url(#shBar)"/>
+    <text x="982" y="544" font-family="system-ui, sans-serif" font-size="11" fill="#8fa8c8">148 / 200 birim</text>
+    <text x="1156" y="544" font-family="Manrope, system-ui, sans-serif" font-size="13" font-weight="800" fill="#4dd0e1" text-anchor="end">%74</text>
+  </g>
+
+  <!-- Alt bilgi seridi -->
+  <rect x="236" y="700" width="700" height="52" rx="10" fill="#0e1a2e" stroke="#1e3050"/>
+  <text x="258" y="722" font-family="system-ui, sans-serif" font-size="9" font-weight="700" letter-spacing="1.6" fill="#4d5a70">SON HAREKETLER</text>
+  <g font-family="ui-monospace, monospace" font-size="10" fill="#7f93b5">
+    <text x="258" y="740">10:24  giriş   STK-2026-000117  ·  20 Palsan  ·  Oda 1</text>
+    <text x="640" y="740" fill="#6ddf9a">09:58  çıkış   STK-2026-000103  ·  12 kasa  ·  Oda 2</text>
+  </g>
+</svg>
