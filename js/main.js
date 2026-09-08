@@ -1,8 +1,8 @@
 (function () {
   "use strict";
 
-  const catalog = window.PROJE_KOYU_TRANSLATIONS;
-  let language = localStorage.getItem("projekoyu-language") === "en" ? "en" : "tr";
+  const catalog = window.PROJE_BAHCESI_TRANSLATIONS;
+  let language = localStorage.getItem("proje-bahcesi-language") === "en" ? "en" : "tr";
   let selectedProject = 0;
   let lastFocused = null;
   const $ = (selector, root = document) => root.querySelector(selector);
@@ -22,7 +22,7 @@
       "accessibility.top": c.a11y.backToTop, "accessibility.close": c.a11y.close,
       "hero.eyebrow": c.hero.eyebrow, "hero.title": c.hero.title, "hero.description": c.hero.description,
       "hero.primary": c.hero.primary, "hero.secondary": c.hero.secondary, "hero.note": c.hero.principles.join(" · "),
-      "hero.visualLabel": tr ? "Projeköyü çözüm mimarisi" : "Projeköyü solution architecture",
+      "hero.visualLabel": tr ? "Proje Bahçesi çözüm mimarisi" : "Proje Bahçesi solution architecture",
       "hero.architecture.label": tr ? "ÇÖZÜM MİMARİSİ" : "SOLUTION ARCHITECTURE", "hero.architecture.core": tr ? "Size Özel Yazılım" : "Custom Software",
       "hero.architecture.analysis": tr ? "İhtiyaç Analizi" : "Requirement Analysis", "hero.architecture.analysisNote": tr ? "İş problemini anlama" : "Understand the challenge",
       "hero.architecture.design": tr ? "Çözüm Tasarımı" : "Solution Design", "hero.architecture.designNote": tr ? "Doğru mimariyi kurma" : "Design the right architecture",
@@ -111,7 +111,7 @@
 
   function setLanguage(next) {
     language = next === "en" ? "en" : "tr";
-    localStorage.setItem("projekoyu-language", language);
+    localStorage.setItem("proje-bahcesi-language", language);
     document.documentElement.lang = language;
     $$('[data-lang]').forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.lang === language)));
     translatePage();
@@ -171,7 +171,7 @@
     const data = new FormData(form); const labels = t("form.mailLabels");
     const lines = [`${labels.name}: ${data.get("name")}`, `${labels.company}: ${data.get("company") || "-"}`, `${labels.email}: ${data.get("email")}`, `${labels.phone}: ${data.get("phone") || "-"}`, `${labels.projectType}: ${data.get("projectType")}`, `${labels.budget}: ${data.get("budget") || "-"}`, `${labels.contactMethod}: ${data.get("preference")}`, "", `${labels.description}:`, data.get("description")];
     $("#form-status").textContent = t("form.preparing");
-    location.href = `mailto:info@projekoyu.example?subject=${encodeURIComponent(t("form.mailSubject"))}&body=${encodeURIComponent(lines.join("\n"))}`;
+    location.href = `mailto:info@projebahcesi.example?subject=${encodeURIComponent(t("form.mailSubject"))}&body=${encodeURIComponent(lines.join("\n"))}`;
     setTimeout(() => $("#form-status").textContent = t("form.success"), 600);
   }
 
@@ -191,7 +191,7 @@
     $("#legal-dialog").addEventListener("close", () => document.body.classList.remove("modal-open"));
     $("#contact-form").addEventListener("submit", submitForm);
     $(".back-to-top").addEventListener("click", () => scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }));
-    $("#cookie-accept").addEventListener("click", () => { localStorage.setItem("projekoyu-cookie-notice", "accepted"); $("#cookie-banner").hidden = true; });
+    $("#cookie-accept").addEventListener("click", () => { localStorage.setItem("proje-bahcesi-cookie-notice", "accepted"); $("#cookie-banner").hidden = true; });
     $$('.social-links a').forEach((link) => link.addEventListener("click", (event) => event.preventDefault()));
     document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !$("#service-modal").hidden) closeService(); });
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { $$("#primary-nav a").forEach((link) => link.classList.toggle("active", link.hash === `#${entry.target.id}`)); } }), { rootMargin: "-38% 0px -52%" });
@@ -201,5 +201,5 @@
 
   $("#current-year").textContent = new Date().getFullYear();
   setLanguage(language); setupEvents();
-  $("#cookie-banner").hidden = localStorage.getItem("projekoyu-cookie-notice") === "accepted";
+  $("#cookie-banner").hidden = localStorage.getItem("proje-bahcesi-cookie-notice") === "accepted";
 })();

@@ -1,11 +1,11 @@
-# Proje Köyü Corporate Website
+# Proje Bahçesi Corporate Website
 
-A bilingual (Turkish and English), responsive corporate website for Projeköyü. It is built with semantic HTML5, CSS3, and modern vanilla JavaScript, with no server-side or paid dependencies.
+A bilingual (Turkish and English), responsive corporate website for ProjeBahçesi. It is built with semantic HTML5, CSS3, and modern vanilla JavaScript, with no server-side or paid dependencies.
 
 ## Project Structure
 
 ```text
-projekoyu/
+proje-bahcesi/
 |-- index.html
 |-- css/
 |   `-- style.css
@@ -36,13 +36,13 @@ The optional command above uses `serve` only for local preview; it is not a webs
 
 ## Publish on GitHub Pages
 
-1. Create a GitHub repository and add the contents of this `projekoyu` folder at the repository root.
+1. Create a GitHub repository and add the contents of this `proje-bahcesi` folder at the repository root.
 2. Commit and push the files to the default branch, usually `main`.
 3. In the GitHub repository, open **Settings > Pages**.
 4. Under **Build and deployment**, select **Deploy from a branch**.
 5. Select the `main` branch and the `/ (root)` folder, then click **Save**.
 6. Wait for GitHub Pages to provide the public URL.
-7. The canonical and social metadata already use `https://biltekinhamza.github.io/proje-koyu/`. Update them if the repository name or domain changes.
+7. The canonical and social metadata already use `https://biltekinhamza.github.io/proje-bahcesi/`. Update them if the repository name or domain changes.
 
 All site file references are relative, so the project works on both user sites and repository subpaths.
 
@@ -50,14 +50,14 @@ All site file references are relative, so the project works on both user sites a
 
 Before publishing, search the project for these placeholders and replace them:
 
-- `info@projekoyu.example`
+- `info@projebahcesi.example`
 - `+90 (___) ___ __ __`
 - `Şirket adresi buraya eklenecek`
 - `Company address will be added here`
 - `#social-placeholder` for LinkedIn and GitHub links
-- `https://biltekinhamza.github.io/proje-koyu/` if the repository name or public domain changes
+- `https://biltekinhamza.github.io/proje-bahcesi/` if the repository name or public domain changes
 
-The contact form creates a structured `mailto:` draft and stores no form data. To use Formspree later, create an account, add the endpoint to the form `action`, change the form method to `POST`, and update `js/main.js` to submit via `fetch`. Do not add an endpoint until it belongs to Projeköyü and has been tested.
+The contact form creates a structured `mailto:` draft and stores no form data. To use Formspree later, create an account, add the endpoint to the form `action`, change the form method to `POST`, and update `js/main.js` to submit via `fetch`. Do not add an endpoint until it belongs to ProjeBahçesi and has been tested.
 
 ## Content Updates
 
