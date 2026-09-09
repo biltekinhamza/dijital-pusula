@@ -26,29 +26,24 @@ def lerp(a, b, t):
 
 
 def background():
-    img = Image.new("RGB", (W, H), (5, 13, 26))
+    img = Image.new("RGB", (W, H), (246, 248, 251))
     d = ImageDraw.Draw(img)
-    # kosegen degrade
-    top, bottom = (10, 26, 52), (4, 10, 21)
-    for y in range(H):
-        d.line([(0, y), (W, y)], fill=lerp(top, bottom, y / H))
-    # sol ust mavi parlama
-    glow = Image.new("RGB", (W, H), (0, 0, 0))
+    # sol ust cok hafif mavi parlama (siteki .hero::before ile ayni mantik)
+    glow = Image.new("RGB", (W, H), (246, 248, 251))
     gd = ImageDraw.Draw(glow)
-    for r in range(520, 0, -8):
-        t = 1 - r / 520
-        gd.ellipse([160 - r, -60 - r, 160 + r, -60 + r], fill=lerp((0, 0, 0), (26, 115, 232), t * 0.55))
-    img = Image.blend(img, Image.blend(img, glow, 0.0), 0.0) if False else img
-    img = Image.composite(Image.blend(img, glow, 0.45), img, Image.new("L", (W, H), 90))
+    for r in range(560, 0, -8):
+        t = 1 - r / 560
+        gd.ellipse([160 - r, -80 - r, 160 + r, -80 + r], fill=lerp((246, 248, 251), (26, 115, 232), t * 0.16))
+    img = Image.composite(glow, img, Image.new("L", (W, H), 110))
     # ince izgara
     d = ImageDraw.Draw(img, "RGBA")
     for x in range(0, W, 60):
-        d.line([(x, 0), (x, H)], fill=(30, 136, 229, 16))
+        d.line([(x, 0), (x, H)], fill=(15, 23, 42, 10))
     for y in range(0, H, 60):
-        d.line([(0, y), (W, y)], fill=(30, 136, 229, 16))
+        d.line([(0, y), (W, y)], fill=(15, 23, 42, 10))
     # alt vurgu cizgisi
     for x in range(W):
-        d.line([(x, H - 7), (x, H)], fill=lerp((26, 115, 232), (0, 188, 212), x / W))
+        d.line([(x, H - 7), (x, H)], fill=lerp((26, 115, 232), (13, 71, 161), x / W))
     return img
 
 
@@ -71,8 +66,8 @@ def chip(d, x, y, text, fnt):
     pad_x, h = 16, 34
     w = round(d.textlength(text, font=fnt)) + pad_x * 2
     d.rounded_rectangle([x, y, x + w, y + h], radius=8,
-                        fill=(20, 42, 78), outline=(40, 84, 145))
-    d.text((x + pad_x, y + h / 2), text, font=fnt, fill=(159, 198, 255), anchor="lm")
+                        fill=(234, 241, 251), outline=(180, 205, 235))
+    d.text((x + pad_x, y + h / 2), text, font=fnt, fill=(11, 79, 160), anchor="lm")
     return x + w + 10
 
 
@@ -90,27 +85,27 @@ def build(name, eyebrow, title, subtitle, chips):
     # marka
     d.rounded_rectangle([x, 60, x + 46, 106], radius=12, fill=(26, 115, 232))
     d.text((x + 23, 83), "P", font=f_brand, fill=(255, 255, 255), anchor="mm")
-    d.text((x + 62, 71), "Proje", font=f_brand, fill=(240, 244, 255))
+    d.text((x + 62, 71), "Proje", font=f_brand, fill=(16, 25, 43))
     bw = d.textlength("Proje", font=f_brand)
-    d.text((x + 62 + bw, 71), "Bahçesi", font=f_brand, fill=(66, 165, 245))
+    d.text((x + 62 + bw, 71), "Bahçesi", font=f_brand, fill=(11, 79, 160))
 
-    d.text((x, 168), eyebrow.upper(), font=f_eyebrow, fill=(100, 181, 246))
+    d.text((x, 168), eyebrow.upper(), font=f_eyebrow, fill=(11, 79, 160))
 
     y = 210
     for line in wrap(d, title, f_title, W - x * 2):
-        d.text((x, y), line, font=f_title, fill=(255, 255, 255))
+        d.text((x, y), line, font=f_title, fill=(16, 25, 43))
         y += 78
 
     y += 26
     for line in wrap(d, subtitle, f_sub, W - x * 2 - 40):
-        d.text((x, y), line, font=f_sub, fill=(143, 168, 200))
+        d.text((x, y), line, font=f_sub, fill=(87, 102, 126))
         y += 40
 
     cx = x
     for text in chips:
         cx = chip(d, cx, 508, text, f_chip)
 
-    d.text((x, 578), "biltekinhamza.github.io/proje-bahcesi", font=f_url, fill=(90, 108, 136))
+    d.text((x, 578), "biltekinhamza.github.io/proje-bahcesi", font=f_url, fill=(133, 146, 168))
 
     path = OUT / name
     img.save(path, "PNG", optimize=True)
