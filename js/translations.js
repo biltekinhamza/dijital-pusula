@@ -19,15 +19,15 @@ window.SITE_COMPANY = {
      Hangi kategoriye girdiginizi (dolayisiyla MERSIS mi VKN mi
      yazacaginizi) mali musavirinize sorun. Bos birakilan alanlar
      sitede hic gosterilmez. */
-  legalName: "Proje Bahcesi",            // PLACEHOLDER - ticari unvan ya da ad soyad
+  legalName: "Hamza Biltekin",            // esnaf/sahis isletmesi varsayimi - tacirseniz ticaret unvanini yazin
   brandName: "",                          // Varsa isletme adi / tescilli marka
-  email: "ornek@projebahcesi.com",       // PLACEHOLDER
-  phone: "+90 (___) ___ __ __",          // PLACEHOLDER
-  phoneHref: "",                          // orn. "+905xxxxxxxxx" - bos ise tel: linki verilmez
-  whatsapp: "",                           // orn. "905xxxxxxxxx" - bos ise WhatsApp butonu gizlenir
-  kep: "",                                // KEP adresi - ZORUNLU
-  addressTr: "Sirket adresi yayin oncesi eklenecek",
-  addressEn: "Company address to be added before launch",
+  email: "biltekinhamza@gmail.com",
+  phone: "+90 539 219 19 82",
+  phoneHref: "+905392191982",             // bos ise tel: linki verilmez
+  whatsapp: "905392191982",               // bos ise WhatsApp butonu gizlenir
+  kep: "",                                // KEP adresi - ZORUNLU (yonetmelik md.5)
+  addressTr: "Bahçelievler Mahallesi, Merkez / Isparta",
+  addressEn: "Bahçelievler District, Merkez / Isparta, Türkiye",
   taxOffice: "",                          // Vergi dairesi
   taxNumber: "",                          // VKN / TCKN
   mersis: "",                             // MERSIS (tacir ise)
