@@ -95,7 +95,7 @@ window.SITE_CONTENT = {
       hero: {
         eyebrow: "Sektörüne göre yazılmış, kutudan çıkar çıkmaz çalışan yazılımlar",
         title: "Havalandırma ve soğuk hava deposu işletmeleri için hazır yazılım.",
-        description: "Genel amaçlı bir ERP'yi işinize benzetmeye çalışmak yerine, doğrudan sizin işiniz için yazılmış iki ürün. İkisi de buluttan çalışır, her işletmenin verisi birbirinden ayrıdır ve kurulum gerektirmez.",
+        description: "Genel amaçlı bir ERP'yi işinize benzetmeye çalışmak yerine, doğrudan sizin işiniz için yazılmış iki ürün. İkisi de buluttan çalışır, her işletmenin verisi birbirinden ayrıdır ve kurulum gerektirmez. Şu an iki sektördeyiz; sırada yeni sektörler için aynı yaklaşımla yazılmış ürünler var.",
         primary: "Ürünleri İnceleyin",
         secondary: "Demo Talep Edin",
         note: "Kurulum yok · Her işletme kendi verisiyle çalışır · Tarayıcıdan erişim"
@@ -565,7 +565,7 @@ window.SITE_CONTENT = {
       hero: {
         eyebrow: "Software written for one industry, working from day one",
         title: "Ready-made software for ventilation manufacturers and cold storage operators.",
-        description: "Instead of bending a general-purpose ERP into the shape of your business, two products written for your business in the first place. Both run in the cloud, keep every company's data separate and need no installation.",
+        description: "Instead of bending a general-purpose ERP into the shape of your business, two products written for your business in the first place. Both run in the cloud, keep every company's data separate and need no installation. We're in two industries today, with more products built the same way already underway.",
         primary: "Explore the Products",
         secondary: "Request a Demo",
         note: "No installation · Every company works on its own data · Browser access"
