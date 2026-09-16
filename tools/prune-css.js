@@ -8,7 +8,8 @@ const fs = require("fs");
 const path = require("path");
 const postcss = require("postcss");
 
-const ROOT = "E:\\proje-bahcesi";
+// Proje koku script konumundan turetilir; klasor adi degisirse bozulmaz.
+const ROOT = path.resolve(__dirname, "..");
 const CSS = path.join(ROOT, "css/style.css");
 const apply = process.argv.includes("--apply");
 

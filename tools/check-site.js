@@ -7,7 +7,8 @@ const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
 
-const ROOT = "E:\\proje-bahcesi";
+// Proje koku script konumundan turetilir; klasor adi degisirse bozulmaz.
+const ROOT = path.resolve(__dirname, "..");
 let fail = 0;
 const bad = (msg) => { console.log("  HATA  " + msg); fail++; };
 const ok = (msg) => console.log("  ok    " + msg);
@@ -92,7 +93,7 @@ for (const file of htmlFiles) {
     links++;
     let target = ref.split("#")[0];
     if (!target) continue;
-    if (target.startsWith("/proje-bahcesi/")) target = target.slice("/proje-bahcesi/".length) || "index.html";
+    if (target.startsWith("/dijital-pusula/")) target = target.slice("/dijital-pusula/".length) || "index.html";
     if (target.endsWith("/")) target += "index.html";
     if (!fs.existsSync(path.join(ROOT, target))) { bad(`${file}: kirik baglanti -> ${ref}`); broken++; }
   }

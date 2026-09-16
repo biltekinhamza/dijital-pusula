@@ -87,40 +87,27 @@ button { color: inherit; }
 .menu-toggle.open span:nth-child(2) { opacity: 0; }
 .menu-toggle.open span:last-child { transform: translateY(-7px) rotate(-45deg); }
 
-/* Butterfly Animation */
-@keyframes butterfly-flutter {
-  0%, 100% { transform: rotate(0deg) scaleX(1); }
-  25% { transform: rotate(-3deg) scaleX(0.85); }
-  50% { transform: rotate(0deg) scaleX(1); }
-  75% { transform: rotate(3deg) scaleX(0.85); }
+/* Pusula ibresi animasyonu - gercek bir pusula gibi yonu arar ve yerine oturur */
+@keyframes compass-seek {
+  0%, 62%, 100% { transform: rotate(0deg); }
+  8%            { transform: rotate(-17deg); }
+  20%           { transform: rotate(11deg); }
+  32%           { transform: rotate(-6deg); }
+  43%           { transform: rotate(3deg); }
+  53%           { transform: rotate(-1.2deg); }
 }
-@keyframes butterfly-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-.brand-mark-animated {
-  animation: butterfly-float 3s ease-in-out infinite;
-}
-.brand-mark-animated i {
-  display: block !important;
+/* Animasyonlu marka: kadran arka planda sabit durur, sadece ibre doner. */
+.brand-mark-animated { background-image: url("../assets/logo/logo-dial.svg"); }
+.brand-mark-animated i:first-child {
+  display: block;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url("../assets/logo/logo-mark.svg") center / contain no-repeat;
-  animation: butterfly-flutter 1.5s ease-in-out infinite;
-  transform-origin: center;
+  inset: 0;
+  background: url("../assets/logo/logo-needle.svg") center / contain no-repeat;
+  transform-origin: 50% 50%;
+  animation: compass-seek 7s ease-in-out infinite;
 }
-.brand-mark-animated i:nth-child(2) {
-  animation-delay: -0.5s;
-  opacity: 0.7;
-}
-.hero .brand-mark-animated {
-  width: 50px;
-  height: 50px;
-}
-.hero .brand-mark-animated i {
-  animation-duration: 1.2s;
-}
+.brand-mark-animated i:nth-child(2) { display: none; }
+.brand:hover .brand-mark-animated i:first-child { animation-duration: 2.6s; }
 
 .hero { display: flex; min-height: 850px; padding-top: 160px; align-items: center; overflow: hidden; background: var(--bg); }
 .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(26,115,232,.06), transparent 60%); }
@@ -128,6 +115,8 @@ button { color: inherit; }
 .hero-copy { padding-bottom: 24px; }
 .eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; color: var(--accent-ink); font-size: .77rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .eyebrow > span:first-child { width: 28px; height: 1px; background: var(--blue); }
+/* Slogan: hero eyebrow altindaki ikinci kademe */
+.eyebrow-sub { max-width: 640px; margin: -14px 0 20px; color: var(--muted); font-size: .95rem; font-weight: 500; }
 .hero h1 { color: var(--text); }
 .hero-description { max-width: 685px; margin-bottom: 34px; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.15rem); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -171,7 +160,7 @@ button { color: inherit; }
 .contact { background: var(--bg-soft); border-top: 1px solid var(--line); }.contact-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 90px; align-items: start; }.contact-copy { position: sticky; top: 120px; }.contact-copy > p:not(.kicker) { max-width: 450px; }.contact-items { display: grid; margin-top: 42px; gap: 12px; }.contact-items > * { display: flex; padding: 13px 0; align-items: center; gap: 14px; border-bottom: 1px solid var(--line); }.contact-items > * > span { display: grid; width: 36px; height: 36px; place-items: center; color: var(--accent-ink); font-size: .8rem; background: rgba(26,115,232,.08); border: 1px solid rgba(26,115,232,.16); border-radius: 8px; }.contact-items p { display: flex; margin: 0; flex-direction: column; }.contact-items small { color: #7686a0; font-size: .64rem; }.contact-items b { color: var(--text); font-size: .78rem; font-weight: 600; }.social-links { display: flex; margin-top: 22px; gap: 18px; }.social-links a { color: #647289; font-size: .7rem; font-weight: 600; }.social-links a:hover { color: var(--text); }
 .contact-form { padding: 38px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }.form-heading { display: flex; margin-bottom: 32px; align-items: center; gap: 14px; }.form-heading > span { display: grid; width: 37px; height: 37px; place-items: center; color: var(--accent-ink); font: 700 .68rem "Manrope", sans-serif; border: 1px solid #1a73e8; border-radius: 50%; }.form-heading > div { display: flex; flex-direction: column; }.form-heading b { font-family: "Manrope"; font-size: .92rem; color: var(--text); }.form-heading small { color: #7686a0; font-size: .6rem; }.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; }.form-grid > label { display: flex; flex-direction: column; }.form-grid label > span, .form-grid legend { margin-bottom: 7px; color: #56637a; font-size: .68rem; font-weight: 600; }.form-grid input:not([type="radio"]):not([type="checkbox"]), .form-grid select, .form-grid textarea { width: 100%; color: var(--text); background: var(--bg-soft); border: 1px solid var(--line); border-radius: 7px; transition: border-color .2s, box-shadow .2s; }.form-grid input, .form-grid select { min-height: 46px; padding: 0 13px; }.form-grid textarea { padding: 12px 13px; resize: vertical; }.form-grid input::placeholder, .form-grid textarea::placeholder { color: #9aa5b8; }.form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus { border-color: #1a73e8; outline: none; box-shadow: 0 0 0 3px rgba(26,115,232,.14); }.form-grid [aria-invalid="true"] { border-color: var(--danger) !important; }.full { grid-column: 1 / -1; }.error { min-height: 15px; margin-top: 3px; color: var(--danger); font-size: .62rem; }.contact-preference { display: flex; padding: 0; margin: 0; gap: 18px; border: 0; }.contact-preference legend { display: block; width: 100%; }.contact-preference label { display: flex; align-items: center; gap: 7px; color: var(--muted); cursor: pointer; }.contact-preference label span { margin: 0; font-size: .68rem; }.contact-preference input, .consent input { accent-color: var(--blue); }.consent { display: grid !important; grid-template-columns: 18px 1fr; align-items: start; gap: 8px; cursor: pointer; }.consent input { margin-top: 4px; }.consent > span { margin: 0 !important; font-weight: 400 !important; line-height: 1.5; color: var(--muted); }.consent .error { grid-column: 2; }.submit-button { width: 100%; margin-top: 27px; justify-content: space-between; }.form-note { margin: 12px 0 0; color: #7686a0; font-size: .62rem; text-align: center; }.form-status { min-height: 20px; margin-top: 6px; color: var(--success); font-size: .7rem; text-align: center; }
 
-.site-footer { padding: 70px 0 20px; background: #0e1626; border-top: 1px solid rgba(255,255,255,.08); }.footer-grid { display: grid; grid-template-columns: 1.65fr 1fr 1fr 1.1fr; gap: 60px; padding-bottom: 60px; }.footer-grid > div:not(.footer-about) { display: flex; flex-direction: column; gap: 9px; }.footer-grid h2 { margin: 3px 0 13px; color: #8b9ab2; font: 700 .65rem "DM Sans"; letter-spacing: .12em; text-transform: uppercase; }.footer-grid a, .footer-grid span { color: #93a1ba; font-size: .72rem; }.footer-grid a:hover { color: #fff; }.footer-about a.brand, .footer-about a.brand span { color: #f0f4fb; }.footer-about .brand-accent { color: #64b5f6; }.footer-about p { max-width: 300px; margin: 22px 0 0; font-size: .76rem; color: #93a1ba; }.footer-bottom { display: flex; padding-top: 20px; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.08); }.footer-bottom p { margin: 0; color: #6b7994; font-size: .65rem; }.footer-bottom div { display: flex; gap: 18px; }.footer-bottom button { padding: 0; color: #7987a3; font-size: .63rem; background: none; border: 0; cursor: pointer; }.footer-bottom button:hover { color: #e3e9f5; }
+.site-footer { padding: 70px 0 20px; background: #0e1626; border-top: 1px solid rgba(255,255,255,.08); }.footer-grid { display: grid; grid-template-columns: 1.65fr 1fr 1fr 1.1fr; gap: 60px; padding-bottom: 60px; }.footer-grid > div:not(.footer-about) { display: flex; flex-direction: column; gap: 9px; }.footer-grid h2 { margin: 3px 0 13px; color: #8b9ab2; font: 700 .65rem "DM Sans"; letter-spacing: .12em; text-transform: uppercase; }.footer-grid a, .footer-grid span { color: #93a1ba; font-size: .72rem; }.footer-grid a:hover { color: #fff; }.footer-about a.brand, .footer-about a.brand span { color: #f0f4fb; }.footer-about .brand-accent { color: #64b5f6; }.footer-about p { max-width: 300px; margin: 22px 0 0; font-size: .76rem; color: #93a1ba; }.footer-about .footer-slogan { display: flex; flex-direction: column; gap: 3px; margin-top: 18px; }.footer-about .footer-slogan b { color: #dbe7fa; font-family: "Manrope", system-ui, sans-serif; font-size: .95rem; letter-spacing: -.01em; }.footer-about .footer-slogan span { color: #7f8fa8; font-size: .72rem; }.footer-about .footer-slogan + p { margin-top: 14px; }.footer-bottom { display: flex; padding-top: 20px; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.08); }.footer-bottom p { margin: 0; color: #6b7994; font-size: .65rem; }.footer-bottom div { display: flex; gap: 18px; }.footer-bottom button { padding: 0; color: #7987a3; font-size: .63rem; background: none; border: 0; cursor: pointer; }.footer-bottom button:hover { color: #e3e9f5; }
 
 .back-to-top { position: fixed; right: 24px; bottom: 24px; z-index: 50; display: grid; width: 42px; height: 42px; place-items: center; color: var(--accent-ink); background: var(--surface); border: 1px solid var(--line-bright); border-radius: 8px; box-shadow: var(--shadow); opacity: 0; pointer-events: none; transform: translateY(10px); transition: opacity .2s, transform .2s; cursor: pointer; }.back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .cookie-banner { position: fixed; z-index: 150; right: 22px; bottom: 22px; left: 22px; display: flex; max-width: 950px; padding: 20px 22px; margin: auto; align-items: center; justify-content: space-between; gap: 30px; background: var(--surface); border: 1px solid var(--line); border-radius: 13px; box-shadow: var(--shadow); }.cookie-banner[hidden] { display: none; }.cookie-banner b { font-family: "Manrope"; font-size: .84rem; color: var(--text); }.cookie-banner p { margin: 4px 0 0; font-size: .7rem; }.cookie-banner > div:last-child { display: flex; flex: 0 0 auto; gap: 8px; }.cookie-banner .button { min-height: 38px; padding: 0 14px; font-size: .68rem; }

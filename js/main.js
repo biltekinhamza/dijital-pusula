@@ -33,7 +33,7 @@
     set(key, value) { try { localStorage.setItem(key, value); } catch { /* yok say */ } }
   };
 
-  let language = store.get("proje-bahcesi-language") === "en" ? "en" : "tr";
+  let language = store.get("dijital-pusula-language") === "en" ? "en" : "tr";
   let lastFocused = null;
 
   /* Bazi gomulu tarayicilarda ve test ortamlarinda matchMedia yoktur;
@@ -382,7 +382,7 @@
 
   function setLanguage(next) {
     language = next === "en" ? "en" : "tr";
-    store.set("proje-bahcesi-language", language);
+    store.set("dijital-pusula-language", language);
     document.documentElement.lang = language;
     $$("[data-lang]").forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.lang === language)));
     /* Baslik ve meta once guncellenir: govde cizimindeki bir hata,
@@ -592,7 +592,7 @@
     const accept = $("#cookie-accept");
     if (accept && banner) {
       accept.addEventListener("click", () => {
-        store.set("proje-bahcesi-cookie-notice", "accepted");
+        store.set("dijital-pusula-cookie-notice", "accepted");
         banner.hidden = true;
       });
     }
@@ -621,5 +621,5 @@
   setLanguage(language);
   setupEvents();
   const banner = $("#cookie-banner");
-  if (banner) banner.hidden = store.get("proje-bahcesi-cookie-notice") === "accepted";
+  if (banner) banner.hidden = store.get("dijital-pusula-cookie-notice") === "accepted";
 })();

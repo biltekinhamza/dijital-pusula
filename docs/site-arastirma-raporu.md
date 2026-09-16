@@ -1,7 +1,7 @@
-# Proje Bahçesi — Ürün Satan Siteye Dönüşüm Araştırma Raporu
+# Dijital Pusula — Ürün Satan Siteye Dönüşüm Araştırma Raporu
 
 **Tarih:** 2026-09-08
-**Kapsam:** `https://biltekinhamza.github.io/proje-bahcesi/` sitesinin, "özel yazılım ajansı" tanıtım sitesinden **iki gerçek ürünü yayınlayan ve satan** bir ürün sitesine dönüştürülmesi.
+**Kapsam:** `https://biltekinhamza.github.io/dijital-pusula/` sitesinin, "özel yazılım ajansı" tanıtım sitesinden **iki gerçek ürünü yayınlayan ve satan** bir ürün sitesine dönüştürülmesi.
 **Ürünler:** HVAC Pro Suite (çok kiracılı havalandırma/sac imalat teklif-sipariş SaaS'i) ve Soğuk Hava Deposu (detayları netleşmemiş).
 **Kısıtlar:** GitHub Pages statik barındırma, sunucu yok, veritabanı yok, ücretli bağımlılık yok, TR/EN çift dil korunacak, vanilla HTML/CSS/JS, build adımı yok.
 
@@ -315,7 +315,7 @@ Aynı Yönetmelik **MADDE 4**, ETHS'yi "elektronik ticaret pazar yerinde ya da *
 
 > ⚠️ Not: Vergi mükellefi bir şahıs işletmesi, TTK anlamında **tacir** de olabilir (esnaf sınırını aşan ticari işletme). Hangi kategoriye girdiğiniz — dolayısıyla MERSİS mi vergi no mu yazacağınız — **mali müşavirinize sorulmalıdır.**
 
-**Bugünkü durum:** Footer'da `info@projebahcesi.example`, `+90 (___) ___ __ __`, "Şirket adresi buraya eklenecek" yer tutucuları var. Yayın öncesi **P0**.
+**Bugünkü durum:** Footer'da `info@dijitalpusula.example`, `+90 (___) ___ __ __`, "Şirket adresi buraya eklenecek" yer tutucuları var. Yayın öncesi **P0**.
 
 ### 6.2 ✅ DOĞRULANDI — 6563 md. 3, bilgi verme yükümlülüğü
 
@@ -457,9 +457,9 @@ Ayrıca teknik limitler: yayımlanan site **≤ 1 GB**, kaynak repo tavsiye edil
 
 ### 8.2 Özel alan adı
 
-`biltekinhamza.github.io/proje-bahcesi/` bir ürün satan site için ciddiyet kaybıdır ve alt-dizin olduğu için ayrıca teknik sorun üretir (kök `robots.txt`/`sitemap.xml` sizin değil, GitHub'ın kökünde olur). **Kendi alan adınızı alın** (örn. `projebahcesi.com` veya doğrudan ürün adına `hvacprosuite.com`). Apex için `A`/`ALIAS`/`ANAME`, `www` için `CNAME` kaydı gerekir.
+`biltekinhamza.github.io/dijital-pusula/` bir ürün satan site için ciddiyet kaybıdır ve alt-dizin olduğu için ayrıca teknik sorun üretir (kök `robots.txt`/`sitemap.xml` sizin değil, GitHub'ın kökünde olur). **Kendi alan adınızı alın** (örn. `dijitalpusula.com` veya doğrudan ürün adına `hvacprosuite.com`). Apex için `A`/`ALIAS`/`ANAME`, `www` için `CNAME` kaydı gerekir.
 
-**Karar noktası:** Tek marka altında iki ürün (`projebahcesi.com/hvac-pro-suite/`) mi, yoksa ürün başına ayrı alan adı mı? Tek kişilik yapıda **tek alan adı + ürün alt dizinleri** doğru seçimdir: SEO otoritesi bölünmez, yasal metinler ve footer tek yerde durur, bakım maliyeti bir.
+**Karar noktası:** Tek marka altında iki ürün (`dijitalpusula.com/hvac-pro-suite/`) mi, yoksa ürün başına ayrı alan adı mı? Tek kişilik yapıda **tek alan adı + ürün alt dizinleri** doğru seçimdir: SEO otoritesi bölünmez, yasal metinler ve footer tek yerde durur, bakım maliyeti bir.
 
 ### 8.3 URL yapısı ve dil
 

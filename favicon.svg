@@ -1,30 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Projeköyü">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Dijital Pusula">
   <defs>
-    <linearGradient id="bw" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+    <linearGradient id="fv-ring" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
       <stop stop-color="#1a73e8"/>
-      <stop offset=".5" stop-color="#0d47a1"/>
-      <stop offset="1" stop-color="#00bcd4"/>
-    </linearGradient>
-    <linearGradient id="bw2" x1="14" y1="13" x2="50" y2="51" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#2196f3"/>
-      <stop offset="1" stop-color="#00acc1"/>
+      <stop offset=".55" stop-color="#0d47a1"/>
+      <stop offset="1" stop-color="#0a7d8c"/>
     </linearGradient>
   </defs>
-  <rect x="2" y="2" width="60" height="60" rx="16" fill="#0a1628" stroke="url(#bw)" stroke-width="2"/>
-  <!-- Butterfly wings -->
-  <g transform="translate(32,32)">
-    <!-- Left upper wing -->
-    <path d="M-2,-2 C-12,-18 -28,-16 -26,-6 C-24,2 -14,0 -2,-2Z" fill="url(#bw2)" opacity="0.95"/>
-    <!-- Right upper wing -->
-    <path d="M2,-2 C12,-18 28,-16 26,-6 C24,2 14,0 2,-2Z" fill="url(#bw2)" opacity="0.95"/>
-    <!-- Left lower wing -->
-    <path d="M-2,2 C-10,10 -22,14 -20,6 C-18,0 -10,2 -2,2Z" fill="url(#bw)" opacity="0.85"/>
-    <!-- Right lower wing -->
-    <path d="M2,2 C10,10 22,14 20,6 C18,0 10,2 2,2Z" fill="url(#bw)" opacity="0.85"/>
-    <!-- Body -->
-    <ellipse cx="0" cy="0" rx="1.5" ry="5" fill="#1565c0"/>
-    <!-- Antennae -->
-    <path d="M-1,-5 C-4,-10 -8,-12 -10,-10" fill="none" stroke="#42a5f5" stroke-width="0.8" stroke-linecap="round"/>
-    <path d="M1,-5 C4,-10 8,-12 10,-10" fill="none" stroke="#42a5f5" stroke-width="0.8" stroke-linecap="round"/>
-  </g>
+  <!-- Kucuk boyutta okunurluk icin dolu disk + sade ibre -->
+  <circle cx="32" cy="32" r="30" fill="url(#fv-ring)"/>
+  <circle cx="32" cy="32" r="23" fill="none" stroke="#ffffff" stroke-width="2" opacity=".45"/>
+  <path d="M32 8 41 32H32Z" fill="#ffffff"/>
+  <path d="M32 8 23 32h9Z" fill="#c5dcfa"/>
+  <path d="M32 56 41 32H32Z" fill="#1c4f96" opacity=".85"/>
+  <path d="M32 56 23 32h9Z" fill="#153c74" opacity=".85"/>
+  <circle cx="32" cy="32" r="4" fill="#ffffff"/>
 </svg>

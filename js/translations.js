@@ -1,4 +1,4 @@
-/* Proje Bahcesi - site icerik katmani (TR / EN).
+/* Dijital Pusula - site icerik katmani (TR / EN).
    Butun sayfalar bu tek katalogu paylasir. main.js icindeki t("a.b.c")
    noktali yol cozumlemesi dogrudan bu agac uzerinde calisir; sayfa
    markup'inda data-i18n="a.b.c" yazmak yeterlidir.
@@ -20,7 +20,7 @@ window.SITE_COMPANY = {
      yazacaginizi) mali musavirinize sorun. Bos birakilan alanlar
      sitede hic gosterilmez. */
   legalName: "Hamza Biltekin",            // esnaf/sahis isletmesi varsayimi - tacirseniz ticaret unvanini yazin
-  brandName: "",                          // Varsa isletme adi / tescilli marka
+  brandName: "Dijital Pusula",            // Isletme adi / marka - sitede gorunen ad
   email: "biltekinhamza@gmail.com",
   phone: "+90 539 219 19 82",
   phoneHref: "+905392191982",             // bos ise tel: linki verilmez
@@ -39,7 +39,12 @@ window.SITE_COMPANY = {
 
 window.SITE_CONTENT = {
   tr: {
-    brand: { name: "Proje", accent: "Bahçesi", tagline: "Sektörel yazılım" },
+    brand: {
+      name: "Dijital", accent: "Pusula", full: "Dijital Pusula",
+      /* Slogan tek kaynak: hero ve footer ayni iki satiri kullanir. */
+      tagline: "Doğru yerdesiniz.",
+      taglineSub: "Sektörünüzün yazılımı burada."
+    },
 
     a11y: {
       skip: "İçeriğe geç", openMenu: "Menüyü aç", navigation: "Ana navigasyon",
@@ -55,7 +60,7 @@ window.SITE_CONTENT = {
 
     pages: {
       home: {
-        title: "Proje Bahçesi | Havalandırma ve Soğuk Hava Deposu Yazılımları",
+        title: "Dijital Pusula | Havalandırma ve Soğuk Hava Deposu Yazılımları",
         description: "Havalandırma imalatçıları için teklif ve maliyet yazılımı, meyve soğuk hava depoları için 3D depo yönetim sistemi. Çok işletmeli, buluttan çalışan sektörel yazılımlar.",
         og: "Sektörünüz için hazır, buluttan çalışan yazılımlar: HVAC Pro Suite ve Soğuk Hava Deposu Yönetim Sistemi."
       },
@@ -70,30 +75,29 @@ window.SITE_CONTENT = {
         og: "Deponun 3D dijital ikizi. Meyve soğuk hava depoları için yerleşim, stok ve depolama hesabı."
       },
       services: {
-        title: "Özel Yazılım ve Otomasyon | Proje Bahçesi",
+        title: "Özel Yazılım ve Otomasyon | Dijital Pusula",
         description: "Hazır ürünlerin dışında kalan ihtiyaçlar için özel yazılım, sistem entegrasyonu ve süreç otomasyonu geliştiriyoruz.",
         og: "İşletmenize özel yazılım, entegrasyon ve süreç otomasyonu."
       },
       privacy: {
-        title: "Gizlilik ve KVKK Aydınlatma Metni | Proje Bahçesi",
-        description: "Proje Bahçesi internet sitesi üzerinden toplanan kişisel verilere ilişkin KVKK aydınlatma metni ve gizlilik açıklaması.",
+        title: "Gizlilik ve KVKK Aydınlatma Metni | Dijital Pusula",
+        description: "Dijital Pusula internet sitesi üzerinden toplanan kişisel verilere ilişkin KVKK aydınlatma metni ve gizlilik açıklaması.",
         og: "KVKK aydınlatma metni ve gizlilik açıklaması."
       },
       cookies: {
-        title: "Çerez Politikası | Proje Bahçesi",
-        description: "Proje Bahçesi internet sitesinde kullanılan tarayıcı depolaması ve çerez uygulamalarına ilişkin politika.",
+        title: "Çerez Politikası | Dijital Pusula",
+        description: "Dijital Pusula internet sitesinde kullanılan tarayıcı depolaması ve çerez uygulamalarına ilişkin politika.",
         og: "Çerez ve tarayıcı depolaması politikası."
       },
       terms: {
-        title: "Kullanım Koşulları | Proje Bahçesi",
-        description: "Proje Bahçesi internet sitesinin kullanım koşulları, bağlayıcılık ve sorumluluk sınırları.",
+        title: "Kullanım Koşulları | Dijital Pusula",
+        description: "Dijital Pusula internet sitesinin kullanım koşulları, bağlayıcılık ve sorumluluk sınırları.",
         og: "Sitenin kullanım koşulları ve sorumluluk sınırları."
       }
     },
 
     home: {
       hero: {
-        eyebrow: "Sektörüne göre yazılmış, kutudan çıkar çıkmaz çalışan yazılımlar",
         title: "Havalandırma ve soğuk hava deposu işletmeleri için hazır yazılım.",
         description: "Genel amaçlı bir ERP'yi işinize benzetmeye çalışmak yerine, doğrudan sizin işiniz için yazılmış iki ürün. İkisi de buluttan çalışır, her işletmenin verisi birbirinden ayrıdır ve kurulum gerektirmez. Şu an iki sektördeyiz; sırada yeni sektörler için aynı yaklaşımla yazılmış ürünler var.",
         primary: "Ürünleri İnceleyin",
@@ -439,7 +443,7 @@ window.SITE_CONTENT = {
       failed: "Gönderim başarısız oldu. Lütfen doğrudan e-posta ile yazın:",
       preparing: "E-posta hazırlanıyor...",
       mailFallback: "E-posta uygulamanız açıldı. Açılmadıysa doğrudan yazabilirsiniz:",
-      mailSubject: "Demo / fiyat talebi - Proje Bahçesi",
+      mailSubject: "Demo / fiyat talebi - Dijital Pusula",
       note: "Bilgileriniz yalnızca talebinizi yanıtlamak için kullanılır, üçüncü taraflarla paylaşılmaz.",
       mailLabels: { name: "Ad Soyad", company: "Firma", email: "E-posta", phone: "Telefon", interest: "İlgilendiği ürün", size: "İşletme büyüklüğü", description: "Açıklama", contactMethod: "İletişim tercihi" }
     },
@@ -509,7 +513,11 @@ window.SITE_CONTENT = {
   /* =================================================================== */
 
   en: {
-    brand: { name: "Proje", accent: "Bahçesi", tagline: "Vertical software" },
+    brand: {
+      name: "Dijital", accent: "Pusula", full: "Dijital Pusula",
+      tagline: "You’re in the right place.",
+      taglineSub: "The software for your industry is here."
+    },
 
     a11y: {
       skip: "Skip to content", openMenu: "Open menu", navigation: "Main navigation",
@@ -525,7 +533,7 @@ window.SITE_CONTENT = {
 
     pages: {
       home: {
-        title: "Proje Bahçesi | Software for HVAC Manufacturers and Cold Storage",
+        title: "Dijital Pusula | Software for HVAC Manufacturers and Cold Storage",
         description: "Quoting and cost software for ventilation manufacturers, and a 3D warehouse management system for fruit cold storage. Multi-tenant, cloud-based vertical software.",
         og: "Ready-to-use vertical software: HVAC Pro Suite and the Cold Storage Management System."
       },
@@ -540,30 +548,29 @@ window.SITE_CONTENT = {
         og: "A 3D digital twin of your cold store. Layout, stock and storage billing for fruit cold storage."
       },
       services: {
-        title: "Custom Software and Automation | Proje Bahçesi",
+        title: "Custom Software and Automation | Dijital Pusula",
         description: "For needs our products do not cover, we build custom software, system integrations and process automation.",
         og: "Custom software, integration and process automation for your business."
       },
       privacy: {
-        title: "Privacy Notice (KVKK) | Proje Bahçesi",
-        description: "Privacy notice and KVKK disclosure for personal data collected through the Proje Bahçesi website.",
+        title: "Privacy Notice (KVKK) | Dijital Pusula",
+        description: "Privacy notice and KVKK disclosure for personal data collected through the Dijital Pusula website.",
         og: "Privacy notice and KVKK disclosure."
       },
       cookies: {
-        title: "Cookie Policy | Proje Bahçesi",
-        description: "Policy on browser storage and cookie use on the Proje Bahçesi website.",
+        title: "Cookie Policy | Dijital Pusula",
+        description: "Policy on browser storage and cookie use on the Dijital Pusula website.",
         og: "Cookie and browser storage policy."
       },
       terms: {
-        title: "Terms of Use | Proje Bahçesi",
-        description: "Terms of use for the Proje Bahçesi website, including binding effect and limits of liability.",
+        title: "Terms of Use | Dijital Pusula",
+        description: "Terms of use for the Dijital Pusula website, including binding effect and limits of liability.",
         og: "Terms of use and limits of liability."
       }
     },
 
     home: {
       hero: {
-        eyebrow: "Software written for one industry, working from day one",
         title: "Ready-made software for ventilation manufacturers and cold storage operators.",
         description: "Instead of bending a general-purpose ERP into the shape of your business, two products written for your business in the first place. Both run in the cloud, keep every company's data separate and need no installation. We're in two industries today, with more products built the same way already underway.",
         primary: "Explore the Products",
@@ -909,7 +916,7 @@ window.SITE_CONTENT = {
       failed: "Sending failed. Please write to us directly:",
       preparing: "Preparing your email...",
       mailFallback: "Your email application has opened. If it did not, write to us directly:",
-      mailSubject: "Demo / pricing request - Proje Bahçesi",
+      mailSubject: "Demo / pricing request - Dijital Pusula",
       note: "Your details are used only to answer your request and are not shared with third parties.",
       mailLabels: { name: "Full name", company: "Company", email: "Email", phone: "Phone", interest: "Product of interest", size: "Business size", description: "Description", contactMethod: "Contact preference" }
     },
@@ -978,4 +985,4 @@ window.SITE_CONTENT = {
 };
 
 /* Geriye uyumluluk: eski dosya adiyla erisen kod varsa kirilmasin. */
-window.PROJE_BAHCESI_TRANSLATIONS = window.SITE_CONTENT;
+window.DIJITAL_PUSULA_TRANSLATIONS = window.SITE_CONTENT;

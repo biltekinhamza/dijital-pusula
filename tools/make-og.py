@@ -7,7 +7,8 @@ her paylasim bos kart olarak cikar. Bu yuzden PNG uretiliyor.
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
-OUT = Path(r"E:\proje-bahcesi\assets\images")
+# Proje koku script konumundan turetilir; klasor adi degisirse bozulmaz.
+OUT = Path(__file__).resolve().parent.parent / "assets" / "images"
 W, H = 1200, 630
 
 FONT_DIR = Path(r"C:\Windows\Fonts")
@@ -62,6 +63,20 @@ def wrap(draw, text, fnt, max_w):
     return lines
 
 
+def compass(d, cx, cy, r):
+    """Site logosunun PNG karsiligi: dolu mavi kadran + iki tonlu ibre."""
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(26, 115, 232))
+    ir = r * 0.76
+    d.ellipse([cx - ir, cy - ir, cx + ir, cy + ir], outline=(255, 255, 255, 120), width=2)
+    n, w = r * 0.80, r * 0.30
+    d.polygon([(cx, cy - n), (cx + w, cy), (cx, cy)], fill=(255, 255, 255))
+    d.polygon([(cx, cy - n), (cx - w, cy), (cx, cy)], fill=(197, 220, 250))
+    d.polygon([(cx, cy + n), (cx + w, cy), (cx, cy)], fill=(28, 79, 150))
+    d.polygon([(cx, cy + n), (cx - w, cy), (cx, cy)], fill=(21, 60, 116))
+    hr = r * 0.14
+    d.ellipse([cx - hr, cy - hr, cx + hr, cy + hr], fill=(255, 255, 255))
+
+
 def chip(d, x, y, text, fnt):
     pad_x, h = 16, 34
     w = round(d.textlength(text, font=fnt)) + pad_x * 2
@@ -82,12 +97,13 @@ def build(name, eyebrow, title, subtitle, chips):
     f_url = font(MONO, 20)
 
     x = 78
-    # marka
-    d.rounded_rectangle([x, 60, x + 46, 106], radius=12, fill=(26, 115, 232))
-    d.text((x + 23, 83), "P", font=f_brand, fill=(255, 255, 255), anchor="mm")
-    d.text((x + 62, 71), "Proje", font=f_brand, fill=(16, 25, 43))
-    bw = d.textlength("Proje", font=f_brand)
-    d.text((x + 62 + bw, 71), "Bahçesi", font=f_brand, fill=(11, 79, 160))
+    # marka: pusula isareti + iki tonlu kelime markasi
+    compass(d, x + 23, 83, 23)
+    d.text((x + 62, 71), "Dijital", font=f_brand, fill=(16, 25, 43))
+    bw = d.textlength("Dijital", font=f_brand)
+    d.text((x + 62 + bw, 71), "Pusula", font=f_brand, fill=(11, 79, 160))
+
+    d.text((x, 122), "Doğru yerdesiniz.", font=font(BOLD, 24), fill=(11, 79, 160))
 
     d.text((x, 168), eyebrow.upper(), font=f_eyebrow, fill=(11, 79, 160))
 
@@ -105,7 +121,7 @@ def build(name, eyebrow, title, subtitle, chips):
     for text in chips:
         cx = chip(d, cx, 508, text, f_chip)
 
-    d.text((x, 578), "biltekinhamza.github.io/proje-bahcesi", font=f_url, fill=(133, 146, 168))
+    d.text((x, 578), "biltekinhamza.github.io/dijital-pusula", font=f_url, fill=(133, 146, 168))
 
     path = OUT / name
     img.save(path, "PNG", optimize=True)

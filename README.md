@@ -1,4 +1,4 @@
-# Proje Bahçesi — ürün sitesi
+# Dijital Pusula — ürün sitesi
 
 İki yazılım ürününü tanıtan ve satışa yönlendiren, iki dilli (TR / EN) statik site.
 
@@ -34,7 +34,7 @@ Taşındıktan sonra bu dosyalardaki adresler güncellenmeli:
 - her `.html` içindeki `<link rel="canonical">` ve `og:url` / `og:image`
 - `sitemap.xml` içindeki `<loc>` değerleri
 - `robots.txt` içindeki `Sitemap:` satırı
-- `404.html` içindeki `/proje-bahcesi/...` mutlak yolları (özel alan adında `/...` olur)
+- `404.html` içindeki `/dijital-pusula/...` mutlak yolları (özel alan adında `/...` olur)
 
 ---
 
@@ -70,10 +70,31 @@ tutucu olduğunu her çalıştırmada listeler.
 
 ---
 
+## Marka
+
+| | |
+|---|---|
+| Ad | **Dijital Pusula** |
+| Kelime markası | `Dijital` + `Pusula` bitişik yazılır, ikinci yarı vurgu renginde (`--accent-ink`) |
+| Slogan | **Doğru yerdesiniz.** / alt satır: *Sektörünüzün yazılımı burada.* |
+| İngilizce slogan | **You’re in the right place.** / *The software for your industry is here.* |
+| Simge | Pusula — `assets/logo/logo-mark.svg` |
+| Favicon | `favicon.svg` (küçük boyutta okunsun diye dolu disk varyantı) |
+
+Marka adı ve slogan tek kaynaktan gelir: `js/translations.js` → `brand` bloğu
+(`name`, `accent`, `full`, `tagline`, `taglineSub`). HTML'de bunlar
+`data-i18n="brand.tagline"` gibi yollarla çağrılır; sabit metin yazmayın.
+
+**Animasyon:** başlık ve footer'daki `.brand-mark-animated` içinde kadran sabit
+durur, yalnız `logo-needle.svg` katmanı `compass-seek` keyframe'iyle gerçek bir
+pusula gibi yönü arayıp yerine oturur. `prefers-reduced-motion` açıkken durur.
+
+---
+
 ## Dosya yapısı
 
 ```text
-proje-bahcesi/
+dijital-pusula/
 ├── index.html                        # ana sayfa (ürün vitrini + SSS + iletişim)
 ├── havalandirma-yazilimi.html        # HVAC Pro Suite ürün sayfası
 ├── soguk-hava-deposu-yazilimi.html   # Soğuk Hava Deposu ürün sayfası
@@ -91,6 +112,9 @@ proje-bahcesi/
 ├── assets/
 │   ├── images/                       # ürün görselleri + OG kartları (PNG)
 │   └── logo/
+│       ├── logo-mark.svg             # tam pusula (kadran + ibre) — statik kullanım
+│       ├── logo-dial.svg             # yalnız kadran — animasyonlu markanın zemini
+│       └── logo-needle.svg           # yalnız ibre — dönen katman
 ├── tools/                            # geliştirme yardımcıları (siteye dahil değil)
 └── docs/site-arastirma-raporu.md     # dönüşüm araştırması ve öncelik listesi
 ```

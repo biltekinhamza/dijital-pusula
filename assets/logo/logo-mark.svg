@@ -1,35 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title id="title">Projeköyü logo</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="dp-logo-title">
+  <title id="dp-logo-title">Dijital Pusula logo</title>
   <defs>
-    <linearGradient id="frame" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+    <linearGradient id="dp-ring" x1="10" y1="7" x2="54" y2="57" gradientUnits="userSpaceOnUse">
       <stop stop-color="#1a73e8"/>
-      <stop offset=".5" stop-color="#0d47a1"/>
-      <stop offset="1" stop-color="#00bcd4"/>
+      <stop offset=".55" stop-color="#0d47a1"/>
+      <stop offset="1" stop-color="#0a7d8c"/>
     </linearGradient>
-    <linearGradient id="wing" x1="14" y1="13" x2="50" y2="51" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#2196f3"/>
-      <stop offset="1" stop-color="#00acc1"/>
+    <linearGradient id="dp-face" x1="16" y1="12" x2="48" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#eef4fc"/>
     </linearGradient>
   </defs>
-  <rect x="3" y="3" width="58" height="58" rx="16" fill="#0a1628" stroke="url(#frame)" stroke-width="2"/>
-  <g transform="translate(32,32)">
-    <!-- Left upper wing -->
-    <path d="M-2,-2 C-14,-20 -30,-17 -27,-6 C-24,3 -14,1 -2,-2Z" fill="url(#wing)" opacity="0.95"/>
-    <!-- Right upper wing -->
-    <path d="M2,-2 C14,-20 30,-17 27,-6 C24,3 14,1 2,-2Z" fill="url(#wing)" opacity="0.95"/>
-    <!-- Left lower wing -->
-    <path d="M-2,2 C-11,12 -24,16 -21,7 C-18,0 -10,2 -2,2Z" fill="url(#frame)" opacity="0.85"/>
-    <!-- Right lower wing -->
-    <path d="M2,2 C11,12 24,16 21,7 C18,0 10,2 2,2Z" fill="url(#frame)" opacity="0.85"/>
-    <!-- Body -->
-    <ellipse cx="0" cy="0" rx="1.8" ry="5.5" fill="#1565c0"/>
-    <!-- Antennae -->
-    <path d="M-1,-5.5 C-5,-11 -9,-13 -11,-11" fill="none" stroke="#42a5f5" stroke-width="0.9" stroke-linecap="round"/>
-    <path d="M1,-5.5 C5,-11 9,-13 11,-11" fill="none" stroke="#42a5f5" stroke-width="0.9" stroke-linecap="round"/>
-    <!-- Wing dots -->
-    <circle cx="-12" cy="-8" r="1.5" fill="#bbdefb" opacity="0.5"/>
-    <circle cx="12" cy="-8" r="1.5" fill="#bbdefb" opacity="0.5"/>
-    <circle cx="-8" cy="-4" r="1" fill="#bbdefb" opacity="0.4"/>
-    <circle cx="8" cy="-4" r="1" fill="#bbdefb" opacity="0.4"/>
+
+  <!-- Kadran: dis halka + derece cemberi -->
+  <circle cx="32" cy="32" r="28.5" fill="url(#dp-face)" stroke="url(#dp-ring)" stroke-width="3"/>
+  <circle cx="32" cy="32" r="22.5" fill="none" stroke="#cfe0f7" stroke-width="1"/>
+
+  <!-- Ara yon cizgileri (NE, SE, SW, NW) -->
+  <g stroke="#9db8dd" stroke-width="1.3" stroke-linecap="round">
+    <path d="M50.03 13.97 48.97 15.03"/>
+    <path d="M50.03 50.03 48.97 48.97"/>
+    <path d="M13.97 50.03 15.03 48.97"/>
+    <path d="M13.97 13.97 15.03 15.03"/>
   </g>
+
+  <!-- Ana yon cizgileri (N, E, S, W) -->
+  <g stroke="#6f9ad4" stroke-width="1.8" stroke-linecap="round">
+    <path d="M32 6.3v2.3"/><path d="M32 55.4v2.3"/>
+    <path d="M6.3 32h2.3"/><path d="M55.4 32h2.3"/>
+  </g>
+
+  <!-- Pusula ibresi -->
+  <path d="M32 10.5 39 32H32Z" fill="#1a73e8"/>
+  <path d="M32 10.5 25 32h7Z" fill="#0d47a1"/>
+  <path d="M32 53.5 39 32H32Z" fill="#b6c7dd"/>
+  <path d="M32 53.5 25 32h7Z" fill="#95aac7"/>
+
+  <!-- Merkez gobek -->
+  <circle cx="32" cy="32" r="4.6" fill="#ffffff" stroke="#0d47a1" stroke-width="2"/>
+  <circle cx="32" cy="32" r="1.5" fill="#1a73e8"/>
 </svg>

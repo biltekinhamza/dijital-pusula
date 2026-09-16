@@ -6,7 +6,8 @@ const fs = require("fs");
 const path = require("path");
 const { JSDOM, VirtualConsole } = require("jsdom");
 
-const ROOT = "E:\\proje-bahcesi";
+// Proje koku script konumundan turetilir; klasor adi degisirse bozulmaz.
+const ROOT = path.resolve(__dirname, "..");
 let fail = 0;
 const bad = (m) => { console.log("  HATA  " + m); fail++; };
 
@@ -30,12 +31,12 @@ async function run(file, lang) {
   const dom = new JSDOM(fs.readFileSync(path.join(ROOT, file), "utf8"), {
     runScripts: "dangerously",
     resources: undefined,
-    url: "https://biltekinhamza.github.io/proje-bahcesi/" + file,
+    url: "https://biltekinhamza.github.io/dijital-pusula/" + file,
     virtualConsole: vc,
     pretendToBeVisual: true
   });
   const { window } = dom;
-  window.localStorage.setItem("proje-bahcesi-language", lang);
+  window.localStorage.setItem("dijital-pusula-language", lang);
   // <script src> yuklenmiyor; elle enjekte et
   for (const js of ["js/translations.js", "js/main.js"]) {
     const el = window.document.createElement("script");
