@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="presentation" aria-hidden="true">
+  <!-- Manyetik Kuzey paleti (TASARIM-STANDARDI.md SS1.3): kadran halkası
+       #B83B1C -> #223B57, yüz #FFFFFF -> #FBFAF7. Geometri ADR-3 gereği
+       değişmedi, yalnız renk güncellendi. -->
+  <defs>
+    <linearGradient id="dpd-ring" x1="10" y1="7" x2="54" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B83B1C"/>
+      <stop offset=".55" stop-color="#932F16"/>
+      <stop offset="1" stop-color="#223B57"/>
+    </linearGradient>
+    <linearGradient id="dpd-face" x1="16" y1="12" x2="48" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FBFAF7"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="28.5" fill="url(#dpd-face)" stroke="url(#dpd-ring)" stroke-width="3"/>
+  <circle cx="32" cy="32" r="22.5" fill="none" stroke="#E2DFD6" stroke-width="1"/>
+  <g stroke="#5C6470" stroke-width="1.3" stroke-linecap="round">
+    <path d="M50.03 13.97 48.97 15.03"/>
+    <path d="M50.03 50.03 48.97 48.97"/>
+    <path d="M13.97 50.03 15.03 48.97"/>
+    <path d="M13.97 13.97 15.03 15.03"/>
+  </g>
+  <g stroke="#223B57" stroke-width="1.8" stroke-linecap="round">
+    <path d="M32 6.3v2.3"/><path d="M32 55.4v2.3"/>
+    <path d="M6.3 32h2.3"/><path d="M55.4 32h2.3"/>
+  </g>
+</svg>

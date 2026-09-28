@@ -1,0 +1,1452 @@
+/* --- tokens.css --- */
+/* tokens.css — TEK belirteç dosyası (TASARIM-STANDARDI.md SS1-3).
+   Kırılma noktası piksel değerleri de dahil, hiçbir değer başka bir CSS
+   dosyasında elle tekrar yazılmaz; her yerde bu değişkenler kullanılır. */
+
+:root {
+  /* --- 3.1 Boşluk (px) --- */
+  --space-0: 0;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* --- 2.1 Yazı boyutu --- */
+  --font-size-12: 0.75rem;
+  --font-size-14: 0.875rem;
+  --font-size-16: 1rem;
+  --font-size-18: 1.125rem;
+  --font-size-20: 1.25rem;
+  --font-size-24: 1.5rem;
+  --font-size-30: 1.875rem;
+  --font-size-36: 2.25rem;
+  --font-size-48: 3rem;
+  --font-size-hero: clamp(1.875rem, 1.1rem + 2.4vw, 3rem);
+
+  /* --- 2 Tipografi aileleri (self-hosted, A1) --- */
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "IBM Plex Sans Condensed", var(--font-body);
+
+  /* --- 3.1 Köşe / gölge / kenarlık --- */
+  --radius-0: 0;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --shadow-0: none;
+  --shadow-1: 0 2px 8px rgba(25, 30, 40, .08);
+  --shadow-2: 0 16px 40px rgba(25, 30, 40, .16);
+  --border-width: 1px;
+  --bar-thick: 3px;
+
+  /* --- 3.2 Kırılma noktaları (yalnız burada tanımlı) --- */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --container-max: 1200px;
+  --container-pad: var(--space-20);
+
+  /* --- 5.1 Header yükseklikleri --- */
+  --header-h-mobile: 72px;
+  --header-h-desktop: 78px;
+
+  /* --- 1.1 Anlamsal renkler --- */
+  --color-success: #256B3B;
+  --color-success-bg: #E4F1E8;
+  --color-warning: #855014;
+  --color-warning-bg: #F7E8D2;
+  --color-error: #A23327;
+  --color-error-bg: #F7E3E1;
+  --color-info: #2C6E8C;
+  --color-info-bg: #E3EEF2;
+
+  /* --- 1.2 Marka renkleri: Manyetik Kuzey --- */
+  --color-bg: #FBFAF7;
+  --color-bg-soft: #F1EEE6;
+  --color-surface: #FFFFFF;
+  --color-ink: #191E28;
+  --color-ink-rgb: 25, 30, 40;
+  --color-ink-muted: #5C6470;
+  --color-line: #E2DFD6;
+  --color-accent-primary: #B83B1C;
+  --color-accent-primary-ink: #932F16;
+  --color-accent-secondary: #223B57;
+}
+
+@media (min-width: 1280px) {
+  :root { --container-pad: var(--space-48); }
+}
+
+/* --- base.css --- */
+/* base.css — @font-face (kendi sunucumuzdan, ADR-6), sıfırlama, tipografi,
+   odak halkası, evrensel erişilebilirlik kuralları (TASARIM-STANDARDI.md S6). */
+
+/* --- Yazı tipleri: IBM Plex, latin + latin-ext (İ ı ğ ş ç ö dahil) alt
+   kümesi, src/static/assets/fonts/ altında kendi sunucumuzdan servis
+   edilir. Lisans: OFL 1.1, bkz. assets/fonts/LICENSE-OFL.txt. --- */
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/ibm-plex-sans-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../assets/fonts/ibm-plex-sans-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/ibm-plex-sans-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans Condensed";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/ibm-plex-sans-condensed-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Sans Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/ibm-plex-sans-condensed-700.woff2") format("woff2");
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h-desktop) + var(--space-16)); }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--color-ink);
+  background: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: var(--font-size-16);
+  line-height: 1.6;
+}
+img, svg { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: var(--color-accent-primary); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+table { border-collapse: collapse; }
+
+h1, h2, h3, h4 {
+  margin: 0 0 var(--space-16);
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+}
+h1 { font-size: var(--font-size-hero); line-height: 1.08; }
+h2 { font-size: var(--font-size-30); line-height: 1.2; }
+h3 { font-size: var(--font-size-20); line-height: 1.35; }
+h4 { font-size: var(--font-size-18); line-height: 1.4; }
+p { margin: 0 0 var(--space-16); }
+ul, ol { margin: 0; padding: 0; }
+dl { margin: 0; }
+dt { font-weight: 600; }
+
+/* --- Evrensel taban: odak halkası her zaman görünür --- */
+:focus-visible {
+  outline: 3px solid var(--color-accent-primary);
+  outline-offset: 3px;
+}
+/* Koyu zemin üstünde (footer, CTA bandı) halka rengi koyu zeminle karışmasın */
+.on-dark :focus-visible { outline-color: #FFFFFF; }
+
+.container {
+  width: min(100% - (var(--container-pad) * 2), var(--container-max));
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-8);
+  left: var(--space-8);
+  z-index: 1000;
+  padding: var(--space-8) var(--space-16);
+  color: #fff;
+  background: var(--color-accent-secondary);
+  border-radius: var(--radius-sm);
+  transform: translateY(-200%);
+  transition: transform .15s ease;
+}
+.skip-link:focus { transform: translateY(0); }
+
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+  vertical-align: -0.2em;
+}
+.icon-fill { fill: currentColor; stroke: none; }
+
+section { padding: var(--space-48) 0; }
+.section-tight { padding: var(--space-32) 0; }
+@media (min-width: 1024px) {
+  section { padding: var(--space-64) 0; }
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  margin-bottom: var(--space-12);
+  color: var(--color-accent-primary-ink);
+  font-size: var(--font-size-14);
+  font-weight: 600;
+}
+.eyebrow .icon { width: 1em; height: 1em; }
+
+.lead {
+  max-width: 62ch;
+  color: var(--color-ink-muted);
+  font-size: var(--font-size-18);
+}
+
+.section-head { max-width: 74ch; margin-bottom: var(--space-32); }
+.section-head p { margin-bottom: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- layout.css --- */
+/* layout.css — sayfa iskeleti ve tekrar kullanılan yerleşim örüntüleri
+   (TASARIM-STANDARDI.md S3.2 kırılma noktaları burada uygulanır; jeton
+   değerleri yalnız tokens.css'te tanımlı). */
+
+#icerik { display: block; }
+
+/* --- İki sütun (P4 "Bugün nasıl/Ürün ne yapıyor", H5 kişi kartı vb.):
+   dar ekranda tek sütun, >=1024px'te yan yana. --- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+}
+@media (min-width: 1024px) {
+  .split { grid-template-columns: 1fr 1fr; gap: var(--space-64); align-items: start; }
+  .split.split-45-55 { grid-template-columns: .82fr 1fr; }
+  .split.split-55-45 { grid-template-columns: 1fr .82fr; }
+}
+
+/* --- Zigzag (P6 yetenek blokları, ana sayfa ürün vitrini H3/H4):
+   dar ekranda her zaman görsel üstte metin altta; geniş ekranda satır
+   sırası değişir (§TASARIM-STANDARDI 5.6). --- */
+.zigzag-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+  align-items: center;
+}
+.zigzag-row + .zigzag-row { margin-top: var(--space-48); }
+@media (min-width: 1024px) {
+  .zigzag-row { grid-template-columns: 1fr 1fr; gap: var(--space-64); }
+  .zigzag-row .zigzag-media { order: 2; }
+  .zigzag-row .zigzag-text { order: 1; }
+  .zigzag-row.zigzag-reverse .zigzag-media { order: 1; }
+  .zigzag-row.zigzag-reverse .zigzag-text { order: 2; }
+}
+
+/* --- Yalnız geniş ekranda yan yana ızgara (fiyat/adım/yol haritası
+   sütunları gibi eşit-genişlik durumlarda). --- */
+.grid-auto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+}
+@media (min-width: 1024px) {
+  .grid-auto[data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
+  .grid-auto[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
+}
+
+.stack { display: grid; gap: var(--space-16); }
+.cluster { display: flex; flex-wrap: wrap; gap: var(--space-12); align-items: center; }
+
+.bleed-soft { background: var(--color-bg-soft); }
+.bleed-dark {
+  background: var(--color-accent-secondary);
+  color: #F3F6F9;
+}
+
+@media (max-width: 767px) {
+  .desktop-only { display: none !important; }
+}
+@media (min-width: 768px) {
+  .mobile-only { display: none !important; }
+}
+
+/* --- components/brand.css --- */
+/* brand.css — pusula ibresi mekaniği (TASARIM-STANDARDI.md S4, ADR-3 SABİT).
+   Kadran sabit durur, yalnız ibre döner; compass-seek 7s ease-in-out, sonunda
+   0deg'e oturur; hover'da 7s -> 2.6s. prefers-reduced-motion açıkken TÜM
+   hareket durur (ibre 0deg sabit). Bu üç davranış değiştirilemez. */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-20);
+  font-weight: 700;
+}
+.brand .brand-accent { color: var(--color-accent-primary); }
+
+.brand-mark {
+  position: relative;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+}
+@media (min-width: 1024px) {
+  .brand-mark { width: 34px; height: 34px; }
+}
+.brand-mark img { width: 100%; height: 100%; }
+.brand-mark .brand-mark-dial {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.brand-mark .brand-mark-needle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+  animation: compass-seek 7s ease-in-out infinite;
+}
+.brand:hover .brand-mark-needle,
+.brand:focus-visible .brand-mark-needle {
+  animation-duration: 2.6s;
+}
+
+@keyframes compass-seek {
+  0%, 62%, 100% { transform: rotate(0deg); }
+  8%            { transform: rotate(-17deg); }
+  20%           { transform: rotate(11deg); }
+  32%           { transform: rotate(-6deg); }
+  43%           { transform: rotate(3deg); }
+  53%           { transform: rotate(-1.2deg); }
+}
+
+/* İsteğe bağlı genişletme (COULD, S4): yön kapısına odak/hover geldiğinde
+   header ibresi o kapının yönüne döner. JS bir data özniteliği yazar,
+   CSS yalnız o özniteliğe göre animasyonu durdurup sabit açıya geçer. */
+.brand-mark-needle[data-bearing] {
+  animation-play-state: paused;
+  transition: transform .4s ease;
+}
+.brand-mark-needle[data-bearing="left"] { transform: rotate(-22deg); }
+.brand-mark-needle[data-bearing="right"] { transform: rotate(22deg); }
+
+/* 404 (TASARIM-STANDARDI.md S5.21, COULD): "yön arıyor" varyantı — hiç
+   0deg'de oturmayan, daha uzun bir arama döngüsü. reduced-motion'da diğer
+   her şey gibi base.css'teki genel kural durdurur. */
+@keyframes compass-seek-lost {
+  0%   { transform: rotate(0deg); }
+  15%  { transform: rotate(-38deg); }
+  30%  { transform: rotate(24deg); }
+  45%  { transform: rotate(-52deg); }
+  60%  { transform: rotate(18deg); }
+  75%  { transform: rotate(-14deg); }
+  90%  { transform: rotate(30deg); }
+  100% { transform: rotate(-8deg); }
+}
+.compass-seeking .brand-mark-needle {
+  animation: compass-seek-lost 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark-needle {
+    animation: none !important;
+    transition: none !important;
+    transform: rotate(0deg) !important;
+  }
+}
+
+/* --- components/buttons.css --- */
+/* buttons.css — düğme / bağlantı / ikon genel kuralı (TASARIM-STANDARDI.md S5.22). */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  min-height: 48px;
+  padding: 0 var(--space-20);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: var(--font-size-16);
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--color-accent-primary);
+  border: var(--border-width) solid var(--color-accent-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, transform .1s ease;
+}
+.btn:hover { background: var(--color-accent-primary-ink); border-color: var(--color-accent-primary-ink); text-decoration: none; }
+.btn:active { transform: translateY(1px); }
+.btn[disabled], .btn[aria-busy="true"] { opacity: .65; cursor: progress; }
+
+.btn-secondary {
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border-color: var(--color-line);
+}
+.btn-secondary:hover { color: var(--color-ink); background: var(--color-bg-soft); border-color: var(--color-ink-muted); }
+
+.btn-on-dark {
+  color: var(--color-accent-secondary);
+  background: #fff;
+  border-color: #fff;
+}
+.btn-on-dark:hover { background: var(--color-bg-soft); border-color: var(--color-bg-soft); }
+
+.btn-block { width: 100%; }
+.btn-small { min-height: 40px; padding: 0 var(--space-16); font-size: var(--font-size-14); }
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+}
+
+/* Metin bağlantısı: "→" yalnız gerçek yön/hareket anlamı taşıyan yerlerde
+   (yön kapısı "İncele", 404 bağlantıları DEĞİL — bunlar navigasyon, ok yok). */
+.link-directional {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  color: var(--color-accent-primary-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.link-directional .icon { transition: transform .15s ease; }
+.link-directional:hover .icon,
+.link-directional:focus-visible .icon { transform: translateX(3px); }
+
+/* --- components/badge.css --- */
+/* badge.css — durum rozeti (TASARIM-STANDARDI.md S5.10) ve genel etiket/çip. */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-8);
+  color: var(--color-ink-muted);
+  font-size: var(--font-size-12);
+  font-weight: 700;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-sm);
+}
+.badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.badge-live { color: var(--color-success); background: var(--color-success-bg); }
+.badge-early-access { color: var(--color-warning); background: var(--color-warning-bg); }
+.badge-representative {
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  color: var(--color-warning);
+  background: var(--color-warning-bg);
+  border-radius: var(--radius-0);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-12);
+  color: var(--color-ink);
+  font-size: var(--font-size-14);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+.chip .icon { color: var(--color-accent-primary); }
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: var(--border-width) solid var(--color-line);
+  border-left: var(--border-width) solid var(--color-line);
+}
+.chip-row .chip {
+  flex: 1 1 220px;
+  border: 0;
+  border-right: var(--border-width) solid var(--color-line);
+  border-bottom: var(--border-width) solid var(--color-line);
+  border-radius: 0;
+}
+
+.risk-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-20);
+  margin-top: var(--space-24);
+  list-style: none;
+  padding: 0;
+}
+.risk-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  color: var(--color-ink-muted);
+  font-size: var(--font-size-14);
+}
+.risk-list .icon { color: var(--color-success); }
+
+/* --- components/note-box.css --- */
+/* note-box.css — not kutusu (TASARIM-STANDARDI.md S5.14). Bilgi/uyarı/hata/
+   başarı tonları; sol bar-thick çubuk bilgi taşıyan işaretleyicidir. */
+
+.note {
+  display: flex;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border-left: var(--bar-thick) solid var(--color-info);
+  background: var(--color-info-bg);
+  color: var(--color-info);
+  border-radius: var(--radius-0);
+}
+.note p { margin: 0; color: inherit; }
+.note p + p { margin-top: var(--space-8); }
+.note a { color: inherit; font-weight: 600; }
+.note .icon { flex: 0 0 auto; margin-top: .15em; }
+
+.note-warning { border-left-color: var(--color-warning); background: var(--color-warning-bg); color: var(--color-warning); }
+.note-error { border-left-color: var(--color-error); background: var(--color-error-bg); color: var(--color-error); }
+.note-success { border-left-color: var(--color-success); background: var(--color-success-bg); color: var(--color-success); }
+
+/* --- components/nav.css --- */
+/* nav.css — header + ürün açılır menüsü + dil anahtarı + CTA
+   (TASARIM-STANDARDI.md S5.1). Sticky, kaydırmada saydamdan yüzeye geçer
+   (JS bir sınıf ekler: .site-header--scrolled). JS kapalıyken de tam
+   kullanılabilir: ürün menüsü <details> öğesidir, hover'la değil tıkla/
+   klavyeyle açılır; site.js yalnız aria-expanded senkronu ve dışa
+   tıklamada kapatma ekler (davranış JS'siz de çalışır). */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: var(--header-h-mobile);
+  background: var(--color-bg);
+  border-bottom: var(--border-width) solid transparent;
+}
+@media (min-width: 768px) {
+  .site-header { min-height: var(--header-h-desktop); }
+}
+.site-header--scrolled {
+  background: rgba(251, 250, 247, .92);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom-color: var(--color-line);
+}
+
+.nav-row {
+  display: flex;
+  min-height: var(--header-h-mobile);
+  align-items: center;
+  gap: var(--space-16);
+}
+@media (min-width: 768px) {
+  .nav-row { min-height: var(--header-h-desktop); }
+}
+
+.primary-nav {
+  display: none;
+}
+@media (min-width: 768px) {
+  .primary-nav {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: var(--space-24);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .primary-nav > li { position: relative; }
+  .primary-nav a, .primary-nav > li > button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-8) 0;
+    color: var(--color-ink);
+    font-size: var(--font-size-14);
+    font-weight: 600;
+    text-decoration: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .primary-nav a[aria-current="page"] { color: var(--color-accent-primary-ink); }
+}
+
+.nav-products { position: relative; }
+.nav-products > summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.nav-products > summary::-webkit-details-marker { display: none; }
+.nav-products > summary .icon { transition: transform .15s ease; }
+.nav-products[open] > summary .icon { transform: rotate(180deg); }
+.nav-products-panel {
+  position: absolute;
+  top: calc(100% + var(--space-8));
+  left: 0;
+  z-index: 10;
+  display: grid;
+  width: max(280px, 100%);
+  padding: var(--space-8);
+  gap: var(--space-4);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-2);
+}
+.nav-products-panel a {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-12);
+  color: var(--color-ink);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+.nav-products-panel a:hover,
+.nav-products-panel a:focus-visible { background: var(--color-bg-soft); }
+.nav-products-panel strong { font-size: var(--font-size-14); }
+.nav-products-panel span { color: var(--color-ink-muted); font-size: var(--font-size-12); }
+.nav-products-panel .badge { justify-self: start; }
+
+.nav-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--space-16);
+  margin-left: auto;
+}
+.lang-switch {
+  color: var(--color-ink-muted);
+  font-size: var(--font-size-14);
+  font-weight: 700;
+  text-decoration: none;
+}
+.lang-switch:hover { color: var(--color-ink); }
+
+/* Mobil menü: JS'siz de çalışan gerçek bir <details> açılır/kapanır öğesi
+   (site.js yalnız Esc ile kapatma ve odak dönüşünü zenginleştirir, temel
+   işlev tarayıcı yerlisidir). .mobile-menu[open] dışında panel UA
+   varsayılanıyla zaten gizlidir; burada yalnız AÇIKKEN görünümü
+   tanımlanır. */
+.mobile-menu { position: relative; }
+@media (min-width: 768px) {
+  .mobile-menu { display: none; }
+}
+.menu-toggle {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  list-style: none;
+}
+.menu-toggle::-webkit-details-marker { display: none; }
+.menu-toggle .icon-x { display: none; }
+.mobile-menu[open] .menu-toggle .icon-menu { display: none; }
+.mobile-menu[open] .menu-toggle .icon-x { display: block; }
+
+.mobile-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--color-surface);
+  overflow-y: auto;
+}
+.mobile-panel-head {
+  display: flex;
+  min-height: var(--header-h-mobile);
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--container-pad);
+  border-bottom: var(--border-width) solid var(--color-line);
+}
+.mobile-panel-body { padding: var(--space-24) var(--container-pad) var(--space-48); }
+.mobile-panel-body .btn-row { margin-bottom: var(--space-24); }
+.mobile-nav-list {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-24);
+  padding: 0;
+  list-style: none;
+}
+.mobile-nav-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-16) var(--space-4);
+  color: var(--color-ink);
+  font-size: var(--font-size-18);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: var(--border-width) solid var(--color-line);
+}
+
+/* --- components/footer.css --- */
+/* footer.css — altbilgi (TASARIM-STANDARDI.md S5.2). Koyu bant
+   (--color-accent-secondary), MADDE 5 bloğu "İletişim" başlığı altında. */
+
+.site-footer {
+  padding: var(--space-64) 0 var(--space-24);
+  background: var(--color-accent-secondary);
+  color: #DCE4EC;
+}
+.site-footer a { color: #F3F6F9; }
+.site-footer a:hover { color: #fff; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+  padding-bottom: var(--space-32);
+  border-bottom: var(--border-width) solid rgba(255, 255, 255, .16);
+}
+@media (min-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1024px) {
+  .footer-grid { grid-template-columns: 1.3fr 1fr 1fr 1.3fr; gap: var(--space-48); }
+}
+
+.footer-brand .brand { color: #fff; }
+.footer-brand .brand-accent { color: #F0B29C; }
+.footer-brand p { max-width: 34ch; margin-top: var(--space-16); color: #C4CFDA; font-size: var(--font-size-14); }
+
+.footer-col h2 {
+  margin-bottom: var(--space-12);
+  color: #A9B8C6;
+  font-family: var(--font-body);
+  font-size: var(--font-size-12);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.footer-col ul { list-style: none; display: grid; gap: var(--space-8); }
+.footer-col a { font-size: var(--font-size-14); text-decoration: none; }
+.footer-col a:hover { text-decoration: underline; }
+
+.footer-identity { grid-column: 1 / -1; padding-top: var(--space-8); }
+.footer-identity h2 {
+  margin-bottom: var(--space-16);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-20);
+}
+.footer-identity dl {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12) var(--space-32);
+}
+@media (min-width: 768px) {
+  .footer-identity dl { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .footer-identity dl { grid-template-columns: repeat(3, 1fr); }
+}
+.footer-identity dl > div { border-top: var(--border-width) solid rgba(255, 255, 255, .16); padding-top: var(--space-8); }
+.footer-identity dt { color: #A9B8C6; font-size: var(--font-size-12); font-weight: 600; }
+.footer-identity dd { margin: var(--space-4) 0 0; color: #F3F6F9; font-size: var(--font-size-14); }
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-top: var(--space-24);
+  color: #A9B8C6;
+  font-size: var(--font-size-12);
+}
+@media (min-width: 768px) {
+  .footer-bottom { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
+/* --- components/hero.css --- */
+/* hero.css — hero (ana sayfa / ürün varyantı, TASARIM-STANDARDI.md S5.3)
+   + yön kapısı (S5.4). */
+
+.hero { padding-top: var(--space-32); padding-bottom: var(--space-48); }
+@media (min-width: 1024px) {
+  .hero { padding-top: var(--space-48); padding-bottom: var(--space-64); }
+}
+
+.hero-home-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+}
+@media (min-width: 1024px) {
+  .hero-home-grid { grid-template-columns: 1fr 1fr; gap: var(--space-64); align-items: start; }
+}
+
+.hero h1 { max-width: 16ch; }
+.hero .lead { margin-bottom: 0; }
+
+/* --- Yön kapısı çifti --- */
+.doorway-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+@media (min-width: 1024px) {
+  .doorway-pair { grid-template-columns: 1fr auto 1fr; }
+}
+
+.doorway {
+  display: block;
+  position: relative;
+  padding: var(--space-24);
+  color: inherit;
+  text-decoration: none;
+  border-top: var(--border-width) solid var(--color-line);
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.doorway:first-child { border-top: 0; }
+@media (min-width: 1024px) {
+  .doorway { border-top: 0; }
+}
+.doorway:hover, .doorway:focus-visible {
+  background: var(--color-bg-soft);
+  text-decoration: none;
+}
+.doorway h3 { display: flex; align-items: center; gap: var(--space-8); margin-bottom: var(--space-8); }
+.doorway p { color: var(--color-ink-muted); font-size: var(--font-size-14); margin-bottom: var(--space-16); }
+.doorway .badge { margin-bottom: var(--space-12); }
+
+.doorway-divider {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .doorway-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--border-width);
+    background: var(--color-line);
+    position: relative;
+  }
+  .doorway-divider .icon {
+    position: absolute;
+    color: var(--color-accent-primary);
+    background: var(--color-surface);
+    padding: var(--space-4);
+  }
+}
+
+/* --- Ürün hero'su (P1): görsel sağda (geniş) / altta (dar) --- */
+.hero-product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .hero-product-grid { grid-template-columns: 1fr 1fr; gap: var(--space-48); }
+}
+.hero-product-copy .badge { margin-bottom: var(--space-16); }
+.hero-product-copy h1 { max-width: none; }
+
+/* --- components/facts-strip.css --- */
+/* facts-strip.css — gerçeklik şeridi (TASARIM-STANDARDI.md S5.5). Orta nokta
+   ile birleştirilmiş tek satır DEĞİL; her gerçek kendi çipinde, gerçek
+   border-right ile ayrılır (bkz. badge.css .chip-row). */
+
+.facts-strip { padding: var(--space-32) 0; border-top: var(--border-width) solid var(--color-line); border-bottom: var(--border-width) solid var(--color-line); }
+.facts-strip .chip { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+.facts-strip .chip strong { font-family: var(--font-heading); font-size: var(--font-size-24); }
+.facts-strip .chip span { color: var(--color-ink-muted); font-size: var(--font-size-12); }
+
+/* --- components/showcase.css --- */
+/* showcase.css — ürün vitrini (H3/H4) ve yetenek bloğu + ekran yuvası (P6)
+   (TASARIM-STANDARDI.md S5.6). Kart ızgarası değil; dikey liste + zigzag. */
+
+.capability-list {
+  display: grid;
+  gap: var(--space-12);
+  margin: var(--space-16) 0 var(--space-24);
+  padding: 0;
+  list-style: none;
+}
+.capability-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  font-size: var(--font-size-16);
+}
+.capability-list .icon { color: var(--color-accent-primary); margin-top: .15em; }
+.capability-list strong { display: block; }
+.capability-list span { color: var(--color-ink-muted); font-size: var(--font-size-14); }
+
+/* --- Ekran yuvası: temsilî çerçeve --- */
+.screen-frame {
+  position: relative;
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+.screen-frame-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: 32px;
+  padding: 0 var(--space-12);
+  background: var(--color-bg-soft);
+  border-bottom: var(--border-width) solid var(--color-line);
+}
+.screen-frame img { width: 100%; height: auto; }
+
+.showcase-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16) var(--space-24);
+  margin-top: var(--space-24);
+}
+
+/* --- components/comparison-table.css --- */
+/* comparison-table.css — karşılaştırma tablosu (P5, TASARIM-STANDARDI.md S5.7)
+   ve plan karşılaştırma tablosu (S5.13) ortak deseni: geniş ekranda tablo,
+   dar ekranda kart yığını (yatay kaydırma YOK). */
+
+.compare-table { width: 100%; border: var(--border-width) solid var(--color-line); border-radius: var(--radius-md); overflow: hidden; }
+.compare-table table { display: none; width: 100%; }
+@media (min-width: 768px) {
+  .compare-table table { display: table; }
+  .compare-table .compare-cards { display: none; }
+}
+.compare-table th, .compare-table td {
+  padding: var(--space-16);
+  text-align: left;
+  border-bottom: var(--border-width) solid var(--color-line);
+  vertical-align: top;
+}
+.compare-table thead th {
+  background: var(--color-bg-soft);
+  font-size: var(--font-size-14);
+  font-weight: 700;
+}
+.compare-table tbody th { font-weight: 600; }
+.compare-table td.col-before { color: var(--color-ink-muted); }
+.compare-table td.col-after { background: var(--color-bg-soft); }
+.compare-table td.col-after .icon { color: var(--color-accent-primary); margin-right: var(--space-8); }
+.compare-table tbody tr:last-child th, .compare-table tbody tr:last-child td { border-bottom: 0; }
+
+.compare-cards { display: grid; }
+@media (min-width: 768px) {
+  .compare-cards { display: none; }
+}
+.compare-card { padding: var(--space-16); border-bottom: var(--border-width) solid var(--color-line); }
+.compare-card:last-child { border-bottom: 0; }
+.compare-card h3 { font-size: var(--font-size-16); margin-bottom: var(--space-12); }
+.compare-card .compare-before, .compare-card .compare-after { display: block; margin-bottom: var(--space-4); font-size: var(--font-size-12); font-weight: 700; color: var(--color-ink-muted); text-transform: none; }
+.compare-card .compare-before-text { color: var(--color-ink-muted); margin-bottom: var(--space-12); }
+.compare-card .compare-after-text { display: flex; gap: var(--space-8); }
+.compare-card .compare-after-text .icon { flex: 0 0 auto; color: var(--color-accent-primary); margin-top: .2em; }
+.compare-card hr { border: 0; border-top: var(--border-width) solid var(--color-line); margin: var(--space-12) 0; }
+
+/* --- components/spec-panel.css --- */
+/* spec-panel.css — teknik derinlik bloğu (P7) ve teknik künye (P14)
+   (TASARIM-STANDARDI.md S5.8). radius-0, sol bar-thick çubuk
+   --color-accent-secondary; ölçü değerleri tabular-nums. */
+
+.spec-panel {
+  padding: var(--space-24);
+  border: var(--border-width) solid var(--color-line);
+  border-left: var(--bar-thick) solid var(--color-accent-secondary);
+  border-radius: var(--radius-0);
+  background: var(--color-surface);
+}
+.spec-panel h3 { margin-bottom: var(--space-12); }
+.spec-panel p { color: var(--color-ink-muted); }
+
+.spec-table { width: 100%; margin-top: var(--space-16); }
+.spec-table tr { border-top: var(--border-width) solid var(--color-line); }
+.spec-table tr:first-child { border-top: 0; }
+.spec-table th, .spec-table td {
+  padding: var(--space-8) 0;
+  text-align: left;
+  font-size: var(--font-size-14);
+}
+.spec-table th { width: 40%; color: var(--color-ink-muted); font-weight: 600; }
+.spec-table td { font-variant-numeric: tabular-nums; }
+
+.specs-details { border: var(--border-width) solid var(--color-line); border-radius: var(--radius-sm); }
+.specs-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-16);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.specs-details summary::-webkit-details-marker { display: none; }
+.specs-details summary .icon { transition: transform .15s ease; }
+.specs-details[open] summary .icon { transform: rotate(180deg); }
+.specs-details .spec-table { padding: 0 var(--space-16) var(--space-16); margin-top: 0; }
+
+/* --- components/steps.css --- */
+/* steps.css — adımlar (P8, TASARIM-STANDARDI.md S5.9). Geniş ekranda yatay
+   zaman çizgisi, dar ekranda dikey liste, bağlayıcı çizgi sola kayar. */
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.step { position: relative; padding-left: calc(42px + var(--space-16)); }
+.step-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: var(--color-accent-primary-ink);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-accent-primary);
+  border-radius: 50%;
+}
+.step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 42px;
+  bottom: calc(var(--space-24) * -1);
+  left: 20px;
+  width: var(--border-width);
+  background: var(--color-line);
+}
+.step h3 { font-size: var(--font-size-18); margin-bottom: var(--space-4); }
+.step p { color: var(--color-ink-muted); font-size: var(--font-size-14); margin: 0; }
+
+@media (min-width: 1024px) {
+  .steps { grid-template-columns: repeat(var(--step-count, 4), 1fr); gap: var(--space-24); }
+  .step { padding-left: 0; padding-top: calc(42px + var(--space-16)); }
+  .step-marker { top: 0; left: 0; }
+  .step:not(:last-child)::before {
+    top: 20px; left: 42px; right: calc(var(--space-24) * -1); bottom: auto;
+    width: auto; height: var(--border-width);
+  }
+}
+
+/* --- components/faq.css --- */
+/* faq.css — SSS (TASARIM-STANDARDI.md S5.12). <details>/<summary>, JS'siz. */
+
+.faq-layout { display: grid; gap: var(--space-32); }
+@media (min-width: 1024px) {
+  .faq-layout { grid-template-columns: minmax(0, .32fr) minmax(0, .68fr); gap: var(--space-64); align-items: start; }
+  .faq-layout .faq-heading { position: sticky; top: calc(var(--header-h-desktop) + var(--space-24)); }
+}
+
+.faq-list { border-top: var(--border-width) solid var(--color-line); }
+.faq-item { border-bottom: var(--border-width) solid var(--color-line); }
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding: var(--space-16) 0;
+  color: var(--color-ink);
+  font-size: var(--font-size-16);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .icon { flex: 0 0 auto; color: var(--color-ink-muted); transition: transform .15s ease; }
+.faq-item[open] summary .icon { transform: rotate(180deg); }
+.faq-item[open] summary { color: var(--color-accent-primary-ink); }
+.faq-item p { padding-bottom: var(--space-16); margin: 0; color: var(--color-ink-muted); max-width: 68ch; }
+.faq-item .faq-link { margin-top: var(--space-24); }
+
+/* --- components/plan-card.css --- */
+/* plan-card.css — plan kartı (3 kip) + aylık/yıllık seçici
+   (TASARIM-STANDARDI.md S5.13). Önerilen plan yalnız kenarlık + etiketle
+   ayrılır; parıltı/ölçek büyütme yok. */
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+}
+@media (min-width: 1024px) {
+  .plan-grid { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
+}
+
+.plan-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-24);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-md);
+}
+.plan-card-featured {
+  border-color: var(--color-accent-primary);
+  border-width: 2px;
+}
+.plan-card-tag {
+  align-self: flex-start;
+  margin-bottom: var(--space-12);
+  padding: var(--space-4) var(--space-8);
+  color: var(--color-accent-primary-ink);
+  font-size: var(--font-size-12);
+  font-weight: 700;
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-0);
+}
+.plan-card h3 { margin-bottom: var(--space-4); }
+.plan-card .plan-price-note { color: var(--color-ink-muted); font-size: var(--font-size-14); margin-bottom: var(--space-8); }
+.plan-card .plan-summary { color: var(--color-ink-muted); font-size: var(--font-size-14); margin-bottom: var(--space-16); }
+.plan-card .plan-features {
+  display: grid;
+  gap: var(--space-8);
+  margin: 0 0 var(--space-16);
+  padding: 0;
+  list-style: none;
+  font-size: var(--font-size-14);
+}
+.plan-card .plan-features li { display: flex; gap: var(--space-8); }
+.plan-card .plan-features .icon { flex: 0 0 auto; color: var(--color-accent-primary); margin-top: .15em; }
+.plan-card .plan-missing {
+  display: grid;
+  gap: var(--space-8);
+  margin: 0 0 var(--space-16);
+  padding: 0;
+  list-style: none;
+  font-size: var(--font-size-14);
+  color: var(--color-ink-muted);
+}
+.plan-card .plan-missing li { display: flex; gap: var(--space-8); }
+.plan-card .btn { margin-top: auto; }
+
+.billing-toggle {
+  display: inline-flex;
+  padding: var(--space-4);
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-24);
+}
+.billing-toggle label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-8) var(--space-16);
+  font-size: var(--font-size-14);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.billing-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+.billing-toggle input:checked + span,
+.billing-toggle label:has(input:checked) {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+}
+.billing-toggle input:focus-visible + span { outline: 3px solid var(--color-accent-primary); outline-offset: 2px; }
+.billing-toggle .save-note { margin-left: var(--space-8); color: var(--color-success); font-size: var(--font-size-12); }
+
+.product-section-switch {
+  display: flex;
+  gap: var(--space-8);
+  margin-bottom: var(--space-32);
+  border-bottom: var(--border-width) solid var(--color-line);
+}
+.product-section-switch a {
+  padding: var(--space-12) var(--space-16);
+  color: var(--color-ink-muted);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.product-section-switch a[aria-current="true"] { color: var(--color-ink); border-bottom-color: var(--color-accent-primary); }
+
+/* --- components/cta-band.css --- */
+/* cta-band.css — CTA bandı (H10, P13, TASARIM-STANDARDI.md S5.20). */
+
+.cta-band {
+  padding: var(--space-48) 0;
+  background: var(--color-accent-secondary);
+  color: #F3F6F9;
+}
+.cta-band-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+@media (min-width: 1024px) {
+  .cta-band-inner { flex-direction: row; align-items: center; justify-content: space-between; gap: var(--space-48); }
+}
+.cta-band h2 { color: #fff; margin-bottom: var(--space-8); }
+.cta-band p { color: #C4CFDA; margin: 0; }
+.cta-band-actions { display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center; }
+.cta-band-actions .link-directional,
+.cta-band-actions a.text-channel { color: #F3F6F9; }
+
+.text-channel { display: inline-flex; align-items: center; gap: var(--space-8); text-decoration: none; font-weight: 600; }
+
+.services-teaser-band {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-24) 0;
+  border-top: var(--border-width) solid var(--color-line);
+}
+@media (min-width: 768px) {
+  .services-teaser-band { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+.services-teaser-band p { margin: 0; color: var(--color-ink-muted); }
+
+/* --- components/form.css --- */
+/* form.css — form (TASARIM-STANDARDI.md S5.18) dört durum: boş/yükleniyor/
+   hata/başarı (S7, EKRANLAR.md iletişim). Etiket her zaman görünür. */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-20);
+}
+@media (min-width: 768px) {
+  .form-grid { grid-template-columns: 1fr 1fr; gap: var(--space-20) var(--space-16); }
+}
+.field { display: flex; flex-direction: column; gap: var(--space-4); }
+.field-full { grid-column: 1 / -1; }
+.field label { color: var(--color-ink); font-size: var(--font-size-14); font-weight: 600; }
+.field .required-mark { color: var(--color-error); }
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--space-12);
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+.field textarea { min-height: 120px; padding: var(--space-12); resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 3px solid var(--color-accent-primary);
+  outline-offset: 1px;
+  border-color: var(--color-accent-primary);
+}
+.field [aria-invalid="true"] { border-color: var(--color-error); }
+.field-error {
+  display: none;
+  color: var(--color-error);
+  font-size: var(--font-size-12);
+}
+.field-error:not(:empty) { display: block; }
+
+.field-radiogroup { display: flex; flex-direction: column; gap: var(--space-8); }
+.field-radiogroup legend { color: var(--color-ink); font-size: var(--font-size-14); font-weight: 600; padding: 0; margin-bottom: var(--space-4); }
+.field-radiogroup .options { display: flex; flex-wrap: wrap; gap: var(--space-16); }
+.field-radiogroup label { display: flex; align-items: center; gap: var(--space-8); font-size: var(--font-size-14); font-weight: 400; cursor: pointer; }
+.field-radiogroup input { accent-color: var(--color-accent-primary); width: auto; min-height: 0; }
+
+.field-honeypot {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.form-submit-row { display: flex; flex-direction: column; gap: var(--space-8); margin-top: var(--space-24); }
+.form-status {
+  display: none;
+  align-items: flex-start;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border-left: var(--bar-thick) solid var(--color-line);
+  border-radius: var(--radius-0);
+}
+.form-status:not(:empty)[data-state] { display: flex; }
+.form-status[data-state="success"] { border-left-color: var(--color-success); background: var(--color-success-bg); color: var(--color-success); }
+.form-status[data-state="error"] { border-left-color: var(--color-error); background: var(--color-error-bg); color: var(--color-error); }
+.form-status p { margin: 0; }
+.form-status .fallback-channels { margin-top: var(--space-8); display: flex; flex-wrap: wrap; gap: var(--space-16); }
+
+.contact-form-panel { padding: var(--space-24); background: var(--color-surface); border: var(--border-width) solid var(--color-line); border-radius: var(--radius-md); }
+.contact-channels { display: grid; gap: var(--space-16); }
+.contact-channel { display: flex; align-items: flex-start; gap: var(--space-12); padding-bottom: var(--space-16); border-bottom: var(--border-width) solid var(--color-line); }
+.contact-channel:last-child { border-bottom: 0; padding-bottom: 0; }
+.contact-channel .icon { color: var(--color-accent-primary); margin-top: .15em; }
+.contact-channel span { display: block; color: var(--color-ink-muted); font-size: var(--font-size-12); }
+.contact-channel a, .contact-channel strong { display: block; font-size: var(--font-size-16); }
+
+/* --- components/legal.css --- */
+/* legal.css — yasal metin düzeni (TASARIM-STANDARDI.md S5.19) ve 404 (S5.21). */
+
+.legal-doc { max-width: 720px; margin: 0 auto; }
+.legal-doc .legal-updated { color: var(--color-ink-muted); font-size: var(--font-size-14); margin-bottom: var(--space-24); }
+.legal-doc section { padding: 0; margin-bottom: var(--space-32); }
+.legal-doc h2 { font-size: var(--font-size-24); margin-bottom: var(--space-12); }
+.legal-doc p { color: var(--color-ink); }
+.legal-doc nav[aria-label] { margin-bottom: var(--space-32); }
+.legal-doc nav[aria-label] ul { list-style: none; display: grid; gap: var(--space-4); padding-left: 0; }
+
+.notfound-block { text-align: center; padding: var(--space-64) 0; }
+.notfound-block .compass-seeking { width: 96px; height: 96px; margin: 0 auto var(--space-24); }
+.notfound-block h1 { margin-bottom: var(--space-12); }
+.notfound-block p { max-width: 46ch; margin: 0 auto var(--space-32); color: var(--color-ink-muted); }
+.notfound-links { display: flex; flex-direction: column; gap: var(--space-12); align-items: center; }
+@media (min-width: 768px) {
+  .notfound-links { flex-direction: row; justify-content: center; }
+}
+
+/* --- components/misc.css --- */
+/* misc.css — kişi kartı (S5.16), bağlantı kartı (S5.11), yol haritası (S5.15),
+   özel yazılım hizmet listesi, teknoloji etiketleri. */
+
+/* --- Kişi kartı --- */
+.person-card { display: grid; gap: var(--space-24); }
+@media (min-width: 1024px) {
+  .person-card { grid-template-columns: 200px 1fr; align-items: start; }
+}
+.person-card img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: var(--radius-md);
+}
+.person-card h3 { margin-bottom: var(--space-8); }
+.person-card .person-role { color: var(--color-ink-muted); font-size: var(--font-size-14); margin-bottom: var(--space-16); }
+
+/* --- Bağlantı kartı (entegrasyonlar) --- */
+.link-list { display: flex; flex-wrap: wrap; gap: var(--space-16); }
+.link-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  flex: 1 1 260px;
+  padding: var(--space-16);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+.link-list-item .icon { color: var(--color-accent-secondary); margin-top: .15em; }
+.link-list-item strong { display: block; margin-bottom: var(--space-4); }
+.link-list-item span { color: var(--color-ink-muted); font-size: var(--font-size-14); }
+
+/* --- Yol haritası / sürüm notları --- */
+.roadmap-columns { display: grid; grid-template-columns: 1fr; gap: var(--space-24); }
+@media (min-width: 1024px) {
+  .roadmap-columns { grid-template-columns: repeat(3, 1fr); }
+}
+.roadmap-column { padding: var(--space-16); border: var(--border-width) solid var(--color-line); border-radius: var(--radius-sm); }
+.roadmap-column h3 { font-size: var(--font-size-16); margin-bottom: var(--space-12); }
+.roadmap-column ul { list-style: none; display: grid; gap: var(--space-8); padding: 0; margin: 0; }
+.roadmap-column .roadmap-empty { color: var(--color-ink-muted); font-size: var(--font-size-14); }
+
+.release-entry { display: flex; gap: var(--space-16); padding: var(--space-16) 0; border-top: var(--border-width) solid var(--color-line); }
+.release-entry:first-child { border-top: 0; }
+.release-date { flex: 0 0 auto; width: 9ch; color: var(--color-ink-muted); font-size: var(--font-size-12); font-variant-numeric: tabular-nums; }
+.release-tags { display: flex; gap: var(--space-8); margin-bottom: var(--space-4); }
+.release-tag { padding: var(--space-4) var(--space-8); font-size: var(--font-size-12); background: var(--color-bg-soft); border-radius: var(--radius-0); }
+
+/* --- Özel yazılım: hizmet listesi (<details> ile açılır ayrıntı) --- */
+.service-list { display: grid; gap: var(--space-16); }
+@media (min-width: 1024px) {
+  .service-list { grid-template-columns: repeat(2, 1fr); }
+}
+.service-item { padding: var(--space-20); border: var(--border-width) solid var(--color-line); border-radius: var(--radius-sm); }
+.service-item h3 { display: flex; align-items: center; gap: var(--space-8); font-size: var(--font-size-18); margin-bottom: var(--space-8); }
+.service-item > p { color: var(--color-ink-muted); margin-bottom: var(--space-12); }
+.service-item details summary { color: var(--color-accent-primary-ink); font-weight: 600; cursor: pointer; list-style: none; }
+.service-item details summary::-webkit-details-marker { display: none; }
+.service-item details ul { list-style: none; margin: var(--space-12) 0 0; padding: 0; display: grid; gap: var(--space-8); }
+.service-item details li { display: flex; gap: var(--space-8); font-size: var(--font-size-14); color: var(--color-ink-muted); }
+.service-item details li .icon { color: var(--color-accent-primary); flex: 0 0 auto; margin-top: .15em; }
+
+.tech-groups { display: grid; gap: var(--space-12); }
+@media (min-width: 768px) {
+  .tech-groups { grid-template-columns: repeat(2, 1fr); }
+}
+.tech-group { padding: var(--space-16); background: var(--color-bg-soft); border-radius: var(--radius-sm); }
+.tech-group h3 { font-size: var(--font-size-14); color: var(--color-ink-muted); margin-bottom: var(--space-8); }
+.tech-group .cluster span {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-12);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+
+/* --- Fiyat özeti (H7, P11) --- */
+.pricing-summary { display: flex; flex-direction: column; gap: var(--space-16); max-width: 680px; }
+@media (min-width: 1024px) {
+  .pricing-summary { margin-inline: auto; text-align: center; align-items: center; }
+}

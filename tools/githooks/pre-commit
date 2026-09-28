@@ -1,0 +1,12 @@
+#!/bin/sh
+# tools/githooks/pre-commit — commit'lenen site/ kaynakla eşleşmiyorsa
+# ya da check-site bir kuralı ihlal ediyorsa commit'i durdurur.
+# İSTEĞE BAĞLI: etkinleştirmek için bir kere çalıştırın:
+#   git config core.hooksPath tools/githooks
+set -e
+
+echo "pre-commit: node tools/build.js --check"
+node tools/build.js --check
+
+echo "pre-commit: node tools/check-site.js"
+node tools/check-site.js

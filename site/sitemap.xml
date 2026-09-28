@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.dijitalpusula.example/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/en/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/hvac-pro-suite/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/hvac-pro-suite/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/hvac-pro-suite/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/en/hvac-pro-suite/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/hvac-pro-suite/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/hvac-pro-suite/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/soguk-hava-deposu/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/soguk-hava-deposu/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/cold-storage/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/en/cold-storage/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/soguk-hava-deposu/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/cold-storage/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/fiyatlandirma/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/fiyatlandirma/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/pricing/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/en/pricing/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/fiyatlandirma/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/pricing/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/ozel-yazilim/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/ozel-yazilim/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/custom-software/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/en/custom-software/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/ozel-yazilim/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/custom-software/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/iletisim/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/iletisim/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/contact/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/iletisim/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/contact/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/yasal/kvkk-aydinlatma-metni/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/yasal/kvkk-aydinlatma-metni/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/legal/privacy-notice/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/en/legal/privacy-notice/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/yasal/kvkk-aydinlatma-metni/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/legal/privacy-notice/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/yasal/cerez-politikasi/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/yasal/cerez-politikasi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/legal/cookie-policy/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/en/legal/cookie-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/yasal/cerez-politikasi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/legal/cookie-policy/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/yasal/kullanim-kosullari/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/yasal/kullanim-kosullari/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/legal/terms-of-use/" />
+  </url>
+  <url>
+    <loc>https://www.dijitalpusula.example/en/legal/terms-of-use/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/yasal/kullanim-kosullari/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/legal/terms-of-use/" />
+  </url>
+</urlset>

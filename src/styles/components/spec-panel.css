@@ -1,0 +1,39 @@
+/* spec-panel.css — teknik derinlik bloğu (P7) ve teknik künye (P14)
+   (TASARIM-STANDARDI.md S5.8). radius-0, sol bar-thick çubuk
+   --color-accent-secondary; ölçü değerleri tabular-nums. */
+
+.spec-panel {
+  padding: var(--space-24);
+  border: var(--border-width) solid var(--color-line);
+  border-left: var(--bar-thick) solid var(--color-accent-secondary);
+  border-radius: var(--radius-0);
+  background: var(--color-surface);
+}
+.spec-panel h3 { margin-bottom: var(--space-12); }
+.spec-panel p { color: var(--color-ink-muted); }
+
+.spec-table { width: 100%; margin-top: var(--space-16); }
+.spec-table tr { border-top: var(--border-width) solid var(--color-line); }
+.spec-table tr:first-child { border-top: 0; }
+.spec-table th, .spec-table td {
+  padding: var(--space-8) 0;
+  text-align: left;
+  font-size: var(--font-size-14);
+}
+.spec-table th { width: 40%; color: var(--color-ink-muted); font-weight: 600; }
+.spec-table td { font-variant-numeric: tabular-nums; }
+
+.specs-details { border: var(--border-width) solid var(--color-line); border-radius: var(--radius-sm); }
+.specs-details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-16);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.specs-details summary::-webkit-details-marker { display: none; }
+.specs-details summary .icon { transition: transform .15s ease; }
+.specs-details[open] summary .icon { transform: rotate(180deg); }
+.specs-details .spec-table { padding: 0 var(--space-16) var(--space-16); margin-top: 0; }

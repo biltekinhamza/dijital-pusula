@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dijital Pusula | Havalandırma ve Soğuk Hava Deposu Yazılımları</title>
+<meta name="description" content="Havalandırma imalatçıları için teklif ve maliyet yazılımı, meyve soğuk hava depoları için 3D depo yönetim sistemi. Çok işletmeli, buluttan çalışan sektörel yazılımlar.">
+<link rel="canonical" href="https://www.dijitalpusula.example/">
+<link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/">
+<link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.dijitalpusula.example/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dijital Pusula | Havalandırma ve Soğuk Hava Deposu Yazılımları">
+<meta property="og:description" content="Sektörünüz için hazır, buluttan çalışan yazılımlar: HVAC Pro Suite ve Soğuk Hava Deposu Yönetim Sistemi.">
+<meta property="og:url" content="https://www.dijitalpusula.example/">
+<meta property="og:image" content="https://www.dijitalpusula.example/assets/og/og-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dijital Pusula | Havalandırma ve Soğuk Hava Deposu Yazılımları">
+<meta name="twitter:description" content="Sektörünüz için hazır, buluttan çalışan yazılımlar: HVAC Pro Suite ve Soğuk Hava Deposu Yönetim Sistemi.">
+<meta name="twitter:image" content="https://www.dijitalpusula.example/assets/og/og-home.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Dijital Pusula","url":"https://www.dijitalpusula.example","email":"biltekinhamza@gmail.com","sameAs":["https://github.com/biltekinhamza"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Kurulum yapmam gerekiyor mu?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Her iki ürün de buluttan çalışır; tarayıcıdan adrese girip kullanırsınız. Kendi sunucunuzda çalıştırmak isterseniz Docker imajı ve kurulum belgeleri mevcuttur, bu durumda kurulum ve bakım koşullarını ayrıca konuşuruz."}},{"@type":"Question","name":"Verilerim başka firmalarla karışır mı?","acceptedAnswer":{"@type":"Answer","text":"Karışmaz. Her işletmenin verisi veritabanında kendi kimliğiyle ayrılır ve sorgular bu ayrımı zorunlu kılar. Bu izolasyon her sürümde otomatik testlerle doğrulanır; bir firmanın kaydına başka bir firmanın hesabıyla erişilemediği ayrıca test edilir."}},{"@type":"Question","name":"Mevcut verilerimi aktarabilir miyim?","acceptedAnswer":{"@type":"Answer","text":"Malzeme listesi, fiyat listesi, üretici ve ürün tanımları gibi tablo halindeki veriler aktarılabilir. Elinizdeki dosyayı görelim, aktarımın kapsamını ve süresini birlikte netleştirelim."}},{"@type":"Question","name":"Deneme sürümü var mı?","acceptedAnswer":{"@type":"Answer","text":"Evet. Havalandırma tarafında deneme hesabı 7 gün ve 2 kullanıcı ile açılır; soğuk hava tarafında demo hesap depo başına 2 oda ile çalışır. Deneme süresince gerçek verinizle çalışabilirsiniz."}},{"@type":"Question","name":"Fiyatlar neden sitede yazmıyor?","acceptedAnswer":{"@type":"Answer","text":"Paketler işletme büyüklüğüne, kullanıcı sayısına ve veri aktarımı gerekip gerekmediğine göre değişiyor. Paket içerikleri sayfalarda açıkça yazılı; rakamı görüşmede net veriyoruz ve yazılı teklif gönderiyoruz."}},{"@type":"Question","name":"Yazılımı biz kendi sunucumuzda çalıştırabilir miyiz?","acceptedAnswer":{"@type":"Answer","text":"Kurumsal pakette mümkün. Her iki ürün de Docker ile paketlenmiştir ve PostgreSQL üzerinde çalışır. Sunucu, yedekleme ve güncelleme sorumluluğunun kimde olacağını sözleşmede belirleriz."}},{"@type":"Question","name":"Destek nasıl veriliyor?","acceptedAnswer":{"@type":"Answer","text":"E-posta ve telefon ile. Arayan kişi yazılımı yazan kişiye ulaşır; ara katman yoktur. Hata bildirimleri sıraya alınır, kabul edilen geliştirme talepleri sürüm planına girer."}},{"@type":"Question","name":"Faturalandırma nasıl işliyor?","acceptedAnswer":{"@type":"Answer","text":"Şu anda abonelik yenilemesi ve faturalandırma çevrimdışı yürütülüyor: yazılı teklif, sözleşme ve fatura. Site üzerinden çevrimiçi ödeme henüz alınmıyor."}}]}</script>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=11fde364">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#FBFAF7">
+</head>
+<body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="site-header" id="site-header" data-scroll-surface>
+  <div class="container nav-row">
+    <a class="brand" href="/">
+      <span class="brand-mark" style="width:34px;height:34px">
+    <img class="brand-mark-dial" src="/assets/logo/logo-dial.svg" alt="" width="34" height="34">
+    <img class="brand-mark-needle" src="/assets/logo/logo-needle.svg" alt="" width="34" height="34">
+  </span>
+      <span>Dijital<span class="brand-accent">Pusula</span></span>
+    </a>
+    <ul class="primary-nav"><li>
+      <details class="nav-products">
+        <summary>Ürünler <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+        <div class="nav-products-panel">
+          <a href="/hvac-pro-suite/">
+    <strong>HVAC Pro Suite</strong>
+    <span>Sac açılımından teklife kadar tek platform.</span>
+    <span class="badge badge-live">Yayında</span>
+  </a>
+          <a href="/soguk-hava-deposu/">
+    <strong>Soğuk Hava Deposu Yönetim Sistemi</strong>
+    <span>Deponun 3D dijital ikizi.</span>
+    <span class="badge badge-live">Yayında</span>
+  </a>
+          <a href="/ozel-yazilim/"><strong>Özel Yazılım</strong></a>
+        </div>
+      </details>
+    </li><li><a href="/fiyatlandirma/">Paketler</a></li><li><a href="/iletisim/">İletişim</a></li></ul>
+    <div class="nav-actions">
+      <a class="lang-switch" href="/en/" aria-label="Dil seçimi">EN</a>
+      <a class="btn desktop-only" href="/iletisim/">Deneme Hesabı İsteyin</a>
+      <details class="mobile-menu">
+        <summary class="menu-toggle" aria-label="Menüyü aç">
+          <svg class="icon icon-menu" aria-hidden="true"><use href="/assets/icons.svg#icon-menu"></use></svg>
+          <svg class="icon icon-x" aria-hidden="true"><use href="/assets/icons.svg#icon-x"></use></svg>
+        </summary>
+        <div class="mobile-panel">
+          <div class="mobile-panel-head">
+            <a class="brand" href="/">
+              <span class="brand-mark" style="width:30px;height:30px">
+    <img class="brand-mark-dial" src="/assets/logo/logo-dial.svg" alt="" width="30" height="30">
+    <img class="brand-mark-needle" src="/assets/logo/logo-needle.svg" alt="" width="30" height="30">
+  </span>
+              <span>Dijital<span class="brand-accent">Pusula</span></span>
+            </a>
+          </div>
+          <div class="mobile-panel-body">
+            <div class="btn-row">
+              <a class="lang-switch" href="/en/">English</a>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn-block" href="/iletisim/">Deneme Hesabı İsteyin</a>
+            </div>
+            <ul class="mobile-nav-list"><li><a href="/hvac-pro-suite/">HVAC Pro Suite</a></li><li><a href="/soguk-hava-deposu/">Soğuk Hava Deposu Yönetim Sistemi</a></li><li><a href="/ozel-yazilim/">Özel Yazılım</a></li><li><a href="/fiyatlandirma/">Paketler</a></li><li><a href="/iletisim/">İletişim</a></li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="icerik">
+<article data-route="home">
+    <section class="hero">
+    <div class="container hero-home-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-compass-rose"></use></svg> Doğru yerdesiniz.</p>
+        <h1>Havalandırma ve soğuk hava deposu işletmeleri için hazır yazılım.</h1>
+        <p class="lead">Genel amaçlı bir ERP&#39;yi işinize benzetmeye çalışmak yerine, doğrudan sizin işiniz için yazılmış iki ürün. İkisi de buluttan çalışır, her işletmenin verisi birbirinden ayrıdır ve kurulum gerektirmez. Şu an iki sektördeyiz; sırada yeni sektörler için aynı yaklaşımla yazılmış ürünler var.</p>
+        <div class="btn-row" style="margin-top: var(--space-24)">
+          <a class="btn" href="#urunler">Ürünleri İnceleyin</a>
+          <a class="btn btn-secondary" href="/iletisim/">Demo Talep Edin</a>
+        </div>
+        <ul class="risk-list">
+          <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Kurulum yok</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Her işletme kendi verisiyle çalışır</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Tarayıcıdan erişim</li>
+        </ul>
+      </div>
+      <div class="doorway-pair">
+        <a class="doorway" href="/hvac-pro-suite/">
+    <span class="badge badge-live">Yayında</span>
+    <h3><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-compass-rose"></use></svg> HVAC Pro Suite</h3>
+    <p>Sac açılımından teklife kadar tek platform.</p>
+    <span class="link-directional">Ürünü İnceleyin <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></span>
+  </a>
+        <div class="doorway-divider" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-compass-rose"></use></svg></div>
+        <a class="doorway" href="/soguk-hava-deposu/">
+    <span class="badge badge-live">Yayında</span>
+    <h3><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-compass-rose"></use></svg> Soğuk Hava Deposu Yönetim Sistemi</h3>
+    <p>Deponun 3D dijital ikizi.</p>
+    <span class="link-directional">Ürünü İnceleyin <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></span>
+  </a>
+      </div>
+    </div>
+  </section>
+    <section class="facts-strip">
+    <div class="container chip-row">
+      <span class="chip"><strong>2</strong><span>Yayında olan ürün</span></span><span class="chip"><strong>25</strong><span>Havalandırma parça tipi</span></span><span class="chip"><strong>3D</strong><span>Depo dijital ikizi</span></span><span class="chip"><strong>775+</strong><span>Otomatik test</span></span>
+    </div>
+  </section>
+    <section id="urunler">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">ÜRÜNLERİMİZ</p>
+        <h2>İki sektör, iki ürün. İkisi de gerçek bir sahada doğdu.</h2>
+        <p class="lead">Her iki ürün de bir işletmenin somut probleminden çıktı; genel bir şablonun üstüne sektör etiketi yapıştırılarak yapılmadı.</p>
+      </div>
+      <div class="zigzag-row">
+    <div class="zigzag-media">
+      <div class="screen-frame">
+    <div class="screen-frame-bar" aria-hidden="true"></div>
+    <span class="badge badge-representative">Temsilî görsel</span>
+    <img src="/assets/screens/hvac/temsili.svg" width="1200" height="780" alt="HVAC Pro Suite. Ekranlar." loading="lazy">
+  </div>
+    </div>
+    <div class="zigzag-text">
+      <span class="badge badge-live" style="margin-bottom: var(--space-8)">Yayında</span>
+      <h3>HVAC Pro Suite</h3>
+      <p class="lead">Teklifler Excel&#39;de her seferinde yeniden kuruluyor.</p>
+      <ul class="capability-list"><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>25 parça tipi</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Girişsiz müşteri sipariş ekranı</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Antetli PDF teklif</li></ul>
+      <div class="showcase-links">
+        <a class="link-directional" href="/hvac-pro-suite/">Ürünü İnceleyin <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
+        <a href="/fiyatlandirma/#hvac">Paketler</a>
+      </div>
+    </div>
+  </div>
+      <div class="zigzag-row zigzag-reverse">
+    <div class="zigzag-media">
+      <div class="screen-frame">
+    <div class="screen-frame-bar" aria-hidden="true"></div>
+    <span class="badge badge-representative">Temsilî görsel</span>
+    <img src="/assets/screens/cold/temsili.svg" width="1200" height="780" alt="Soğuk Hava Deposu Yönetim Sistemi. Ekranlar." loading="lazy">
+  </div>
+    </div>
+    <div class="zigzag-text">
+      <span class="badge badge-live" style="margin-bottom: var(--space-8)">Yayında</span>
+      <h3>Soğuk Hava Deposu Yönetim Sistemi</h3>
+      <p class="lead">Hangi odada ne var, hangi palet kimin ve oda ne kadar dolu.</p>
+      <ul class="capability-list"><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>3D oda modeli</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Sürükle-bırak yerleşim</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Kalan KG üzerinden hesap</li></ul>
+      <div class="showcase-links">
+        <a class="link-directional" href="/soguk-hava-deposu/">Ürünü İnceleyin <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
+        <a href="/fiyatlandirma/#soguk-hava">Paketler</a>
+      </div>
+    </div>
+  </div>
+    </div>
+  </section>
+    <section class="bleed-soft">
+    <div class="container">
+      <div class="section-head">
+        <h2>İletişim</h2>
+        <p class="lead">Talepler genellikle aynı iş günü içinde yanıtlanır.</p>
+      </div>
+      <div class="contact-channels" style="max-width:520px">
+        <div class="contact-channel">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-message-circle"></use></svg>
+          <div><a href="https://wa.me/905392191982" target="_blank" rel="noopener">WhatsApp&#39;tan yazın</a></div>
+        </div>
+        <div class="contact-channel">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-mail"></use></svg>
+          <div><span>E-posta</span><a href="mailto:biltekinhamza@gmail.com">biltekinhamza@gmail.com</a></div>
+        </div>
+        <div class="contact-channel">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-phone"></use></svg>
+          <div><span>Telefon</span><a href="tel:+905392191982">+90 539 219 19 82</a></div>
+        </div>
+        <div class="contact-channel">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-clock"></use></svg>
+          <div><span>Çalışma saatleri</span><strong>Hafta içi 09:00 - 18:00</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+    <section class="bleed-soft">
+    <div class="container pricing-summary">
+      <h2>Fiyatlandırma</h2>
+      <p class="lead">Paket içerikleri aşağıda; rakamı görüşmede netleştirip yazılı teklif gönderiyoruz.</p>
+      <a class="btn" href="/fiyatlandirma/">Paketler <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
+    </div>
+  </section>
+    <section>
+    <div class="container faq-layout">
+      <div class="faq-heading">
+        <p class="eyebrow">SIK SORULAN SORULAR</p>
+        <h2>Satın alma öncesi en çok sorulanlar.</h2>
+        <p class="lead">Burada olmayan bir sorunuz varsa doğrudan yazabilirsiniz; teknik soruları da aynı kişi yanıtlıyor.</p>
+        <a class="link-directional faq-link" href="/iletisim/">Sorunuzu iletin <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
+      </div>
+      <div class="faq-list">
+    <details class="faq-item" id="faq-home-1">
+      <summary>Kurulum yapmam gerekiyor mu? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Hayır. Her iki ürün de buluttan çalışır; tarayıcıdan adrese girip kullanırsınız. Kendi sunucunuzda çalıştırmak isterseniz Docker imajı ve kurulum belgeleri mevcuttur, bu durumda kurulum ve bakım koşullarını ayrıca konuşuruz.</p>
+    </details><details class="faq-item" id="faq-home-2">
+      <summary>Verilerim başka firmalarla karışır mı? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Karışmaz. Her işletmenin verisi veritabanında kendi kimliğiyle ayrılır ve sorgular bu ayrımı zorunlu kılar. Bu izolasyon her sürümde otomatik testlerle doğrulanır; bir firmanın kaydına başka bir firmanın hesabıyla erişilemediği ayrıca test edilir.</p>
+    </details><details class="faq-item" id="faq-home-3">
+      <summary>Mevcut verilerimi aktarabilir miyim? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Malzeme listesi, fiyat listesi, üretici ve ürün tanımları gibi tablo halindeki veriler aktarılabilir. Elinizdeki dosyayı görelim, aktarımın kapsamını ve süresini birlikte netleştirelim.</p>
+    </details><details class="faq-item" id="faq-home-4">
+      <summary>Deneme sürümü var mı? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Evet. Havalandırma tarafında deneme hesabı 7 gün ve 2 kullanıcı ile açılır; soğuk hava tarafında demo hesap depo başına 2 oda ile çalışır. Deneme süresince gerçek verinizle çalışabilirsiniz.</p>
+    </details><details class="faq-item" id="faq-home-5">
+      <summary>Fiyatlar neden sitede yazmıyor? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Paketler işletme büyüklüğüne, kullanıcı sayısına ve veri aktarımı gerekip gerekmediğine göre değişiyor. Paket içerikleri sayfalarda açıkça yazılı; rakamı görüşmede net veriyoruz ve yazılı teklif gönderiyoruz.</p>
+    </details><details class="faq-item" id="faq-home-6">
+      <summary>Yazılımı biz kendi sunucumuzda çalıştırabilir miyiz? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Kurumsal pakette mümkün. Her iki ürün de Docker ile paketlenmiştir ve PostgreSQL üzerinde çalışır. Sunucu, yedekleme ve güncelleme sorumluluğunun kimde olacağını sözleşmede belirleriz.</p>
+    </details><details class="faq-item" id="faq-home-7">
+      <summary>Destek nasıl veriliyor? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>E-posta ve telefon ile. Arayan kişi yazılımı yazan kişiye ulaşır; ara katman yoktur. Hata bildirimleri sıraya alınır, kabul edilen geliştirme talepleri sürüm planına girer.</p>
+    </details><details class="faq-item" id="faq-home-8">
+      <summary>Faturalandırma nasıl işliyor? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Şu anda abonelik yenilemesi ve faturalandırma çevrimdışı yürütülüyor: yazılı teklif, sözleşme ve fatura. Site üzerinden çevrimiçi ödeme henüz alınmıyor.</p>
+    </details>
+  </div>
+    </div>
+  </section>
+    <section class="section-tight">
+    <div class="container services-teaser-band">
+      <p><strong>İhtiyacınız bu iki üründen biri değilse.</strong> İşletmelere özel yazılım, sistem entegrasyonu ve süreç otomasyonu da geliştiriyoruz. Ürünlerimiz zaten bu şekilde ortaya çıktı.</p>
+      <a class="link-directional" href="/ozel-yazilim/">Özel Yazılım Tarafına Bakın <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
+    </div>
+  </section>
+    <section class="cta-band">
+    <div class="container cta-band-inner">
+      <div>
+        <h2>Doğru yerdesiniz.</h2>
+        <p>Genel amaçlı bir ERP&#39;yi işinize benzetmeye çalışmak yerine, doğrudan sizin işiniz için yazılmış iki ürün.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a class="btn btn-on-dark" href="/iletisim/">Demo Talep Edin</a>
+        <a class="text-channel" href="https://wa.me/905392191982" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-message-circle"></use></svg>WhatsApp</a>
+        <a class="text-channel" href="mailto:biltekinhamza@gmail.com"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-mail"></use></svg>biltekinhamza@gmail.com</a>
+      </div>
+    </div>
+  </section>
+  </article>
+</main>
+<footer id="site-footer" class="site-footer on-dark">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <span class="brand-mark">
+            <img class="brand-mark-dial" src="/assets/logo/logo-dial.svg" alt="" width="34" height="34">
+            <img class="brand-mark-needle" src="/assets/logo/logo-needle.svg" alt="" width="34" height="34">
+          </span>
+          <span>Dijital<span class="brand-accent">Pusula</span></span>
+        </a>
+        <p>Havalandırma imalatçıları ve meyve soğuk hava depoları için sektörel yazılım. Özel yazılım ve otomasyon geliştirme.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Ürünler</h2>
+        <ul><li><a href="/hvac-pro-suite/">HVAC Pro Suite</a></li><li><a href="/soguk-hava-deposu/">Soğuk Hava Deposu Yönetim Sistemi</a></li><li><a href="/ozel-yazilim/">Özel Yazılım</a></li><li><a href="/fiyatlandirma/">Paketler</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h2>Kurumsal</h2>
+        <ul><li><a href="/iletisim/">İletişim</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h2>Yasal</h2>
+        <nav aria-label="Yasal">
+          <ul>
+            <li><a href="/yasal/kvkk-aydinlatma-metni/">Gizlilik ve KVKK</a></li><li><a href="/yasal/cerez-politikasi/">Çerez Politikası</a></li><li><a href="/yasal/kullanim-kosullari/">Kullanım Koşulları</a></li>
+          </ul>
+        </nav>
+      </div>
+      <section class="footer-identity" aria-labelledby="footer-identity-heading">
+        <h2 id="footer-identity-heading">İletişim</h2>
+        <dl><div><dt>Ticari unvan</dt><dd>Hamza Biltekin</dd></div><div><dt>İşletme adı</dt><dd>Dijital Pusula</dd></div><div><dt>Merkez adresi</dt><dd>Bahçelievler Mahallesi, Merkez / Isparta</dd></div><div><dt>E-posta</dt><dd>biltekinhamza@gmail.com</dd></div><div><dt>Telefon</dt><dd>+90 539 219 19 82</dd></div></dl>
+      </section>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dijital Pusula. Tüm hakları saklıdır.</p>
+      <p><a href="/en/">English</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/site.js?v=0e62f708" defer></script>
+</body>
+</html>

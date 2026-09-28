@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="presentation" aria-hidden="true">
+  <!-- İbre: kuzey yarısı #B83B1C, güney yarısı #223B57, göbek #191E28
+       (TASARIM-STANDARDI.md SS1.3). Yol verisi ADR-3 gereği değişmedi. -->
+  <path d="M32 10.5 39 32H32Z" fill="#B83B1C"/>
+  <path d="M32 10.5 25 32h7Z" fill="#932F16"/>
+  <path d="M32 53.5 39 32H32Z" fill="#223B57"/>
+  <path d="M32 53.5 25 32h7Z" fill="#182C40"/>
+  <circle cx="32" cy="32" r="4.6" fill="#FFFFFF" stroke="#191E28" stroke-width="2"/>
+  <circle cx="32" cy="32" r="1.5" fill="#191E28"/>
+</svg>

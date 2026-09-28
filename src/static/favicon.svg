@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="dp-favicon-title">
+  <title id="dp-favicon-title">Dijital Pusula</title>
+  <!-- Favicon: tek renkli sadeleştirilmiş varyant (TASARIM-STANDARDI.md SS1.4).
+       16-32px'te okunur olması için ara yön çizgileri ve gradyan kaldırıldı,
+       yalnız dış halka + ibre kaldı. -->
+  <circle cx="32" cy="32" r="28.5" fill="#FBFAF7" stroke="#B83B1C" stroke-width="4"/>
+  <path d="M32 9 40 32H32Z" fill="#B83B1C"/>
+  <path d="M32 9 24 32h8Z" fill="#B83B1C"/>
+  <path d="M32 55 40 32H32Z" fill="#191E28"/>
+  <path d="M32 55 24 32h8Z" fill="#191E28"/>
+  <circle cx="32" cy="32" r="5" fill="#FBFAF7" stroke="#191E28" stroke-width="2.5"/>
+</svg>

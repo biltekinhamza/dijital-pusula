@@ -1,0 +1,80 @@
+/* misc.css — kişi kartı (S5.16), bağlantı kartı (S5.11), yol haritası (S5.15),
+   özel yazılım hizmet listesi, teknoloji etiketleri. */
+
+/* --- Kişi kartı --- */
+.person-card { display: grid; gap: var(--space-24); }
+@media (min-width: 1024px) {
+  .person-card { grid-template-columns: 200px 1fr; align-items: start; }
+}
+.person-card img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: var(--radius-md);
+}
+.person-card h3 { margin-bottom: var(--space-8); }
+.person-card .person-role { color: var(--color-ink-muted); font-size: var(--font-size-14); margin-bottom: var(--space-16); }
+
+/* --- Bağlantı kartı (entegrasyonlar) --- */
+.link-list { display: flex; flex-wrap: wrap; gap: var(--space-16); }
+.link-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  flex: 1 1 260px;
+  padding: var(--space-16);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+.link-list-item .icon { color: var(--color-accent-secondary); margin-top: .15em; }
+.link-list-item strong { display: block; margin-bottom: var(--space-4); }
+.link-list-item span { color: var(--color-ink-muted); font-size: var(--font-size-14); }
+
+/* --- Yol haritası / sürüm notları --- */
+.roadmap-columns { display: grid; grid-template-columns: 1fr; gap: var(--space-24); }
+@media (min-width: 1024px) {
+  .roadmap-columns { grid-template-columns: repeat(3, 1fr); }
+}
+.roadmap-column { padding: var(--space-16); border: var(--border-width) solid var(--color-line); border-radius: var(--radius-sm); }
+.roadmap-column h3 { font-size: var(--font-size-16); margin-bottom: var(--space-12); }
+.roadmap-column ul { list-style: none; display: grid; gap: var(--space-8); padding: 0; margin: 0; }
+.roadmap-column .roadmap-empty { color: var(--color-ink-muted); font-size: var(--font-size-14); }
+
+.release-entry { display: flex; gap: var(--space-16); padding: var(--space-16) 0; border-top: var(--border-width) solid var(--color-line); }
+.release-entry:first-child { border-top: 0; }
+.release-date { flex: 0 0 auto; width: 9ch; color: var(--color-ink-muted); font-size: var(--font-size-12); font-variant-numeric: tabular-nums; }
+.release-tags { display: flex; gap: var(--space-8); margin-bottom: var(--space-4); }
+.release-tag { padding: var(--space-4) var(--space-8); font-size: var(--font-size-12); background: var(--color-bg-soft); border-radius: var(--radius-0); }
+
+/* --- Özel yazılım: hizmet listesi (<details> ile açılır ayrıntı) --- */
+.service-list { display: grid; gap: var(--space-16); }
+@media (min-width: 1024px) {
+  .service-list { grid-template-columns: repeat(2, 1fr); }
+}
+.service-item { padding: var(--space-20); border: var(--border-width) solid var(--color-line); border-radius: var(--radius-sm); }
+.service-item h3 { display: flex; align-items: center; gap: var(--space-8); font-size: var(--font-size-18); margin-bottom: var(--space-8); }
+.service-item > p { color: var(--color-ink-muted); margin-bottom: var(--space-12); }
+.service-item details summary { color: var(--color-accent-primary-ink); font-weight: 600; cursor: pointer; list-style: none; }
+.service-item details summary::-webkit-details-marker { display: none; }
+.service-item details ul { list-style: none; margin: var(--space-12) 0 0; padding: 0; display: grid; gap: var(--space-8); }
+.service-item details li { display: flex; gap: var(--space-8); font-size: var(--font-size-14); color: var(--color-ink-muted); }
+.service-item details li .icon { color: var(--color-accent-primary); flex: 0 0 auto; margin-top: .15em; }
+
+.tech-groups { display: grid; gap: var(--space-12); }
+@media (min-width: 768px) {
+  .tech-groups { grid-template-columns: repeat(2, 1fr); }
+}
+.tech-group { padding: var(--space-16); background: var(--color-bg-soft); border-radius: var(--radius-sm); }
+.tech-group h3 { font-size: var(--font-size-14); color: var(--color-ink-muted); margin-bottom: var(--space-8); }
+.tech-group .cluster span {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-12);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+
+/* --- Fiyat özeti (H7, P11) --- */
+.pricing-summary { display: flex; flex-direction: column; gap: var(--space-16); max-width: 680px; }
+@media (min-width: 1024px) {
+  .pricing-summary { margin-inline: auto; text-align: center; align-items: center; }
+}

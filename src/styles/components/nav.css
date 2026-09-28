@@ -1,0 +1,179 @@
+/* nav.css — header + ürün açılır menüsü + dil anahtarı + CTA
+   (TASARIM-STANDARDI.md S5.1). Sticky, kaydırmada saydamdan yüzeye geçer
+   (JS bir sınıf ekler: .site-header--scrolled). JS kapalıyken de tam
+   kullanılabilir: ürün menüsü <details> öğesidir, hover'la değil tıkla/
+   klavyeyle açılır; site.js yalnız aria-expanded senkronu ve dışa
+   tıklamada kapatma ekler (davranış JS'siz de çalışır). */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: var(--header-h-mobile);
+  background: var(--color-bg);
+  border-bottom: var(--border-width) solid transparent;
+}
+@media (min-width: 768px) {
+  .site-header { min-height: var(--header-h-desktop); }
+}
+.site-header--scrolled {
+  background: rgba(251, 250, 247, .92);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom-color: var(--color-line);
+}
+
+.nav-row {
+  display: flex;
+  min-height: var(--header-h-mobile);
+  align-items: center;
+  gap: var(--space-16);
+}
+@media (min-width: 768px) {
+  .nav-row { min-height: var(--header-h-desktop); }
+}
+
+.primary-nav {
+  display: none;
+}
+@media (min-width: 768px) {
+  .primary-nav {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: var(--space-24);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .primary-nav > li { position: relative; }
+  .primary-nav a, .primary-nav > li > button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-8) 0;
+    color: var(--color-ink);
+    font-size: var(--font-size-14);
+    font-weight: 600;
+    text-decoration: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .primary-nav a[aria-current="page"] { color: var(--color-accent-primary-ink); }
+}
+
+.nav-products { position: relative; }
+.nav-products > summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.nav-products > summary::-webkit-details-marker { display: none; }
+.nav-products > summary .icon { transition: transform .15s ease; }
+.nav-products[open] > summary .icon { transform: rotate(180deg); }
+.nav-products-panel {
+  position: absolute;
+  top: calc(100% + var(--space-8));
+  left: 0;
+  z-index: 10;
+  display: grid;
+  width: max(280px, 100%);
+  padding: var(--space-8);
+  gap: var(--space-4);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-2);
+}
+.nav-products-panel a {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-8) var(--space-12);
+  color: var(--color-ink);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+.nav-products-panel a:hover,
+.nav-products-panel a:focus-visible { background: var(--color-bg-soft); }
+.nav-products-panel strong { font-size: var(--font-size-14); }
+.nav-products-panel span { color: var(--color-ink-muted); font-size: var(--font-size-12); }
+.nav-products-panel .badge { justify-self: start; }
+
+.nav-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--space-16);
+  margin-left: auto;
+}
+.lang-switch {
+  color: var(--color-ink-muted);
+  font-size: var(--font-size-14);
+  font-weight: 700;
+  text-decoration: none;
+}
+.lang-switch:hover { color: var(--color-ink); }
+
+/* Mobil menü: JS'siz de çalışan gerçek bir <details> açılır/kapanır öğesi
+   (site.js yalnız Esc ile kapatma ve odak dönüşünü zenginleştirir, temel
+   işlev tarayıcı yerlisidir). .mobile-menu[open] dışında panel UA
+   varsayılanıyla zaten gizlidir; burada yalnız AÇIKKEN görünümü
+   tanımlanır. */
+.mobile-menu { position: relative; }
+@media (min-width: 768px) {
+  .mobile-menu { display: none; }
+}
+.menu-toggle {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  list-style: none;
+}
+.menu-toggle::-webkit-details-marker { display: none; }
+.menu-toggle .icon-x { display: none; }
+.mobile-menu[open] .menu-toggle .icon-menu { display: none; }
+.mobile-menu[open] .menu-toggle .icon-x { display: block; }
+
+.mobile-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--color-surface);
+  overflow-y: auto;
+}
+.mobile-panel-head {
+  display: flex;
+  min-height: var(--header-h-mobile);
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--container-pad);
+  border-bottom: var(--border-width) solid var(--color-line);
+}
+.mobile-panel-body { padding: var(--space-24) var(--container-pad) var(--space-48); }
+.mobile-panel-body .btn-row { margin-bottom: var(--space-24); }
+.mobile-nav-list {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-24);
+  padding: 0;
+  list-style: none;
+}
+.mobile-nav-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-16) var(--space-4);
+  color: var(--color-ink);
+  font-size: var(--font-size-18);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: var(--border-width) solid var(--color-line);
+}

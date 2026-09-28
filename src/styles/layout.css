@@ -1,0 +1,64 @@
+/* layout.css — sayfa iskeleti ve tekrar kullanılan yerleşim örüntüleri
+   (TASARIM-STANDARDI.md S3.2 kırılma noktaları burada uygulanır; jeton
+   değerleri yalnız tokens.css'te tanımlı). */
+
+#icerik { display: block; }
+
+/* --- İki sütun (P4 "Bugün nasıl/Ürün ne yapıyor", H5 kişi kartı vb.):
+   dar ekranda tek sütun, >=1024px'te yan yana. --- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+}
+@media (min-width: 1024px) {
+  .split { grid-template-columns: 1fr 1fr; gap: var(--space-64); align-items: start; }
+  .split.split-45-55 { grid-template-columns: .82fr 1fr; }
+  .split.split-55-45 { grid-template-columns: 1fr .82fr; }
+}
+
+/* --- Zigzag (P6 yetenek blokları, ana sayfa ürün vitrini H3/H4):
+   dar ekranda her zaman görsel üstte metin altta; geniş ekranda satır
+   sırası değişir (§TASARIM-STANDARDI 5.6). --- */
+.zigzag-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+  align-items: center;
+}
+.zigzag-row + .zigzag-row { margin-top: var(--space-48); }
+@media (min-width: 1024px) {
+  .zigzag-row { grid-template-columns: 1fr 1fr; gap: var(--space-64); }
+  .zigzag-row .zigzag-media { order: 2; }
+  .zigzag-row .zigzag-text { order: 1; }
+  .zigzag-row.zigzag-reverse .zigzag-media { order: 1; }
+  .zigzag-row.zigzag-reverse .zigzag-text { order: 2; }
+}
+
+/* --- Yalnız geniş ekranda yan yana ızgara (fiyat/adım/yol haritası
+   sütunları gibi eşit-genişlik durumlarda). --- */
+.grid-auto {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+}
+@media (min-width: 1024px) {
+  .grid-auto[data-cols="2"] { grid-template-columns: repeat(2, 1fr); }
+  .grid-auto[data-cols="3"] { grid-template-columns: repeat(3, 1fr); }
+}
+
+.stack { display: grid; gap: var(--space-16); }
+.cluster { display: flex; flex-wrap: wrap; gap: var(--space-12); align-items: center; }
+
+.bleed-soft { background: var(--color-bg-soft); }
+.bleed-dark {
+  background: var(--color-accent-secondary);
+  color: #F3F6F9;
+}
+
+@media (max-width: 767px) {
+  .desktop-only { display: none !important; }
+}
+@media (min-width: 768px) {
+  .mobile-only { display: none !important; }
+}

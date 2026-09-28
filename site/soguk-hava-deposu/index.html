@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soğuk Hava Deposu Yönetim Sistemi | 3D Depo Yerleşimi ve Stok</title>
+<meta name="description" content="Meyve soğuk hava depoları için deponun 3D dijital ikizi: sürükle-bırak palet yerleşimi, çakışma ve istif kuralları, kalan KG üzerinden depolama hesabı, çoklu depo ve raporlar.">
+<link rel="canonical" href="https://www.dijitalpusula.example/soguk-hava-deposu/">
+<link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/soguk-hava-deposu/">
+<link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/cold-storage/">
+<link rel="alternate" hreflang="x-default" href="https://www.dijitalpusula.example/soguk-hava-deposu/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Soğuk Hava Deposu Yönetim Sistemi | 3D Depo Yerleşimi ve Stok">
+<meta property="og:description" content="Deponun 3D dijital ikizi. Meyve soğuk hava depoları için yerleşim, stok ve depolama hesabı.">
+<meta property="og:url" content="https://www.dijitalpusula.example/soguk-hava-deposu/">
+<meta property="og:image" content="https://www.dijitalpusula.example/assets/og/og-cold.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Soğuk Hava Deposu Yönetim Sistemi | 3D Depo Yerleşimi ve Stok">
+<meta name="twitter:description" content="Deponun 3D dijital ikizi. Meyve soğuk hava depoları için yerleşim, stok ve depolama hesabı.">
+<meta name="twitter:image" content="https://www.dijitalpusula.example/assets/og/og-cold.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Dijital Pusula","url":"https://www.dijitalpusula.example","email":"biltekinhamza@gmail.com","sameAs":["https://github.com/biltekinhamza"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Soğuk Hava Deposu Yönetim Sistemi","applicationCategory":"BusinessApplication","url":"https://www.dijitalpusula.example/soguk-hava-deposu/","operatingSystem":"Web"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://www.dijitalpusula.example/"},{"@type":"ListItem","position":2,"name":"Soğuk Hava Deposu Yönetim Sistemi","item":"https://www.dijitalpusula.example/soguk-hava-deposu/"}]}</script>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=11fde364">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#FBFAF7">
+</head>
+<body>
+<a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header class="site-header" id="site-header" data-scroll-surface>
+  <div class="container nav-row">
+    <a class="brand" href="/">
+      <span class="brand-mark" style="width:34px;height:34px">
+    <img class="brand-mark-dial" src="/assets/logo/logo-dial.svg" alt="" width="34" height="34">
+    <img class="brand-mark-needle" src="/assets/logo/logo-needle.svg" alt="" width="34" height="34">
+  </span>
+      <span>Dijital<span class="brand-accent">Pusula</span></span>
+    </a>
+    <ul class="primary-nav"><li>
+      <details class="nav-products">
+        <summary>Ürünler <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+        <div class="nav-products-panel">
+          <a href="/hvac-pro-suite/">
+    <strong>HVAC Pro Suite</strong>
+    <span>Sac açılımından teklife kadar tek platform.</span>
+    <span class="badge badge-live">Yayında</span>
+  </a>
+          <a href="/soguk-hava-deposu/">
+    <strong>Soğuk Hava Deposu Yönetim Sistemi</strong>
+    <span>Deponun 3D dijital ikizi.</span>
+    <span class="badge badge-live">Yayında</span>
+  </a>
+          <a href="/ozel-yazilim/"><strong>Özel Yazılım</strong></a>
+        </div>
+      </details>
+    </li><li><a href="/fiyatlandirma/">Paketler</a></li><li><a href="/iletisim/">İletişim</a></li></ul>
+    <div class="nav-actions">
+      <a class="lang-switch" href="/en/cold-storage/" aria-label="Dil seçimi">EN</a>
+      <a class="btn desktop-only" href="/iletisim/">Deneme Hesabı İsteyin</a>
+      <details class="mobile-menu">
+        <summary class="menu-toggle" aria-label="Menüyü aç">
+          <svg class="icon icon-menu" aria-hidden="true"><use href="/assets/icons.svg#icon-menu"></use></svg>
+          <svg class="icon icon-x" aria-hidden="true"><use href="/assets/icons.svg#icon-x"></use></svg>
+        </summary>
+        <div class="mobile-panel">
+          <div class="mobile-panel-head">
+            <a class="brand" href="/">
+              <span class="brand-mark" style="width:30px;height:30px">
+    <img class="brand-mark-dial" src="/assets/logo/logo-dial.svg" alt="" width="30" height="30">
+    <img class="brand-mark-needle" src="/assets/logo/logo-needle.svg" alt="" width="30" height="30">
+  </span>
+              <span>Dijital<span class="brand-accent">Pusula</span></span>
+            </a>
+          </div>
+          <div class="mobile-panel-body">
+            <div class="btn-row">
+              <a class="lang-switch" href="/en/cold-storage/">English</a>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn-block" href="/iletisim/">Deneme Hesabı İsteyin</a>
+            </div>
+            <ul class="mobile-nav-list"><li><a href="/hvac-pro-suite/">HVAC Pro Suite</a></li><li><a href="/soguk-hava-deposu/">Soğuk Hava Deposu Yönetim Sistemi</a></li><li><a href="/ozel-yazilim/">Özel Yazılım</a></li><li><a href="/fiyatlandirma/">Paketler</a></li><li><a href="/iletisim/">İletişim</a></li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="icerik">
+<article data-route="cold">
+    <section class="hero">
+    <div class="container hero-product-grid">
+      <div class="hero-product-copy">
+        <p class="eyebrow"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-compass-rose"></use></svg> 3D depo yerleşimi, stok ve depolama hesabı</p>
+        <span class="badge badge-live">Yayında</span>
+        <h1>Deponun 3D dijital ikizi.</h1>
+        <p class="lead">Meyve soğuk hava depoları için, odaları gerçek ölçüleriyle modelleyen; paletin yerini sürükle-bırak ile belirleyip çakışma, istif ve koridor kurallarını sunucuda doğrulayan depo yönetim sistemi.</p>
+        <div class="btn-row">
+          <a class="btn" href="/iletisim/?urun=cold">Deneme Hesabı İsteyin</a>
+          <a class="btn btn-secondary" href="/fiyatlandirma/#soguk-hava">Paketler</a>
+        </div>
+      </div>
+      <div class="screen-frame">
+    <div class="screen-frame-bar" aria-hidden="true"></div>
+    <span class="badge badge-representative">Temsilî görsel</span>
+    <img src="/assets/screens/cold/temsili.svg" width="1200" height="780" alt="Soğuk Hava Deposu Yönetim Sistemi. Ekranlar." loading="lazy">
+  </div>
+    </div>
+  </section>
+    <section class="facts-strip">
+    <div class="container">
+      <div class="chip-row"><span class="chip">3D oda modeli</span><span class="chip">Sürükle-bırak yerleşim</span><span class="chip">Kalan KG üzerinden hesap</span><span class="chip">Çoklu depo</span><span class="chip">CSV / XLSX / PDF rapor</span></div>
+    </div>
+  </section>
+    <section>
+    <div class="container">
+      <div class="link-list">
+        <div class="link-list-item">
+          <span aria-hidden="true">◧</span>
+          <div><strong>Depo işletmecisi / sahibi</strong><span>Birden çok deposu olan ya da tek depoyu büyüten işletme sahipleri için; tüm depolar tek girişten görülür.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">◫</span>
+          <div><strong>Depo sorumlusu</strong><span>Yerleşimi ve günlük giriş-çıkışı sahada yürüten depo sorumluları için; yerleştirme kuralı ekranda anında doğrulanır.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">▤</span>
+          <div><strong>Muhasebe / finans sorumlusu</strong><span>Depolama bedelini ve raporları izleyen muhasebe tarafı için; stok, doluluk ve ödeme raporları CSV/XLSX/PDF olarak dışarı alınır.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="bleed-soft">
+    <div class="container split">
+      <div>
+        <h2>Bugün nasıl yürüyor</h2>
+        <p>Hangi odada ne var, hangi palet kimin ve oda ne kadar dolu. Bunların cevabı defterde, Excel&#39;de ve depo sorumlusunun aklında duruyor. Paletin nereye konacağı sahada karar veriliyor; koridor kapanıyor, istif dengesiz kalıyor, sonradan taşımak gerekiyor. Sezon sonunda depolama bedeli hesaplanırken kalan kilo elle çıkarılıyor ve fiyat değişikliği geçmişi de bozuyor.</p>
+      </div>
+      <div>
+        <h2>Ürün ne yapıyor</h2>
+        <p>Odaların metre cinsinden modellendiği, her paletin ve Palsan biriminin odada kendi ikonuyla durduğu bir 3D yerleşim ekranı. Yerleştirmeden önce kural sunucuda doğrulanır: birim başka bir birimin üstüne binmiyor, koridor bandını kapatmıyor ve istif dengeli. Depolama bedeli daima kalan KG ile o girişin fiyatı üzerinden hesaplanır; sonradan yapılan fiyat değişikliği geçmiş kayıtları yeniden yazmaz.</p>
+      </div>
+    </div>
+    <div class="container" style="margin-top: var(--space-24)">
+      <div class="note note-success">
+        <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>
+        <div><strong>Ne değişiyor. </strong>Depo doluluğu ve ürünün yeri ekrandan görülür, yerleştirme hatası sahada değil ekranda yakalanır ve depolama bedeli tartışma götürmeyen bir kayda dayanır.</div>
+      </div>
+    </div>
+  </section>
+    <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Defter ve Excel ile yürütülen düzenden farkı</h2>
+        <p class="lead">Bu ürünün rakibi başka bir yazılım değil; depo defteri, Excel dosyası ve depo sorumlusunun hafızası. Fark tam olarak şurada:</p>
+      </div>
+      <div class="compare-table">
+        <table>
+          <thead><tr><th scope="col">Defter ve Excel ile</th><th scope="col">Bu sistemle</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="visually-hidden">Odada ne var</th>
+              <td class="col-before">Giriş-çıkış deftere yazılır; hangi paletin nerede durduğu depo sorumlusunun aklındadır.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Oda gerçek ölçüleriyle modellenir; her palet ve Palsan birimi odada kendi yerinde görünür.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Yerleştirme kararı</th>
+              <td class="col-before">Sahada verilir. Koridor kapanır, istif dengesiz kalır, sonradan taşımak gerekir.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Yerleştirmeden önce kural sunucuda doğrulanır; ekranda yeşil ya da kırmızı hayalet olarak görünür.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Depolama bedeli</th>
+              <td class="col-before">Sezon sonunda kalan kilo elle çıkarılır; hesap tartışmaya açıktır.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Kalan KG × girişte sabitlenen fiyat. Hesap her an ekranda ve kayda dayanır.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Fiyat değişikliği</th>
+              <td class="col-before">Yeni fiyat girilince eski hesaplar da kayar.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Fiyat giriş anında kayda sabitlenir; sonraki değişiklik geçmiş kaydı yeniden yazmaz.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Birden çok depo</th>
+              <td class="col-before">Her depo ayrı dosya; hangisinin fiyatı hangisi karışır.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Her deponun kendi KG fiyatı ve kendi defteri var; işletme sahibi hepsini tek girişten görür.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Rapor</th>
+              <td class="col-before">Muhasebeye giden çıktı elle derlenir.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Stok, doluluk, giriş, çıkış, üretici ve ödeme raporları; CSV, XLSX ve PDF olarak dışarı alınır.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">İzlenebilirlik</th>
+              <td class="col-before">Kaydı kimin ne zaman değiştirdiği belli değildir.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Hareket geçmişi silinmez; ayrıca kim neyi değiştirdi denetim kaydında durur.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="compare-cards">
+          <div class="compare-card">
+            <h3>Odada ne var</h3>
+            <span class="compare-before">Defter ve Excel ile</span>
+            <p class="compare-before-text">Giriş-çıkış deftere yazılır; hangi paletin nerede durduğu depo sorumlusunun aklındadır.</p>
+            <hr>
+            <span class="compare-after">Bu sistemle</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Oda gerçek ölçüleriyle modellenir; her palet ve Palsan birimi odada kendi yerinde görünür.</span></p>
+          </div><div class="compare-card">
+            <h3>Yerleştirme kararı</h3>
+            <span class="compare-before">Defter ve Excel ile</span>
+            <p class="compare-before-text">Sahada verilir. Koridor kapanır, istif dengesiz kalır, sonradan taşımak gerekir.</p>
+            <hr>
+            <span class="compare-after">Bu sistemle</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Yerleştirmeden önce kural sunucuda doğrulanır; ekranda yeşil ya da kırmızı hayalet olarak görünür.</span></p>
+          </div><div class="compare-card">
+            <h3>Depolama bedeli</h3>
+            <span class="compare-before">Defter ve Excel ile</span>
+            <p class="compare-before-text">Sezon sonunda kalan kilo elle çıkarılır; hesap tartışmaya açıktır.</p>
+            <hr>
+            <span class="compare-after">Bu sistemle</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Kalan KG × girişte sabitlenen fiyat. Hesap her an ekranda ve kayda dayanır.</span></p>
+          </div><div class="compare-card">
+            <h3>Fiyat değişikliği</h3>
+            <span class="compare-before">Defter ve Excel ile</span>
+            <p class="compare-before-text">Yeni fiyat girilince eski hesaplar da kayar.</p>
+            <hr>
+            <span class="compare-after">Bu sistemle</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Fiyat giriş anında kayda sabitlenir; sonraki değişiklik geçmiş kaydı yeniden yazmaz.</span></p>
+          </div><div class="compare-card">
+            <h3>Birden çok depo</h3>
+            <span class="compare-before">Defter ve Excel ile</span>
+            <p class="compare-before-text">Her depo ayrı dosya; hangisinin fiyatı hangisi karışır.</p>
+            <hr>
+            <span class="compare-after">Bu sistemle</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Her deponun kendi KG fiyatı ve kendi defteri var; işletme sahibi hepsini tek girişten görür.</span></p>
+          </div><div class="compare-card">
+            <h3>Rapor</h3>
+            <span class="compare-before">Defter ve Excel ile</span>
+            <p class="compare-before-text">Muhasebeye giden çıktı elle derlenir.</p>
+            <hr>
+            <span class="compare-after">Bu sistemle</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Stok, doluluk, giriş, çıkış, üretici ve ödeme raporları; CSV, XLSX ve PDF olarak dışarı alınır.</span></p>
+          </div><div class="compare-card">
+            <h3>İzlenebilirlik</h3>
+            <span class="compare-before">Defter ve Excel ile</span>
+            <p class="compare-before-text">Kaydı kimin ne zaman değiştirdiği belli değildir.</p>
+            <hr>
+            <span class="compare-after">Bu sistemle</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Hareket geçmişi silinmez; ayrıca kim neyi değiştirdi denetim kaydında durur.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="bleed-soft">
+    <div class="container">
+      <div class="section-head">
+        <h2>Modüller</h2>
+      </div>
+      <div class="zigzag-row">
+    <div class="zigzag-media">
+      <div class="screen-frame">
+    <div class="screen-frame-bar" aria-hidden="true"></div>
+    <span class="badge badge-representative">Temsilî görsel</span>
+    <img src="/assets/screens/cold/temsili.svg" width="1200" height="780" alt="3D yerleşim. Ekranlar." loading="lazy">
+  </div>
+    </div>
+    <div class="zigzag-text">
+      <h3>3D yerleşim</h3>
+      <p>Odaların metre cinsinden modeli. Sürükle-bırak yerleştirme, 90 derece döndürme, istifleme, oda içinde taşıma ve odalar arası transfer. Her kap odada kendi ikonuyla durur: 20 Palsanlık bir giriş, odada 20 ayrı birim olarak görünür.</p>
+    </div>
+  </div>
+      <div class="link-list" style="margin-top: var(--space-48)">
+        <div class="link-list-item">
+          <span aria-hidden="true">◈</span>
+          <div><strong>Yerleşim kuralları</strong><span>Çakışma, koridor bandı ve istif desteği kuralları sunucu tarafında doğrulanır; ekranda yeşil veya kırmızı hayalet olarak gösterilir. Üst birim alttakiyle en az %30 örtüşmezse istif kabul edilmez. Koridor genişliği parametre ekranından değiştirilir, kodda sabit değildir.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">▤</span>
+          <div><strong>Stok ve hareket</strong><span>Üretici, meyve, çeşit ve kap bazında ürün girişi; kısmi ve tam çıkış; otomatik stok kodu ve silinmeyen hareket geçmişi. Palet meyve kasalarının istiflenmesiyle oluşur: girişte palet başına kasa adedi kaydedilir, çıkış kasa bazında yapılabilir ve kasaları azalan palet, son kasa çıkana kadar odadaki yerini korur.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">₺</span>
+          <div><strong>Depolama hesabı</strong><span>Hesap daima kalan KG × standart KG fiyatı şeklindedir; gün sayısına bağlı değildir. Fiyat, stok girişinde kayda sabitlenir, sonraki fiyat değişiklikleri geçmiş kayıtları yeniden yazmaz. Her deponun kendi KG fiyatı ve kendi defteri vardır.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">◧</span>
+          <div><strong>Çoklu depo ve işletme</strong><span>Bir hesap tam olarak bir depoyu temsil eder; işletme sahibi tüm depolarını tek girişten görür. Her depo kendi fiyatı, kendi defteri ve kendi raporlarıyla ayrıdır. Farklı işletmelerin verisi birbirine hiçbir ekranda görünmez.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">⚿</span>
+          <div><strong>Personel ve yevmiye</strong><span>Personel kayıtları, yevmiyeci grupları ve grup bazlı ödeme takibi. Pro ve Kurumsal paketlerde açıktır.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">▥</span>
+          <div><strong>Raporlar</strong><span>Panel göstergeleri ve stok, doluluk, giriş, çıkış, üretici, ödeme raporları. Hepsi CSV, XLSX ve PDF olarak dışarı alınabilir.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">↻</span>
+          <div><strong>Sistem ve güvenlik</strong><span>Rol bazlı yetkilendirme, silinmeyen denetim kaydı (audit log), arayüzden tek tıkla yedek alma ve parametre yönetimi. Şifre, jeton ve kişisel veri günlüğe yazılmaz.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">NASIL BAŞLIYORUZ</p>
+        <h2>Demo talebinden canlı kullanıma dört adım.</h2>
+      </div>
+      <ol class="steps" style="--step-count:4">
+    <li class="step">
+      <span class="step-marker" aria-hidden="true">1</span>
+      <h3>Demo talebi</h3>
+      <p>Formu doldurun ya da doğrudan yazın. İşletmenizin büyüklüğünü ve bugün nasıl çalıştığınızı öğrenelim.</p>
+    </li><li class="step">
+      <span class="step-marker" aria-hidden="true">2</span>
+      <h3>Canlı gösterim</h3>
+      <p>Ürünü sizin verilerinize benzer bir örnek üzerinde ekran paylaşımıyla gösteririz. Sorular burada sorulur.</p>
+    </li><li class="step">
+      <span class="step-marker" aria-hidden="true">3</span>
+      <h3>Deneme hesabı</h3>
+      <p>İşletmenize ait bir hesap açılır. Kendi malzemelerinizi, fiyatlarınızı ve odalarınızı girip gerçek bir işi baştan sona denersiniz.</p>
+    </li><li class="step">
+      <span class="step-marker" aria-hidden="true">4</span>
+      <h3>Devreye alma</h3>
+      <p>Karar verirseniz hesap tam sürüme geçer, mevcut verileriniz aktarılır ve kullanıcılarınız tanımlanır.</p>
+    </li>
+  </ol>
+    </div>
+  </section>
+    <section class="bleed-soft">
+    <div class="container">
+      <div class="section-head"><h2>Bağlantılar</h2></div>
+      <div class="link-list">
+        <div class="link-list-item">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-external-link"></use></svg>
+          <div><strong>CSV / XLSX / PDF</strong><span>Bütün raporlar üç biçimde dışarı alınabilir; muhasebeye giden çıktı elle hazırlanmaz.</span></div>
+        </div><div class="link-list-item">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-external-link"></use></svg>
+          <div><strong>REST API</strong><span>OpenAPI 3 şeması, Swagger ve ReDoc arayüzleriyle belgeli /api/v1 uç noktaları.</span></div>
+        </div><div class="link-list-item">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-external-link"></use></svg>
+          <div><strong>PostgreSQL</strong><span>Üretimde PostgreSQL. Uygulama içinden yedek alınır, geri yükleme yordamı belgelidir.</span></div>
+        </div><div class="link-list-item">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-external-link"></use></svg>
+          <div><strong>Docker</strong><span>Tek konteynerde API ve arayüz. Dağıtım betiği başarısız sağlık kontrolünde önceki sürüme geri döner.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+    <section class="bleed-soft">
+    <div class="container pricing-summary">
+      <h2>Paketler</h2>
+      <p class="lead">Paket içerikleri aşağıda; rakamı görüşmede netleştirip yazılı teklif gönderiyoruz.</p>
+      <a class="btn" href="/fiyatlandirma/#soguk-hava">Paketler <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
+    </div>
+  </section>
+    <section class="bleed-soft">
+    <div class="container">
+      <div class="section-head"><h2>Satın alma öncesi en çok sorulanlar.</h2></div>
+      <div class="faq-list">
+    <details class="faq-item" id="faq-cold-1">
+      <summary>Verilerim başka işletmelerle karışır mı? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Karışmaz. Her işletmenin verisi veritabanında kendi kimliğiyle ayrılır; farklı işletmelerin verisi hiçbir ekranda birbirine görünmez.</p>
+    </details><details class="faq-item" id="faq-cold-2">
+      <summary>Deneme hesabında kaç oda açabilirim? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Canlı lisansı olmayan (deneme) bir depo en fazla 2 oda açabilir. Lisans alındığında bu sınır kalkar.</p>
+    </details><details class="faq-item" id="faq-cold-3">
+      <summary>Fiyat değiştirirsem geçmiş kayıtlar etkilenir mi? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Etkilenmez. Depolama bedeli stok girişinde kayda sabitlenir; sonraki fiyat değişikliği geçmiş kaydı yeniden yazmaz.</p>
+    </details><details class="faq-item" id="faq-cold-4">
+      <summary>Personel ve yevmiye takibi hangi pakette var? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Personel kayıtları, yevmiyeci grupları ve grup bazlı ödeme takibi Pro ve Kurumsal paketlerde açıktır.</p>
+    </details><details class="faq-item" id="faq-cold-5">
+      <summary>Raporları hangi biçimde alabilirim? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Stok, doluluk, giriş, çıkış, üretici ve ödeme raporlarının hepsi CSV, XLSX ve PDF olarak dışarı alınabilir.</p>
+    </details><details class="faq-item" id="faq-cold-6">
+      <summary>Kim neyi değiştirdi görebilir miyim? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Evet. Hareket geçmişi silinmez ve kim neyi ne zaman değiştirdi denetim kaydında (audit log) durur.</p>
+    </details>
+  </div>
+    </div>
+  </section>
+    <section class="cta-band">
+    <div class="container cta-band-inner">
+      <div>
+        <h2>Deponun 3D dijital ikizi.</h2>
+        <p>Depo doluluğu ve ürünün yeri ekrandan görülür, yerleştirme hatası sahada değil ekranda yakalanır ve depolama bedeli tartışma götürmeyen bir kayda dayanır.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a class="btn btn-on-dark" href="/iletisim/?urun=cold">Deneme Hesabı İsteyin</a>
+        <a class="text-channel" href="https://wa.me/905392191982" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-message-circle"></use></svg>WhatsApp</a>
+        <a class="text-channel" href="mailto:biltekinhamza@gmail.com"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-mail"></use></svg>biltekinhamza@gmail.com</a>
+      </div>
+    </div>
+  </section>
+    <section class="section-tight">
+    <div class="container">
+      <details class="specs-details">
+        <summary>Teknik künye <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+        <table class="spec-table">
+          <tbody>
+            <tr><th scope="row">Sunucu</th><td>Python 3.12, FastAPI, SQLAlchemy 2.0</td></tr><tr><th scope="row">Arayüz</th><td>React 18, TypeScript, React Three Fiber (Three.js)</td></tr><tr><th scope="row">Veritabanı</th><td>PostgreSQL 14+ (üretim), SQLite (geliştirme)</td></tr><tr><th scope="row">Dağıtım</th><td>Docker / Docker Compose, Alembic göçleri</td></tr><tr><th scope="row">Tarayıcı</th><td>WebGL 2 destekleyen güncel tarayıcı (3D görünüm için)</td></tr><tr><th scope="row">Test</th><td>559 sunucu + 74 arayüz testi, ayrıca uçtan uca duman testleriyle doğrulanır</td></tr><tr><th scope="row">Çok işletmeli</th><td>Evet, veri işletme bazında ayrılır</td></tr><tr><th scope="row">Arayüz dili</th><td>Türkçe</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+  </section>
+  </article>
+</main>
+<footer id="site-footer" class="site-footer on-dark">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/">
+          <span class="brand-mark">
+            <img class="brand-mark-dial" src="/assets/logo/logo-dial.svg" alt="" width="34" height="34">
+            <img class="brand-mark-needle" src="/assets/logo/logo-needle.svg" alt="" width="34" height="34">
+          </span>
+          <span>Dijital<span class="brand-accent">Pusula</span></span>
+        </a>
+        <p>Havalandırma imalatçıları ve meyve soğuk hava depoları için sektörel yazılım. Özel yazılım ve otomasyon geliştirme.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Ürünler</h2>
+        <ul><li><a href="/hvac-pro-suite/">HVAC Pro Suite</a></li><li><a href="/soguk-hava-deposu/">Soğuk Hava Deposu Yönetim Sistemi</a></li><li><a href="/ozel-yazilim/">Özel Yazılım</a></li><li><a href="/fiyatlandirma/">Paketler</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h2>Kurumsal</h2>
+        <ul><li><a href="/iletisim/">İletişim</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h2>Yasal</h2>
+        <nav aria-label="Yasal">
+          <ul>
+            <li><a href="/yasal/kvkk-aydinlatma-metni/">Gizlilik ve KVKK</a></li><li><a href="/yasal/cerez-politikasi/">Çerez Politikası</a></li><li><a href="/yasal/kullanim-kosullari/">Kullanım Koşulları</a></li>
+          </ul>
+        </nav>
+      </div>
+      <section class="footer-identity" aria-labelledby="footer-identity-heading">
+        <h2 id="footer-identity-heading">İletişim</h2>
+        <dl><div><dt>Ticari unvan</dt><dd>Hamza Biltekin</dd></div><div><dt>İşletme adı</dt><dd>Dijital Pusula</dd></div><div><dt>Merkez adresi</dt><dd>Bahçelievler Mahallesi, Merkez / Isparta</dd></div><div><dt>E-posta</dt><dd>biltekinhamza@gmail.com</dd></div><div><dt>Telefon</dt><dd>+90 539 219 19 82</dd></div></dl>
+      </section>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dijital Pusula. Tüm hakları saklıdır.</p>
+      <p><a href="/en/cold-storage/">English</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/site.js?v=0e62f708" defer></script>
+</body>
+</html>

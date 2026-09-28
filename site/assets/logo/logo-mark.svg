@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="dp-logo-title">
+  <title id="dp-logo-title">Dijital Pusula logosu</title>
+  <!-- Statik (döngüsüz) marka işareti: kadran + ibre tek katmanda.
+       Manyetik Kuzey paleti (TASARIM-STANDARDI.md SS1.2-1.3). Animasyonlu
+       kullanım için logo-dial.svg (sabit) + logo-needle.svg (döner) ayrı
+       katmanlar olarak kalır (ADR-3, compass-seek mekaniği). -->
+  <defs>
+    <linearGradient id="dp-ring" x1="10" y1="7" x2="54" y2="57" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B83B1C"/>
+      <stop offset=".55" stop-color="#932F16"/>
+      <stop offset="1" stop-color="#223B57"/>
+    </linearGradient>
+    <linearGradient id="dp-face" x1="16" y1="12" x2="48" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FBFAF7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Kadran: dis halka + derece cemberi -->
+  <circle cx="32" cy="32" r="28.5" fill="url(#dp-face)" stroke="url(#dp-ring)" stroke-width="3"/>
+  <circle cx="32" cy="32" r="22.5" fill="none" stroke="#E2DFD6" stroke-width="1"/>
+
+  <!-- Ara yon cizgileri (NE, SE, SW, NW) -->
+  <g stroke="#5C6470" stroke-width="1.3" stroke-linecap="round">
+    <path d="M50.03 13.97 48.97 15.03"/>
+    <path d="M50.03 50.03 48.97 48.97"/>
+    <path d="M13.97 50.03 15.03 48.97"/>
+    <path d="M13.97 13.97 15.03 15.03"/>
+  </g>
+
+  <!-- Ana yon cizgileri (N, E, S, W) -->
+  <g stroke="#223B57" stroke-width="1.8" stroke-linecap="round">
+    <path d="M32 6.3v2.3"/><path d="M32 55.4v2.3"/>
+    <path d="M6.3 32h2.3"/><path d="M55.4 32h2.3"/>
+  </g>
+
+  <!-- Pusula ibresi -->
+  <path d="M32 10.5 39 32H32Z" fill="#B83B1C"/>
+  <path d="M32 10.5 25 32h7Z" fill="#932F16"/>
+  <path d="M32 53.5 39 32H32Z" fill="#223B57"/>
+  <path d="M32 53.5 25 32h7Z" fill="#182C40"/>
+
+  <!-- Merkez gobek -->
+  <circle cx="32" cy="32" r="4.6" fill="#FFFFFF" stroke="#191E28" stroke-width="2"/>
+  <circle cx="32" cy="32" r="1.5" fill="#191E28"/>
+</svg>

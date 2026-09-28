@@ -1,0 +1,60 @@
+/* buttons.css — düğme / bağlantı / ikon genel kuralı (TASARIM-STANDARDI.md S5.22). */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  min-height: 48px;
+  padding: 0 var(--space-20);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: var(--font-size-16);
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--color-accent-primary);
+  border: var(--border-width) solid var(--color-accent-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, transform .1s ease;
+}
+.btn:hover { background: var(--color-accent-primary-ink); border-color: var(--color-accent-primary-ink); text-decoration: none; }
+.btn:active { transform: translateY(1px); }
+.btn[disabled], .btn[aria-busy="true"] { opacity: .65; cursor: progress; }
+
+.btn-secondary {
+  color: var(--color-ink);
+  background: var(--color-surface);
+  border-color: var(--color-line);
+}
+.btn-secondary:hover { color: var(--color-ink); background: var(--color-bg-soft); border-color: var(--color-ink-muted); }
+
+.btn-on-dark {
+  color: var(--color-accent-secondary);
+  background: #fff;
+  border-color: #fff;
+}
+.btn-on-dark:hover { background: var(--color-bg-soft); border-color: var(--color-bg-soft); }
+
+.btn-block { width: 100%; }
+.btn-small { min-height: 40px; padding: 0 var(--space-16); font-size: var(--font-size-14); }
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+}
+
+/* Metin bağlantısı: "→" yalnız gerçek yön/hareket anlamı taşıyan yerlerde
+   (yön kapısı "İncele", 404 bağlantıları DEĞİL — bunlar navigasyon, ok yok). */
+.link-directional {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  color: var(--color-accent-primary-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.link-directional .icon { transition: transform .15s ease; }
+.link-directional:hover .icon,
+.link-directional:focus-visible .icon { transform: translateX(3px); }

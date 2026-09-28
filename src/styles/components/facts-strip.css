@@ -1,0 +1,8 @@
+/* facts-strip.css — gerçeklik şeridi (TASARIM-STANDARDI.md S5.5). Orta nokta
+   ile birleştirilmiş tek satır DEĞİL; her gerçek kendi çipinde, gerçek
+   border-right ile ayrılır (bkz. badge.css .chip-row). */
+
+.facts-strip { padding: var(--space-32) 0; border-top: var(--border-width) solid var(--color-line); border-bottom: var(--border-width) solid var(--color-line); }
+.facts-strip .chip { flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+.facts-strip .chip strong { font-family: var(--font-heading); font-size: var(--font-size-24); }
+.facts-strip .chip span { color: var(--color-ink-muted); font-size: var(--font-size-12); }

@@ -1,0 +1,20 @@
+/* note-box.css — not kutusu (TASARIM-STANDARDI.md S5.14). Bilgi/uyarı/hata/
+   başarı tonları; sol bar-thick çubuk bilgi taşıyan işaretleyicidir. */
+
+.note {
+  display: flex;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border-left: var(--bar-thick) solid var(--color-info);
+  background: var(--color-info-bg);
+  color: var(--color-info);
+  border-radius: var(--radius-0);
+}
+.note p { margin: 0; color: inherit; }
+.note p + p { margin-top: var(--space-8); }
+.note a { color: inherit; font-weight: 600; }
+.note .icon { flex: 0 0 auto; margin-top: .15em; }
+
+.note-warning { border-left-color: var(--color-warning); background: var(--color-warning-bg); color: var(--color-warning); }
+.note-error { border-left-color: var(--color-error); background: var(--color-error-bg); color: var(--color-error); }
+.note-success { border-left-color: var(--color-success); background: var(--color-success-bg); color: var(--color-success); }

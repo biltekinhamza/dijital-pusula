@@ -1,0 +1,39 @@
+/* comparison-table.css — karşılaştırma tablosu (P5, TASARIM-STANDARDI.md S5.7)
+   ve plan karşılaştırma tablosu (S5.13) ortak deseni: geniş ekranda tablo,
+   dar ekranda kart yığını (yatay kaydırma YOK). */
+
+.compare-table { width: 100%; border: var(--border-width) solid var(--color-line); border-radius: var(--radius-md); overflow: hidden; }
+.compare-table table { display: none; width: 100%; }
+@media (min-width: 768px) {
+  .compare-table table { display: table; }
+  .compare-table .compare-cards { display: none; }
+}
+.compare-table th, .compare-table td {
+  padding: var(--space-16);
+  text-align: left;
+  border-bottom: var(--border-width) solid var(--color-line);
+  vertical-align: top;
+}
+.compare-table thead th {
+  background: var(--color-bg-soft);
+  font-size: var(--font-size-14);
+  font-weight: 700;
+}
+.compare-table tbody th { font-weight: 600; }
+.compare-table td.col-before { color: var(--color-ink-muted); }
+.compare-table td.col-after { background: var(--color-bg-soft); }
+.compare-table td.col-after .icon { color: var(--color-accent-primary); margin-right: var(--space-8); }
+.compare-table tbody tr:last-child th, .compare-table tbody tr:last-child td { border-bottom: 0; }
+
+.compare-cards { display: grid; }
+@media (min-width: 768px) {
+  .compare-cards { display: none; }
+}
+.compare-card { padding: var(--space-16); border-bottom: var(--border-width) solid var(--color-line); }
+.compare-card:last-child { border-bottom: 0; }
+.compare-card h3 { font-size: var(--font-size-16); margin-bottom: var(--space-12); }
+.compare-card .compare-before, .compare-card .compare-after { display: block; margin-bottom: var(--space-4); font-size: var(--font-size-12); font-weight: 700; color: var(--color-ink-muted); text-transform: none; }
+.compare-card .compare-before-text { color: var(--color-ink-muted); margin-bottom: var(--space-12); }
+.compare-card .compare-after-text { display: flex; gap: var(--space-8); }
+.compare-card .compare-after-text .icon { flex: 0 0 auto; color: var(--color-accent-primary); margin-top: .2em; }
+.compare-card hr { border: 0; border-top: var(--border-width) solid var(--color-line); margin: var(--space-12) 0; }

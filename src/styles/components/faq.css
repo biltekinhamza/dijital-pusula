@@ -1,0 +1,28 @@
+/* faq.css — SSS (TASARIM-STANDARDI.md S5.12). <details>/<summary>, JS'siz. */
+
+.faq-layout { display: grid; gap: var(--space-32); }
+@media (min-width: 1024px) {
+  .faq-layout { grid-template-columns: minmax(0, .32fr) minmax(0, .68fr); gap: var(--space-64); align-items: start; }
+  .faq-layout .faq-heading { position: sticky; top: calc(var(--header-h-desktop) + var(--space-24)); }
+}
+
+.faq-list { border-top: var(--border-width) solid var(--color-line); }
+.faq-item { border-bottom: var(--border-width) solid var(--color-line); }
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding: var(--space-16) 0;
+  color: var(--color-ink);
+  font-size: var(--font-size-16);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .icon { flex: 0 0 auto; color: var(--color-ink-muted); transition: transform .15s ease; }
+.faq-item[open] summary .icon { transform: rotate(180deg); }
+.faq-item[open] summary { color: var(--color-accent-primary-ink); }
+.faq-item p { padding-bottom: var(--space-16); margin: 0; color: var(--color-ink-muted); max-width: 68ch; }
+.faq-item .faq-link { margin-top: var(--space-24); }

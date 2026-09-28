@@ -6,53 +6,234 @@
 - **Soğuk Hava Deposu Yönetim Sistemi** — meyve soğuk hava depoları için 3D yerleşim, stok ve depolama hesabı
 - **Özel yazılım / otomasyon** — ürünlerin dışında kalan işler (ikincil)
 
-Derleme adımı, çerçeve, paket bağımlılığı yok: semantik HTML5, CSS3 ve düz JavaScript.
+Site **kaynaktan üretilir**: `src/` altındaki içerik/şablon dosyaları elle
+düzenlenir, `node tools/build.js` bunlardan statik HTML/CSS/JS üretip
+`site/` klasörüne yazar, `site/` **de depoya commit'lenir**. Barındırıcıda
+(Cloudflare Pages) hiçbir derleme çalışmaz — orada yalnız `site/` dizini
+olduğu gibi yayınlanır. Bağımlılıksız: `package.json` yok, üretici yalnız
+Node'un yerleşik modüllerini kullanır; testler `node --test` ile çalışır.
+
+Ayrıntılı gerekçeler için [`kadro/ETKI-ANALIZI.md`](kadro/ETKI-ANALIZI.md).
 
 ---
 
-## 🔴 Yayın öncesi kritik: barındırma
+## İçerik düzenleme akışı
 
-**GitHub Pages bu siteyi barındırmak için kullanılamaz.** GitHub'ın kendi ek ürün
-şartları (GitHub Terms for Additional Products and Features → GitHub Pages) aynen
-şunu diyor:
+Her değişiklik aynı üç adımı izler:
 
-> "GitHub Pages is not intended for or allowed to be used as a free web hosting
-> service to run your online business, e-commerce site, or any other website that
-> is primarily directed at either facilitating commercial transactions or
-> providing commercial software as a service (SaaS)."
+```bash
+# 1. src/ altında ilgili dosyayı düzenle (aşağıdaki tablo)
+# 2. site/'i yeniden üret
+node tools/build.js
 
-Site bir tanıtım/portfolyo sitesiyken bu madde sorun değildi. Fiyat/paket bölümü,
-deneme çağrısı ve ürün satışı eklendiği anda kapsamın içine giriyor.
+# 3. üretimin kurallara uyduğunu denetle
+node tools/check-site.js
 
-**Ne yapılmalı:** dosyalar aynen kalacak şekilde barındırma taşınmalı. Ticari
-kullanıma izin veren, ücretsiz katmanı olan ve derleme adımı gerektirmeyen
-seçenek: **Cloudflare Pages** (veya Netlify). Bu depoyu bağlamak yeterli;
-`build command` boş, `output directory` kök dizin.
+# 4. commit (hem src/ hem site/ birlikte)
+```
 
-Taşındıktan sonra bu dosyalardaki adresler güncellenmeli:
+`site/` **elle düzenlenmez** — bir sonraki `node tools/build.js` onu
+sıfırdan yeniden yazıp üzerine yazar. `site/`'i düzenleyip commit
+unutulursa canlı site kaynaktan sapar; bunu yakalamak için:
 
-- her `.html` içindeki `<link rel="canonical">` ve `og:url` / `og:image`
-- `sitemap.xml` içindeki `<loc>` değerleri
-- `robots.txt` içindeki `Sitemap:` satırı
-- `404.html` içindeki `/dijital-pusula/...` mutlak yolları (özel alan adında `/...` olur)
+```bash
+node tools/build.js --check
+```
+
+Bu komut `site/`'i belleğe yeniden üretir ve diskteki `site/` ile
+karşılaştırır; fark varsa (`src/` değişmiş ama `build.js` çalıştırılmamışsa)
+sıfırdan farklı bir çıkış koduyla durur ve farkları listeler. Commit
+öncesi bunu otomatikleştirmek isterseniz (isteğe bağlı):
+
+```bash
+git config core.hooksPath tools/githooks
+```
+
+`tools/githooks/pre-commit` her commit'ten önce `build --check` ve
+`check-site`'ı çalıştırır; biri başarısız olursa commit durur.
+
+### Sık yapılan işler — hangi dosya
+
+| İş | Dosya |
+|---|---|
+| Ürün metni (sorun/çözüm, karşılaştırma, modüller, SSS) | `src/content/{tr,en}/hvac.js`, `cold.js` |
+| Ana sayfa metni | `src/content/{tr,en}/home.js` |
+| Fiyat / paket verisi | `src/content/pricing.js` (dilden bağımsız, tamsayı TL) |
+| Ölçülebilir ürün gerçekleri (deneme süresi, parça sayısı, …) | `src/content/facts.js` — her girdide `source` (dosya:satır) ve `checkedAt` zorunlu |
+| Sürüm notları / yol haritası | `src/content/changelog.js` |
+| Yasal metinler (KVKK, çerez, kullanım koşulları) | `src/content/{tr,en}/legal.js` — **tek kaynak**, başka hiçbir dosyada tekrarlanmaz |
+| Firma bilgisi (MADDE 5) | `src/company.js` |
+| Alan adı, form ayarı, analitik | `src/site.config.js` |
+| Rota tablosu, menü, site haritası | `src/routes.js` |
+| Renk / tipografi / boşluk jetonları | `src/styles/tokens.css` |
+| Sayfa iskeleti, bileşenler | `src/templates/` |
+
+Kural: **`tr` ve `en` içerik ağaçlarının anahtarları ve dizi uzunlukları
+birebir eşit olmalı.** Eksik bir EN anahtarı `node tools/build.js`'i
+durdurur (anahtar yolunu yazar); sessizce atlanmaz.
 
 ---
 
-## Yayın öncesi kontrol listesi
+## Alan adı — tek yer
 
-- [ ] **Barındırmayı taşı** (yukarıdaki bölüm) — P0
-- [ ] `js/translations.js` içindeki **`SITE_COMPANY`** bloğunu gerçek bilgilerle doldur — P0
-- [ ] Form uç noktasını bağla (`js/main.js` → `FORM_ENDPOINT`) — P0
-- [ ] Yasal metinleri avukata okut (`gizlilik.html`, `cerez-politikasi.html`, `kullanim-sartlari.html`)
-- [ ] ETBİS kaydı gerekip gerekmediğini mali müşavire sor
-- [ ] `node tools/check-site.js` temiz dönüyor mu
-- [ ] Gerçek ekran görüntülerini `assets/images/product-*.svg` yerine koy
+Gerçek alan adı **yalnızca** `src/site.config.js` içindeki `origin`
+alanında yazılır:
 
-### `SITE_COMPANY` neden zorunlu
+```js
+module.exports = {
+  origin: "https://www.dijitalpusula.example", // RFC 2606 yer tutucu
+  ...
+};
+```
 
-Elektronik Ticaret Hizmet Sağlayıcılar Hakkında Yönetmelik (RG 29/12/2022, 32058)
-**MADDE 5**, ana sayfada **"İletişim" başlığı altında doğrudan erişilebilir** şekilde
-şunları şart koşuyor:
+Canonical, hreflang, OG etiketleri, JSON-LD, `sitemap.xml`, `robots.txt`
+ve OG paylaşım görselleri (`tools/make-og.py`) hepsi buradan üretilir.
+Gerçek alan adı alınana kadar yer tutucu kalır; `node tools/check-site.js
+--release` bu alan hâlâ `.example` içeriyorsa yayını **durdurur** (kural 11).
+
+---
+
+## Form ve yasal metin — tek ayardan üretilir
+
+`src/site.config.js` → `form` bloğu iki kipi destekler:
+
+```js
+form: {
+  mode: "mailto", // "mailto" | "endpoint"
+  provider: { name: "", country: "", endpoint: "", accessKey: "" }
+}
+```
+
+- **`mailto`** (açılış kipi): form ziyaretçinin e-posta uygulamasında hazır
+  bir taslak açar. Ayrıca WhatsApp ve e-posta birincil kanal olarak
+  gösterilir. Kurulum gerektirmez, üçüncü taraf veri aktarımı yoktur.
+- **`endpoint`**: form bir uç noktaya doğrudan POST edilir (`provider.name`
+  ve `provider.country` bu kipte **zorunludur** — boşsa derleme durur).
+  Bu kip KVKK md. 9 anlamında yurt dışı aktarım sayılabilir.
+
+`mode` değiştirip yeniden derlediğinizde **tek bir yerde elle güncelleme
+yapmadan** şunlar kendiliğinden değişir: istemci formunun davranışı,
+KVKK aydınlatma metnindeki "aktarım" paragrafı, iletişim sayfasındaki not.
+Aynı mekanizma `analytics: "none" | "cloudflare"` için de geçerli — analitik
+açılırsa çerez politikası metni buna göre güncellenir. **Cloudflare
+panelinden analitik açmak tek başına yetmez**; `site.config.js` güncellenip
+yeniden derlenmeden panel ayarı depoda görünmez ve yasal metinle çelişir.
+
+Bunu doğrulayan test: `form.mode` iki farklı değerle iki kez derlenip
+çıktı karşılaştırılıyor — yalnız beklenen paragraflar farklı çıkıyor mu
+diye (`node --test`, G6 bitti ölçütü).
+
+---
+
+## Kapalı (henüz yayınlanmayan) bir rotayı açmak
+
+`src/routes.js` site haritasının **tek kaynağıdır**; menü, altbilgi,
+`sitemap.xml` ve dil bağlantıları hepsi bu tablodan türer. Şu an kapalı
+(`enabled: false`) dört rota var: `about` (hakkımızda), `changelog`
+(sürüm notları), `security` (güvenlik), `legal-subscription` (abonelik
+şartları). Bir rotayı açmak için:
+
+1. `src/routes.js` içinde ilgili girdide `enabled: false` → `enabled: true`.
+2. O rotanın gerçek içeriğini ilgili `src/content/{tr,en}/*.js` dosyasına
+   yaz (şablon zaten mevcut, kapalıyken de derlenebilir durumda tutulur).
+3. `node tools/build.js && node tools/check-site.js`.
+
+Kapalıyken o rotaya bir şablon `ctx.url()` ile bağlantı vermeye kalkarsa
+derleme durur — kapalı bir sayfa hiçbir yerde ölü bağlantı olarak kalmaz.
+Tersi yönde: bir rotayı kapatmak da tek satırlık bir değişikliktir
+(`enabled: true` → `false`); menüden, altbilgiden ve site haritasından
+aynı anda kalkar.
+
+---
+
+## Yerel önizleme
+
+`site/` içindeki yollar temiz URL'lerdir (`/fiyatlandirma/` gibi klasör
+altında `index.html`); bu yüzden `file://` ile açmak klasör listesi
+gösterir, **yerel bir sunucu gerekir**:
+
+```bash
+node tools/build.js
+npx serve site
+# veya
+python -m http.server -d site
+```
+
+---
+
+## Denetim
+
+```bash
+node tools/check-site.js
+```
+
+13 kuralı çalıştırır (ETKI-ANALIZI.md §4.5): `site/`'in kaynakla eşleştiği,
+TR/EN anahtar ve dizi uzunluğu eşliği, her HTML'de tek `<h1>`/doğru
+`lang`/canonical/karşılıklı `hreflang`, iç bağlantı ve çapa hedeflerinin
+var olduğu (kapalı rotaya bağlantı yok), görsellerin `width`/`height`/`alt`
+taşıdığı, JSON-LD'nin ayrıştığı ve sayfadaki fiyatla aynı olduğu,
+`sitemap.xml`/`robots.txt` doğruluğu, sitede eski alan adının hiç
+geçmediği, yasak iddia listesinin (§3.1 ETKI-ANALIZI) geçmediği, MADDE 5
+alanlarının doluluğu, `origin`'in yer tutucu olup olmadığı, fiyatın
+bayatlayıp bayatlamadığı, `endpoint` kipinde sağlayıcı bilgisinin dolu
+olduğu. Çıktı denetlenen sayfa/bağlantı/görsel **sayılarını** basar; sıfır
+sayı hatadır.
+
+```bash
+node tools/check-site.js --release
+```
+
+Aynı 13 kural, ama normalde yalnız **uyarı** olan üç madde (eksik MADDE 5
+alanı, yer tutucu `origin`, bayat fiyat tarihi) burada **hata** sayılır ve
+sıfır olmayan çıkış koduyla durur. **Yayına almadan önce bu komut mutlaka
+temiz dönmeli.**
+
+```bash
+node --test
+```
+
+Bütün birim ve içerik/üretim testlerini çalıştırır (Node'un yerleşik test
+koşucusu, ek paket gerekmez).
+
+```bash
+python tools/make-og.py    # Pillow gerekir
+```
+
+Sosyal medya paylaşım kartlarını (`src/static/assets/og/*.png`, TR + EN)
+yeniden üretir. Başlık/açıklama içerik dosyalarından (`tools/og-data.js`
+aracılığıyla) okunur, elle ayrı bir kopya yazılmaz; adres
+`site.config.js`'teki `origin`'den gelir. PNG zorunludur — hiçbir sosyal
+platform OG görseli olarak SVG işlemez.
+
+---
+
+## Barındırma — Cloudflare Pages
+
+Bu depo doğrudan Cloudflare Pages'e bağlanır:
+
+- **Build command:** boş (derleme yerelde yapılıp `site/` commit'lenir).
+- **Output directory:** `site`.
+- `site/_redirects` eski `.html` adreslerinden (`havalandirma-yazilimi.html`
+  vb.) yeni yollara 301 yönlendirir; `src/routes.js`'teki `legacy`
+  alanından üretilir.
+- `site/_headers`: `X-Content-Type-Options`, `Referrer-Policy`,
+  `Permissions-Policy`, `X-Frame-Options` — güvenlik başlıkları.
+- Kökte `site/404.html` bulunduğu için bilinmeyen yollar 404 koduyla
+  sunulmalıdır (varsayım; ilk yayında gerçek bir olmayan URL'ye istek
+  atılıp durum kodu gözle doğrulanmalı — D-005: çıkış kodu/"başarılı"
+  paneli tek başına kanıt sayılmaz).
+
+GitHub Pages **kullanılmaz** (ticari SaaS tanıtımı GitHub'ın Pages şartına
+aykırı düşer, ayrıca derleme adımı çalıştırmaz); geçiş sonrası eski
+`github.io` yayını kapatılır ya da yeni adrese yönlendirilir.
+
+---
+
+## Firma bilgisi — MADDE 5
+
+Elektronik Ticaret Hizmet Sağlayıcılar Hakkında Yönetmelik (RG 29/12/2022,
+32058) **MADDE 5**, ana sayfada **"İletişim" başlığı altında doğrudan
+erişilebilir** şekilde şunları şart koşuyor:
 
 | | Esnaf / sanatkâr | Tacir (limited, A.Ş. veya esnaf sınırını aşan şahıs işletmesi) |
 |---|---|---|
@@ -63,10 +244,11 @@ Elektronik Ticaret Hizmet Sağlayıcılar Hakkında Yönetmelik (RG 29/12/2022, 
 | E-posta, telefon | Zorunlu | Zorunlu |
 | Meslek odası | Zorunlu | Zorunlu |
 
-Hangi kategoriye girdiğinizi mali müşavirinize sorun. `SITE_COMPANY` içinde boş
-bıraktığınız alan sitede hiç gösterilmez — yani eksik bırakırsanız yükümlülük
-sessizce karşılanmamış olur. `node tools/check-site.js` hangi alanların hâlâ yer
-tutucu olduğunu her çalıştırmada listeler.
+Hangi kategoriye girdiğinizi mali müşavirinize sorun. Tüm alanlar
+`src/company.js` içinde **tek yerde**; boş bırakılan alan sitede hiç
+gösterilmez — yani eksik bırakılırsa yükümlülük sessizce karşılanmamış
+olur. `node tools/check-site.js` hangi alanların hâlâ boş olduğunu her
+çalıştırmada listeler (kural 10); `--release` bunu hataya çevirir.
 
 ---
 
@@ -75,19 +257,13 @@ tutucu olduğunu her çalıştırmada listeler.
 | | |
 |---|---|
 | Ad | **Dijital Pusula** |
-| Kelime markası | `Dijital` + `Pusula` bitişik yazılır, ikinci yarı vurgu renginde (`--accent-ink`) |
-| Slogan | **Doğru yerdesiniz.** / alt satır: *Sektörünüzün yazılımı burada.* |
-| İngilizce slogan | **You’re in the right place.** / *The software for your industry is here.* |
-| Simge | Pusula — `assets/logo/logo-mark.svg` |
-| Favicon | `favicon.svg` (küçük boyutta okunsun diye dolu disk varyantı) |
+| Slogan | **Doğru yerdesiniz.** (EN: *You're in the right place.*) |
+| Simge | Pusula — kadran + ibre, 3 SVG katmanı: `src/static/assets/logo/logo-mark.svg` (statik), `logo-dial.svg` + `logo-needle.svg` (animasyonlu kullanım) |
+| Favicon | `src/static/favicon.svg` (+ PNG yedek, apple-touch-icon) |
 
-Marka adı ve slogan tek kaynaktan gelir: `js/translations.js` → `brand` bloğu
-(`name`, `accent`, `full`, `tagline`, `taglineSub`). HTML'de bunlar
-`data-i18n="brand.tagline"` gibi yollarla çağrılır; sabit metin yazmayın.
-
-**Animasyon:** başlık ve footer'daki `.brand-mark-animated` içinde kadran sabit
-durur, yalnız `logo-needle.svg` katmanı `compass-seek` keyframe'iyle gerçek bir
-pusula gibi yönü arayıp yerine oturur. `prefers-reduced-motion` açıkken durur.
+Ad, simge geometrisi ve slogan sabit kabul edilir (ETKI-ANALIZI ADR-3);
+görsel dilin geri kalanı (renk, tipografi, hareket) `kadro/TASARIM-STANDARDI.md`
+belirler. İbre animasyonu `prefers-reduced-motion` açıkken durur.
 
 ---
 
@@ -95,161 +271,50 @@ pusula gibi yönü arayıp yerine oturur. `prefers-reduced-motion` açıkken dur
 
 ```text
 dijital-pusula/
-├── index.html                        # ana sayfa (ürün vitrini + SSS + iletişim)
-├── havalandirma-yazilimi.html        # HVAC Pro Suite ürün sayfası
-├── soguk-hava-deposu-yazilimi.html   # Soğuk Hava Deposu ürün sayfası
-├── ozel-yazilim.html                 # özel yazılım / otomasyon hizmetleri
-├── gizlilik.html                     # KVKK aydınlatma metni
-├── cerez-politikasi.html
-├── kullanim-sartlari.html
-├── 404.html                          # kendi kendine yeten, iki dilli
-├── sitemap.xml
-├── robots.txt
-├── css/style.css
-├── js/
-│   ├── translations.js               # SITE_COMPANY + bütün site metni (TR/EN)
-│   └── main.js                       # i18n motoru, sayfa çizicileri, form
-├── assets/
-│   ├── images/                       # ürün görselleri + OG kartları (PNG)
-│   └── logo/
-│       ├── logo-mark.svg             # tam pusula (kadran + ibre) — statik kullanım
-│       ├── logo-dial.svg             # yalnız kadran — animasyonlu markanın zemini
-│       └── logo-needle.svg           # yalnız ibre — dönen katman
-├── tools/                            # geliştirme yardımcıları (siteye dahil değil)
-└── docs/site-arastirma-raporu.md     # dönüşüm araştırması ve öncelik listesi
+├── src/                     # KAYNAK — elle düzenlenen her şey burada
+│   ├── site.config.js       # alan adı, form kipi, analitik
+│   ├── company.js           # MADDE 5 firma bilgisi
+│   ├── routes.js            # rota → {tr, en} yol, açık/kapalı, eski URL
+│   ├── lib/                 # üretici yardımcıları (tarayıcıya gitmez)
+│   ├── content/              # dile göre metin + fiyat/gerçek/sürüm verisi
+│   │   ├── facts.js pricing.js changelog.js
+│   │   └── tr/  en/          # her ikisinde birebir aynı anahtar ağacı
+│   ├── templates/            # sayfa/parça şablonları (JS template literal)
+│   ├── styles/                # tokens.css + bileşen CSS'leri (kaynakta bölünür)
+│   ├── client/site.js         # tarayıcıya giden tek JS dosyası
+│   └── static/                 # olduğu gibi kopyalanır (logo, font, ikon, og, favicon)
+├── site/                     # ÜRETİLEN ÇIKTI — elle düzenlenmez, commit'lenir
+├── tools/
+│   ├── build.js               # üretici (--check: fark raporu)
+│   ├── check-site.js          # 13 kural (--release: uyarılar hataya döner)
+│   ├── make-og.py             # OG paylaşım görselleri
+│   └── githooks/pre-commit    # isteğe bağlı: build --check + check-site
+├── docs/site-arastirma-raporu.md
+├── kadro/                     # süreç belgeleri (ETKI-ANALIZI, TASARIM-STANDARDI, …)
+└── README.md
 ```
 
----
-
-## İçerik nasıl güncellenir
-
-**Bütün metin `js/translations.js` içinde.** HTML'de metin aramayın; sayfalarda
-`data-i18n="products.hvac.name"` gibi noktalı yollar var, `main.js` bunları
-katalogtan çözer.
-
-```js
-// js/translations.js
-tr: { products: { hvac: { name: "HVAC Pro Suite", ... } } }
-en: { products: { hvac: { name: "HVAC Pro Suite", ... } } }
-```
-
-Kural: **`tr` ve `en` ağaçlarının anahtarları birebir aynı olmalı**, dizilerin
-uzunlukları da eşit olmalı. `node tools/check-site.js` ikisini de denetler.
-
-### İstisna: yasal sayfalar
-
-`gizlilik.html`, `cerez-politikasi.html` ve `kullanim-sartlari.html` içindeki
-Türkçe metin **HTML'e de gömülüdür** — JavaScript çalışmadığında da okunabilsin
-diye. Dil değiştirildiğinde `main.js` bu bloğu katalogtaki karşılığıyla değiştirir.
-**Bir yasal metni güncellerken hem HTML'i hem `translations.js`'i güncelleyin.**
-Ziyaretçinin gördüğü sürüm katalogtan gelendir.
-
-### Sık yapılan işler
-
-| İş | Yer |
-|---|---|
-| Paket içeriği / fiyat | `translations.js` → `products.<urun>.packages.plans` |
-| Modül açıklaması | `products.<urun>.modules` |
-| "Excel yerine" tablosu | `products.<urun>.comparison.rows` |
-| SSS | `home.faq.items` |
-| İletişim bilgisi | `SITE_COMPANY` (tek yer) |
-| Renk / boşluk | `css/style.css` üstündeki `:root` değişkenleri |
-
----
-
-## Form
-
-Demo/fiyat formu iki kipte çalışır:
-
-- **`FORM_ENDPOINT` boşken** (bugünkü hâli): ziyaretçinin e-posta uygulamasında
-  hazır bir taslak açar. Kurulum gerektirmez ama dönüşümü düşüktür.
-- **`FORM_ENDPOINT` doluyken**: form doğrudan POST edilir, ziyaretçi siteden
-  ayrılmaz, sonuç ekranda gösterilir.
-
-Bağlamak için `js/main.js` başındaki iki sabiti doldurun:
-
-```js
-const FORM_ENDPOINT = "https://formspree.io/f/xxxxxxxx";  // veya Web3Forms
-const FORM_ACCESS_KEY = "";                               // yalnızca Web3Forms
-```
-
-Başka hiçbir yeri değiştirmeniz gerekmez. Formu bir üçüncü taraf servise
-gönderdiğiniz an bu, `gizlilik.html`'de belirtilen "aktarım" kapsamına girer;
-metin bunu zaten söylüyor, sağlayıcı adını eklemek isterseniz orayı güncelleyin.
-
----
-
-## Yerel önizleme
-
-Derleme yok; `index.html` doğrudan açılabilir. Göreli yollar ve `fetch` davranışı
-için yerel sunucu tercih edilir:
-
-```bash
-npx serve .
-# veya
-python -m http.server 8000
-```
-
-## Denetim
-
-```bash
-node tools/check-site.js
-```
-
-Bağımlılıksız çalışır ve şunları denetler: JavaScript sözdizimi, TR/EN anahtar
-eşliği, dizi uzunlukları, sayfalardaki her `data-i18n` yolunun iki dilde de
-çözülmesi, iç bağlantıların gerçekten var olması, `main.js`'in aradığı `id`'lerin
-sayfalarda bulunması ve `SITE_COMPANY` içinde kalan yer tutucular.
-
-```bash
-npm install jsdom          # yalnızca bu test için
-node tools/render-test.js
-```
-
-Her sayfayı jsdom içinde gerçekten çalıştırır; dinamik blokların dolduğunu ve
-sayfaların iki dilde de hatasız kurulduğunu doğrular.
-
-```bash
-npm install postcss        # yalnızca bu araç için
-node tools/prune-css.js    # kuru çalışma; yazmak için --apply
-```
-
-Hiçbir HTML/JS dosyasında geçmeyen CSS kurallarını bulur. Yazmadan önce,
-**kullanılan** sınıfların kurallarının kaybolmadığını doğrular ve doğrulama
-başarısız olursa hiçbir şey yazmaz.
-
-```bash
-python tools/make-og.py    # Pillow gerekir
-```
-
-Sosyal medya paylaşım kartlarını (`assets/images/og-*.png`) yeniden üretir.
-**Bunlar PNG olmak zorunda** — hiçbir sosyal platform OG görseli olarak SVG
-işlemez, SVG bırakılırsa her paylaşım boş kart olarak çıkar.
+`package.json` yok: çalışma anı ve geliştirme bağımlılığı yok. Testler
+Node'un yerleşik `node --test` çalıştırıcısıyla yazılır.
 
 ---
 
 ## Bilinen eksikler
 
-- **Ekran görüntüleri temsilîdir.** `assets/images/product-*.svg` dosyaları elle
-  çizilmiş arayüz taslaklarıdır. Uygulamalardan alınmış gerçek (anonimleştirilmiş)
-  ekran görüntüleri en güçlü güven unsurudur; ilk fırsatta değiştirilmeli.
-- **İngilizce içerik ayrı URL'de değil.** Dil değişimi JavaScript ile yapılıyor,
-  tek URL var; bu yüzden arama motorları yalnızca Türkçe sürümü dizine alır.
-  İngilizce trafiği hedeflenecekse `/en/` altında ayrı sayfalar ve karşılıklı
-  `hreflang` gerekir.
-- **Çevrimiçi ödeme yok.** Paket bölümü fiyat teklifine yönlendirir; sitede
-  tahsilat yapılmaz. `kullanim-sartlari.html` bunu açıkça söyler.
-- **Analitik yok.** Google Analytics eklenirse KVKK'ya göre opt-in çerez onayı
-  zorunlu hâle gelir. Çerezsiz bir seçenek (ör. Cloudflare Web Analytics) bu
-  yükümlülüğü doğurmaz.
+- **Ekran görüntüleri temsilîdir.** `src/static/assets/screens/<ürün>/temsili.svg`
+  dosyaları elle çizilmiş arayüz taslaklarıdır, "temsilî" etiketiyle
+  gösterilir. Gerçek (anonimleştirilmiş) ekran görüntüleri en güçlü güven
+  unsurudur; geldiklerinde bu dosyaların yerine geçer.
+- **Dört rota kapalı** (`about`, `changelog`, `security`,
+  `legal-subscription`) — içerikleri iş kararı bekliyor (ETKI-ANALIZI §9,
+  S8-S10, S3).
+- **Analitik yok** (`site.config.js` → `analytics: "none"`). Çerezli bir
+  araç eklenirse KVKK'ya göre opt-in bant zorunlu hâle gelir; çerezsiz bir
+  seçenek (Cloudflare Web Analytics) bu yükü doğurmaz.
+- **Çevrimiçi ödeme yok.** Fiyat sayfası teklif/talep akışına yönlendirir;
+  sitede tahsilat yapılmaz.
 
-Ayrıntılı gerekçeler, kaynaklar ve öncelik listesi için
+Ayrıntılı gerekçeler, kabul edilmeyen alternatifler ve kullanıcı onayı
+bekleyen kararlar için [`kadro/ETKI-ANALIZI.md`](kadro/ETKI-ANALIZI.md).
+Araştırma raporu için
 [docs/site-arastirma-raporu.md](docs/site-arastirma-raporu.md).
-
----
-
-## Tarayıcı desteği
-
-Chrome, Edge, Firefox ve Safari'nin güncel sürümleri. `IntersectionObserver` ve
-`matchMedia` yokluğunda site çalışmaya devam eder (yalnızca animasyonlar kapanır);
-`localStorage` engellendiğinde de kırılmaz — dil tercihi hatırlanmaz, o kadar.

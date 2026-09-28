@@ -1,0 +1,18 @@
+/* legal.css — yasal metin düzeni (TASARIM-STANDARDI.md S5.19) ve 404 (S5.21). */
+
+.legal-doc { max-width: 720px; margin: 0 auto; }
+.legal-doc .legal-updated { color: var(--color-ink-muted); font-size: var(--font-size-14); margin-bottom: var(--space-24); }
+.legal-doc section { padding: 0; margin-bottom: var(--space-32); }
+.legal-doc h2 { font-size: var(--font-size-24); margin-bottom: var(--space-12); }
+.legal-doc p { color: var(--color-ink); }
+.legal-doc nav[aria-label] { margin-bottom: var(--space-32); }
+.legal-doc nav[aria-label] ul { list-style: none; display: grid; gap: var(--space-4); padding-left: 0; }
+
+.notfound-block { text-align: center; padding: var(--space-64) 0; }
+.notfound-block .compass-seeking { width: 96px; height: 96px; margin: 0 auto var(--space-24); }
+.notfound-block h1 { margin-bottom: var(--space-12); }
+.notfound-block p { max-width: 46ch; margin: 0 auto var(--space-32); color: var(--color-ink-muted); }
+.notfound-links { display: flex; flex-direction: column; gap: var(--space-12); align-items: center; }
+@media (min-width: 768px) {
+  .notfound-links { flex-direction: row; justify-content: center; }
+}

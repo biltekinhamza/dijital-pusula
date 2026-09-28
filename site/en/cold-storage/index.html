@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cold Storage Management System | 3D Warehouse Layout and Stock</title>
+<meta name="description" content="A 3D digital twin of your cold store: drag-and-drop pallet placement, collision and stacking rules, storage billing on remaining kilograms, multi-warehouse support and reports.">
+<link rel="canonical" href="https://www.dijitalpusula.example/en/cold-storage/">
+<link rel="alternate" hreflang="tr" href="https://www.dijitalpusula.example/soguk-hava-deposu/">
+<link rel="alternate" hreflang="en" href="https://www.dijitalpusula.example/en/cold-storage/">
+<link rel="alternate" hreflang="x-default" href="https://www.dijitalpusula.example/soguk-hava-deposu/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cold Storage Management System | 3D Warehouse Layout and Stock">
+<meta property="og:description" content="A 3D digital twin of your cold store. Layout, stock and storage billing for fruit cold storage.">
+<meta property="og:url" content="https://www.dijitalpusula.example/en/cold-storage/">
+<meta property="og:image" content="https://www.dijitalpusula.example/assets/og/og-cold-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cold Storage Management System | 3D Warehouse Layout and Stock">
+<meta name="twitter:description" content="A 3D digital twin of your cold store. Layout, stock and storage billing for fruit cold storage.">
+<meta name="twitter:image" content="https://www.dijitalpusula.example/assets/og/og-cold-en.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Dijital Pusula","url":"https://www.dijitalpusula.example","email":"biltekinhamza@gmail.com","sameAs":["https://github.com/biltekinhamza"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Cold Storage Management System","applicationCategory":"BusinessApplication","url":"https://www.dijitalpusula.example/en/cold-storage/","operatingSystem":"Web"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.dijitalpusula.example/en/"},{"@type":"ListItem","position":2,"name":"Cold Storage Management System","item":"https://www.dijitalpusula.example/en/cold-storage/"}]}</script>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=11fde364">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#FBFAF7">
+</head>
+<body>
+<a class="skip-link" href="#icerik">Skip to content</a>
+<header class="site-header" id="site-header" data-scroll-surface>
+  <div class="container nav-row">
+    <a class="brand" href="/en/">
+      <span class="brand-mark" style="width:34px;height:34px">
+    <img class="brand-mark-dial" src="/assets/logo/logo-dial.svg" alt="" width="34" height="34">
+    <img class="brand-mark-needle" src="/assets/logo/logo-needle.svg" alt="" width="34" height="34">
+  </span>
+      <span>Dijital<span class="brand-accent">Pusula</span></span>
+    </a>
+    <ul class="primary-nav"><li>
+      <details class="nav-products">
+        <summary>Products <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+        <div class="nav-products-panel">
+          <a href="/en/hvac-pro-suite/">
+    <strong>HVAC Pro Suite</strong>
+    <span>From sheet-metal development to the quote, on one platform.</span>
+    <span class="badge badge-live">In production</span>
+  </a>
+          <a href="/en/cold-storage/">
+    <strong>Cold Storage Management System</strong>
+    <span>A 3D digital twin of your cold store.</span>
+    <span class="badge badge-live">In production</span>
+  </a>
+          <a href="/en/custom-software/"><strong>Custom Software</strong></a>
+        </div>
+      </details>
+    </li><li><a href="/en/pricing/">Plans</a></li><li><a href="/en/contact/">Contact</a></li></ul>
+    <div class="nav-actions">
+      <a class="lang-switch" href="/soguk-hava-deposu/" aria-label="Language selection">TR</a>
+      <a class="btn desktop-only" href="/en/contact/">Request a Trial</a>
+      <details class="mobile-menu">
+        <summary class="menu-toggle" aria-label="Open menu">
+          <svg class="icon icon-menu" aria-hidden="true"><use href="/assets/icons.svg#icon-menu"></use></svg>
+          <svg class="icon icon-x" aria-hidden="true"><use href="/assets/icons.svg#icon-x"></use></svg>
+        </summary>
+        <div class="mobile-panel">
+          <div class="mobile-panel-head">
+            <a class="brand" href="/en/">
+              <span class="brand-mark" style="width:30px;height:30px">
+    <img class="brand-mark-dial" src="/assets/logo/logo-dial.svg" alt="" width="30" height="30">
+    <img class="brand-mark-needle" src="/assets/logo/logo-needle.svg" alt="" width="30" height="30">
+  </span>
+              <span>Dijital<span class="brand-accent">Pusula</span></span>
+            </a>
+          </div>
+          <div class="mobile-panel-body">
+            <div class="btn-row">
+              <a class="lang-switch" href="/soguk-hava-deposu/">Türkçe</a>
+            </div>
+            <div class="btn-row">
+              <a class="btn btn-block" href="/en/contact/">Request a Trial</a>
+            </div>
+            <ul class="mobile-nav-list"><li><a href="/en/hvac-pro-suite/">HVAC Pro Suite</a></li><li><a href="/en/cold-storage/">Cold Storage Management System</a></li><li><a href="/en/custom-software/">Custom Software</a></li><li><a href="/en/pricing/">Plans</a></li><li><a href="/en/contact/">Contact</a></li></ul>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+<main id="icerik">
+<article data-route="cold">
+    <section class="hero">
+    <div class="container hero-product-grid">
+      <div class="hero-product-copy">
+        <p class="eyebrow"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-compass-rose"></use></svg> 3D warehouse layout, stock and storage billing</p>
+        <span class="badge badge-live">In production</span>
+        <h1>A 3D digital twin of your cold store.</h1>
+        <p class="lead">A warehouse management system for fruit cold storage that models rooms at their real dimensions, places pallets by drag and drop, and validates collision, stacking and aisle rules on the server.</p>
+        <div class="btn-row">
+          <a class="btn" href="/en/contact/?urun=cold">Request a Trial</a>
+          <a class="btn btn-secondary" href="/en/pricing/#soguk-hava">Plans</a>
+        </div>
+      </div>
+      <div class="screen-frame">
+    <div class="screen-frame-bar" aria-hidden="true"></div>
+    <span class="badge badge-representative">Representative image</span>
+    <img src="/assets/screens/cold/temsili.svg" width="1200" height="780" alt="Cold Storage Management System. Screens." loading="lazy">
+  </div>
+    </div>
+  </section>
+    <section class="facts-strip">
+    <div class="container">
+      <div class="chip-row"><span class="chip">3D room model</span><span class="chip">Drag-and-drop layout</span><span class="chip">Billing on remaining kg</span><span class="chip">Multiple warehouses</span><span class="chip">CSV / XLSX / PDF reports</span></div>
+    </div>
+  </section>
+    <section>
+    <div class="container">
+      <div class="link-list">
+        <div class="link-list-item">
+          <span aria-hidden="true">◧</span>
+          <div><strong>Warehouse owner / operator</strong><span>For owners running more than one warehouse, or growing a single one; every warehouse is visible from one login.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">◫</span>
+          <div><strong>Warehouse manager</strong><span>For managers running the daily layout and intake/release on the floor; placement rules are validated on screen instantly.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">▤</span>
+          <div><strong>Accounting / finance</strong><span>For the accounting side tracking storage charges and reports; stock, occupancy and payment reports export to CSV/XLSX/PDF.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="bleed-soft">
+    <div class="container split">
+      <div>
+        <h2>How it works today</h2>
+        <p>What is in which room, whose pallet is whose, and how full a room is. The answers live in a ledger, a spreadsheet and the warehouse manager&#39;s head. Where a pallet goes is decided on the floor; an aisle gets blocked, a stack ends up unbalanced, and things have to be moved again later. At the end of the season the storage charge is worked out by hand from the remaining kilograms, and a price change corrupts the history.</p>
+      </div>
+      <div>
+        <h2>What the product does</h2>
+        <p>A 3D layout screen where rooms are modelled in metres and every pallet and Palsan unit stands in the room as its own icon. Before a unit is placed, the rules are validated on the server: it does not overlap another unit, does not block the aisle band, and the stack is balanced. Storage is always billed as remaining kilograms at the price recorded on entry; a later price change never rewrites past records.</p>
+      </div>
+    </div>
+    <div class="container" style="margin-top: var(--space-24)">
+      <div class="note note-success">
+        <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>
+        <div><strong>What changes. </strong>Occupancy and the location of goods are visible on screen, a placement mistake is caught on the screen rather than on the floor, and the storage charge rests on a record nobody has to argue about.</div>
+      </div>
+    </div>
+  </section>
+    <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>How it differs from a ledger and a spreadsheet</h2>
+        <p class="lead">This product&#39;s competitor is not other software — it is the warehouse ledger, a spreadsheet, and the manager&#39;s memory. Here is exactly where they differ:</p>
+      </div>
+      <div class="compare-table">
+        <table>
+          <thead><tr><th scope="col">Ledger and spreadsheet</th><th scope="col">With this system</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="visually-hidden">What is in the room</th>
+              <td class="col-before">Intake and release go into a ledger; where each pallet stands lives in the manager&#39;s head.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>The room is modelled at real dimensions; every pallet and Palsan unit stands in its own place.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Placement decisions</th>
+              <td class="col-before">Made on the floor. An aisle gets blocked, a stack ends up unbalanced, things get moved again.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Rules are validated on the server before placement and shown on screen as a green or red ghost.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Storage charge</th>
+              <td class="col-before">Remaining kilograms are worked out by hand at the end of the season, and the figure is open to argument.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Remaining kg × the price fixed at intake. The figure is on screen at any moment and rests on a record.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Price changes</th>
+              <td class="col-before">Entering a new price shifts the old calculations too.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>The price is fixed to the record on intake; a later change never rewrites past records.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Multiple warehouses</th>
+              <td class="col-before">A separate file per warehouse, and it gets unclear whose price is whose.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Each warehouse has its own kg price and ledger; the owner sees all of them from one login.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Reports</th>
+              <td class="col-before">Anything going to accounting is compiled by hand.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Stock, occupancy, intake, release, producer and payment reports export to CSV, XLSX and PDF.</td>
+            </tr><tr>
+              <th scope="row" class="visually-hidden">Traceability</th>
+              <td class="col-before">Who changed a record, and when, is not recorded.</td>
+              <td class="col-after"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>The movement history is never deleted, and who changed what is kept in the audit log.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="compare-cards">
+          <div class="compare-card">
+            <h3>What is in the room</h3>
+            <span class="compare-before">Ledger and spreadsheet</span>
+            <p class="compare-before-text">Intake and release go into a ledger; where each pallet stands lives in the manager&#39;s head.</p>
+            <hr>
+            <span class="compare-after">With this system</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>The room is modelled at real dimensions; every pallet and Palsan unit stands in its own place.</span></p>
+          </div><div class="compare-card">
+            <h3>Placement decisions</h3>
+            <span class="compare-before">Ledger and spreadsheet</span>
+            <p class="compare-before-text">Made on the floor. An aisle gets blocked, a stack ends up unbalanced, things get moved again.</p>
+            <hr>
+            <span class="compare-after">With this system</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Rules are validated on the server before placement and shown on screen as a green or red ghost.</span></p>
+          </div><div class="compare-card">
+            <h3>Storage charge</h3>
+            <span class="compare-before">Ledger and spreadsheet</span>
+            <p class="compare-before-text">Remaining kilograms are worked out by hand at the end of the season, and the figure is open to argument.</p>
+            <hr>
+            <span class="compare-after">With this system</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Remaining kg × the price fixed at intake. The figure is on screen at any moment and rests on a record.</span></p>
+          </div><div class="compare-card">
+            <h3>Price changes</h3>
+            <span class="compare-before">Ledger and spreadsheet</span>
+            <p class="compare-before-text">Entering a new price shifts the old calculations too.</p>
+            <hr>
+            <span class="compare-after">With this system</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>The price is fixed to the record on intake; a later change never rewrites past records.</span></p>
+          </div><div class="compare-card">
+            <h3>Multiple warehouses</h3>
+            <span class="compare-before">Ledger and spreadsheet</span>
+            <p class="compare-before-text">A separate file per warehouse, and it gets unclear whose price is whose.</p>
+            <hr>
+            <span class="compare-after">With this system</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Each warehouse has its own kg price and ledger; the owner sees all of them from one login.</span></p>
+          </div><div class="compare-card">
+            <h3>Reports</h3>
+            <span class="compare-before">Ledger and spreadsheet</span>
+            <p class="compare-before-text">Anything going to accounting is compiled by hand.</p>
+            <hr>
+            <span class="compare-after">With this system</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>Stock, occupancy, intake, release, producer and payment reports export to CSV, XLSX and PDF.</span></p>
+          </div><div class="compare-card">
+            <h3>Traceability</h3>
+            <span class="compare-before">Ledger and spreadsheet</span>
+            <p class="compare-before-text">Who changed a record, and when, is not recorded.</p>
+            <hr>
+            <span class="compare-after">With this system</span>
+            <p class="compare-after-text"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg><span>The movement history is never deleted, and who changed what is kept in the audit log.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="bleed-soft">
+    <div class="container">
+      <div class="section-head">
+        <h2>Modules</h2>
+      </div>
+      <div class="zigzag-row">
+    <div class="zigzag-media">
+      <div class="screen-frame">
+    <div class="screen-frame-bar" aria-hidden="true"></div>
+    <span class="badge badge-representative">Representative image</span>
+    <img src="/assets/screens/cold/temsili.svg" width="1200" height="780" alt="3D layout. Screens." loading="lazy">
+  </div>
+    </div>
+    <div class="zigzag-text">
+      <h3>3D layout</h3>
+      <p>Rooms modelled in metres. Drag-and-drop placement, 90-degree rotation, stacking, moving within a room and transfer between rooms. Every container stands in the room as its own icon: an intake of 20 Palsan units appears as 20 separate units.</p>
+    </div>
+  </div>
+      <div class="link-list" style="margin-top: var(--space-48)">
+        <div class="link-list-item">
+          <span aria-hidden="true">◈</span>
+          <div><strong>Placement rules</strong><span>Collision, aisle band and stack support rules are validated server-side and shown on screen as a green or red ghost. A stack is rejected if the upper unit overlaps the one below by less than 30%. Aisle width is a parameter you set on screen, not a constant in the code.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">▤</span>
+          <div><strong>Stock and movements</strong><span>Intake by producer, fruit, variety and container; partial and full release; automatic stock codes and a movement history that is never deleted. A pallet is a stack of fruit crates: the crate count per pallet is recorded on intake, release can be by crate, and a pallet losing crates keeps its place in the room until the last crate leaves.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">₺</span>
+          <div><strong>Storage billing</strong><span>The charge is always remaining kg × the standard kg price; it does not depend on the number of days. The price is fixed to the record on intake, and later price changes never rewrite past records. Every warehouse has its own kg price and its own ledger.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">◧</span>
+          <div><strong>Multiple warehouses and businesses</strong><span>One account represents exactly one warehouse; the business owner sees all of theirs from a single login. Each warehouse is separate, with its own price, ledger and reports. Different businesses never see each other&#39;s data on any screen.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">⚿</span>
+          <div><strong>Personnel and day labour</strong><span>Personnel records, day-labourer groups and payment tracking per group. Available on the Pro and Enterprise plans.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">▥</span>
+          <div><strong>Reports</strong><span>Dashboard indicators plus stock, occupancy, intake, release, producer and payment reports. All of them export to CSV, XLSX and PDF.</span></div>
+        </div><div class="link-list-item">
+          <span aria-hidden="true">↻</span>
+          <div><strong>System and security</strong><span>Role-based authorisation, an audit log that is never deleted, one-click backup from the interface and parameter management. Passwords, tokens and personal data are never written to the log.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">HOW WE START</p>
+        <h2>Four steps from a demo request to production use.</h2>
+      </div>
+      <ol class="steps" style="--step-count:4">
+    <li class="step">
+      <span class="step-marker" aria-hidden="true">1</span>
+      <h3>Demo request</h3>
+      <p>Fill in the form or write to us directly. Tell us the size of your business and how you work today.</p>
+    </li><li class="step">
+      <span class="step-marker" aria-hidden="true">2</span>
+      <h3>Live walkthrough</h3>
+      <p>We show the product over a screen share, on data resembling yours. This is where the questions get asked.</p>
+    </li><li class="step">
+      <span class="step-marker" aria-hidden="true">3</span>
+      <h3>Trial account</h3>
+      <p>An account is opened for your business. You enter your own materials, prices and rooms and run one real job end to end.</p>
+    </li><li class="step">
+      <span class="step-marker" aria-hidden="true">4</span>
+      <h3>Go live</h3>
+      <p>If you decide to proceed, the account moves to the full version, your existing data is migrated and your users are set up.</p>
+    </li>
+  </ol>
+    </div>
+  </section>
+    <section class="bleed-soft">
+    <div class="container">
+      <div class="section-head"><h2>Connections</h2></div>
+      <div class="link-list">
+        <div class="link-list-item">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-external-link"></use></svg>
+          <div><strong>CSV / XLSX / PDF</strong><span>Every report exports in three formats; nothing going to accounting is prepared by hand.</span></div>
+        </div><div class="link-list-item">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-external-link"></use></svg>
+          <div><strong>REST API</strong><span>Documented /api/v1 endpoints with an OpenAPI 3 schema and Swagger and ReDoc interfaces.</span></div>
+        </div><div class="link-list-item">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-external-link"></use></svg>
+          <div><strong>PostgreSQL</strong><span>PostgreSQL in production. Backups are taken from inside the application and the restore procedure is documented.</span></div>
+        </div><div class="link-list-item">
+          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-external-link"></use></svg>
+          <div><strong>Docker</strong><span>API and interface in a single container. The deploy script rolls back to the previous image if the health check fails.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+    <section class="bleed-soft">
+    <div class="container pricing-summary">
+      <h2>Plans</h2>
+      <p class="lead">Plan contents are below; we confirm the figure in the call and send a written quote.</p>
+      <a class="btn" href="/en/pricing/#soguk-hava">Plans <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
+    </div>
+  </section>
+    <section class="bleed-soft">
+    <div class="container">
+      <div class="section-head"><h2>What buyers ask before they decide.</h2></div>
+      <div class="faq-list">
+    <details class="faq-item" id="faq-cold-1">
+      <summary>Could my data get mixed up with another business&#39;s? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>No. Every business&#39;s data is separated by its own identifier in the database; different businesses never see each other&#39;s data on any screen.</p>
+    </details><details class="faq-item" id="faq-cold-2">
+      <summary>How many rooms can I open on the trial account? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>A warehouse with no live licence (a demo) may open up to 2 rooms. That limit is lifted once a licence is in place.</p>
+    </details><details class="faq-item" id="faq-cold-3">
+      <summary>If I change the price, are past records affected? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>No. The storage charge is fixed to the record on stock intake; a later price change never rewrites past records.</p>
+    </details><details class="faq-item" id="faq-cold-4">
+      <summary>Which plan includes personnel and day-labour tracking? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Personnel records, day-labourer groups and payment tracking per group are available on the Pro and Enterprise plans.</p>
+    </details><details class="faq-item" id="faq-cold-5">
+      <summary>What formats can I get reports in? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Stock, occupancy, intake, release, producer and payment reports all export to CSV, XLSX and PDF.</p>
+    </details><details class="faq-item" id="faq-cold-6">
+      <summary>Can I see who changed what? <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+      <p>Yes. The movement history is never deleted, and who changed what and when is kept in the audit log.</p>
+    </details>
+  </div>
+    </div>
+  </section>
+    <section class="cta-band">
+    <div class="container cta-band-inner">
+      <div>
+        <h2>A 3D digital twin of your cold store.</h2>
+        <p>Occupancy and the location of goods are visible on screen, a placement mistake is caught on the screen rather than on the floor, and the storage charge rests on a record nobody has to argue about.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a class="btn btn-on-dark" href="/en/contact/?urun=cold">Request a Trial</a>
+        <a class="text-channel" href="https://wa.me/905392191982" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-message-circle"></use></svg>WhatsApp</a>
+        <a class="text-channel" href="mailto:biltekinhamza@gmail.com"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-mail"></use></svg>biltekinhamza@gmail.com</a>
+      </div>
+    </div>
+  </section>
+    <section class="section-tight">
+    <div class="container">
+      <details class="specs-details">
+        <summary>Technical summary <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-chevron-down"></use></svg></summary>
+        <table class="spec-table">
+          <tbody>
+            <tr><th scope="row">Server</th><td>Python 3.12, FastAPI, SQLAlchemy 2.0</td></tr><tr><th scope="row">Interface</th><td>React 18, TypeScript, React Three Fiber (Three.js)</td></tr><tr><th scope="row">Database</th><td>PostgreSQL 14+ (production), SQLite (development)</td></tr><tr><th scope="row">Deployment</th><td>Docker / Docker Compose, Alembic migrations</td></tr><tr><th scope="row">Browser</th><td>A current browser with WebGL 2 (for the 3D view)</td></tr><tr><th scope="row">Tests</th><td>559 server + 74 interface tests, also verified with end-to-end smoke tests</td></tr><tr><th scope="row">Multi-tenant</th><td>Yes, data separated per business</td></tr><tr><th scope="row">Interface language</th><td>Turkish</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+  </section>
+  </article>
+</main>
+<footer id="site-footer" class="site-footer on-dark">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/en/">
+          <span class="brand-mark">
+            <img class="brand-mark-dial" src="/assets/logo/logo-dial.svg" alt="" width="34" height="34">
+            <img class="brand-mark-needle" src="/assets/logo/logo-needle.svg" alt="" width="34" height="34">
+          </span>
+          <span>Dijital<span class="brand-accent">Pusula</span></span>
+        </a>
+        <p>Vertical software for ventilation manufacturers and fruit cold storage operators. Custom software and automation development.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Products</h2>
+        <ul><li><a href="/en/hvac-pro-suite/">HVAC Pro Suite</a></li><li><a href="/en/cold-storage/">Cold Storage Management System</a></li><li><a href="/en/custom-software/">Custom Software</a></li><li><a href="/en/pricing/">Plans</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h2>Company</h2>
+        <ul><li><a href="/en/contact/">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h2>Legal</h2>
+        <nav aria-label="Legal">
+          <ul>
+            <li><a href="/en/legal/privacy-notice/">Privacy and KVKK</a></li><li><a href="/en/legal/cookie-policy/">Cookie Policy</a></li><li><a href="/en/legal/terms-of-use/">Terms of Use</a></li>
+          </ul>
+        </nav>
+      </div>
+      <section class="footer-identity" aria-labelledby="footer-identity-heading">
+        <h2 id="footer-identity-heading">Contact</h2>
+        <dl><div><dt>Trade name</dt><dd>Hamza Biltekin</dd></div><div><dt>Business name</dt><dd>Dijital Pusula</dd></div><div><dt>Head office address</dt><dd>Bahçelievler District, Merkez / Isparta, Türkiye</dd></div><div><dt>Email</dt><dd>biltekinhamza@gmail.com</dd></div><div><dt>Phone</dt><dd>+90 539 219 19 82</dd></div></dl>
+      </section>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Dijital Pusula. All rights reserved.</p>
+      <p><a href="/soguk-hava-deposu/">Türkçe</a></p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/site.js?v=0e62f708" defer></script>
+</body>
+</html>

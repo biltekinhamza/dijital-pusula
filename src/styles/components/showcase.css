@@ -1,0 +1,45 @@
+/* showcase.css — ürün vitrini (H3/H4) ve yetenek bloğu + ekran yuvası (P6)
+   (TASARIM-STANDARDI.md S5.6). Kart ızgarası değil; dikey liste + zigzag. */
+
+.capability-list {
+  display: grid;
+  gap: var(--space-12);
+  margin: var(--space-16) 0 var(--space-24);
+  padding: 0;
+  list-style: none;
+}
+.capability-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  font-size: var(--font-size-16);
+}
+.capability-list .icon { color: var(--color-accent-primary); margin-top: .15em; }
+.capability-list strong { display: block; }
+.capability-list span { color: var(--color-ink-muted); font-size: var(--font-size-14); }
+
+/* --- Ekran yuvası: temsilî çerçeve --- */
+.screen-frame {
+  position: relative;
+  border: var(--border-width) solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+.screen-frame-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: 32px;
+  padding: 0 var(--space-12);
+  background: var(--color-bg-soft);
+  border-bottom: var(--border-width) solid var(--color-line);
+}
+.screen-frame img { width: 100%; height: auto; }
+
+.showcase-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16) var(--space-24);
+  margin-top: var(--space-24);
+}
