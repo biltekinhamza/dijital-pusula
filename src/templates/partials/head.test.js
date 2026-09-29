@@ -4,7 +4,8 @@ const { test } = require("node:test");
 const assert = require("node:assert/strict");
 const { head } = require("./head.js");
 const routes = require("../../routes.js");
-const siteConfig = require("../../site.config.js");
+// Testler gerçek origin'e bağlı kalmasın: origin değişince (alan adı alınınca) kırılmasınlar.
+const siteConfig = { ...require("../../site.config.js"), origin: "https://www.dijitalpusula.example" };
 const company = require("../../company.js");
 const pricing = require("../../content/pricing.js");
 const { loadContentTree } = require("../../lib/content.js");

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.dijitalpusula.example/sitemap.xml
+Sitemap: https://dijital-pusula.pages.dev/sitemap.xml

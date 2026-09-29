@@ -134,7 +134,7 @@ test("kural 3: tekrarlanan id hata verir", () => {
 test("kural 3: gerçek üretilen site şu anda temiz", () => {
   const build = require("../../tools/build.js");
   const files = build.collectOutputFiles();
-  const result = checks.checkHtmlStructure(files, config);
+  const result = checks.checkHtmlStructure(files, require("../site.config.js"));
   assert.equal(result.ok, true, JSON.stringify(result.details));
   assert.ok(result.count > 0);
 });
@@ -234,7 +234,7 @@ test("kural 7 (checkSitemapAndRobots): eksik sitemap hata verir", () => {
 test("kural 7: gerçek üretilen sitede sitemap = açık rota × 2 dil, robots sitemap'e işaret eder", () => {
   const build = require("../../tools/build.js");
   const files = build.collectOutputFiles();
-  const result = checks.checkSitemapAndRobots(files, config);
+  const result = checks.checkSitemapAndRobots(files, require("../site.config.js"));
   assert.equal(result.ok, true, JSON.stringify(result.details));
 });
 

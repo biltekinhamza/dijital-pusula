@@ -6,7 +6,7 @@ const { buildOgData } = require("./og-data.js");
 
 test("buildOgData: origin + tr/en home/hvac/cold meta verir", () => {
   const data = buildOgData();
-  assert.equal(data.origin, "https://www.dijitalpusula.example");
+  assert.equal(data.origin, require("../src/site.config.js").origin);
   for (const lang of ["tr", "en"]) {
     assert.ok(data[lang].home.title);
     assert.ok(data[lang].hvac.meta.title);
