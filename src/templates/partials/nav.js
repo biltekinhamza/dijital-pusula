@@ -37,6 +37,7 @@ function primaryNavItems(ctx) {
         <div class="nav-products-panel">
           ${productMenuRow(ctx, hvacRoute, ctx.content.hvac)}
           ${productMenuRow(ctx, coldRoute, ctx.content.cold)}
+          ${routes.byId.puantaj.enabled !== false ? productMenuRow(ctx, routes.byId.puantaj, ctx.content.puantaj) : ""}
           <a href="${ctx.url(servicesRoute.id)}"><strong>${ctx.t("nav.services")}</strong></a>
         </div>
       </details>
@@ -57,6 +58,7 @@ function mobileNavLinks(ctx) {
   const links = [];
   if (routes.byId.hvac.enabled !== false) links.push(["hvac", ctx.content.hvac.name]);
   if (routes.byId.cold.enabled !== false) links.push(["cold", ctx.content.cold.name]);
+  if (routes.byId.puantaj.enabled !== false) links.push(["puantaj", ctx.content.puantaj.name]);
   links.push(["services", ctx.t("nav.services")]);
   links.push(["pricing", ctx.t("nav.packages")]);
   if (routes.byId.security.enabled !== false) links.push(["security", ctx.t("nav.security")]);

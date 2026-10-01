@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="pnt-title pnt-desc">
+  <title id="pnt-title">Puantaj Pro Suite — Aylık Puantaj ve Ödeme Ekranı</title>
+  <desc id="pnt-desc">Personel satırda, ayın günleri sütunda olduğu aylık puantaj tablosu, Pazar/tatil mesaisinin otomatik işaretlendiği ve banka/elden ödeme listesine dönüştüğü ekranın temsili görüntüsü.</desc>
+  <defs>
+    <linearGradient id="pnA" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7e57c2"/><stop offset="1" stop-color="#4a2f8f"/></linearGradient>
+    <linearGradient id="pnB" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#141a2e"/><stop offset="1" stop-color="#101526"/></linearGradient>
+  </defs>
+
+  <rect width="1200" height="780" fill="#0c1120"/>
+
+  <!-- Tarayıcı çerçevesi -->
+  <rect width="1200" height="54" fill="#161c33"/>
+  <circle cx="26" cy="27" r="7" fill="#ff5f57"/><circle cx="48" cy="27" r="7" fill="#febc2e"/><circle cx="70" cy="27" r="7" fill="#28c840"/>
+  <rect x="110" y="13" width="540" height="28" rx="14" fill="#0c1120"/>
+  <circle cx="126" cy="27" r="4" fill="#4caf50"/>
+  <text x="140" y="31" fill="#8b8fc8" font-family="Consolas, monospace" font-size="13">puantaj-pro.yerel:8020/donem/2026-05</text>
+  <rect x="1010" y="13" width="76" height="28" rx="14" fill="#7e57c2" opacity=".18"/>
+  <text x="1048" y="31" fill="#b39ddb" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold">DJANGO</text>
+
+  <!-- Uygulama üst çubuğu -->
+  <rect y="54" width="1200" height="56" fill="#121833"/>
+  <rect y="109" width="1200" height="1" fill="#28305a"/>
+  <rect x="24" y="66" width="32" height="32" rx="9" fill="url(#pnA)"/>
+  <text x="40" y="88" fill="#f3effc" font-family="Arial" font-size="15" font-weight="bold" text-anchor="middle">P</text>
+  <text x="68" y="82" fill="#f0f0ff" font-family="Arial" font-size="15" font-weight="bold">Puantaj Pro</text>
+  <text x="68" y="97" fill="#6f74a8" font-family="Arial" font-size="9.5" letter-spacing="1.5">PUANTAJ · HAKEDİŞ · MAAŞ</text>
+
+  <g font-family="Arial" font-size="13">
+    <text x="230" y="88" fill="#b39ddb" font-weight="bold">Puantaj</text>
+    <text x="320" y="88" fill="#7d82b0">Maaş/Hakediş</text>
+    <text x="440" y="88" fill="#7d82b0">Ödeme Listesi</text>
+    <text x="570" y="88" fill="#7d82b0">Personel</text>
+    <text x="670" y="88" fill="#7d82b0">Şantiye</text>
+  </g>
+  <rect x="230" y="98" width="62" height="3" rx="2" fill="#7e57c2"/>
+
+  <rect x="880" y="66" width="180" height="32" rx="16" fill="#121833" stroke="#28305a"/>
+  <text x="900" y="87" fill="#6f74a8" font-family="Arial" font-size="12">⌕ Personel ara…</text>
+  <rect x="1076" y="66" width="100" height="32" rx="9" fill="url(#pnA)"/>
+  <text x="1126" y="87" fill="#f3effc" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle">Mayıs 2026</text>
+
+  <!-- Aylık puantaj tablosu -->
+  <rect x="24" y="134" width="1152" height="316" rx="14" fill="url(#pnB)" stroke="#28305a"/>
+  <text x="48" y="168" fill="#e6e4f5" font-family="Arial" font-size="15" font-weight="bold">Aylık Puantaj Tablosu</text>
+  <text x="48" y="188" fill="#6f74a8" font-family="Arial" font-size="11">G: Geldi · Y: Yarım Gün · Ü: Ücretli İzin · D: Devamsız · Pazar günleri koyu zeminde</text>
+
+  <g font-family="Arial" font-size="11" font-weight="bold">
+    <text x="60" y="222" fill="#6f74a8">PERSONEL</text>
+    <g fill="#6f74a8" text-anchor="middle">
+      <text x="300">1</text><text x="328">2</text><text x="356" fill="#b39ddb">3</text><text x="384">4</text><text x="412">5</text>
+      <text x="440">6</text><text x="468">7</text><text x="496" fill="#b39ddb">8</text><text x="524">9</text><text x="552">10</text>
+    </g>
+    <text x="620" y="222">TOPLAM GÜN</text>
+    <text x="760" y="222">TATİL MESAİSİ</text>
+    <text x="940" y="222">HAKEDİŞ</text>
+  </g>
+  <rect x="48" y="232" width="1104" height="1" fill="#28305a"/>
+
+  <g font-family="Arial" font-size="12">
+    <!-- satır 1 -->
+    <rect x="48" y="246" width="1104" height="42" rx="8" fill="#171d38"/>
+    <text x="60" y="272" fill="#e6e4f5" font-weight="bold">Ahmet Yıldız</text>
+    <g text-anchor="middle">
+      <rect x="290" y="254" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="300" y="270" fill="#6fcf8c">G</text>
+      <rect x="318" y="254" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="328" y="270" fill="#6fcf8c">G</text>
+      <rect x="346" y="254" width="20" height="24" rx="4" fill="#7e57c2" opacity=".35"/><text x="356" y="270" fill="#d4c4f0">G</text>
+      <rect x="374" y="254" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="384" y="270" fill="#6fcf8c">G</text>
+      <rect x="402" y="254" width="20" height="24" rx="4" fill="#8a6a1a" opacity=".3"/><text x="412" y="270" fill="#e0bb5c">Y</text>
+      <rect x="430" y="254" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="440" y="270" fill="#6fcf8c">G</text>
+      <rect x="458" y="254" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="468" y="270" fill="#6fcf8c">G</text>
+      <rect x="486" y="254" width="20" height="24" rx="4" fill="#7e57c2" opacity=".35"/><text x="496" y="270" fill="#d4c4f0">G</text>
+      <rect x="514" y="254" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="524" y="270" fill="#6fcf8c">G</text>
+      <rect x="542" y="254" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="552" y="270" fill="#6fcf8c">G</text>
+    </g>
+    <text x="640" y="272" fill="#f0f0ff" font-weight="bold">9,5 gün</text>
+    <rect x="750" y="256" width="78" height="22" rx="11" fill="#7e57c2" opacity=".2"/>
+    <text x="789" y="271" fill="#b39ddb" font-size="11" font-weight="bold" text-anchor="middle">2 kayıt</text>
+    <text x="940" y="272" fill="#f0f0ff" font-weight="bold">₺18.450,00</text>
+
+    <!-- satır 2 -->
+    <rect x="48" y="294" width="1104" height="42" rx="8" fill="#13182f"/>
+    <text x="60" y="320" fill="#e6e4f5" font-weight="bold">Mehmet Kaya · taşeron</text>
+    <g text-anchor="middle">
+      <rect x="290" y="302" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="300" y="318" fill="#6fcf8c">G</text>
+      <rect x="318" y="302" width="20" height="24" rx="4" fill="#5c6372" opacity=".3"/><text x="328" y="318" fill="#a9afc4">D</text>
+      <rect x="346" y="302" width="20" height="24" rx="4" fill="#7e57c2" opacity=".35"/><text x="356" y="318" fill="#d4c4f0">G</text>
+      <rect x="374" y="302" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="384" y="318" fill="#6fcf8c">G</text>
+      <rect x="402" y="302" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="412" y="318" fill="#6fcf8c">G</text>
+      <rect x="430" y="302" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="440" y="318" fill="#6fcf8c">G</text>
+      <rect x="458" y="302" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="468" y="318" fill="#6fcf8c">G</text>
+      <rect x="486" y="302" width="20" height="24" rx="4" fill="#7e57c2" opacity=".35"/><text x="496" y="318" fill="#d4c4f0">G</text>
+      <rect x="514" y="302" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="524" y="318" fill="#6fcf8c">G</text>
+      <rect x="542" y="302" width="20" height="24" rx="4" fill="#8a6a1a" opacity=".3"/><text x="552" y="318" fill="#e0bb5c">Y</text>
+    </g>
+    <text x="640" y="320" fill="#f0f0ff" font-weight="bold">8,5 gün</text>
+    <rect x="750" y="304" width="78" height="22" rx="11" fill="#7e57c2" opacity=".2"/>
+    <text x="789" y="319" fill="#b39ddb" font-size="11" font-weight="bold" text-anchor="middle">2 kayıt</text>
+    <text x="940" y="320" fill="#f0f0ff" font-weight="bold">₺4.675,00</text>
+
+    <!-- satır 3 -->
+    <rect x="48" y="342" width="1104" height="42" rx="8" fill="#171d38"/>
+    <text x="60" y="368" fill="#e6e4f5" font-weight="bold">Ayşe Demir</text>
+    <g text-anchor="middle">
+      <rect x="290" y="350" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="300" y="366" fill="#6fcf8c">G</text>
+      <rect x="318" y="350" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="328" y="366" fill="#6fcf8c">G</text>
+      <rect x="346" y="350" width="20" height="24" rx="4" fill="#7e57c2" opacity=".35"/><text x="356" y="366" fill="#d4c4f0">G</text>
+      <rect x="374" y="350" width="20" height="24" rx="4" fill="#5a3a7a" opacity=".3"/><text x="384" y="366" fill="#c9a8e8">Ü</text>
+      <rect x="402" y="350" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="412" y="366" fill="#6fcf8c">G</text>
+      <rect x="430" y="350" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="440" y="366" fill="#6fcf8c">G</text>
+      <rect x="458" y="350" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="468" y="366" fill="#6fcf8c">G</text>
+      <rect x="486" y="350" width="20" height="24" rx="4" fill="#7e57c2" opacity=".35"/><text x="496" y="366" fill="#d4c4f0">G</text>
+      <rect x="514" y="350" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="524" y="366" fill="#6fcf8c">G</text>
+      <rect x="542" y="350" width="20" height="24" rx="4" fill="#2e7d4a" opacity=".3"/><text x="552" y="366" fill="#6fcf8c">G</text>
+    </g>
+    <text x="640" y="368" fill="#f0f0ff" font-weight="bold">9 gün</text>
+    <rect x="750" y="352" width="78" height="22" rx="11" fill="#7e57c2" opacity=".2"/>
+    <text x="789" y="367" fill="#b39ddb" font-size="11" font-weight="bold" text-anchor="middle">2 kayıt</text>
+    <text x="940" y="368" fill="#f0f0ff" font-weight="bold">₺17.900,00</text>
+  </g>
+
+  <rect x="48" y="404" width="1104" height="1" fill="#28305a"/>
+  <g font-family="Arial" font-size="11">
+    <rect x="48" y="420" width="16" height="16" rx="4" fill="#7e57c2" opacity=".35"/>
+    <text x="72" y="433" fill="#9298c4">Pazar / resmi tatil — otomatik mesai açılır</text>
+    <rect x="320" y="420" width="16" height="16" rx="4" fill="#8a6a1a" opacity=".3"/>
+    <text x="344" y="433" fill="#9298c4">Yarım gün</text>
+    <rect x="460" y="420" width="16" height="16" rx="4" fill="#5c6372" opacity=".3"/>
+    <text x="484" y="433" fill="#9298c4">Devamsız</text>
+  </g>
+
+  <!-- Alt: ödeme listesi + şantiye -->
+  <g font-family="Arial">
+    <rect x="24" y="470" width="560" height="284" rx="14" fill="url(#pnB)" stroke="#28305a"/>
+    <text x="48" y="502" fill="#e6e4f5" font-size="14" font-weight="bold">Banka / Elden Ödeme Listesi</text>
+    <rect x="460" y="484" width="100" height="26" rx="13" fill="#2e7d4a" opacity=".2"/>
+    <text x="510" y="502" fill="#6fcf8c" font-size="11" font-weight="bold" text-anchor="middle">.xlsx hazır</text>
+
+    <g font-size="11.5">
+      <text x="48" y="536" fill="#6f74a8" font-weight="bold">PERSONEL</text>
+      <text x="280" y="536" fill="#6f74a8" font-weight="bold">BANKA</text>
+      <text x="400" y="536" fill="#6f74a8" font-weight="bold">ELDEN</text>
+      <text x="500" y="536" fill="#6f74a8" font-weight="bold">NET</text>
+    </g>
+    <rect x="48" y="546" width="512" height="1" fill="#28305a"/>
+
+    <g font-size="12.5" fill="#dcdcf0">
+      <text x="48" y="574">Ahmet Yıldız</text><text x="280" y="574">₺15.000</text><text x="400" y="574">₺3.450</text><text x="500" y="574" font-weight="bold">₺18.450</text>
+      <rect x="48" y="586" width="512" height="1" fill="#1d2340"/>
+      <text x="48" y="610">Mehmet Kaya</text><text x="280" y="610">₺2.000</text><text x="400" y="610">₺2.675</text><text x="500" y="610" font-weight="bold">₺4.675</text>
+      <rect x="48" y="622" width="512" height="1" fill="#1d2340"/>
+      <text x="48" y="646">Ayşe Demir</text><text x="280" y="646">₺17.900</text><text x="400" y="646">₺0</text><text x="500" y="646" font-weight="bold">₺17.900</text>
+    </g>
+
+    <rect x="48" y="680" width="512" height="1" fill="#28305a"/>
+    <text x="48" y="708" fill="#f0f0ff" font-size="14" font-weight="bold">GENEL TOPLAM</text>
+    <text x="560" y="708" fill="#b39ddb" font-size="16" font-weight="bold" text-anchor="end">₺41.025,00</text>
+    <text x="48" y="732" fill="#6f74a8" font-size="11">Prim + avans + icra dönem hesabına dahil</text>
+
+    <rect x="608" y="470" width="568" height="284" rx="14" fill="url(#pnB)" stroke="#28305a"/>
+    <text x="632" y="502" fill="#e6e4f5" font-size="14" font-weight="bold">Şantiye Bazında Gün Dağılımı</text>
+
+    <g font-size="12">
+      <text x="632" y="540" fill="#dcdcf0">Merkez Şube</text>
+      <rect x="632" y="550" width="300" height="10" rx="5" fill="#1d2340"/>
+      <rect x="632" y="550" width="190" height="10" rx="5" fill="url(#pnA)"/>
+      <text x="948" y="559" fill="#9298c4" text-anchor="end">14 gün</text>
+
+      <text x="632" y="588" fill="#dcdcf0">Kozyatağı Şantiyesi</text>
+      <rect x="632" y="598" width="300" height="10" rx="5" fill="#1d2340"/>
+      <rect x="632" y="598" width="130" height="10" rx="5" fill="url(#pnA)"/>
+      <text x="948" y="607" fill="#9298c4" text-anchor="end">9 gün</text>
+
+      <text x="632" y="636" fill="#dcdcf0">Ataşehir Şantiyesi</text>
+      <rect x="632" y="646" width="300" height="10" rx="5" fill="#1d2340"/>
+      <rect x="632" y="646" width="80" height="10" rx="5" fill="url(#pnA)"/>
+      <text x="948" y="655" fill="#9298c4" text-anchor="end">5,5 gün</text>
+    </g>
+
+    <rect x="632" y="684" width="520" height="50" rx="10" fill="url(#pnA)"/>
+    <text x="892" y="714" fill="#f3effc" font-size="13.5" font-weight="bold" text-anchor="middle">Şantiye Raporu · Excel Al</text>
+  </g>
+</svg>

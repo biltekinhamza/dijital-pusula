@@ -31,6 +31,17 @@ module.exports = {
       }
     ]
   },
+  "puantaj": {
+    "plans": [
+      {
+        "id": "standard",
+        "price": {
+          "mode": "quote"
+        },
+        "featured": true
+      }
+    ]
+  },
   "cold": {
     "plans": [
       {

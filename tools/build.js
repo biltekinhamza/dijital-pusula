@@ -97,6 +97,11 @@ function buildFactParams() {
     stackOverlapMinPercent: facts.cold.stackOverlapMinPercent.value,
     backendTestCount: facts.cold.backendTestCount.value,
     frontendTestCount: facts.cold.frontendTestCount.value,
+    attendanceCodes: facts.puantaj.attendanceCodes.value,
+    mobileCodes: facts.puantaj.mobileCodes.value,
+    fixedHolidays: facts.puantaj.fixedHolidays.value,
+    monthlyBaseDays: facts.puantaj.monthlyBaseDays.value,
+    puantajTestCount: facts.puantaj.testCount.value,
     testCount: facts.combined.testCount.value
   };
 }

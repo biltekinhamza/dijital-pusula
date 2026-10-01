@@ -244,8 +244,6 @@
   border-radius: 2px;
 }
 .map-card-status.is-live { color: #2F6B34; }
-.map-card-status.is-soon { color: var(--color-accent-primary); }
-.map-card--newSectors { border-style: dashed; background: rgba(246, 239, 223, .7); }
 
 /* --- Merkez pusula --- */
 .compass {

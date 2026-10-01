@@ -42,7 +42,8 @@ module.exports = {
     "interests": [
       "HVAC Pro Suite (ventilation)",
       "Cold Storage Management System",
-      "I would like to see both",
+      "Puantaj Pro Suite (staff timesheets)",
+      "I would like to see more than one",
       "Custom software / automation",
       "Not sure yet"
     ],

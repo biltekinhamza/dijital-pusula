@@ -42,7 +42,8 @@ module.exports = {
     "interests": [
       "HVAC Pro Suite (havalandırma)",
       "Soğuk Hava Deposu Yönetim Sistemi",
-      "İkisini de görmek istiyorum",
+      "Puantaj Pro Suite (personel puantajı)",
+      "Birden fazlasını görmek istiyorum",
       "Özel yazılım / otomasyon",
       "Henüz emin değilim"
     ],

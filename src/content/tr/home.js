@@ -4,13 +4,13 @@
 
 module.exports = {
   "meta": {
-    "title": "Dijital Pusula | Havalandırma ve Soğuk Hava Deposu Yazılımları",
-    "description": "Havalandırma imalatçıları için teklif ve maliyet yazılımı, meyve soğuk hava depoları için 3D depo yönetim sistemi. Çok işletmeli, buluttan çalışan sektörel yazılımlar.",
-    "og": "Sektörünüz için hazır, buluttan çalışan yazılımlar: HVAC Pro Suite ve Soğuk Hava Deposu Yönetim Sistemi."
+    "title": "Dijital Pusula | Havalandırma, Soğuk Hava Deposu ve Puantaj Yazılımları",
+    "description": "Havalandırma imalatçıları için teklif ve maliyet yazılımı, meyve soğuk hava depoları için 3D depo yönetim sistemi, personel çalıştıran işletmeler için puantaj ve hakediş yazılımı. Çok işletmeli, tarayıcıdan çalışan sektörel yazılımlar.",
+    "og": "Sektörünüz için hazır, tarayıcıdan çalışan yazılımlar: HVAC Pro Suite, Soğuk Hava Deposu Yönetim Sistemi ve Puantaj Pro Suite."
   },
   "hero": {
-    "title": "Havalandırma ve soğuk hava deposu işletmeleri için hazır yazılım.",
-    "description": "Genel amaçlı bir ERP'yi işinize benzetmeye çalışmak yerine, doğrudan sizin işiniz için yazılmış iki ürün. İkisi de buluttan çalışır, her işletmenin verisi birbirinden ayrıdır ve kurulum gerektirmez. Şu an iki sektördeyiz; sırada yeni sektörler için aynı yaklaşımla yazılmış ürünler var.",
+    "title": "Havalandırma, soğuk hava deposu ve personel puantajı için hazır yazılım.",
+    "description": "Genel amaçlı bir ERP'yi işinize benzetmeye çalışmak yerine, doğrudan sizin işiniz için yazılmış üç ürün. Üçü de tarayıcıdan çalışır, her işletmenin verisi birbirinden ayrıdır ve kurulum gerektirmez. Sırada yeni sektörler için aynı yaklaşımla yazılmış ürünler var.",
     "primary": "Ürünleri İnceleyin",
     "secondary": "Demo Talep Edin",
     "note": "Kurulum yok · Her işletme kendi verisiyle çalışır · Tarayıcıdan erişim"
@@ -27,12 +27,10 @@ module.exports = {
     "soundOff": "Rota ezgileri kapalı",
     "soundHint": "Her rotanın kendi ezgisi var. Sesi açıp kartların üzerine gelin ya da pusulayı çevirin.",
     "scrollHint": "Seyir defterine inin",
-    "soon": "Yolda",
     "cards": {
       "demo": { "title": "Demo Talebi", "desc": "Ürünü kendi işinize benzer bir örnekte canlı görün." },
       "pricing": { "title": "Paketler", "desc": "Paket içerikleri açık; rakamı görüşmede veriyoruz." },
       "services": { "title": "Özel Yazılım", "desc": "Entegrasyon, otomasyon ve işletmenize özel uygulama." },
-      "newSectors": { "title": "Haritanın Boş Köşesi", "desc": "Yeni sektörler için ürünler yolda. Sizinki burada olabilir." },
       "faq": { "title": "Sık Sorulanlar", "desc": "Kurulum, veri güvenliği, deneme ve destek." },
       "process": { "title": "Nasıl Başlıyoruz", "desc": "Demo talebinden canlı kullanıma dört adım." }
     }
@@ -41,9 +39,9 @@ module.exports = {
     "title": "Rakamlarla",
     "items": [
       {
-        "value": "2",
+        "value": "3",
         "label": "Yayında olan ürün",
-        "note": "Havalandırma ve soğuk hava deposu"
+        "note": "Havalandırma, soğuk hava deposu ve puantaj"
       },
       {
         "value": "25",
@@ -58,14 +56,14 @@ module.exports = {
       {
         "value": "{testCount}+",
         "label": "Otomatik test",
-        "note": "İki üründe, her sürüm öncesi çalıştırılır"
+        "note": "Üç üründe, her sürüm öncesi çalıştırılır"
       }
     ]
   },
   "products": {
     "kicker": "ÜRÜNLERİMİZ",
-    "title": "İki sektör, iki ürün. İkisi de gerçek bir sahada doğdu.",
-    "lead": "Her iki ürün de bir işletmenin somut probleminden çıktı; genel bir şablonun üstüne sektör etiketi yapıştırılarak yapılmadı.",
+    "title": "Üç alan, üç ürün. Hepsi gerçek bir sahada doğdu.",
+    "lead": "Her ürün bir işletmenin somut probleminden çıktı; genel bir şablonun üstüne sektör etiketi yapıştırılarak yapılmadı.",
     "cta": "Ürünü İnceleyin",
     "badgeLive": "Yayında"
   },
@@ -82,12 +80,12 @@ module.exports = {
       {
         "icon": "⌁",
         "title": "Sektöre özgü hesap",
-        "text": "Sac açılımı, fire payı, istif kuralı, kalan KG üzerinden depolama bedeli. Bunlar genel yazılımlarda olmayan, sizin işinizin gerçek kuralları."
+        "text": "Sac açılımı, fire payı, istif kuralı, kalan KG üzerinden depolama bedeli, Pazar ve resmi tatil mesaisi. Bunlar genel yazılımlarda olmayan, sizin işinizin gerçek kuralları."
       },
       {
         "icon": "◇",
         "title": "Test edilmiş kod",
-        "text": "Her iki üründe de hesaplama ve yetkilendirme mantığı otomatik testlerle korunur. Bir düzeltmenin başka bir yeri bozmadığı elle değil, testle doğrulanır."
+        "text": "Her üründe hesaplama ve yetkilendirme mantığı otomatik testlerle korunur. Bir düzeltmenin başka bir yeri bozmadığı elle değil, testle doğrulanır."
       },
       {
         "icon": "▤",
@@ -97,7 +95,7 @@ module.exports = {
       {
         "icon": "⇄",
         "title": "Var olan düzeninize bağlanır",
-        "text": "Havalandırma tarafında teklif tek tıkla Paraşüt'e satış teklifi olarak gider; soğuk hava tarafında raporlar CSV, XLSX ve PDF olarak dışarı alınır."
+        "text": "Havalandırma tarafında teklif tek tıkla Paraşüt'e satış teklifi olarak gider; soğuk hava tarafında raporlar CSV, XLSX ve PDF olarak; puantaj tarafında ödeme ve şantiye raporları Excel olarak dışarı alınır."
       },
       {
         "icon": "↻",
@@ -108,7 +106,7 @@ module.exports = {
   },
   "servicesTeaser": {
     "kicker": "ÜRÜNLERİN DIŞINDA",
-    "title": "İhtiyacınız bu iki üründen biri değilse.",
+    "title": "İhtiyacınız bu ürünlerden biri değilse.",
     "lead": "İşletmelere özel yazılım, sistem entegrasyonu ve süreç otomasyonu da geliştiriyoruz. Ürünlerimiz zaten bu şekilde ortaya çıktı.",
     "cta": "Özel Yazılım Tarafına Bakın",
     "items": [
@@ -150,7 +148,7 @@ module.exports = {
     "items": [
       {
         "q": "Kurulum yapmam gerekiyor mu?",
-        "a": "Hayır. Her iki ürün de buluttan çalışır; tarayıcıdan adrese girip kullanırsınız. Kendi sunucunuzda çalıştırmak isterseniz Docker imajı ve kurulum belgeleri mevcuttur, bu durumda kurulum ve bakım koşullarını ayrıca konuşuruz."
+        "a": "Hayır. Ürünlerin hepsi tarayıcıdan çalışır; adrese girip kullanırsınız. Kendi sunucunuzda çalıştırmak isterseniz Docker imajı ve kurulum belgeleri mevcuttur, bu durumda kurulum ve bakım koşullarını ayrıca konuşuruz."
       },
       {
         "q": "Verilerim başka firmalarla karışır mı?",
@@ -158,7 +156,7 @@ module.exports = {
       },
       {
         "q": "Mevcut verilerimi aktarabilir miyim?",
-        "a": "Malzeme listesi, fiyat listesi, üretici ve ürün tanımları gibi tablo halindeki veriler aktarılabilir. Elinizdeki dosyayı görelim, aktarımın kapsamını ve süresini birlikte netleştirelim."
+        "a": "Malzeme listesi, fiyat listesi, personel listesi, üretici ve ürün tanımları gibi tablo halindeki veriler aktarılabilir. Elinizdeki dosyayı görelim, aktarımın kapsamını ve süresini birlikte netleştirelim."
       },
       {
         "q": "Deneme sürümü var mı?",
@@ -170,7 +168,7 @@ module.exports = {
       },
       {
         "q": "Yazılımı biz kendi sunucumuzda çalıştırabilir miyiz?",
-        "a": "Kurumsal pakette mümkün. Her iki ürün de Docker ile paketlenmiştir ve PostgreSQL üzerinde çalışır. Sunucu, yedekleme ve güncelleme sorumluluğunun kimde olacağını sözleşmede belirleriz."
+        "a": "Kurumsal pakette mümkün. Üç ürün de Docker ile paketlenmiştir ve PostgreSQL üzerinde çalışır. Sunucu, yedekleme ve güncelleme sorumluluğunun kimde olacağını sözleşmede belirleriz."
       },
       {
         "q": "Destek nasıl veriliyor?",

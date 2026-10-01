@@ -31,6 +31,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://dijital-pusula.pages.dev/en/cold-storage/" />
   </url>
   <url>
+    <loc>https://dijital-pusula.pages.dev/puantaj-pro-suite/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dijital-pusula.pages.dev/puantaj-pro-suite/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://dijital-pusula.pages.dev/en/puantaj-pro-suite/" />
+  </url>
+  <url>
+    <loc>https://dijital-pusula.pages.dev/en/puantaj-pro-suite/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://dijital-pusula.pages.dev/puantaj-pro-suite/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://dijital-pusula.pages.dev/en/puantaj-pro-suite/" />
+  </url>
+  <url>
     <loc>https://dijital-pusula.pages.dev/fiyatlandirma/</loc>
     <xhtml:link rel="alternate" hreflang="tr" href="https://dijital-pusula.pages.dev/fiyatlandirma/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://dijital-pusula.pages.dev/en/pricing/" />

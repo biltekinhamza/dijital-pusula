@@ -28,6 +28,7 @@ function productLinks(ctx) {
   const items = [];
   if (routes.byId.hvac.enabled !== false) items.push(["hvac", ctx.content.hvac.name]);
   if (routes.byId.cold.enabled !== false) items.push(["cold", ctx.content.cold.name]);
+  if (routes.byId.puantaj.enabled !== false) items.push(["puantaj", ctx.content.puantaj.name]);
   items.push(["services", ctx.t("nav.services")]);
   items.push(["pricing", ctx.t("nav.packages")]);
   return items.map(([id, label]) => html`<li><a href="${ctx.url(id)}">${label}</a></li>`);

@@ -37,7 +37,8 @@ test("facts.js: hvac.trialDays 7, hvac.trialUsers 2 (licensing.py sabitleriyle d
   assert.equal(facts.hvac.trialUsers.value, 2);
 });
 
-test("facts.js: combined.testCount üç sayılmış girdinin gerçek toplamı (elle yazılmamış)", () => {
-  const toplam = facts.hvac.testCount.value + facts.cold.backendTestCount.value + facts.cold.frontendTestCount.value;
+test("facts.js: combined.testCount sayılmış girdilerin gerçek toplamı (elle yazılmamış)", () => {
+  const toplam = facts.hvac.testCount.value + facts.cold.backendTestCount.value + facts.cold.frontendTestCount.value
+    + facts.puantaj.testCount.value;
   assert.equal(facts.combined.testCount.value, toplam);
 });

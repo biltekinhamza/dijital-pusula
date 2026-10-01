@@ -89,6 +89,7 @@ function contactForm(ctx) {
       data-msg-short-description="${f.shortDescription}"
       data-product-hvac="${f.interests[0]}"
       data-product-cold="${f.interests[1]}"
+      data-product-puantaj="${f.interests[2]}"
       novalidate
     >
       <div class="form-grid">

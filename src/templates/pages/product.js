@@ -15,7 +15,7 @@ const {
 } = require("../partials/ui.js");
 
 function pricingHashFor(productId) {
-  return productId === "cold" ? "soguk-hava" : productId === "hvac" ? "hvac" : productId;
+  return productId === "cold" ? "soguk-hava" : productId;
 }
 
 function heroSection(ctx, product, productId) {

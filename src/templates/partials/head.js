@@ -96,7 +96,7 @@ function breadcrumbSchema(ctx) {
    (src/static/assets/og/) — burada yalnız var olan dosyaya bağlanılır;
    ctx.asset() dosya yoksa zaten derlemeyi durdurur. */
 function ogImageAsset(ctx) {
-  const withImage = ["home", "hvac", "cold"];
+  const withImage = ["home", "hvac", "cold", "puantaj"];
   const pageId = withImage.includes(ctx.route.id) ? ctx.route.id : "home";
   const suffix = ctx.lang === "en" ? "-en" : "";
   return `assets/og/og-${pageId}${suffix}.png`;

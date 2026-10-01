@@ -78,11 +78,13 @@ function pricing(ctx) {
         <nav class="product-section-switch" aria-label="${ctx.t("nav.products")}">
           <a href="#hvac">${ctx.content.hvac.name}</a>
           <a href="#soguk-hava">${ctx.content.cold.name}</a>
+          <a href="#puantaj">${ctx.content.puantaj.name}</a>
         </nav>
       </div>
     </section>
     ${productPricingSection(ctx, "hvac", "hvac", ctx.content.hvac.name)}
     ${productPricingSection(ctx, "cold", "soguk-hava", ctx.content.cold.name)}
+    ${productPricingSection(ctx, "puantaj", "puantaj", ctx.content.puantaj.name)}
     ${billingFaqSection(ctx)}
     ${ctaBand(ctx, {
       heading: intro.title,

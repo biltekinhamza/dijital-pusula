@@ -130,7 +130,7 @@ test("midiToFreq: A4 440 Hz, oktav iki katı", () => {
   assert.ok(Math.abs(midiToFreq(81) - 880) < 1e-9);
 });
 test("ROUTE_TUNES: ana sayfadaki her harita yuvasının bir ezgisi var", () => {
-  for (const key of ["hvac", "demo", "cold", "pricing", "services", "newSectors", "faq", "process"]) {
+  for (const key of ["hvac", "demo", "cold", "pricing", "puantaj", "services", "faq", "process"]) {
     assert.ok(ROUTE_TUNES[key] && ROUTE_TUNES[key].notes.length > 0, key);
   }
 });

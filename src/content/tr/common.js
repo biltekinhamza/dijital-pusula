@@ -62,7 +62,7 @@ module.exports = {
     "requestTrial": "Deneme Hesabı İsteyin"
   },
   "footer": {
-    "description": "Havalandırma imalatçıları ve meyve soğuk hava depoları için sektörel yazılım. Özel yazılım ve otomasyon geliştirme.",
+    "description": "Havalandırma imalatçıları, meyve soğuk hava depoları ve personel çalıştıran işletmeler için sektörel yazılım. Özel yazılım ve otomasyon geliştirme.",
     "products": "Ürünler",
     "company": "Kurumsal",
     "legal": "Yasal",

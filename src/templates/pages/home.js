@@ -13,8 +13,8 @@ const { productState } = require("../../lib/model.js");
 const { requestCtaHref, firstSentence, faqList, ctaBand, stepsList } = require("../partials/ui.js");
 
 /* Kart yuvaları saat yönünde, Kuzey'den başlar; açı = sıra × 45°.
-   Ürünler ana yönlerde (K, D), ikincil rotalar ara yönlerde. */
-const SLOTS = ["hvac", "demo", "cold", "pricing", "services", "newSectors", "faq", "process"];
+   Ürünler ana yönlerde (K, D, G), ikincil rotalar ara yönlerde. */
+const SLOTS = ["hvac", "demo", "cold", "pricing", "puantaj", "services", "faq", "process"];
 
 /* Harita koordinatları: 1000×1000 viewBox, kart merkezleri r=390 çemberinde
    (CSS'teki --map-r: 39% ile aynı oran). */
@@ -48,11 +48,6 @@ const VIGNETTES = {
     <circle cx="124" cy="40" r="8"/>
     <path d="M150 90 Q164 60 186 22 Q176 58 156 88 Z" fill="currentColor" fill-opacity=".15"/>
     <path d="M150 90 L186 22"/>`,
-  newSectors: `<path d="M60 30 Q90 14 120 28 T170 40 Q178 62 150 72 T96 80 Q62 78 56 56 Z" stroke-dasharray="4 4"/>
-    <text x="113" y="60" text-anchor="middle" font-size="26" font-family="serif" fill="currentColor" stroke="none">?</text>
-    <path d="M14 90 q8 -14 16 0 q8 -14 16 0 M38 90 q6 -10 12 0" stroke-width="1.6"/>
-    <circle cx="18" cy="84" r="1.4" fill="currentColor"/>
-    <path d="M150 94 q10 -6 20 0 t20 0" stroke-width="1"/>`,
   faq: `<path d="M44 22 H150 Q160 22 160 32 V82 Q160 92 150 92 H52"/>
     <path d="M44 22 Q34 22 34 32 Q34 42 44 42 H54 V22" fill="currentColor" fill-opacity=".12"/>
     <path d="M52 92 Q42 92 42 82 Q42 72 52 72 H62 V92"/>
@@ -74,10 +69,10 @@ function slotTarget(ctx, key) {
   switch (key) {
     case "hvac": return ctx.url("hvac");
     case "cold": return ctx.url("cold");
+    case "puantaj": return ctx.url("puantaj");
     case "demo": return requestCtaHref(ctx);
     case "pricing": return ctx.url("pricing");
     case "services": return ctx.url("services");
-    case "newSectors": return ctx.url("contact");
     case "faq": return "#sss";
     case "process": return "#nasil-basliyoruz";
     default: throw new Error(`home: bilinmeyen harita yuvası "${key}"`);
@@ -88,7 +83,7 @@ function mapCard(ctx, key, index) {
   const map = ctx.content.home.map;
   const angle = index * 45;
   const badge = `${angle}° ${map.dirs[index]}`;
-  const isProduct = key === "hvac" || key === "cold";
+  const isProduct = key === "hvac" || key === "cold" || key === "puantaj";
   let title;
   let desc;
   let figure;
@@ -104,7 +99,6 @@ function mapCard(ctx, key, index) {
     title = map.cards[key].title;
     desc = map.cards[key].desc;
     figure = vignette(key);
-    if (key === "newSectors") status = html`<span class="map-card-status is-soon">${map.soon}</span>`;
   }
   return html`<li class="map-slot" style="--slot:${String(index)}">
     <a class="map-card map-card--${raw(key)}${raw(isProduct ? " map-card--product" : "")}" href="${slotTarget(ctx, key)}" data-angle="${String(angle)}" data-tune="${key}">

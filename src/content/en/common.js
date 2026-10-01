@@ -62,7 +62,7 @@ module.exports = {
     "requestTrial": "Request a Trial"
   },
   "footer": {
-    "description": "Vertical software for ventilation manufacturers and fruit cold storage operators. Custom software and automation development.",
+    "description": "Vertical software for ventilation manufacturers, fruit cold storage operators and businesses that employ staff. Custom software and automation development.",
     "products": "Products",
     "company": "Company",
     "legal": "Legal",

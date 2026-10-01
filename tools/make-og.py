@@ -165,6 +165,7 @@ def main():
         ("home", lambda t: t["home"]["title"].split(" | ")[0], lambda t: t["home"]["og"] or t["home"]["description"], "home"),
         ("hvac", lambda t: t["hvac"]["meta"]["title"].split(" | ")[1] if " | " in t["hvac"]["meta"]["title"] else t["hvac"]["meta"]["title"], lambda t: t["hvac"]["meta"]["og"] or t["hvac"]["meta"]["description"], "hvac"),
         ("cold", lambda t: t["cold"]["meta"]["title"].split(" | ")[1] if " | " in t["cold"]["meta"]["title"] else t["cold"]["meta"]["title"], lambda t: t["cold"]["meta"]["og"] or t["cold"]["meta"]["description"], "cold"),
+        ("puantaj", lambda t: t["puantaj"]["meta"]["title"].split(" | ")[1] if " | " in t["puantaj"]["meta"]["title"] else t["puantaj"]["meta"]["title"], lambda t: t["puantaj"]["meta"]["og"] or t["puantaj"]["meta"]["description"], "puantaj"),
     ]
 
     for lang in ("tr", "en"):

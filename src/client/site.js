@@ -35,8 +35,8 @@ function parseQueryParam(search, key) {
 /* resolveProductPreselect: "?urun=hvac" / "?urun=soguk-hava" (ve birkaç
    makul eşanlamlı) değerini, formun <select id="interest"> seçeneğinde
    zaten var olan (derlemede content'ten basılan) tam metinle eşler.
-   options = { hvac: "<hvac select metni>", cold: "<cold select metni>" }
-   (bkz. contact.js şablonu data-product-hvac/data-product-cold). */
+   options = { hvac: "<hvac select metni>", cold: "<cold select metni>", puantaj: "<puantaj select metni>" }
+   (bkz. contact.js şablonu data-product-hvac/-cold/-puantaj). */
 function resolveProductPreselect(urun, options) {
   if (!urun) return null;
   const key = String(urun).toLowerCase();
@@ -44,6 +44,7 @@ function resolveProductPreselect(urun, options) {
   if (key === "cold" || key === "soguk-hava" || key === "soguk_hava_deposu" || key === "shd") {
     return options.cold || null;
   }
+  if (key === "puantaj") return options.puantaj || null;
   return null;
 }
 
@@ -108,15 +109,16 @@ function midiToFreq(midi) {
 /* ROUTE_TUNES: her rotanın ezgisi. Nota: [başlangıç(s), MIDI, süre(s)].
    voice ses rengini seçer (DOM tarafındaki playTune yorumlar); air:true
    ezginin altına rüzgâr hışırtısı ekler. Ürünler kendi işinin sesini
-   taşır: havalandırma yükselen bir esinti, soğuk hava kristal çan. */
+   taşır: havalandırma yükselen bir esinti, soğuk hava kristal çan,
+   puantaj mesai saatinin düzenli tıkırtısı. */
 const ROUTE_TUNES = {
   hvac: { voice: "flute", air: true, notes: [[0, 74, 0.5], [0.14, 78, 0.5], [0.28, 81, 0.55], [0.44, 86, 0.9]] },
   cold: { voice: "bell", notes: [[0, 88, 1.2], [0.16, 83, 1.2], [0.32, 80, 1.3], [0.5, 76, 1.6]] },
+  puantaj: { voice: "pluck", notes: [[0, 79, 0.12], [0.12, 79, 0.12], [0.24, 79, 0.12], [0.36, 84, 0.12], [0.5, 83, 0.12], [0.62, 79, 0.5]] },
   services: { voice: "pluck", notes: [[0, 72, 0.18], [0.08, 76, 0.18], [0.16, 79, 0.18], [0.24, 84, 0.18], [0.32, 88, 0.18], [0.4, 91, 0.4]] },
   pricing: { voice: "coin", notes: [[0, 83, 0.08], [0.08, 88, 0.55], [0.42, 95, 0.4]] },
   demo: { voice: "horn", notes: [[0, 67, 0.14], [0.15, 72, 0.14], [0.3, 76, 0.14], [0.45, 79, 0.75]] },
   faq: { voice: "flute", notes: [[0, 76, 0.22], [0.22, 74, 0.22], [0.44, 81, 0.6, 1]] },
-  newSectors: { voice: "mist", notes: [[0, 72, 0.9], [0.2, 74, 0.9], [0.4, 76, 0.9], [0.6, 78, 0.9], [0.8, 80, 1.4]] },
   process: { voice: "bell", notes: [[0, 60, 1.4], [0, 72, 0.4], [0.22, 74, 0.4], [0.44, 76, 0.4], [0.66, 79, 0.9]] }
 };
 
@@ -192,7 +194,8 @@ if (typeof document !== "undefined") {
       var urun = parseQueryParam(window.location.search, "urun");
       var preselect = resolveProductPreselect(urun, {
         hvac: contactForm.getAttribute("data-product-hvac"),
-        cold: contactForm.getAttribute("data-product-cold")
+        cold: contactForm.getAttribute("data-product-cold"),
+        puantaj: contactForm.getAttribute("data-product-puantaj")
       });
       if (preselect) interestSelect.value = preselect;
     }

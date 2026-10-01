@@ -67,14 +67,44 @@ module.exports = {
       checkedAt: "2026-09-28"
     }
   },
-  /* Ana sayfa "Gerçeklik şeridi"nde (H2) iki ürün birlikte anılan tek sayı
+  /* Puantaj Pro Suite — kaynak: E:/Projelerim/puantaj, "coklu-sirket" dalı
+     (çoklu şirket ve izolasyon bu dalda; master'a birleşmeden site iddiası
+     master'daki üründe karşılıksız kalır). */
+  puantaj: {
+    attendanceCodes: {
+      value: 5,
+      source: "E:/Projelerim/puantaj/apps/puantaj/adapter.py:6 (PUANTAJ_KODLARI: G, Y, İ, U, X)",
+      checkedAt: "2026-10-01"
+    },
+    mobileCodes: {
+      value: 3,
+      source: "E:/Projelerim/puantaj/apps/puantaj/mobile_views.py:18 (MOBIL_KODLAR: G, U, X)",
+      checkedAt: "2026-10-01"
+    },
+    fixedHolidays: {
+      value: 7,
+      source: "E:/Projelerim/puantaj/apps/ayarlar/services.py:14 (SABIT_TATILLER — 7 sabit tarihli tatil; dini bayramlar elle eklenir)",
+      checkedAt: "2026-10-01"
+    },
+    monthlyBaseDays: {
+      value: 30,
+      source: "E:/Projelerim/puantaj/apps/puantaj/services/puantaj_service.py:103-117 (şirket personelinde aylık maaş / 30, ay 30 gün bazına normalize)",
+      checkedAt: "2026-10-01"
+    },
+    testCount: {
+      value: 106,
+      source: "E:/Projelerim/puantaj/apps/*/tests*.py — \"    def test_\" satır sayımı (6 dosya, coklu-sirket dalı), 2026-10-01",
+      checkedAt: "2026-10-01"
+    }
+  },
+  /* Ana sayfa "Gerçeklik şeridi"nde (H2) ürünlerin birlikte anılan tek sayı
      ("{testCount}+ Otomatik test") için toplam — üç ayrı sayılmış girdinin
      toplamıdır, kendi başına ürün kodunda aranmaz. */
   combined: {
     testCount: {
-      value: 775, // hvac.testCount(142) + cold.backendTestCount(559) + cold.frontendTestCount(74)
-      source: "toplam: facts.hvac.testCount + facts.cold.backendTestCount + facts.cold.frontendTestCount",
-      checkedAt: "2026-09-28"
+      value: 881, // hvac.testCount(142) + cold.backendTestCount(559) + cold.frontendTestCount(74) + puantaj.testCount(106)
+      source: "toplam: facts.hvac.testCount + facts.cold.backendTestCount + facts.cold.frontendTestCount + facts.puantaj.testCount",
+      checkedAt: "2026-10-01"
     }
   }
 };

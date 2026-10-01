@@ -67,6 +67,30 @@ module.exports = {
       }
     }
   },
+  "puantaj": {
+    "note": "The plan contents are below; we settle the figure based on company size and number of users in a call and send a written quote.",
+    "plans": {
+      "standard": {
+        "name": "Puantaj Pro Suite",
+        "priceNote": "Price on quotation",
+        "summary": "One plan, every module. For businesses with salaried staff and subcontracted workers.",
+        "features": [
+          "Monthly timesheet grid ({attendanceCodes} codes)",
+          "Mobile timesheet by phone",
+          "Automatic Sunday and public holiday overtime",
+          "Salary, earned pay, bonus, advance and garnishment",
+          "Bank / cash payment list (Excel)",
+          "Daily site tracking and report",
+          "Contract, resignation letter, reports and pay envelope",
+          "In-company user and role management"
+        ],
+        "missing": [
+          "Official payroll and social security filing"
+        ],
+        "cta": "Get a Quote"
+      }
+    }
+  },
   "cold": {
     "note": "Plan contents are below; we confirm the figure in the call and send a written quote.",
     "plans": {

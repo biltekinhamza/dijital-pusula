@@ -67,6 +67,30 @@ module.exports = {
       }
     }
   },
+  "puantaj": {
+    "note": "Paket içeriği aşağıda; rakamı işletme büyüklüğüne ve kullanıcı sayısına göre görüşmede netleştirip yazılı teklif gönderiyoruz.",
+    "plans": {
+      "standard": {
+        "name": "Puantaj Pro Suite",
+        "priceNote": "Fiyat teklifi ile",
+        "summary": "Tek paket, bütün modüller. Şirket personeli ve taşeron çalıştıran işletmeler için.",
+        "features": [
+          "Aylık puantaj tablosu ({attendanceCodes} kod)",
+          "Telefondan mobil puantaj",
+          "Pazar ve resmi tatil mesaisi otomatik",
+          "Maaş, hakediş, prim, avans ve icra",
+          "Banka / elden ödeme listesi (Excel)",
+          "Gün bazında şantiye takibi ve raporu",
+          "Sözleşme, istifa dilekçesi, tutanak ve maaş zarfı",
+          "Şirket içi kullanıcı ve rol yönetimi"
+        ],
+        "missing": [
+          "Resmi bordro ve SGK bildirimi"
+        ],
+        "cta": "Fiyat Teklifi Alın"
+      }
+    }
+  },
   "cold": {
     "note": "Paket içerikleri aşağıda; rakamı görüşmede netleştirip yazılı teklif gönderiyoruz.",
     "plans": {

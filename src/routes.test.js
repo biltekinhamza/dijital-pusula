@@ -4,8 +4,8 @@ const { test } = require("node:test");
 const assert = require("node:assert/strict");
 const routes = require("./routes.js");
 
-test("enabledRoutes(): MVP rota sayısı 9 (ETKI-ANALIZI §3.2 tablosu)", () => {
-  assert.equal(routes.enabledRoutes().length, 9);
+test("enabledRoutes(): açık rota sayısı 10 (ETKI-ANALIZI §3.2 tablosundaki 9 + Puantaj Pro Suite)", () => {
+  assert.equal(routes.enabledRoutes().length, 10);
 });
 
 test("her rotanın tr ve en yolu / ile başlar ve / ile biter (notfound hariç)", () => {

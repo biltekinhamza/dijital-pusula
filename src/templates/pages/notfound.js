@@ -22,6 +22,7 @@ function notfound(ctx) {
         <a class="btn" href="${ctx.url("home")}">${n.home}</a>
         ${routes.byId.hvac.enabled !== false ? html`<a class="btn btn-secondary" href="${ctx.url("hvac")}">${ctx.content.hvac.name}</a>` : ""}
         ${routes.byId.cold.enabled !== false ? html`<a class="btn btn-secondary" href="${ctx.url("cold")}">${ctx.content.cold.name}</a>` : ""}
+        ${routes.byId.puantaj.enabled !== false ? html`<a class="btn btn-secondary" href="${ctx.url("puantaj")}">${ctx.content.puantaj.name}</a>` : ""}
       </div>
     </div>
   </article>`;

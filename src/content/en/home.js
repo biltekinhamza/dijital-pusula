@@ -4,13 +4,13 @@
 
 module.exports = {
   "meta": {
-    "title": "Dijital Pusula | Software for HVAC Manufacturers and Cold Storage",
-    "description": "Quoting and cost software for ventilation manufacturers, and a 3D warehouse management system for fruit cold storage. Multi-tenant, cloud-based vertical software.",
-    "og": "Ready-to-use vertical software: HVAC Pro Suite and the Cold Storage Management System."
+    "title": "Dijital Pusula | Software for HVAC Manufacturers, Cold Storage and Timesheets",
+    "description": "Quoting and cost software for ventilation manufacturers, a 3D warehouse management system for fruit cold storage, and timesheet and earned-pay software for businesses that employ staff. Multi-tenant, browser-based vertical software.",
+    "og": "Ready-to-use vertical software: HVAC Pro Suite, the Cold Storage Management System and Puantaj Pro Suite."
   },
   "hero": {
-    "title": "Ready-made software for ventilation manufacturers and cold storage operators.",
-    "description": "Instead of bending a general-purpose ERP into the shape of your business, two products written for your business in the first place. Both run in the cloud, keep every company's data separate and need no installation. We're in two industries today, with more products built the same way already underway.",
+    "title": "Ready-made software for ventilation, cold storage and staff timesheets.",
+    "description": "Instead of bending a general-purpose ERP into the shape of your business, three products written for your business in the first place. All three run in the browser, keep every company's data separate and need no installation. More products for new industries, built the same way, are already underway.",
     "primary": "Explore the Products",
     "secondary": "Request a Demo",
     "note": "No installation · Every company works on its own data · Browser access"
@@ -27,12 +27,10 @@ module.exports = {
     "soundOff": "Route tunes off",
     "soundHint": "Every route has its own tune. Turn the sound on and hover over the cards, or spin the compass.",
     "scrollHint": "Down to the logbook",
-    "soon": "Underway",
     "cards": {
       "demo": { "title": "Request a Demo", "desc": "See the product live on an example close to your business." },
       "pricing": { "title": "Packages", "desc": "Package contents are public; we quote the figure in a call." },
       "services": { "title": "Custom Software", "desc": "Integration, automation and applications built for you." },
-      "newSectors": { "title": "The Blank Corner", "desc": "Products for new industries are underway. Yours could be here." },
       "faq": { "title": "Common Questions", "desc": "Installation, data safety, trial and support." },
       "process": { "title": "How We Start", "desc": "Four steps from demo request to live use." }
     }
@@ -41,9 +39,9 @@ module.exports = {
     "title": "In numbers",
     "items": [
       {
-        "value": "2",
+        "value": "3",
         "label": "Products in production",
-        "note": "Ventilation and cold storage"
+        "note": "Ventilation, cold storage and timesheets"
       },
       {
         "value": "25",
@@ -58,13 +56,13 @@ module.exports = {
       {
         "value": "{testCount}+",
         "label": "Automated tests",
-        "note": "Across both products, run before every release"
+        "note": "Across three products, run before every release"
       }
     ]
   },
   "products": {
     "kicker": "OUR PRODUCTS",
-    "title": "Two industries, two products. Both born on a real shop floor.",
+    "title": "Three fields, three products. All born on a real shop floor.",
     "lead": "Each product grew out of one business's concrete problem — not from a generic template with an industry label stuck on it.",
     "cta": "View the Product",
     "badgeLive": "In production"
@@ -82,12 +80,12 @@ module.exports = {
       {
         "icon": "⌁",
         "title": "Industry-specific maths",
-        "text": "Sheet-metal development, waste allowance, stacking rules, storage billed on remaining kilograms. These are your trade's real rules, and general software does not have them."
+        "text": "Sheet-metal development, waste allowance, stacking rules, storage billed on remaining kilograms, Sunday and public holiday overtime. These are your trade's real rules, and general software does not have them."
       },
       {
         "icon": "◇",
         "title": "Tested code",
-        "text": "In both products the calculation and authorisation logic is protected by automated tests. That a fix has not broken something else is verified by tests, not by hand."
+        "text": "In every product the calculation and authorisation logic is protected by automated tests. That a fix has not broken something else is verified by tests, not by hand."
       },
       {
         "icon": "▤",
@@ -97,7 +95,7 @@ module.exports = {
       {
         "icon": "⇄",
         "title": "Connects to what you already run",
-        "text": "On the ventilation side a quote goes to Paraşüt as a sales offer in one click; on the cold storage side every report exports to CSV, XLSX and PDF."
+        "text": "On the ventilation side a quote goes to Paraşüt as a sales offer in one click; on the cold storage side every report exports to CSV, XLSX and PDF; on the timesheet side payment and site reports export to Excel."
       },
       {
         "icon": "↻",
@@ -108,7 +106,7 @@ module.exports = {
   },
   "servicesTeaser": {
     "kicker": "BEYOND THE PRODUCTS",
-    "title": "If neither product is what you need.",
+    "title": "If none of these products is what you need.",
     "lead": "We also build custom software, system integrations and process automation for businesses. That is exactly how these products came about.",
     "cta": "See Custom Software",
     "items": [
@@ -150,7 +148,7 @@ module.exports = {
     "items": [
       {
         "q": "Do I need to install anything?",
-        "a": "No. Both products run in the cloud; you open an address in your browser and use it. If you would rather run it on your own server, Docker images and setup documentation exist, and in that case we agree the installation and maintenance terms separately."
+        "a": "No. All of the products run in the browser; you open an address and use it. If you would rather run it on your own server, Docker images and setup documentation exist, and in that case we agree the installation and maintenance terms separately."
       },
       {
         "q": "Could my data get mixed up with another company's?",
@@ -158,7 +156,7 @@ module.exports = {
       },
       {
         "q": "Can I migrate my existing data?",
-        "a": "Tabular data such as material lists, price lists, producer and product definitions can be migrated. Show us the file you have and we will scope the migration and its timing together."
+        "a": "Tabular data such as material lists, price lists, staff lists, producer and product definitions can be migrated. Show us the file you have and we will scope the migration and its timing together."
       },
       {
         "q": "Is there a trial?",
@@ -170,7 +168,7 @@ module.exports = {
       },
       {
         "q": "Can we run the software on our own server?",
-        "a": "Yes, on the Enterprise plan. Both products are packaged with Docker and run on PostgreSQL. Who is responsible for the server, backups and updates is set out in the contract."
+        "a": "Yes, on the Enterprise plan. All three products are packaged with Docker and run on PostgreSQL. Who is responsible for the server, backups and updates is set out in the contract."
       },
       {
         "q": "How is support provided?",

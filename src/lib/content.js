@@ -8,7 +8,7 @@
 const path = require("node:path");
 
 const PAGE_FILES = [
-  "home", "hvac", "cold", "pricing", "services", "contact",
+  "home", "hvac", "cold", "puantaj", "pricing", "services", "contact",
   "about", "security", "changelog", "legal", "notfound"
 ];
 

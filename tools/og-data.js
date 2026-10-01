@@ -21,6 +21,11 @@ function factParams() {
     stackOverlapMinPercent: facts.cold.stackOverlapMinPercent.value,
     backendTestCount: facts.cold.backendTestCount.value,
     frontendTestCount: facts.cold.frontendTestCount.value,
+    attendanceCodes: facts.puantaj.attendanceCodes.value,
+    mobileCodes: facts.puantaj.mobileCodes.value,
+    fixedHolidays: facts.puantaj.fixedHolidays.value,
+    monthlyBaseDays: facts.puantaj.monthlyBaseDays.value,
+    puantajTestCount: facts.puantaj.testCount.value,
     testCount: facts.combined.testCount.value
   };
 }
@@ -33,9 +38,10 @@ function buildOgData() {
     data[lang] = {
       tagline: tree.brand.tagline,
       homeEyebrow: tree.home.products.kicker,
-      home: { ...tree.home.meta, highlights: [tree.hvac.name, tree.cold.name] },
+      home: { ...tree.home.meta, highlights: [tree.hvac.name, tree.cold.name, tree.puantaj.name] },
       hvac: { meta: tree.hvac.meta, highlights: tree.hvac.highlights },
-      cold: { meta: tree.cold.meta, highlights: tree.cold.highlights }
+      cold: { meta: tree.cold.meta, highlights: tree.cold.highlights },
+      puantaj: { meta: tree.puantaj.meta, highlights: tree.puantaj.highlights }
     };
   }
   return data;
