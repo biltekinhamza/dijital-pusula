@@ -110,3 +110,27 @@ test("buildMailtoUrl: mailto: ile başlar, konu ve gövde kodlanmış olur", () 
   assert.match(url, /subject=Demo%20talebi/);
   assert.match(url, /body=Ad%20Soyad%3A%20Ay%C5%9Fe/);
 });
+
+/* --- turnTo / midiToFreq / ROUTE_TUNES (keşif haritası) --- */
+const { turnTo, midiToFreq, ROUTE_TUNES } = require("./site.js");
+
+test("turnTo: en kısa yoldan döner", () => {
+  assert.equal(turnTo(0, 90), 90);
+  assert.equal(turnTo(0, 315), -45);
+  assert.equal(turnTo(350, 10), 370);
+  assert.equal(turnTo(-45, 0), 0);
+});
+test("turnTo: tam turları ekler ve hedef yönde biter", () => {
+  const r = turnTo(90, 180, 3);
+  assert.equal(r, 90 + 90 + 1080);
+  assert.equal(((r % 360) + 360) % 360, 180);
+});
+test("midiToFreq: A4 440 Hz, oktav iki katı", () => {
+  assert.equal(midiToFreq(69), 440);
+  assert.ok(Math.abs(midiToFreq(81) - 880) < 1e-9);
+});
+test("ROUTE_TUNES: ana sayfadaki her harita yuvasının bir ezgisi var", () => {
+  for (const key of ["hvac", "demo", "cold", "pricing", "services", "newSectors", "faq", "process"]) {
+    assert.ok(ROUTE_TUNES[key] && ROUTE_TUNES[key].notes.length > 0, key);
+  }
+});

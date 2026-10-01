@@ -87,6 +87,39 @@ function buildMailtoUrl(to, subject, fields) {
   return `mailto:${to}?${params}`;
 }
 
+/* --- Keşif haritası (ana sayfa) --- */
+
+/* turnTo: iğnenin mutlak dönüşü `current` iken `target` (0-359) yönüne en
+   kısa yoldan dönmesi için yeni mutlak açıyı verir. extraTurns kadar tam
+   tur eklenir (pusulayı çevirme animasyonu). */
+function turnTo(current, target, extraTurns) {
+  let diff = (target - (current % 360)) % 360;
+  if (diff > 180) diff -= 360;
+  if (diff < -180) diff += 360;
+  const turns = extraTurns || 0;
+  return current + diff + turns * 360;
+}
+
+/* midiToFreq: MIDI nota numarasını Hz'e çevirir (A4 = 69 = 440 Hz). */
+function midiToFreq(midi) {
+  return 440 * Math.pow(2, (midi - 69) / 12);
+}
+
+/* ROUTE_TUNES: her rotanın ezgisi. Nota: [başlangıç(s), MIDI, süre(s)].
+   voice ses rengini seçer (DOM tarafındaki playTune yorumlar); air:true
+   ezginin altına rüzgâr hışırtısı ekler. Ürünler kendi işinin sesini
+   taşır: havalandırma yükselen bir esinti, soğuk hava kristal çan. */
+const ROUTE_TUNES = {
+  hvac: { voice: "flute", air: true, notes: [[0, 74, 0.5], [0.14, 78, 0.5], [0.28, 81, 0.55], [0.44, 86, 0.9]] },
+  cold: { voice: "bell", notes: [[0, 88, 1.2], [0.16, 83, 1.2], [0.32, 80, 1.3], [0.5, 76, 1.6]] },
+  services: { voice: "pluck", notes: [[0, 72, 0.18], [0.08, 76, 0.18], [0.16, 79, 0.18], [0.24, 84, 0.18], [0.32, 88, 0.18], [0.4, 91, 0.4]] },
+  pricing: { voice: "coin", notes: [[0, 83, 0.08], [0.08, 88, 0.55], [0.42, 95, 0.4]] },
+  demo: { voice: "horn", notes: [[0, 67, 0.14], [0.15, 72, 0.14], [0.3, 76, 0.14], [0.45, 79, 0.75]] },
+  faq: { voice: "flute", notes: [[0, 76, 0.22], [0.22, 74, 0.22], [0.44, 81, 0.6, 1]] },
+  newSectors: { voice: "mist", notes: [[0, 72, 0.9], [0.2, 74, 0.9], [0.4, 76, 0.9], [0.6, 78, 0.9], [0.8, 80, 1.4]] },
+  process: { voice: "bell", notes: [[0, 60, 1.4], [0, 72, 0.4], [0.22, 74, 0.4], [0.44, 76, 0.4], [0.66, 79, 0.9]] }
+};
+
 /* ---------------------------------------------------------------------
  * DOM KURULUMU — yalnız tarayıcıda çalışır
  * ------------------------------------------------------------------- */
@@ -276,12 +309,274 @@ if (typeof document !== "undefined") {
   })();
 }
 
+/* --- Keşif haritası: iğne, rota ışınları, pusulayı çevirme, rota ezgileri.
+   Kartlar JS'siz de düz bağlantıdır; burası yalnız zenginleştirme. Ses
+   varsayılan KAPALI, yalnız kullanıcı anahtarı açınca çalar (tarayıcı
+   otomatik oynatma kuralı da bunu gerektirir); tercih localStorage'da
+   tutulur, depolama yoksa sessizce varsayılana döner. --- */
+if (typeof document !== "undefined") {
+  (function initCompassMap() {
+    var map = document.querySelector("[data-chart]");
+    if (!map) return;
+    var compass = document.getElementById("compass");
+    var needle = document.getElementById("compass-needle");
+    var cards = Array.prototype.slice.call(map.querySelectorAll(".map-card"));
+    var rays = Array.prototype.slice.call(map.querySelectorAll(".map-ray"));
+    var toggle = document.getElementById("sound-toggle");
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var rotation = 0;
+    var spinning = false;
+    var resetTimer = null;
+    var lastSpin = -1;
+
+    /* --- Ses motoru (Web Audio, dosya yok) --- */
+    var AudioCtor = window.AudioContext || window.webkitAudioContext;
+    var audio = null;
+    var master = null;
+    var currentBus = null;
+    var lastTune = { key: null, at: 0 };
+    var soundOn = false;
+    try { soundOn = window.localStorage.getItem("dp-route-tunes") === "on"; } catch (e) { soundOn = false; }
+
+    var ensureAudio = function () {
+      if (!AudioCtor) return null;
+      if (!audio) {
+        audio = new AudioCtor();
+        master = audio.createGain();
+        master.gain.value = 0.22;
+        /* Hafif yankı: kısa gecikme + geri besleme, "açık deniz" havası. */
+        var delay = audio.createDelay();
+        delay.delayTime.value = 0.23;
+        var feedback = audio.createGain();
+        feedback.gain.value = 0.28;
+        var wet = audio.createGain();
+        wet.gain.value = 0.3;
+        master.connect(audio.destination);
+        master.connect(delay);
+        delay.connect(feedback);
+        feedback.connect(delay);
+        delay.connect(wet);
+        wet.connect(audio.destination);
+      }
+      if (audio.state === "suspended") audio.resume();
+      return audio;
+    };
+
+    var voiceNote = function (bus, voice, start, midi, dur, bend) {
+      var freq = midiToFreq(midi);
+      var t0 = audio.currentTime + 0.02 + start;
+      var env = audio.createGain();
+      var osc = audio.createOscillator();
+      var peak = 0.5;
+      var attack = 0.02;
+      var out = env;
+      if (voice === "flute") { osc.type = "sine"; attack = 0.05; peak = 0.55; }
+      else if (voice === "bell") { osc.type = "triangle"; attack = 0.003; peak = 0.5; }
+      else if (voice === "pluck") { osc.type = "square"; attack = 0.003; peak = 0.22; }
+      else if (voice === "coin") { osc.type = "square"; attack = 0.002; peak = 0.18; }
+      else if (voice === "horn") { osc.type = "sawtooth"; attack = 0.04; peak = 0.28; }
+      else { osc.type = "sine"; attack = 0.25; peak = 0.35; }
+      osc.frequency.setValueAtTime(freq, t0);
+      if (bend) osc.frequency.exponentialRampToValueAtTime(freq * Math.pow(2, bend / 12), t0 + dur);
+      if (voice === "pluck" || voice === "horn") {
+        var filter = audio.createBiquadFilter();
+        filter.type = "lowpass";
+        filter.frequency.setValueAtTime(voice === "pluck" ? 2400 : 1500, t0);
+        filter.frequency.exponentialRampToValueAtTime(500, t0 + dur + 0.1);
+        env.connect(filter);
+        out = filter;
+      }
+      if (voice === "flute" || voice === "mist" || voice === "horn") {
+        var lfo = audio.createOscillator();
+        var depth = audio.createGain();
+        lfo.frequency.value = voice === "mist" ? 4.5 : 5.5;
+        depth.gain.value = freq * 0.006;
+        lfo.connect(depth);
+        depth.connect(osc.frequency);
+        lfo.start(t0);
+        lfo.stop(t0 + dur + 0.6);
+      }
+      env.gain.setValueAtTime(0.0001, t0);
+      env.gain.exponentialRampToValueAtTime(peak, t0 + attack);
+      env.gain.exponentialRampToValueAtTime(0.0001, t0 + dur + (voice === "bell" ? 0.4 : 0.15));
+      osc.connect(env);
+      out.connect(bus);
+      osc.start(t0);
+      osc.stop(t0 + dur + 0.6);
+      if (voice === "bell") {
+        /* Çan rengi: uyumsuz üst kısmi (×2.76) kısa ve hafif. */
+        var partial = audio.createOscillator();
+        var pEnv = audio.createGain();
+        partial.type = "sine";
+        partial.frequency.value = freq * 2.76;
+        pEnv.gain.setValueAtTime(0.0001, t0);
+        pEnv.gain.exponentialRampToValueAtTime(0.12, t0 + 0.003);
+        pEnv.gain.exponentialRampToValueAtTime(0.0001, t0 + dur * 0.5);
+        partial.connect(pEnv);
+        pEnv.connect(bus);
+        partial.start(t0);
+        partial.stop(t0 + dur);
+      }
+    };
+
+    var breeze = function (bus, start, dur) {
+      var len = Math.floor(audio.sampleRate * dur);
+      var buffer = audio.createBuffer(1, len, audio.sampleRate);
+      var data = buffer.getChannelData(0);
+      for (var i = 0; i < len; i++) data[i] = Math.random() * 2 - 1;
+      var src = audio.createBufferSource();
+      src.buffer = buffer;
+      var band = audio.createBiquadFilter();
+      band.type = "bandpass";
+      band.Q.value = 1.2;
+      var t0 = audio.currentTime + 0.02 + start;
+      band.frequency.setValueAtTime(400, t0);
+      band.frequency.exponentialRampToValueAtTime(2600, t0 + dur * 0.7);
+      var env = audio.createGain();
+      env.gain.setValueAtTime(0.0001, t0);
+      env.gain.exponentialRampToValueAtTime(0.35, t0 + dur * 0.4);
+      env.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      src.connect(band);
+      band.connect(env);
+      env.connect(bus);
+      src.start(t0);
+      src.stop(t0 + dur);
+    };
+
+    var playTune = function (key) {
+      var tune = ROUTE_TUNES[key];
+      if (!soundOn || !tune || !ensureAudio()) return;
+      var now = Date.now();
+      if (lastTune.key === key && now - lastTune.at < 700) return;
+      lastTune = { key: key, at: now };
+      /* Önceki ezgiyi kısa bir sönümle sustur; üst üste binmesin. */
+      if (currentBus) {
+        currentBus.gain.setTargetAtTime(0.0001, audio.currentTime, 0.04);
+      }
+      var bus = audio.createGain();
+      bus.connect(master);
+      currentBus = bus;
+      if (tune.air) breeze(bus, 0, 1.1);
+      tune.notes.forEach(function (n) { voiceNote(bus, tune.voice, n[0], n[1], n[2], n[3]); });
+    };
+
+    var tick = function (at, pitch) {
+      var t0 = audio.currentTime + at;
+      var osc = audio.createOscillator();
+      var env = audio.createGain();
+      osc.type = "square";
+      osc.frequency.value = pitch;
+      env.gain.setValueAtTime(0.0001, t0);
+      env.gain.exponentialRampToValueAtTime(0.08, t0 + 0.002);
+      env.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.03);
+      osc.connect(env);
+      env.connect(master);
+      osc.start(t0);
+      osc.stop(t0 + 0.05);
+    };
+
+    /* Pusula dönerken cırcır sesi: aralıklar giderek uzar, iğneyle
+       birlikte yavaşlar. */
+    var ratchet = function (duration) {
+      if (!soundOn || !ensureAudio()) return;
+      var t = 0;
+      var gap = 0.03;
+      while (t < duration * 0.92) {
+        tick(t, 1800 + Math.random() * 300);
+        t += gap;
+        gap *= 1.11;
+      }
+    };
+
+    /* --- İğne ve vurgu --- */
+    var setNeedle = function (angle, turns) {
+      rotation = turnTo(rotation, angle, turns);
+      needle.style.transform = "rotate(" + rotation + "deg)";
+    };
+    var highlight = function (index) {
+      cards.forEach(function (card, i) { card.classList.toggle("is-active", i === index); });
+      rays.forEach(function (ray, i) { ray.classList.toggle("is-active", i === index); });
+      map.classList.toggle("is-pointing", index > -1);
+    };
+    var pointTo = function (index) {
+      if (spinning) return;
+      clearTimeout(resetTimer);
+      setNeedle(Number(cards[index].getAttribute("data-angle")), 0);
+      highlight(index);
+      playTune(cards[index].getAttribute("data-tune"));
+    };
+    var releaseNeedle = function () {
+      if (spinning) return;
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(function () {
+        highlight(-1);
+        setNeedle(0, 0);
+      }, 120);
+    };
+
+    cards.forEach(function (card, index) {
+      card.addEventListener("mouseenter", function () { pointTo(index); });
+      card.addEventListener("focus", function () { pointTo(index); });
+      card.addEventListener("mouseleave", releaseNeedle);
+      card.addEventListener("blur", releaseNeedle);
+    });
+
+    if (compass) {
+      compass.addEventListener("click", function () {
+        if (spinning) return;
+        var index;
+        do { index = Math.floor(Math.random() * cards.length); } while (cards.length > 1 && index === lastSpin);
+        lastSpin = index;
+        var duration = reduceMotion ? 0 : 2.6;
+        spinning = true;
+        clearTimeout(resetTimer);
+        highlight(-1);
+        map.classList.add("is-pointing");
+        compass.classList.toggle("is-spinning", !reduceMotion);
+        setNeedle(Number(cards[index].getAttribute("data-angle")), reduceMotion ? 0 : 3);
+        ratchet(duration);
+        setTimeout(function () {
+          spinning = false;
+          compass.classList.remove("is-spinning");
+          highlight(index);
+          playTune(cards[index].getAttribute("data-tune"));
+          resetTimer = setTimeout(function () { highlight(-1); setNeedle(0, 0); }, 4000);
+        }, duration * 1000 + 50);
+      });
+    }
+
+    /* --- Ses anahtarı: Web Audio yoksa hiç gösterilmez --- */
+    if (toggle && AudioCtor) {
+      var label = toggle.querySelector(".sound-toggle-label");
+      var render = function () {
+        toggle.setAttribute("aria-pressed", soundOn ? "true" : "false");
+        if (label) label.textContent = toggle.getAttribute(soundOn ? "data-label-on" : "data-label-off");
+      };
+      toggle.hidden = false;
+      render();
+      toggle.addEventListener("click", function () {
+        soundOn = !soundOn;
+        try { window.localStorage.setItem("dp-route-tunes", soundOn ? "on" : "off"); } catch (e) { /* depolama yok: yalnız bu oturum */ }
+        render();
+        if (soundOn) {
+          ensureAudio();
+          lastTune.key = null;
+          playTune("process");
+        }
+      });
+    }
+  })();
+}
+
 if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     parseQueryParam,
     resolveProductPreselect,
     validateContactForm,
     buildMailtoBody,
-    buildMailtoUrl
+    buildMailtoUrl,
+    turnTo,
+    midiToFreq,
+    ROUTE_TUNES
   };
 }

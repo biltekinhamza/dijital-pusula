@@ -15,6 +15,28 @@ module.exports = {
     "secondary": "Demo Talep Edin",
     "note": "Kurulum yok · Her işletme kendi verisiyle çalışır · Tarayıcıdan erişim"
   },
+  "map": {
+    "kicker": "Dijital Pusula · Keşif Haritası",
+    "title": "Doğru yerdesiniz. Artık işletmenizin kaptanı olmaya hazır mısınız?",
+    "lead": "Fikirlerinizi bizimle paylaşın, biz de onları sizin için teknolojiyle birleştirelim.",
+    "routesTitle": "Rotalar",
+    "dirs": ["K", "KD", "D", "GD", "G", "GB", "B", "KB"],
+    "dial": ["K", "D", "G", "B"],
+    "compassLabel": "Pusulayı çevir: rastgele bir rota seç",
+    "soundOn": "Rota ezgileri açık",
+    "soundOff": "Rota ezgileri kapalı",
+    "soundHint": "Her rotanın kendi ezgisi var. Sesi açıp kartların üzerine gelin ya da pusulayı çevirin.",
+    "scrollHint": "Seyir defterine inin",
+    "soon": "Yolda",
+    "cards": {
+      "demo": { "title": "Demo Talebi", "desc": "Ürünü kendi işinize benzer bir örnekte canlı görün." },
+      "pricing": { "title": "Paketler", "desc": "Paket içerikleri açık; rakamı görüşmede veriyoruz." },
+      "services": { "title": "Özel Yazılım", "desc": "Entegrasyon, otomasyon ve işletmenize özel uygulama." },
+      "newSectors": { "title": "Haritanın Boş Köşesi", "desc": "Yeni sektörler için ürünler yolda. Sizinki burada olabilir." },
+      "faq": { "title": "Sık Sorulanlar", "desc": "Kurulum, veri güvenliği, deneme ve destek." },
+      "process": { "title": "Nasıl Başlıyoruz", "desc": "Demo talebinden canlı kullanıma dört adım." }
+    }
+  },
   "stats": {
     "title": "Rakamlarla",
     "items": [

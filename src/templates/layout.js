@@ -28,7 +28,7 @@ ${head(ctx)}
 <link rel="apple-touch-icon" href="${ctx.asset("apple-touch-icon.png")}">
 <meta name="theme-color" content="#FBFAF7">
 </head>
-<body>
+<body${raw(ctx.route.id === "home" ? ' class="theme-parchment"' : "")}>
 <a class="skip-link" href="#icerik">${ctx.t("a11y.skip")}</a>
 ${nav(ctx)}
 <main id="icerik">

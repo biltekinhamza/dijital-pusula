@@ -15,6 +15,28 @@ module.exports = {
     "secondary": "Request a Demo",
     "note": "No installation · Every company works on its own data · Browser access"
   },
+  "map": {
+    "kicker": "Dijital Pusula · Chart of Discovery",
+    "title": "You're in the right place. Ready to become the captain of your business?",
+    "lead": "Share your ideas with us, and we'll bring them together with technology for you.",
+    "routesTitle": "Routes",
+    "dirs": ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
+    "dial": ["N", "E", "S", "W"],
+    "compassLabel": "Spin the compass: pick a random route",
+    "soundOn": "Route tunes on",
+    "soundOff": "Route tunes off",
+    "soundHint": "Every route has its own tune. Turn the sound on and hover over the cards, or spin the compass.",
+    "scrollHint": "Down to the logbook",
+    "soon": "Underway",
+    "cards": {
+      "demo": { "title": "Request a Demo", "desc": "See the product live on an example close to your business." },
+      "pricing": { "title": "Packages", "desc": "Package contents are public; we quote the figure in a call." },
+      "services": { "title": "Custom Software", "desc": "Integration, automation and applications built for you." },
+      "newSectors": { "title": "The Blank Corner", "desc": "Products for new industries are underway. Yours could be here." },
+      "faq": { "title": "Common Questions", "desc": "Installation, data safety, trial and support." },
+      "process": { "title": "How We Start", "desc": "Four steps from demo request to live use." }
+    }
+  },
   "stats": {
     "title": "In numbers",
     "items": [

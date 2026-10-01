@@ -14,7 +14,7 @@ const path = require("node:path");
 const CSS_COMPONENT_ORDER = [
   "brand", "buttons", "badge", "note-box", "nav", "footer", "hero",
   "facts-strip", "showcase", "comparison-table", "spec-panel", "steps",
-  "faq", "plan-card", "cta-band", "form", "legal", "misc"
+  "faq", "plan-card", "cta-band", "form", "legal", "misc", "compass-map"
 ];
 
 function readFile(absPath) {

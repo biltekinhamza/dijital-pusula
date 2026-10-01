@@ -24,13 +24,13 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to install anything?","acceptedAnswer":{"@type":"Answer","text":"No. Both products run in the cloud; you open an address in your browser and use it. If you would rather run it on your own server, Docker images and setup documentation exist, and in that case we agree the installation and maintenance terms separately."}},{"@type":"Question","name":"Could my data get mixed up with another company's?","acceptedAnswer":{"@type":"Answer","text":"No. Every company's data is separated by its own identifier in the database, and queries enforce that separation. The isolation is verified by automated tests in every release, including an explicit test that one company's account cannot reach another company's records."}},{"@type":"Question","name":"Can I migrate my existing data?","acceptedAnswer":{"@type":"Answer","text":"Tabular data such as material lists, price lists, producer and product definitions can be migrated. Show us the file you have and we will scope the migration and its timing together."}},{"@type":"Question","name":"Is there a trial?","acceptedAnswer":{"@type":"Answer","text":"Yes. On the ventilation side a trial account runs for 7 days with up to 2 users; on the cold storage side the demo account works with 2 rooms per warehouse. You can work with your real data during the trial."}},{"@type":"Question","name":"Why are prices not listed on the site?","acceptedAnswer":{"@type":"Answer","text":"Plans vary with the size of the business, the number of users and whether data migration is needed. Plan contents are written out in full on the product pages; we give the figure in the call and follow up with a written quote."}},{"@type":"Question","name":"Can we run the software on our own server?","acceptedAnswer":{"@type":"Answer","text":"Yes, on the Enterprise plan. Both products are packaged with Docker and run on PostgreSQL. Who is responsible for the server, backups and updates is set out in the contract."}},{"@type":"Question","name":"How is support provided?","acceptedAnswer":{"@type":"Answer","text":"By email and phone. The person you reach is the person who writes the software; there is no layer in between. Bug reports are queued, and accepted feature requests go into the release plan."}},{"@type":"Question","name":"How does billing work?","acceptedAnswer":{"@type":"Answer","text":"Subscription renewal and invoicing are currently handled offline: written quote, contract and invoice. Online payment is not yet collected through this site."}}]}</script>
 <link rel="preload" href="/assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/ibm-plex-sans-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/site.css?v=11fde364">
+<link rel="stylesheet" href="/assets/site.css?v=2abf9252">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#FBFAF7">
 </head>
-<body>
+<body class="theme-parchment">
 <a class="skip-link" href="#icerik">Skip to content</a>
 <header class="site-header" id="site-header" data-scroll-surface>
   <div class="container nav-row">
@@ -93,124 +93,190 @@
 </header>
 <main id="icerik">
 <article data-route="home">
-    <section class="hero">
-    <div class="container hero-home-grid">
-      <div class="hero-copy">
-        <p class="eyebrow"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-compass-rose"></use></svg> You’re in the right place.</p>
-        <h1>Ready-made software for ventilation manufacturers and cold storage operators.</h1>
-        <p class="lead">Instead of bending a general-purpose ERP into the shape of your business, two products written for your business in the first place. Both run in the cloud, keep every company&#39;s data separate and need no installation. We&#39;re in two industries today, with more products built the same way already underway.</p>
-        <div class="btn-row" style="margin-top: var(--space-24)">
-          <a class="btn" href="#urunler">Explore the Products</a>
-          <a class="btn btn-secondary" href="/en/contact/">Request a Demo</a>
-        </div>
-        <ul class="risk-list">
-          <li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>No installation</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Every company works on its own data</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Browser access</li>
-        </ul>
-      </div>
-      <div class="doorway-pair">
-        <a class="doorway" href="/en/hvac-pro-suite/">
-    <span class="badge badge-live">In production</span>
-    <h3><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-compass-rose"></use></svg> HVAC Pro Suite</h3>
-    <p>From sheet-metal development to the quote, on one platform.</p>
-    <span class="link-directional">View the Product <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></span>
-  </a>
-        <div class="doorway-divider" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-compass-rose"></use></svg></div>
-        <a class="doorway" href="/en/cold-storage/">
-    <span class="badge badge-live">In production</span>
-    <h3><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-compass-rose"></use></svg> Cold Storage Management System</h3>
-    <p>A 3D digital twin of your cold store.</p>
-    <span class="link-directional">View the Product <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></span>
-  </a>
-      </div>
+    <section class="chart" id="urunler" aria-labelledby="chart-title">
+    <div class="chart-cartouche">
+      <p class="chart-kicker">Dijital Pusula · Chart of Discovery</p>
+      <h1 id="chart-title">You&#39;re in the right place. Ready to become the captain of your business?</h1>
+      <p class="chart-lead">Share your ideas with us, and we&#39;ll bring them together with technology for you.</p>
+    </div>
+    <div class="chart-map" data-chart>
+      <svg class="map-art" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false">
+    <g class="map-art-rhumbs"><line x1="500" y1="500" x2="500" y2="-200"/><line x1="500" y1="500" x2="637" y2="-187"/><line x1="500" y1="500" x2="768" y2="-147"/><line x1="500" y1="500" x2="889" y2="-82"/><line x1="500" y1="500" x2="995" y2="5"/><line x1="500" y1="500" x2="1082" y2="111"/><line x1="500" y1="500" x2="1147" y2="232"/><line x1="500" y1="500" x2="1187" y2="363"/><line x1="500" y1="500" x2="1200" y2="500"/><line x1="500" y1="500" x2="1187" y2="637"/><line x1="500" y1="500" x2="1147" y2="768"/><line x1="500" y1="500" x2="1082" y2="889"/><line x1="500" y1="500" x2="995" y2="995"/><line x1="500" y1="500" x2="889" y2="1082"/><line x1="500" y1="500" x2="768" y2="1147"/><line x1="500" y1="500" x2="637" y2="1187"/><line x1="500" y1="500" x2="500" y2="1200"/><line x1="500" y1="500" x2="363" y2="1187"/><line x1="500" y1="500" x2="232" y2="1147"/><line x1="500" y1="500" x2="111" y2="1082"/><line x1="500" y1="500" x2="5" y2="995"/><line x1="500" y1="500" x2="-82" y2="889"/><line x1="500" y1="500" x2="-147" y2="768"/><line x1="500" y1="500" x2="-187" y2="637"/><line x1="500" y1="500" x2="-200" y2="500"/><line x1="500" y1="500" x2="-187" y2="363"/><line x1="500" y1="500" x2="-147" y2="232"/><line x1="500" y1="500" x2="-82" y2="111"/><line x1="500" y1="500" x2="5" y2="5"/><line x1="500" y1="500" x2="111" y2="-82"/><line x1="500" y1="500" x2="232" y2="-147"/><line x1="500" y1="500" x2="363" y2="-187"/></g>
+    <g class="map-art-grid">
+      <circle cx="500" cy="500" r="390"/><circle cx="500" cy="500" r="430"/><circle cx="500" cy="500" r="200"/>
+    </g>
+    <g class="map-art-land">
+      <path d="M0 0 H210 Q190 60 140 70 T60 150 Q30 200 0 190 Z"/>
+      <path d="M1000 0 V230 Q950 200 920 150 T830 90 Q800 40 820 0 Z"/>
+      <path d="M0 1000 V820 Q60 800 90 850 T170 920 Q200 960 190 1000 Z"/>
+      <path d="M1000 1000 H780 Q800 940 860 930 T940 850 Q970 800 1000 790 Z"/>
+    </g>
+    <g class="map-art-coast">
+      <path d="M210 0 Q190 60 140 70 T60 150 Q30 200 0 190"/>
+      <path d="M230 0 Q206 74 150 86 T74 162 Q40 214 0 210"/>
+      <path d="M1000 230 Q950 200 920 150 T830 90 Q800 40 820 0"/>
+      <path d="M0 820 Q60 800 90 850 T170 920 Q200 960 190 1000"/>
+      <path d="M780 1000 Q800 940 860 930 T940 850 Q970 800 1000 790"/>
+    </g>
+    <path class="map-art-route" d="M500 110 L776 224 L890 500 L776 776 L500 890 L224 776 L110 500 L224 224 Z"/>
+    <g class="map-art-rays"><line class="map-ray" data-ray="0" x1="500" y1="500" x2="500" y2="110"/><line class="map-ray" data-ray="1" x1="500" y1="500" x2="776" y2="224"/><line class="map-ray" data-ray="2" x1="500" y1="500" x2="890" y2="500"/><line class="map-ray" data-ray="3" x1="500" y1="500" x2="776" y2="776"/><line class="map-ray" data-ray="4" x1="500" y1="500" x2="500" y2="890"/><line class="map-ray" data-ray="5" x1="500" y1="500" x2="224" y2="776"/><line class="map-ray" data-ray="6" x1="500" y1="500" x2="110" y2="500"/><line class="map-ray" data-ray="7" x1="500" y1="500" x2="224" y2="224"/></g>
+    <g class="map-art-pins"><circle cx="500" cy="110" r="6"/><circle cx="776" cy="224" r="6"/><circle cx="890" cy="500" r="6"/><circle cx="776" cy="776" r="6"/><circle cx="500" cy="890" r="6"/><circle cx="224" cy="776" r="6"/><circle cx="110" cy="500" r="6"/><circle cx="224" cy="224" r="6"/></g>
+    <g class="map-art-ship" transform="translate(800 560) scale(.55)">
+      <path d="M20 60 Q50 90 100 80 Q120 50 110 30 L10 30 Z"/>
+      <path d="M40 30 V0 M80 30 V-10" fill="none"/>
+      <path d="M40 5 Q60 0 40 -15 Q25 0 40 5 M80 -5 Q100 -10 80 -25 Q65 -10 80 -5"/>
+    </g>
+    <g class="map-art-serpent" transform="translate(120 600)">
+      <path d="M0 30 q14 -30 28 0 q14 -30 28 0 q12 -24 24 0 M80 30 q8 -14 16 -6" fill="none"/>
+      <circle cx="94" cy="22" r="1.8"/>
+    </g>
+    <g class="map-art-rose" transform="translate(880 900)">
+      <circle r="34" fill="none"/><path d="M0 -46 L6 0 L0 46 L-6 0 Z M-46 0 L0 -6 L46 0 L0 6 Z"/>
+    </g>
+  </svg>
+      <h2 class="visually-hidden">Routes</h2>
+      <ol class="map-slots">
+        <li class="map-slot" style="--slot:0">
+    <a class="map-card map-card--hvac map-card--product" href="/en/hvac-pro-suite/" data-angle="0" data-tune="hvac">
+      <span class="map-card-figure"><img src="/assets/screens/hvac/temsili.svg" alt="" width="1200" height="780" loading="lazy" decoding="async"><span class="map-card-badge">0° N</span></span>
+      <span class="map-card-title">HVAC Pro Suite</span>
+      <span class="map-card-desc">From sheet-metal development to the quote, on one platform.</span>
+      <span class="map-card-status is-live">In production</span>
+    </a>
+  </li><li class="map-slot" style="--slot:1">
+    <a class="map-card map-card--demo" href="/en/contact/" data-angle="45" data-tune="demo">
+      <span class="map-card-figure"><svg class="map-card-art" viewBox="0 0 200 105" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 70 Q60 92 120 86 Q150 80 160 64 L28 64 Z" fill="currentColor" fill-opacity=".18"/>
+    <path d="M30 70 Q60 92 120 86 Q150 80 160 64 L28 64 Z"/>
+    <path d="M70 64 V14 M118 64 V22"/>
+    <path d="M70 18 Q96 30 70 58 Z M118 26 Q140 38 118 58 Z" fill="currentColor" fill-opacity=".12"/>
+    <path d="M70 14 l14 4 -14 4" fill="currentColor"/>
+    <path d="M10 92 q10 -6 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" stroke-width="1"/></svg><span class="map-card-badge">45° NE</span></span>
+      <span class="map-card-title">Request a Demo</span>
+      <span class="map-card-desc">See the product live on an example close to your business.</span>
+      
+    </a>
+  </li><li class="map-slot" style="--slot:2">
+    <a class="map-card map-card--cold map-card--product" href="/en/cold-storage/" data-angle="90" data-tune="cold">
+      <span class="map-card-figure"><img src="/assets/screens/cold/temsili.svg" alt="" width="1200" height="780" loading="lazy" decoding="async"><span class="map-card-badge">90° E</span></span>
+      <span class="map-card-title">Cold Storage Management System</span>
+      <span class="map-card-desc">A 3D digital twin of your cold store.</span>
+      <span class="map-card-status is-live">In production</span>
+    </a>
+  </li><li class="map-slot" style="--slot:3">
+    <a class="map-card map-card--pricing" href="/en/pricing/" data-angle="135" data-tune="pricing">
+      <span class="map-card-figure"><svg class="map-card-art" viewBox="0 0 200 105" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M100 18 V86 M70 92 H130 M44 34 H156"/>
+    <circle cx="100" cy="16" r="4" fill="currentColor"/>
+    <path d="M44 34 L28 64 H60 Z M156 34 L140 64 H172 Z" stroke-width="1"/>
+    <path d="M26 64 Q44 76 62 64 M138 64 Q156 76 174 64"/>
+    <ellipse cx="44" cy="60" rx="9" ry="3" fill="currentColor" fill-opacity=".3"/>
+    <ellipse cx="44" cy="56" rx="9" ry="3" fill="currentColor" fill-opacity=".3"/>
+    <ellipse cx="44" cy="52" rx="9" ry="3" fill="currentColor" fill-opacity=".3"/>
+    <path d="M150 60 l6 -12 l6 12 z" fill="currentColor" fill-opacity=".25"/></svg><span class="map-card-badge">135° SE</span></span>
+      <span class="map-card-title">Packages</span>
+      <span class="map-card-desc">Package contents are public; we quote the figure in a call.</span>
+      
+    </a>
+  </li><li class="map-slot" style="--slot:4">
+    <a class="map-card map-card--services" href="/en/custom-software/" data-angle="180" data-tune="services">
+      <span class="map-card-figure"><svg class="map-card-art" viewBox="0 0 200 105" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="78" cy="54" r="24" stroke-width="9" stroke-dasharray="5.2 4.2"/>
+    <circle cx="78" cy="54" r="15"/><circle cx="78" cy="54" r="4" fill="currentColor"/>
+    <circle cx="124" cy="40" r="15" stroke-width="7" stroke-dasharray="4 3.4"/>
+    <circle cx="124" cy="40" r="8"/>
+    <path d="M150 90 Q164 60 186 22 Q176 58 156 88 Z" fill="currentColor" fill-opacity=".15"/>
+    <path d="M150 90 L186 22"/></svg><span class="map-card-badge">180° S</span></span>
+      <span class="map-card-title">Custom Software</span>
+      <span class="map-card-desc">Integration, automation and applications built for you.</span>
+      
+    </a>
+  </li><li class="map-slot" style="--slot:5">
+    <a class="map-card map-card--newSectors" href="/en/contact/" data-angle="225" data-tune="newSectors">
+      <span class="map-card-figure"><svg class="map-card-art" viewBox="0 0 200 105" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M60 30 Q90 14 120 28 T170 40 Q178 62 150 72 T96 80 Q62 78 56 56 Z" stroke-dasharray="4 4"/>
+    <text x="113" y="60" text-anchor="middle" font-size="26" font-family="serif" fill="currentColor" stroke="none">?</text>
+    <path d="M14 90 q8 -14 16 0 q8 -14 16 0 M38 90 q6 -10 12 0" stroke-width="1.6"/>
+    <circle cx="18" cy="84" r="1.4" fill="currentColor"/>
+    <path d="M150 94 q10 -6 20 0 t20 0" stroke-width="1"/></svg><span class="map-card-badge">225° SW</span></span>
+      <span class="map-card-title">The Blank Corner</span>
+      <span class="map-card-desc">Products for new industries are underway. Yours could be here.</span>
+      <span class="map-card-status is-soon">Underway</span>
+    </a>
+  </li><li class="map-slot" style="--slot:6">
+    <a class="map-card map-card--faq" href="#sss" data-angle="270" data-tune="faq">
+      <span class="map-card-figure"><svg class="map-card-art" viewBox="0 0 200 105" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M44 22 H150 Q160 22 160 32 V82 Q160 92 150 92 H52"/>
+    <path d="M44 22 Q34 22 34 32 Q34 42 44 42 H54 V22" fill="currentColor" fill-opacity=".12"/>
+    <path d="M52 92 Q42 92 42 82 Q42 72 52 72 H62 V92"/>
+    <path d="M74 36 H146 M74 48 H140 M74 60 H130 M74 72 H120" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="146" y="80" text-anchor="middle" font-size="22" font-family="serif" fill="currentColor" stroke="none">?</text></svg><span class="map-card-badge">270° W</span></span>
+      <span class="map-card-title">Common Questions</span>
+      <span class="map-card-desc">Installation, data safety, trial and support.</span>
+      
+    </a>
+  </li><li class="map-slot" style="--slot:7">
+    <a class="map-card map-card--process" href="#nasil-basliyoruz" data-angle="315" data-tune="process">
+      <span class="map-card-figure"><svg class="map-card-art" viewBox="0 0 200 105" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 80 Q50 30 82 62 T140 40 T178 28" stroke-dasharray="3 5"/>
+    <circle cx="22" cy="80" r="7" fill="currentColor" fill-opacity=".2"/>
+    <circle cx="82" cy="62" r="7" fill="currentColor" fill-opacity=".2"/>
+    <circle cx="140" cy="40" r="7" fill="currentColor" fill-opacity=".2"/>
+    <path d="M172 22 l12 12 M184 22 l-12 12" stroke-width="2.4"/>
+    <text font-size="9" font-family="serif" fill="currentColor" stroke="none" text-anchor="middle"><tspan x="22" y="83">1</tspan><tspan x="82" y="65">2</tspan><tspan x="140" y="43">3</tspan></text></svg><span class="map-card-badge">315° NW</span></span>
+      <span class="map-card-title">How We Start</span>
+      <span class="map-card-desc">Four steps from demo request to live use.</span>
+      
+    </a>
+  </li>
+      </ol>
+      <button type="button" class="compass" id="compass" aria-label="Spin the compass: pick a random route">
+    <span class="compass-dial" aria-hidden="true">
+      <span class="compass-ticks"></span>
+      <span class="compass-dir compass-dir-n">N</span>
+      <span class="compass-dir compass-dir-e">E</span>
+      <span class="compass-dir compass-dir-s">S</span>
+      <span class="compass-dir compass-dir-w">W</span>
+    </span>
+    <span class="compass-needle-turn" id="compass-needle" aria-hidden="true">
+      <span class="compass-needle"><span class="needle-north"></span><span class="needle-south"></span></span>
+    </span>
+    <span class="compass-pivot" aria-hidden="true"></span>
+  </button>
+    </div>
+    <div class="chart-plate">
+      <button type="button" class="sound-toggle" id="sound-toggle" aria-pressed="false" hidden
+        data-label-on="Route tunes on" data-label-off="Route tunes off">
+        <span class="sound-toggle-icon" aria-hidden="true">♪</span>
+        <span class="sound-toggle-label">Route tunes off</span>
+      </button>
+      <p class="chart-hint">Every route has its own tune. Turn the sound on and hover over the cards, or spin the compass.</p>
+      <a class="chart-scroll" href="#seyir">Down to the logbook <span aria-hidden="true">↓</span></a>
     </div>
   </section>
-    <section class="facts-strip">
-    <div class="container chip-row">
-      <span class="chip"><strong>2</strong><span>Products in production</span></span><span class="chip"><strong>25</strong><span>Ventilation part types</span></span><span class="chip"><strong>3D</strong><span>Warehouse digital twin</span></span><span class="chip"><strong>775+</strong><span>Automated tests</span></span>
-    </div>
-  </section>
-    <section id="urunler">
+    <div id="seyir" class="logbook">
+      <section id="nasil-basliyoruz">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">OUR PRODUCTS</p>
-        <h2>Two industries, two products. Both born on a real shop floor.</h2>
-        <p class="lead">Each product grew out of one business&#39;s concrete problem — not from a generic template with an industry label stuck on it.</p>
+        <p class="eyebrow">HOW WE START</p>
+        <h2>Four steps from a demo request to production use.</h2>
       </div>
-      <div class="zigzag-row">
-    <div class="zigzag-media">
-      <div class="screen-frame">
-    <div class="screen-frame-bar" aria-hidden="true"></div>
-    <span class="badge badge-representative">Representative image</span>
-    <img src="/assets/screens/hvac/temsili.svg" width="1200" height="780" alt="HVAC Pro Suite. Screens." loading="lazy">
-  </div>
-    </div>
-    <div class="zigzag-text">
-      <span class="badge badge-live" style="margin-bottom: var(--space-8)">In production</span>
-      <h3>HVAC Pro Suite</h3>
-      <p class="lead">Quotes are rebuilt in Excel every time.</p>
-      <ul class="capability-list"><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>25 part types</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Login-free customer order page</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Branded PDF quotes</li></ul>
-      <div class="showcase-links">
-        <a class="link-directional" href="/en/hvac-pro-suite/">View the Product <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
-        <a href="/en/pricing/#hvac">Plans</a>
-      </div>
-    </div>
-  </div>
-      <div class="zigzag-row zigzag-reverse">
-    <div class="zigzag-media">
-      <div class="screen-frame">
-    <div class="screen-frame-bar" aria-hidden="true"></div>
-    <span class="badge badge-representative">Representative image</span>
-    <img src="/assets/screens/cold/temsili.svg" width="1200" height="780" alt="Cold Storage Management System. Screens." loading="lazy">
-  </div>
-    </div>
-    <div class="zigzag-text">
-      <span class="badge badge-live" style="margin-bottom: var(--space-8)">In production</span>
-      <h3>Cold Storage Management System</h3>
-      <p class="lead">What is in which room, whose pallet is whose, and how full a room is.</p>
-      <ul class="capability-list"><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>3D room model</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Drag-and-drop layout</li><li><svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-check"></use></svg>Billing on remaining kg</li></ul>
-      <div class="showcase-links">
-        <a class="link-directional" href="/en/cold-storage/">View the Product <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
-        <a href="/en/pricing/#soguk-hava">Plans</a>
-      </div>
-    </div>
-  </div>
+      <ol class="steps" style="--step-count:4">
+    <li class="step">
+      <span class="step-marker" aria-hidden="true">1</span>
+      <h3>Demo request</h3>
+      <p>Fill in the form or write to us directly. Tell us the size of your business and how you work today.</p>
+    </li><li class="step">
+      <span class="step-marker" aria-hidden="true">2</span>
+      <h3>Live walkthrough</h3>
+      <p>We show the product over a screen share, on data resembling yours. This is where the questions get asked.</p>
+    </li><li class="step">
+      <span class="step-marker" aria-hidden="true">3</span>
+      <h3>Trial account</h3>
+      <p>An account is opened for your business. You enter your own materials, prices and rooms and run one real job end to end.</p>
+    </li><li class="step">
+      <span class="step-marker" aria-hidden="true">4</span>
+      <h3>Go live</h3>
+      <p>If you decide to proceed, the account moves to the full version, your existing data is migrated and your users are set up.</p>
+    </li>
+  </ol>
     </div>
   </section>
-    <section class="bleed-soft">
-    <div class="container">
-      <div class="section-head">
-        <h2>Contact</h2>
-        <p class="lead">Requests are usually answered the same working day.</p>
-      </div>
-      <div class="contact-channels" style="max-width:520px">
-        <div class="contact-channel">
-          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-message-circle"></use></svg>
-          <div><a href="https://wa.me/905392191982" target="_blank" rel="noopener">Message on WhatsApp</a></div>
-        </div>
-        <div class="contact-channel">
-          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-mail"></use></svg>
-          <div><span>Email</span><a href="mailto:biltekinhamza@gmail.com">biltekinhamza@gmail.com</a></div>
-        </div>
-        <div class="contact-channel">
-          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-phone"></use></svg>
-          <div><span>Phone</span><a href="tel:+905392191982">+90 539 219 19 82</a></div>
-        </div>
-        <div class="contact-channel">
-          <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-clock"></use></svg>
-          <div><span>Working hours</span><strong>Weekdays 09:00 - 18:00</strong></div>
-        </div>
-      </div>
-    </div>
-  </section>
-    
-    <section class="bleed-soft">
-    <div class="container pricing-summary">
-      <h2>Pricing</h2>
-      <p class="lead">Plan contents are below; we confirm the figure in the call and send a written quote.</p>
-      <a class="btn" href="/en/pricing/">Plans <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
-    </div>
-  </section>
-    <section>
+      <section id="sss" class="bleed-soft">
     <div class="container faq-layout">
       <div class="faq-heading">
         <p class="eyebrow">FREQUENTLY ASKED QUESTIONS</p>
@@ -247,13 +313,7 @@
   </div>
     </div>
   </section>
-    <section class="section-tight">
-    <div class="container services-teaser-band">
-      <p><strong>If neither product is what you need.</strong> We also build custom software, system integrations and process automation for businesses. That is exactly how these products came about.</p>
-      <a class="link-directional" href="/en/custom-software/">See Custom Software <svg class="icon" aria-hidden="true"><use href="/assets/icons.svg#icon-arrow-right"></use></svg></a>
-    </div>
-  </section>
-    <section class="cta-band">
+      <section class="cta-band">
     <div class="container cta-band-inner">
       <div>
         <h2>You’re in the right place.</h2>
@@ -266,6 +326,7 @@
       </div>
     </div>
   </section>
+    </div>
   </article>
 </main>
 <footer id="site-footer" class="site-footer on-dark">
@@ -308,6 +369,6 @@
     </div>
   </div>
 </footer>
-<script src="/assets/site.js?v=0e62f708" defer></script>
+<script src="/assets/site.js?v=4cb0d692" defer></script>
 </body>
 </html>
