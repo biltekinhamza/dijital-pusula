@@ -10,21 +10,22 @@
    statik varlık gibi ctx.asset() ile bağlanır. Metin yalnız ctx.t()'den
    gelir. */
 
-const { html, raw } = require("../lib/html.js");
+const { html } = require("../lib/html.js");
 const { head } = require("./partials/head.js");
 const { nav } = require("./partials/nav.js");
 const { footer } = require("./partials/footer.js");
 
-/* Tema sınıfı: ana sayfa + ürün sayfaları aynı "parşömen" aile jetonlarını
-   (compass-map.css .theme-parchment) paylaşır — nav/footer/buton/başlık
-   tipografisi otomatik uyumlu olur. Ürün sayfaları ayrıca kendi
-   `theme-product-<id>` değiştiricisini taşır (yalnız hero zemini/motifi
-   bundan farklılaşır, bkz. compass-map.css "Ürün sayfası" bölümü) — her
-   ürünün kendi arka planı olsun, hepsi aynı görünmesin isteğiyle. */
+/* Tema sınıfı: SİTE GENELİ — her sayfa aynı "parşömen" aile jetonlarını
+   (compass-map.css .theme-parchment) paylaşır, böylece fiyatlandırma/
+   özel-yazılım/iletişim/yasal/404 da ana sayfayla aynı dünyada görünür
+   (nav/footer/buton/kart/tipografi otomatik uyumlu olur). Yalnız ürün
+   sayfaları (hvac/cold/puantaj) ayrıca kendi `theme-product-<id>`
+   değiştiricisini taşır — yalnız onların hero zemini/motifi farklılaşır
+   (bkz. compass-map.css "Ürün sayfası" bölümü), her ürünün kendi arka
+   planı olsun, hepsi aynı görünmesin isteğiyle. */
 function bodyThemeClass(route) {
-  if (route.id === "home") return "theme-parchment";
   if (route.template === "product") return `theme-parchment theme-product-${route.productId}`;
-  return "";
+  return "theme-parchment";
 }
 
 function layout(ctx, bodyHtml) {
@@ -40,7 +41,7 @@ ${head(ctx)}
 <link rel="apple-touch-icon" href="${ctx.asset("apple-touch-icon.png")}">
 <meta name="theme-color" content="#FBFAF7">
 </head>
-<body${raw(bodyThemeClass(ctx.route) ? ` class="${bodyThemeClass(ctx.route)}"` : "")}>
+<body class="${bodyThemeClass(ctx.route)}">
 <a class="skip-link" href="#icerik">${ctx.t("a11y.skip")}</a>
 ${nav(ctx)}
 <main id="icerik">
