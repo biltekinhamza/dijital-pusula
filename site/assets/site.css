@@ -1831,3 +1831,78 @@ section { padding: var(--space-48) 0; }
 @media (max-width: 359.98px) {
   .map-slots { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   Ürün sayfası (hvac/cold/puantaj) — aynı .theme-parchment jeton
+   ailesini paylaşır (nav/footer/buton/tipografi yukarıdaki kurallardan
+   otomatik gelir, bkz. layout.js bodyThemeClass()), ama her ürün
+   kendi `theme-product-<id>` değiştiricisiyle farklı bir hero zemini +
+   dekoratif motif (product.js productMotif()) taşır. Amaç: ürün
+   sayfaları ana sayfayla aynı dünyada hissettirsin, ama üçü birbirinin
+   kopyası olmasın.
+   ============================================================ */
+
+/* --- Ortak: hero legend-plate'i (kartuş) + motif katmanı --- */
+.theme-parchment .hero { position: relative; overflow: hidden; }
+.hero-motif-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-motif {
+  position: absolute;
+  top: 50%;
+  right: -8%;
+  width: 62%;
+  max-width: 560px;
+  transform: translateY(-50%);
+  opacity: .5;
+}
+@media (max-width: 1023.98px) {
+  .hero-motif { top: auto; bottom: -6%; right: -14%; width: 85%; opacity: .28; transform: none; }
+}
+.hero-product-grid { position: relative; z-index: 1; }
+.theme-parchment .hero-product-copy {
+  position: relative;
+  padding: var(--space-24) var(--space-32);
+  background: rgba(246, 239, 223, .72);
+  border: var(--border-width) solid var(--color-line);
+  outline: 1px solid var(--color-line);
+  outline-offset: 6px;
+}
+@media (max-width: 767.98px) {
+  .theme-parchment .hero-product-copy { padding: var(--space-20); outline-offset: 4px; }
+}
+.theme-parchment .screen-frame { border-color: var(--color-line); background: var(--color-surface); }
+.theme-parchment .screen-frame img { filter: sepia(.35) contrast(1.05) brightness(.97); }
+
+/* --- HVAC: çelik/kanal izi — soğuk gri kareli fon, çelik lacivert motif --- */
+.theme-product-hvac .hero {
+  background:
+    repeating-linear-gradient(0deg, rgba(58, 66, 78, .05) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(90deg, rgba(58, 66, 78, .05) 0 1px, transparent 1px 26px),
+    radial-gradient(ellipse at 85% 20%, rgba(58, 66, 78, .08) 0%, transparent 55%),
+    var(--color-bg);
+}
+.theme-product-hvac .hero-motif { color: var(--color-accent-secondary); }
+
+/* --- Soğuk hava deposu: kırağı/buz çapraz tarama, soğuk mavi motif --- */
+.theme-product-cold .hero {
+  background:
+    repeating-linear-gradient(135deg, rgba(44, 110, 140, .06) 0 2px, transparent 2px 10px),
+    radial-gradient(ellipse at 85% 15%, rgba(44, 110, 140, .12) 0%, transparent 55%),
+    var(--color-bg);
+}
+.theme-product-cold .hero-motif { color: #2C6E8C; }
+
+/* --- Puantaj: cetvelli defter sayfası (ana sayfanın kendi doku
+   formülünden, yalnız 45°→yatay çizgiyle), sıcak pirinç motif --- */
+.theme-product-puantaj .hero {
+  background:
+    repeating-linear-gradient(0deg, rgba(139, 90, 43, .055) 0 1px, transparent 1px 24px),
+    radial-gradient(ellipse at 50% 0%, rgba(250, 243, 226, .7) 0%, rgba(227, 210, 183, 0) 60%),
+    var(--color-bg);
+}
+.theme-product-puantaj .hero-motif { color: var(--color-accent-primary-ink); }

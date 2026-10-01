@@ -18,10 +18,61 @@ function pricingHashFor(productId) {
   return productId === "cold" ? "soguk-hava" : productId;
 }
 
+/* Ürün hero'su arkasındaki bakır-gravür üslubunda, ürüne özgü dekoratif
+   motif (home.js'teki VIGNETTES ile aynı aile, aynı çizgi kalınlığı/üslubu
+   — ana sayfayla "uyumlu" olmanın bir parçası). Yalnız dekoratif: aria-hidden,
+   anlam taşımaz. Zemin/renk farkı compass-map.css'teki .theme-product-*
+   değiştiricilerinden gelir, bu yalnız motifin kendi çizgi sanatı. */
+const PRODUCT_MOTIFS = {
+  hvac: `<g><circle cx="260" cy="130" r="54" stroke-opacity=".6"/>
+    <circle cx="260" cy="130" r="9" fill="currentColor" stroke="none"/>
+    <path d="M260 130 Q272 104 260 76 Q248 104 260 130 Z" fill="currentColor" fill-opacity=".16" transform="rotate(0 260 130)"/>
+    <path d="M260 130 Q272 104 260 76 Q248 104 260 130 Z" fill="currentColor" fill-opacity=".16" transform="rotate(60 260 130)"/>
+    <path d="M260 130 Q272 104 260 76 Q248 104 260 130 Z" fill="currentColor" fill-opacity=".16" transform="rotate(120 260 130)"/>
+    <path d="M260 130 Q272 104 260 76 Q248 104 260 130 Z" fill="currentColor" fill-opacity=".16" transform="rotate(180 260 130)"/>
+    <path d="M260 130 Q272 104 260 76 Q248 104 260 130 Z" fill="currentColor" fill-opacity=".16" transform="rotate(240 260 130)"/>
+    <path d="M260 130 Q272 104 260 76 Q248 104 260 130 Z" fill="currentColor" fill-opacity=".16" transform="rotate(300 260 130)"/></g>
+    <path d="M40 280 H190 V248 H230 V280 H360"/>
+    <path d="M40 310 H190 V278 H230 V310 H360" stroke-opacity=".5"/>
+    <path d="M70 280 V310 M100 280 V310 M130 280 V310 M160 280 V310" stroke-width="1.2" stroke-opacity=".5"/>
+    <path d="M260 310 V340 M290 310 V340 M320 310 V340 M350 310 V340" stroke-width="1.2" stroke-opacity=".5"/>
+    <path d="M20 180 H80 M68 172 L80 180 L68 188" stroke-dasharray="4 5" stroke-opacity=".55"/>
+    <path d="M20 212 H60 M48 204 L60 212 L48 220" stroke-dasharray="4 5" stroke-opacity=".4"/>`,
+  cold: `<g transform="translate(290 100)">
+    <path d="M0 -60 V60 M-52 -30 L52 30 M52 -30 L-52 30" stroke-opacity=".6"/>
+    <path d="M0 -60 L-12 -42 M0 -60 L12 -42 M0 60 L-12 42 M0 60 L12 42" stroke-width="1.3"/>
+    <path d="M-52 -30 L-30 -38 M-52 -30 L-40 -10 M52 30 L30 38 M52 30 L40 10" stroke-width="1.3"/>
+    <path d="M52 -30 L30 -22 M52 -30 L44 -4 M-52 30 L-30 22 M-52 30 L-44 4" stroke-width="1.3"/></g>
+    <rect x="40" y="240" width="90" height="60" rx="2"/>
+    <rect x="130" y="260" width="90" height="40" rx="2" stroke-opacity=".6"/>
+    <path d="M40 270 H130 M85 240 V300" stroke-width="1.2" stroke-opacity=".5"/>
+    <path d="M130 280 H220" stroke-width="1.2" stroke-opacity=".5"/>
+    <path d="M20 330 Q70 310 110 330 T200 330 T290 330 T370 330" stroke-opacity=".4"/>`,
+  puantaj: `<rect x="60" y="60" width="220" height="180" rx="4"/>
+    <path d="M60 100 H280"/>
+    <path d="M104 60 V240 M148 60 V240 M192 60 V240 M236 60 V240" stroke-width="1.2" stroke-opacity=".5"/>
+    <path d="M60 140 H280 M60 180 H280" stroke-width="1.2" stroke-opacity=".5"/>
+    <path d="M114 118 L122 126 L136 108" stroke-width="2"/>
+    <circle cx="170" cy="120" r="5" fill="currentColor" stroke="none"/>
+    <path d="M114 158 L122 166 L136 148" stroke-width="2"/>
+    <circle cx="214" cy="160" r="5" fill="currentColor" stroke="none"/>
+    <path d="M300 260 Q330 230 340 270 T380 260" stroke-dasharray="3 6" stroke-opacity=".6"/>
+    <circle cx="380" cy="260" r="6" fill="currentColor" stroke="none"/>`
+};
+
+function productMotif(productId) {
+  const inner = PRODUCT_MOTIFS[productId];
+  if (!inner) return raw("");
+  return html`<div class="hero-motif-layer" aria-hidden="true">
+    <svg class="hero-motif" viewBox="0 0 400 400" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${raw(inner)}</svg>
+  </div>`;
+}
+
 function heroSection(ctx, product, productId) {
   const screen = ctx.asset(`assets/screens/${productId}/temsili.svg`);
   const badge = statusBadge(ctx, product);
   return html`<section class="hero">
+    ${productMotif(productId)}
     <div class="container hero-product-grid">
       <div class="hero-product-copy">
         <p class="eyebrow">${icon(ctx, "compass-rose")} ${product.subtitle}</p>

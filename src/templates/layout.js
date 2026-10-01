@@ -15,6 +15,18 @@ const { head } = require("./partials/head.js");
 const { nav } = require("./partials/nav.js");
 const { footer } = require("./partials/footer.js");
 
+/* Tema sınıfı: ana sayfa + ürün sayfaları aynı "parşömen" aile jetonlarını
+   (compass-map.css .theme-parchment) paylaşır — nav/footer/buton/başlık
+   tipografisi otomatik uyumlu olur. Ürün sayfaları ayrıca kendi
+   `theme-product-<id>` değiştiricisini taşır (yalnız hero zemini/motifi
+   bundan farklılaşır, bkz. compass-map.css "Ürün sayfası" bölümü) — her
+   ürünün kendi arka planı olsun, hepsi aynı görünmesin isteğiyle. */
+function bodyThemeClass(route) {
+  if (route.id === "home") return "theme-parchment";
+  if (route.template === "product") return `theme-parchment theme-product-${route.productId}`;
+  return "";
+}
+
 function layout(ctx, bodyHtml) {
   return html`<!doctype html>
 <html lang="${ctx.lang}">
@@ -28,7 +40,7 @@ ${head(ctx)}
 <link rel="apple-touch-icon" href="${ctx.asset("apple-touch-icon.png")}">
 <meta name="theme-color" content="#FBFAF7">
 </head>
-<body${raw(ctx.route.id === "home" ? ' class="theme-parchment"' : "")}>
+<body${raw(bodyThemeClass(ctx.route) ? ` class="${bodyThemeClass(ctx.route)}"` : "")}>
 <a class="skip-link" href="#icerik">${ctx.t("a11y.skip")}</a>
 ${nav(ctx)}
 <main id="icerik">
