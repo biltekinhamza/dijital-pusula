@@ -1,0 +1,23 @@
+# Satır sonu: metin her yerde LF. Depo bayt-tekrar-üretilebilir olmalı —
+# tools/build.js ?v= için varlığın HAM baytından sha1 üretiyor; aynı
+# dosyanın CRLF checkout / CRLF editör kaydı farklı bir hash veriyor ve
+# gömülü ?v= ile commit'lenen asset birbirini tutmuyor (check-site kural 1
+# taze klonlarda bu yüzden düşüyordu). eol=lf, core.autocrlf değeri ne
+# olursa olsun checkout'ı da LF'a zorlar; eol yalnızca text=auto'nun
+# metin dediği dosyalara uygulanır, binary dosyalar etkilenmez.
+* text=auto
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.xml text eol=lf
+*.svg text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.py text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+tools/githooks/* text eol=lf
+_redirects text eol=lf
+_headers text eol=lf
+*.png binary
+*.woff2 binary

@@ -74,12 +74,25 @@ function buildAssetSources(staticFiles, generatedAssets) {
   return sources;
 }
 
+/* Metin varlıklarının satır sonu LF'a sabitlenmesi (?v= hash'i ve site/
+   çıktısı için tek kural): git depoyu LF tutuyor (.gitattributes), hash ise
+   ham bayttan üretiliyor. CRLF checkout / CRLF editör kaydı, hash'i
+   commit'lenen LF varlıktan koparıyor. Binary (png, woff2, …) uzantılar
+   listeye girmez, olduğu gibi geçer. */
+const TEXT_EXT = new Set([".css", ".js", ".svg", ".txt", ".xml", ".html", ".json"]);
+function normalizeTextEol(relPath, data) {
+  if (!TEXT_EXT.has(path.extname(relPath).toLowerCase())) return data;
+  const buf = Buffer.isBuffer(data) ? data : Buffer.from(data, "utf8");
+  if (!buf.includes(0x0d)) return buf;
+  return Buffer.from(buf.toString("utf8").replace(/\r\n/g, "\n"), "utf8");
+}
+
 function makeAssetCtx(assetSources) {
   return makeAssetHelper({
     exists: (relPath) => assetSources.has(relPath),
     hash: (relPath) => {
       const src = assetSources.get(relPath);
-      const data = src.kind === "file" ? fs.readFileSync(src.abs) : src.data;
+      const data = normalizeTextEol(relPath, src.kind === "file" ? fs.readFileSync(src.abs) : src.data);
       return crypto.createHash("sha1").update(data).digest("hex").slice(0, 8);
     }
   });
@@ -207,10 +220,19 @@ function collectOutputFiles(overrides = {}) {
   files.set("_headers", buildHeaders());
 
   for (const [relPath, absPath] of staticFiles) {
-    files.set(relPath, fs.readFileSync(absPath));
+    files.set(relPath, normalizeTextEol(relPath, fs.readFileSync(absPath)));
   }
   for (const [relPath, buf] of generatedAssets) {
-    files.set(relPath, buf);
+    files.set(relPath, normalizeTextEol(relPath, buf));
+  }
+
+  /* Metin çıktılar LF'a sabitlenir: git depoyu LF olarak tutar
+     (bkz. .gitattributes), CRLF girdiyle (ör. CRLF kaydedilmiş bir şablon)
+     üretilen HTML diske CRLF ile yazılırsa taze klonla bayt bayt tutmaz
+     ve check-site kural 1 orada düşer. Buffer'lar (png, woff2, …)
+     olduğu gibi kalır. */
+  for (const [relPath, content] of files) {
+    if (typeof content === "string") files.set(relPath, content.replace(/\r\n/g, "\n"));
   }
 
   return files;

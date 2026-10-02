@@ -64,6 +64,31 @@ test("belirlenimci: iki art arda çalıştırma bayt bayt aynı çıktıyı üre
   assert.equal(hashOf(first), hashOf(second));
 });
 
+test("metin çıktılar LF sabit — CRLF girdi taze klonla bayt bayt tutmaz (check-site kural 1 regresyonu)", () => {
+  const files = build.collectOutputFiles();
+  const textExt = new Set([".css", ".js", ".svg", ".txt", ".xml", ".html", ".json"]);
+  const offenders = [];
+  for (const [relPath, content] of files) {
+    const isText = typeof content === "string" || textExt.has(path.extname(relPath).toLowerCase());
+    if (!isText) continue; // png, woff2: binary, olduğu gibi
+    const buf = Buffer.isBuffer(content) ? content : Buffer.from(content, "utf8");
+    if (buf.includes(0x0d)) offenders.push(relPath);
+  }
+  assert.deepEqual(offenders, []);
+});
+
+test("?v=, üretilen asset'in kendi baytından hesaplanan hash ile aynı (hash/asset uyuşmazlığı regresyonu)", () => {
+  const files = build.collectOutputFiles();
+  const home = files.get("index.html");
+  for (const assetRel of ["assets/site.css", "assets/site.js"]) {
+    const expected = crypto.createHash("sha1").update(files.get(assetRel)).digest("hex").slice(0, 8);
+    assert.ok(
+      home.includes(`${assetRel}?v=${expected}`),
+      `index.html içinde ${assetRel}?v=${expected} bulunamadı`
+    );
+  }
+});
+
 test("her HTML sayfasında tek <h1> var", () => {
   const files = build.collectOutputFiles();
   for (const [relPath, content] of files) {

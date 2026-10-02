@@ -21,7 +21,11 @@ function readFile(absPath) {
   if (!fs.existsSync(absPath)) {
     throw new Error(`assets-bundle: dosya yok: ${absPath}`);
   }
-  return fs.readFileSync(absPath, "utf8");
+  /* Satır sonu LF'a sabitlenir: paketin baytı ?v= hash'inin girdisidir
+     (bkz. tools/build.js makeAssetCtx). Editör CRLF kaydederse hash
+     değişir, HTML'deki ?v= commit'lenen LF asset'e uymaz — check-site
+     kural 1 taze klonlarda böyle düşüyordu. */
+  return fs.readFileSync(absPath, "utf8").replace(/\r\n/g, "\n");
 }
 
 function bundleStyles(stylesDir) {

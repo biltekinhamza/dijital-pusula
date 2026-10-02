@@ -68,6 +68,31 @@ test("bundleClientJs: src/client/site.js içeriğini döner", () => {
   }
 });
 
+test("CRLF kaydedilmiş girdiler paketi bozmaz — site.css/site.js her koşulda LF (check-site kural 1 regresyonu)", () => {
+  const crlfDir = makeStylesFixture();
+  const lfDir = makeStylesFixture();
+  const clientDir = fs.mkdtempSync(path.join(os.tmpdir(), "dp-client-"));
+  try {
+    fs.writeFileSync(path.join(crlfDir, "tokens.css"), "/* tokens */\r\n:root{--a:1}\r\n");
+    fs.writeFileSync(path.join(crlfDir, "components", "misc.css"), "/* misc */\r\n.misc{}\r\n");
+    fs.writeFileSync(path.join(clientDir, "site.js"), "console.log('x');\r\n");
+
+    const crlfCss = bundleStyles(crlfDir);
+    assert.ok(!crlfCss.includes("\r"), "site.css CRLF satır sonu içermemeli");
+    /* ?v= hash'i paketin ham baytından üretiliyor; CRLF girdi, commit'lenen
+       LF asset'e uymayan bir hash demek. Aynı içerik LF ve CRLF kaynakla
+       bayt bayt aynı paketi üretmeli. */
+    assert.equal(crlfCss, bundleStyles(lfDir));
+
+    const js = bundleClientJs(clientDir);
+    assert.ok(!js.includes("\r"), "site.js CRLF satır sonu içermemeli");
+  } finally {
+    fs.rmSync(crlfDir, { recursive: true, force: true });
+    fs.rmSync(lfDir, { recursive: true, force: true });
+    fs.rmSync(clientDir, { recursive: true, force: true });
+  }
+});
+
 test("gerçek proje: src/styles ve src/client üzerinde hatasız birleşir, boş değil", () => {
   const stylesDir = path.join(__dirname, "..", "styles");
   const clientDir = path.join(__dirname, "..", "client");
