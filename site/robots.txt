@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dijital-pusula.pages.dev/sitemap.xml
+Sitemap: https://dijital-pusula.biltekinhamza.workers.dev/sitemap.xml

@@ -8,9 +8,9 @@
 
 Site **kaynaktan üretilir**: `src/` altındaki içerik/şablon dosyaları elle
 düzenlenir, `node tools/build.js` bunlardan statik HTML/CSS/JS üretip
-`site/` klasörüne yazar, `site/` **de depoya commit'lenir**. Barındırıcıda
-(Cloudflare Pages) hiçbir derleme çalışmaz — orada yalnız `site/` dizini
-olduğu gibi yayınlanır. Bağımlılıksız: `package.json` yok, üretici yalnız
+`site/` klasörüne yazar, `site/` **de depoya commit'lenir**. Cloudflare Worker
+bu statik dosyaları yayınlar; dağıtımda siteyi yeniden derlemez. Bağımlılıksız:
+`package.json` yok, üretici yalnız
 Node'un yerleşik modüllerini kullanır; testler `node --test` ile çalışır.
 
 Ayrıntılı gerekçeler için [`kadro/ETKI-ANALIZI.md`](kadro/ETKI-ANALIZI.md).
@@ -207,25 +207,26 @@ platform OG görseli olarak SVG işlemez.
 
 ---
 
-## Barındırma — Cloudflare Pages
+## Barındırma — Cloudflare Workers
 
-Bu depo doğrudan Cloudflare Pages'e bağlanır:
+Yayın, `biltekinhamza/dijital-pusula` GitHub deposuna bağlı olan
+`dijital-pusula` Cloudflare Worker'ında yapılır. `site/` statik dosyaları
+yerelde üretilir ve depoya commit'lenir; Worker dağıtımı bu dosyaları yayınlar.
 
-- **Build command:** boş (derleme yerelde yapılıp `site/` commit'lenir).
-- **Output directory:** `site`.
+- Canonical adres: `https://dijital-pusula.biltekinhamza.workers.dev`
+- Yayın çıktısı: `site/`
+- `src/site.config.js` içindeki `origin`, canonical, hreflang, OG, JSON-LD,
+  `sitemap.xml` ve `robots.txt` adreslerinin tek kaynağıdır.
 - `site/_redirects` eski `.html` adreslerinden (`havalandirma-yazilimi.html`
   vb.) yeni yollara 301 yönlendirir; `src/routes.js`'teki `legacy`
   alanından üretilir.
 - `site/_headers`: `X-Content-Type-Options`, `Referrer-Policy`,
   `Permissions-Policy`, `X-Frame-Options` — güvenlik başlıkları.
 - Kökte `site/404.html` bulunduğu için bilinmeyen yollar 404 koduyla
-  sunulmalıdır (varsayım; ilk yayında gerçek bir olmayan URL'ye istek
-  atılıp durum kodu gözle doğrulanmalı — D-005: çıkış kodu/"başarılı"
-  paneli tek başına kanıt sayılmaz).
+  sunulmalıdır.
 
-GitHub Pages **kullanılmaz** (ticari SaaS tanıtımı GitHub'ın Pages şartına
-aykırı düşer, ayrıca derleme adımı çalıştırmaz); geçiş sonrası eski
-`github.io` yayını kapatılır ya da yeni adrese yönlendirilir.
+Worker adı veya yayın adresi değiştirilirse `src/site.config.js` güncellenip
+`node tools/build.js` çalıştırılmalıdır.
 
 ---
 

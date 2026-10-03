@@ -8,8 +8,8 @@ Güncelleme: 2026-09-28
 - docs/site-arastirma-raporu.md zaten kapsamlı bir dönüşüm araştırması içeriyor (ajans
   sitesinden ürün sitesine geçiş, sayfa mimarisi, fiyatlandırma, güven unsurları, SEO/hreflang,
   yasal yükümlülükler) — mimar bunu girdi olarak kullandı, yeniden araştırma yapılmadı.
-- Barındırma taşıma (GitHub Pages → Cloudflare Pages) ve gerçek dağıtım kullanıcının işi;
-  kadro yalnız dosyaları hazırlar.
+- Barındırma Cloudflare Workers'a taşınmış ve `dijital-pusula` servisi yayına
+  alınmıştır; canonical origin `src/site.config.js` içinde tutulur.
 - S3-S17 (kadro/ETKI-ANALIZI.md §9 — fiyat gösterimi, deneme adresi, SHD durumu, form kipi,
   ekran görüntüsü kaynağı, hakkımızda, sürüm notları, güvenlik sayfası bilgileri, EN kapsamı,
   erken kullanıcı programı, analitik, alan adı, GitHub Pages kapatma, yasal sayfa birleştirme,
